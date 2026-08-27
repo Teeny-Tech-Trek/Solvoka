@@ -51,7 +51,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
         />
       </svg> */}
       <span
-        className={`font-display text-[26px] font-bold tracking-[-0.01em] transition-colors duration-300 ${
+        className={`font-display text-[20px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${
           scrolled ? "text-navy-800" : "text-white"
         }`}
       >

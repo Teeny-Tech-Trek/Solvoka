@@ -220,7 +220,7 @@ export default function Hero() {
   }, [active]);
 
   return (
-    <section className="relative flex h-dvh shrink-0 flex-col overflow-hidden bg-neutral-950">
+    <section className="relative flex min-h-dvh shrink-0 flex-col overflow-hidden bg-neutral-950 sm:h-dvh">
       <div className="relative flex-1 overflow-hidden">
         <div
           className="flex h-full ease-in-out"
@@ -240,7 +240,7 @@ export default function Hero() {
               mobileVideoRef={slideOneMobileVideoRef}
             />
 
-            <div className="relative flex h-full items-center overflow-hidden pt-[68px]">
+            <div className="relative flex h-full items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
                 <div ref={slideOneContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
@@ -252,7 +252,7 @@ export default function Hero() {
                   </p> */}
 
                   {/* Headline */}
-                  <h1 className="mt-3 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white">
+                  <h1 className="mt-2 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white sm:mt-3">
                     <span data-hero-reveal className="block text-[clamp(32px,4.4vw,60px)]">
                       One Supplier.
                     </span>
@@ -278,7 +278,7 @@ export default function Hero() {
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[600px] font-sans text-[17px] leading-[1.55] text-slate-200">
+                  <p data-hero-reveal className="mt-2 max-w-[600px] font-sans text-[14px] leading-normal text-slate-200 sm:mt-3 sm:text-[17px] sm:leading-[1.55]">
                     Forging, CNC machining, casting, injection molding, sheet metal fabrication, and 3D printing —
                     coordinated through 15+ vetted facilities in Focal Point, Ludhiana, India, for automotive OEMs and
                     exporters. Drawings quoted within one business day.
@@ -287,16 +287,16 @@ export default function Hero() {
                   {/* Legacy tagline — kept, but demoted: small, quiet, secondary */}
                   <p
                     data-hero-reveal
-                    className="mt-4 border-l-2 border-amber-500/40 pl-3 font-mono text-[12px] italic uppercase tracking-[0.12em] text-slate-400"
+                    className="mt-3 border-l-2 border-amber-500/40 pl-3 font-mono text-[11px] italic uppercase tracking-[0.12em] text-slate-400 sm:mt-4 sm:text-[12px]"
                   >
                     "Your Challenge is Our Blueprint"
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-6 flex flex-wrap items-center gap-3">
+                  <div data-hero-reveal className="mt-4 flex flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-[52px] items-center gap-2 bg-amber-500 px-7 font-sans text-[16px] font-medium text-white transition-colors hover:bg-amber-600"
+                      className="group inline-flex h-11.5 items-center gap-2 bg-amber-500 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-amber-600 sm:h-13 sm:px-7 sm:text-[16px]"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -305,17 +305,17 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-[52px] items-center border border-white/60 px-7 font-sans text-[16px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800"
+                      className="inline-flex h-11.5 items-center border border-white/60 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800 sm:h-13 sm:px-7 sm:text-[16px]"
                     >
                       View Capabilities
                     </a>
                   </div>
 
                   {/* Trust chips — checkable facts only, no certification claims */}
-                  <ul data-hero-reveal className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <ul data-hero-reveal className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6 sm:gap-x-5">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-5">
-                        <span className="tabular flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.06em] text-white">
+                      <li key={chip} className="flex items-center gap-4 sm:gap-5">
+                        <span className="tabular flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] text-white sm:text-[13px]">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
@@ -337,7 +337,7 @@ export default function Hero() {
               mobileVideoRef={slideTwoMobileVideoRef}
             />
 
-            <div className="relative flex h-full items-center overflow-hidden pt-[68px]">
+            <div className="relative flex h-full items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
                 <div ref={slideTwoContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
@@ -349,7 +349,7 @@ export default function Hero() {
                   </p> */}
 
                   {/* Headline */}
-                  <h1 className="mt-3 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white">
+                  <h1 className="mt-2 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white sm:mt-3">
                     <span data-hero-reveal className="block text-[clamp(32px,3.6vw,60px)]">
                      Forged and Machined
                     </span>
@@ -375,7 +375,7 @@ export default function Hero() {
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[600px] font-sans text-[17px] leading-[1.55] text-slate-200">
+                  <p data-hero-reveal className="mt-2 max-w-[600px] font-sans text-[14px] leading-normal text-slate-200 sm:mt-3 sm:text-[17px] sm:leading-[1.55]">
                    A coordinated network of 15+ vetted facilities in Focal Point, Ludhiana, India — one contract, one quality standard, one point of accountability. Drawings quoted within one business day.
 
                   </p>
@@ -383,16 +383,16 @@ export default function Hero() {
                   {/* Legacy tagline — kept, but demoted: small, quiet, secondary */}
                   <p
                     data-hero-reveal
-                    className="mt-4 border-l-2 border-amber-500/40 pl-3 font-mono text-[12px] italic uppercase tracking-[0.12em] text-slate-400"
+                    className="mt-3 border-l-2 border-amber-500/40 pl-3 font-mono text-[11px] italic uppercase tracking-[0.12em] text-slate-400 sm:mt-4 sm:text-[12px]"
                   >
                     "Your Challenge is Our Blueprint"
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-6 flex flex-wrap items-center gap-3">
+                  <div data-hero-reveal className="mt-4 flex flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-[52px] items-center gap-2 bg-amber-500 px-7 font-sans text-[16px] font-medium text-white transition-colors hover:bg-amber-600"
+                      className="group inline-flex h-11.5 items-center gap-2 bg-amber-500 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-amber-600 sm:h-13 sm:px-7 sm:text-[16px]"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -401,17 +401,17 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-[52px] items-center border border-white/60 px-7 font-sans text-[16px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800"
+                      className="inline-flex h-11.5 items-center border border-white/60 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800 sm:h-13 sm:px-7 sm:text-[16px]"
                     >
                       View Capabilities
                     </a>
                   </div>
 
                   {/* Trust chips — checkable facts only, no certification claims */}
-                  <ul data-hero-reveal className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <ul data-hero-reveal className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6 sm:gap-x-5">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-5">
-                        <span className="tabular flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.06em] text-white">
+                      <li key={chip} className="flex items-center gap-4 sm:gap-5">
+                        <span className="tabular flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] text-white sm:text-[13px]">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
