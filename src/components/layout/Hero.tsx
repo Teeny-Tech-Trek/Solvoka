@@ -220,10 +220,10 @@ export default function Hero() {
   }, [active]);
 
   return (
-    <section className="relative flex min-h-dvh shrink-0 flex-col overflow-hidden bg-neutral-950 sm:h-dvh">
-      <div className="relative flex-1 overflow-hidden">
+    <section className="relative flex min-h-dvh shrink-0 flex-col overflow-hidden bg-neutral-950">
+      <div className="relative flex flex-1 flex-col overflow-hidden">
         <div
-          className="flex h-full ease-in-out"
+          className="flex flex-1 ease-in-out"
           style={{
             width: `${SLIDE_COUNT * 100}%`,
             transform: `translateX(-${(active * 100) / SLIDE_COUNT}%)`,
@@ -232,7 +232,7 @@ export default function Hero() {
           }}
         >
           {/* Slide 1 */}
-          <div className="relative h-full shrink-0 overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
+          <div className="relative flex shrink-0 flex-col overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
             <HeroBackdrop
               videoSrc={SLIDE_ONE_VIDEO_SRC}
               videoRef={slideOneVideoRef}
@@ -240,7 +240,7 @@ export default function Hero() {
               mobileVideoRef={slideOneMobileVideoRef}
             />
 
-            <div className="relative flex h-full items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
+            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
                 <div ref={slideOneContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
@@ -329,7 +329,7 @@ export default function Hero() {
           </div>
 
           {/* Slide 2 */}
-          <div className="relative h-full shrink-0 overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
+          <div className="relative flex shrink-0 flex-col overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
             <HeroBackdrop
               videoSrc={SLIDE_TWO_VIDEO_SRC}
               videoRef={slideTwoVideoRef}
@@ -337,7 +337,7 @@ export default function Hero() {
               mobileVideoRef={slideTwoMobileVideoRef}
             />
 
-            <div className="relative flex h-full items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
+            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
                 <div ref={slideTwoContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
