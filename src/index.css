@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* Self-hosted via Fontsource — see tailwind.config.ts for the font-family tokens. */
+@import "@fontsource-variable/archivo/standard.css"; /* variable: covers weights 400-700 used in this project */
+@import "@fontsource-variable/inter/standard.css"; /* variable: covers weights 400-600 used in this project */
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/600.css";
+
+@theme {
+  --color-navy-600: #334e68;
+  --color-navy-700: #243b53;
+  --color-navy-800: #102a43;
+  --color-grey-200: #e5e7eb;
+  --color-grey-400: #9ca3af;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-navy-800;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
