@@ -12,6 +12,7 @@ import { gsap } from "gsap";
  */
 const SLIDE_ONE_VIDEO_SRC = "/HeroPage-Video.mp4";
 const SLIDE_TWO_VIDEO_SRC = "/Solvoka_Hero.mp4";
+const MOBILE_VIDEO_SRC = "/HeroPage-VideoForPhone.mp4";
 
 const SLIDE_COUNT = 2;
 const SLIDE_TRANSITION_MS = 700;
@@ -68,9 +69,9 @@ function DimensionLine() {
   );
 }
 
-function ArrowIcon() {
+function ArrowIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
       <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -99,10 +100,20 @@ function useAutoplayVideo(videoRef: RefObject<HTMLVideoElement | null>) {
   }, [videoRef]);
 }
 
-function HeroBackdrop({ videoSrc, videoRef }: { videoSrc: string; videoRef: RefObject<HTMLVideoElement | null> }) {
+function HeroBackdrop({
+  videoSrc,
+  videoRef,
+  mobileVideoSrc,
+  mobileVideoRef,
+}: {
+  videoSrc: string;
+  videoRef: RefObject<HTMLVideoElement | null>;
+  mobileVideoSrc: string;
+  mobileVideoRef: RefObject<HTMLVideoElement | null>;
+}) {
   return (
     <>
-      {/* Background video — lg+ only. See the mobile fallback below for why. */}
+      {/* Background video — lg+ only. See the phone video below for smaller screens. */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block">
         <video
           ref={videoRef}
@@ -125,16 +136,32 @@ function HeroBackdrop({ videoSrc, videoRef }: { videoSrc: string; videoRef: RefO
         </video>
       </div>
 
-      {/* Mobile fallback — no video weight on data-constrained connections; same dark-steel-plus-amber language */}
-      <div
-        className="pointer-events-none absolute inset-0 lg:hidden"
-        style={{ background: "radial-gradient(120% 90% at 15% 10%, #1c2434 0%, #10151f 55%, #0a0d13 100%)" }}
-        aria-hidden="true"
-      />
+      {/* Background video — phone screens, a lighter dedicated clip */}
+      <div className="pointer-events-none absolute inset-0 lg:hidden">
+        <video
+          ref={mobileVideoRef}
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onError={() => {
+            if (import.meta.env.DEV) {
+              console.error(
+                `[Hero] Could not load "${mobileVideoSrc}". Confirm the file exists at /public${mobileVideoSrc} and the path/case match exactly.`
+              );
+            }
+          }}
+        >
+          <source src={mobileVideoSrc} type="video/mp4" />
+        </video>
+      </div>
 
       {/* Even wash across the whole frame so text and the amber accent stay legible over any footage */}
       <div
-        className="pointer-events-none absolute inset-0 hidden lg:block"
+        className="pointer-events-none absolute inset-0"
         style={{ background: "linear-gradient(180deg, rgba(6,9,14,0.35) 0%, rgba(6,9,14,0.55) 100%)" }}
         aria-hidden="true"
       />
@@ -164,8 +191,12 @@ export default function Hero() {
 
   const slideOneVideoRef = useRef<HTMLVideoElement>(null);
   const slideTwoVideoRef = useRef<HTMLVideoElement>(null);
+  const slideOneMobileVideoRef = useRef<HTMLVideoElement>(null);
+  const slideTwoMobileVideoRef = useRef<HTMLVideoElement>(null);
   useAutoplayVideo(slideOneVideoRef);
   useAutoplayVideo(slideTwoVideoRef);
+  useAutoplayVideo(slideOneMobileVideoRef);
+  useAutoplayVideo(slideTwoMobileVideoRef);
 
   const slideOneContentRef = useRef<HTMLDivElement>(null);
   const slideTwoContentRef = useRef<HTMLDivElement>(null);
@@ -202,9 +233,14 @@ export default function Hero() {
         >
           {/* Slide 1 */}
           <div className="relative h-full shrink-0 overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <HeroBackdrop videoSrc={SLIDE_ONE_VIDEO_SRC} videoRef={slideOneVideoRef} />
+            <HeroBackdrop
+              videoSrc={SLIDE_ONE_VIDEO_SRC}
+              videoRef={slideOneVideoRef}
+              mobileVideoSrc={MOBILE_VIDEO_SRC}
+              mobileVideoRef={slideOneMobileVideoRef}
+            />
 
-            <div className="relative flex h-full items-center overflow-hidden pt-[88px]">
+            <div className="relative flex h-full items-center overflow-hidden pt-[68px]">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
                 <div ref={slideOneContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
@@ -294,11 +330,16 @@ export default function Hero() {
 
           {/* Slide 2 */}
           <div className="relative h-full shrink-0 overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <HeroBackdrop videoSrc={SLIDE_TWO_VIDEO_SRC} videoRef={slideTwoVideoRef} />
+            <HeroBackdrop
+              videoSrc={SLIDE_TWO_VIDEO_SRC}
+              videoRef={slideTwoVideoRef}
+              mobileVideoSrc={MOBILE_VIDEO_SRC}
+              mobileVideoRef={slideTwoMobileVideoRef}
+            />
 
-            <div className="relative flex h-full items-center overflow-hidden pt-[88px]">
+            <div className="relative flex h-full items-center overflow-hidden pt-[68px]">
               <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
-                <div ref={slideOneContentRef} className="max-w-[700px]">
+                <div ref={slideTwoContentRef} className="max-w-[700px]">
                   {/* Eyebrow */}
                   {/* <p
                     data-hero-reveal
@@ -390,9 +431,9 @@ export default function Hero() {
             type="button"
             onClick={() => setActive((a) => a + 1)}
             aria-label="Next slide"
-            className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-md transition-colors hover:border-amber-500 hover:bg-amber-500 lg:right-8"
+            className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-md transition-colors hover:border-amber-500 hover:bg-amber-500 sm:right-4 sm:h-10 sm:w-10 lg:right-8 lg:h-12 lg:w-12"
           >
-            <ArrowIcon />
+            <ArrowIcon className="h-4 w-4 lg:h-5 lg:w-5" />
           </button>
         )}
       </div>

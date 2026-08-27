@@ -96,127 +96,133 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 w-full shrink-0 backdrop-blur-md transition-colors duration-300 ${
-        scrolled ? "border-b border-grey-200 bg-white/90" : "border-b border-white/10 bg-transparent"
-      }`}
-      onMouseLeave={() => setOpenMenu(null)}
-    >
-      <div className="mx-auto flex h-[68px] w-full max-w-[1672px] items-center justify-between px-6 lg:px-10">
-        <Logo scrolled={scrolled} />
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 w-full shrink-0 backdrop-blur-md transition-colors duration-300 ${
+          scrolled ? "border-b border-grey-200 bg-white/90" : "border-b border-white/10 bg-transparent"
+        }`}
+        onMouseLeave={() => setOpenMenu(null)}
+      >
+        <div className="mx-auto flex h-[68px] w-full max-w-[1672px] items-center justify-between px-6 lg:px-10">
+          <Logo scrolled={scrolled} />
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 xl:flex" aria-label="Main">
-          {NAV_ITEMS.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => setOpenMenu(item.hasDropdown ? item.label : null)}
-            >
-              <a
-                href={item.href}
-                className={`group flex items-center gap-2 py-2 font-sans text-[17px] font-normal transition-colors hover:text-amber-500 ${
-                  scrolled ? "text-navy-800" : "text-white"
-                }`}
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-4 xl:flex 2xl:gap-8" aria-label="Main">
+            {NAV_ITEMS.map((item) => (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setOpenMenu(item.hasDropdown ? item.label : null)}
               >
-                {item.label}
-                {item.hasDropdown && <Chevron open={openMenu === item.label} />}
-              </a>
-              <span
-                className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-amber-500 transition-all duration-200 ${
-                  openMenu === item.label ? "w-full" : "w-0"
-                }`}
-              />
-            </div>
-          ))}
-        </nav>
+                <a
+                  href={item.href}
+                  className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-normal transition-colors hover:text-amber-500 2xl:text-[17px] ${
+                    scrolled ? "text-navy-800" : "text-white"
+                  }`}
+                >
+                  {item.label}
+                  {item.hasDropdown && <Chevron open={openMenu === item.label} />}
+                </a>
+                <span
+                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-amber-500 transition-all duration-200 ${
+                    openMenu === item.label ? "w-full" : "w-0"
+                  }`}
+                />
+              </div>
+            ))}
+          </nav>
 
-        <div className="hidden items-center gap-7 xl:flex">
-          <span className={`h-9 w-px transition-colors duration-300 ${scrolled ? "bg-grey-200" : "bg-white/30"}`} aria-hidden="true" />
-          <a
-            href="/get-a-quote"
-            className="group inline-flex h-[58px] items-center gap-3 bg-amber-500 px-8 font-sans text-[17px] font-semibold text-white transition-colors hover:bg-amber-600"
+          <div className="hidden items-center gap-4 xl:flex 2xl:gap-7">
+            <span className={`h-9 w-px transition-colors duration-300 ${scrolled ? "bg-grey-200" : "bg-white/30"}`} aria-hidden="true" />
+            <a
+              href="/get-a-quote"
+              className="group inline-flex h-[52px] items-center gap-3 bg-amber-500 px-6 font-sans text-[15px] font-semibold text-white transition-colors hover:bg-amber-600 2xl:h-[58px] 2xl:px-8 2xl:text-[17px]"
+            >
+              Get a quote
+              <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
-            Get a quote
-            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
-              →
-            </span>
-          </a>
+            <span className="block h-[2px] w-7 bg-amber-500" />
+            <span className="block h-[2px] w-7 bg-amber-500" />
+            <span className="block h-[2px] w-7 bg-amber-500" />
+          </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-        >
-          <span className="block h-[2px] w-7 bg-amber-500" />
-          <span className="block h-[2px] w-7 bg-amber-500" />
-          <span className="block h-[2px] w-7 bg-amber-500" />
-        </button>
-      </div>
-
-      {/* Capabilities mega-menu */}
-      {openMenu === "Capabilities" && (
-        <div className="absolute left-0 top-full hidden w-full xl:block">
-          <div className="mx-auto max-h-[calc(100dvh-88px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-800">
-            <div className="flex flex-col px-10 py-6">
-              {CAPABILITIES.map((c) => (
-                <a
-                  key={c.code}
-                  href={c.href}
-                  className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-600 py-5 transition-colors hover:border-amber-500"
-                >
-                  <span className="flex items-baseline gap-4">
-                    <span className="tabular font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-500">
-                      {c.code}
+        {/* Capabilities mega-menu */}
+        {openMenu === "Capabilities" && (
+          <div className="absolute left-0 top-full hidden w-full xl:block">
+            <div className="mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-800">
+              <div className="flex flex-col px-10 py-6">
+                {CAPABILITIES.map((c) => (
+                  <a
+                    key={c.code}
+                    href={c.href}
+                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-600 py-5 transition-colors hover:border-amber-500"
+                  >
+                    <span className="flex items-baseline gap-4">
+                      <span className="tabular font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-500">
+                        {c.code}
+                      </span>
+                      <span className="font-display text-[19px] font-semibold text-white">
+                        {c.name}
+                      </span>
                     </span>
-                    <span className="font-display text-[19px] font-semibold text-white">
-                      {c.name}
+                    <span className="font-sans text-[14px] leading-relaxed text-grey-400">
+                      {c.desc}
                     </span>
-                  </span>
-                  <span className="font-sans text-[14px] leading-relaxed text-grey-400">
-                    {c.desc}
-                  </span>
-                </a>
-              ))}
-            </div>
-            <div className="border-t border-navy-600">
-              <div className="flex items-center gap-8 px-10 py-4">
-                <a href="/capabilities" className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600">
-                  View all capabilities →
-                </a>
-                <a href="/facility" className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600">
-                  Our facility →
-                </a>
+                  </a>
+                ))}
+              </div>
+              <div className="border-t border-navy-600">
+                <div className="flex items-center gap-8 px-10 py-4">
+                  <a href="/capabilities" className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600">
+                    View all capabilities →
+                  </a>
+                  <a href="/facility" className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600">
+                    Our facility →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Resources dropdown */}
-      {openMenu === "Resources" && (
-        <div className="absolute left-0 top-full hidden w-full xl:block">
-          <div className="mx-auto flex max-h-[calc(100dvh-88px)] max-w-[900px] flex-col overflow-y-auto border-t-2 border-amber-500 bg-navy-800 px-10 py-6">
-            {RESOURCES.map((r) => (
-              <a
-                key={r.name}
-                href={r.href}
-                className="border-b border-navy-600 py-5 font-sans text-[17px] text-white transition-colors hover:text-amber-500"
-              >
-                {r.name}
-              </a>
-            ))}
+        {/* Resources dropdown */}
+        {openMenu === "Resources" && (
+          <div className="absolute left-0 top-full hidden w-full xl:block">
+            <div className="mx-auto flex max-h-[calc(100dvh-68px)] max-w-[900px] flex-col overflow-y-auto border-t-2 border-amber-500 bg-navy-800 px-10 py-6">
+              {RESOURCES.map((r) => (
+                <a
+                  key={r.name}
+                  href={r.href}
+                  className="border-b border-navy-600 py-5 font-sans text-[17px] text-white transition-colors hover:text-amber-500"
+                >
+                  {r.name}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendered outside <header> deliberately: the header has
+          backdrop-blur, and a backdrop-filter/filter/transform ancestor becomes
+          the containing block for `position: fixed` descendants instead of the
+          viewport, which was collapsing this drawer down to the header's own
+          68px box instead of covering the screen. */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-[88px] z-40 overflow-y-auto bg-navy-800 px-6 py-8 xl:hidden">
+        <div className="fixed inset-0 top-[68px] z-40 overflow-y-auto bg-navy-800 px-6 py-8 xl:hidden">
           <nav className="flex flex-col" aria-label="Mobile">
             {NAV_ITEMS.map((item) => (
               <a
@@ -236,6 +242,6 @@ export default function Navbar() {
           </a>
         </div>
       )}
-    </header>
+    </>
   );
 }
