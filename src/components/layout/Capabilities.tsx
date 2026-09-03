@@ -1,134 +1,69 @@
-    import { useRef, useState } from "react";
-
-type Capability = {
+    type Capability = {
   code: string;
   name: string;
   poster: string;
-  video: string;
+  gif: string;
   href: string;
 };
-
-/**
- * TEMP: video/poster fields point at test-videos.co.uk's public royalty-free sample
- * clips as stand-ins so the cards have something to play. Swap these for your real
- * clips and first-frame posters before shipping.
- */
 
 const CAPABILITIES: Capability[] = [
   {
     code: "PRC-001",
     name: "Casting",
     poster: "/posters/casting.jpg",
-    video: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+    gif: "/Gif-Assets/Steel_Die_Casting_Video_Ready.gif",
     href: "/capabilities/casting",
   },
   {
     code: "PRC-002",
     name: "Forging",
     poster: "/posters/forging.jpg",
-    video: "https://test-videos.co.uk/vids/sintel/mp4/h264/360/Sintel_360_10s_1MB.mp4",
+    gif: "/Gif-Assets/Video_Ready_Closed_Die_Forging.gif",
     href: "/capabilities/forging",
   },
   {
     code: "PRC-003",
     name: "CNC Machining",
     poster: "/posters/cnc-machining.jpg",
-    video: "https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4",
+    gif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
     href: "/capabilities/cnc-machining",
   },
   {
     code: "PRC-004",
     name: "3D Printing",
     poster: "/posters/3d-printing.jpg",
-    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    gif: "/Gif-Assets/DMLS_Video_Is_Ready_.gif",
     href: "/capabilities/3d-printing",
   },
   {
     code: "PRC-005",
     name: "Injection Molding",
     poster: "/posters/injection-molding.jpg",
-    video: "https://test-videos.co.uk/vids/sintel/mp4/h264/720/Sintel_720_10s_5MB.mp4",
+    gif: "/Gif-Assets/Video_Link_Ready_Now_.gif",
     href: "/capabilities/injection-molding",
   },
   {
     code: "PRC-006",
     name: "Sheet Metal Fabrication",
     poster: "/posters/sheet-metal.jpg",
-    video: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4",
+    gif: "/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif",
     href: "/capabilities/sheet-metal-fabrication",
   },
 ];
 
-function PlayButton({ playing }: { playing: boolean }) {
-  return (
-    <span
-      className={`absolute left-1/2 top-1/2 z-20 flex h-[clamp(46px,4.4vh,64px)] w-[clamp(46px,4.4vh,64px)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white transition-all duration-200 group-hover:scale-110 group-hover:bg-white/15 ${
-        playing ? "opacity-0" : "opacity-100"
-      }`}
-      aria-hidden="true"
-    >
-      <svg width="16" height="19" viewBox="0 0 16 19" fill="none">
-        <path
-          d="M15 8.63a1 1 0 0 1 0 1.74L2 18.2a1 1 0 0 1-1.5-.87V1.67A1 1 0 0 1 2 .8l13 7.83Z"
-          fill="#fff"
-        />
-      </svg>
-    </span>
-  );
-}
-
 function CapabilityCard({ item }: { item: Capability }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [active, setActive] = useState(true);
-  const [playing, setPlaying] = useState(true);
-
-  const toggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!active) {
-      setActive(true);
-      setPlaying(true);
-      return;
-    }
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      void v.play();
-      setPlaying(true);
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
-  };
-
   return (
     <a
       href={item.href}
-      onClick={toggle}
       className="group relative block aspect-[16/10] w-full overflow-hidden bg-white lg:aspect-auto lg:h-full"
       aria-label={`${item.code} — ${item.name}`}
     >
-      {active ? (
-        <video
-          ref={videoRef}
-          poster={item.poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls={false}
-          onEnded={() => setPlaying(false)}
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={item.video} type="video/mp4" />
-        </video>
-      ) : (
-        <img
-          src={item.poster}
-          alt=""
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      )}
+      <img
+        src={item.gif}
+        alt={item.name}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
 
       {/* Bottom scrim so the label stays readable */}
       <span
@@ -139,8 +74,6 @@ function CapabilityCard({ item }: { item: Capability }) {
         }}
         aria-hidden="true"
       />
-
-      <PlayButton playing={playing} />
 
       <div className="absolute bottom-[clamp(16px,2.1vh,26px)] left-[clamp(18px,2vw,28px)] z-20">
         <span className="block font-mono text-[clamp(10px,0.85vh,13px)] uppercase tracking-[0.16em] text-amber-500">
