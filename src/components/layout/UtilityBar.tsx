@@ -1,11 +1,12 @@
 export default function UtilityBar() {
   return (
-    <div className="relative z-40 w-full h-[38px] bg-white border-b border-grey-200 text-black shadow-sm">
-      <div className="mx-auto flex h-full max-w-[1672px] items-center justify-center gap-x-6 px-4 font-mono text-[12px] sm:text-[13px] tracking-wide lg:px-10">
+    <div className="relative z-40 w-full min-h-[38px] bg-white border-b border-grey-200 text-black shadow-xs">
+      <div className="mx-auto flex min-h-[38px] max-w-[1672px] flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-1 px-3 py-1 font-mono text-[11px] sm:text-[13px] tracking-wide lg:px-10">
         {/* Email */}
         <a
           href="mailto:solvoka@gmail.com"
-          className="flex items-center gap-2 text-black transition-colors hover:text-amber-600"
+          className="flex items-center gap-1.5 sm:gap-2 text-black transition-colors hover:text-amber-600 shrink-0"
+          aria-label="Email solvoka@gmail.com"
         >
           <svg
             width="14"
@@ -30,7 +31,8 @@ export default function UtilityBar() {
         {/* Phone */}
         <a
           href="tel:+917087086696"
-          className="flex items-center gap-2 text-black transition-colors hover:text-amber-600"
+          className="flex items-center gap-1.5 sm:gap-2 text-black transition-colors hover:text-amber-600 shrink-0"
+          aria-label="Call +91 70870-86696"
         >
           <svg
             width="14"
@@ -49,14 +51,14 @@ export default function UtilityBar() {
           <span className="font-semibold text-black">+91 70870-86696</span>
         </a>
 
-        <span className="hidden sm:inline text-grey-300" aria-hidden="true">|</span>
+        <span className="hidden md:inline text-grey-300" aria-hidden="true">|</span>
 
         {/* WhatsApp */}
         <a
           href="https://wa.me/917087086696"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-black transition-colors hover:text-emerald-600"
+          className="flex items-center gap-1.5 sm:gap-2 text-black transition-colors hover:text-emerald-600 shrink-0"
           aria-label="WhatsApp Business +91 70870-86696"
         >
           <svg

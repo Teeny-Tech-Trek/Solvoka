@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import UtilityBar from "./UtilityBar";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 type NavItem = {
   label: string;
@@ -31,29 +30,15 @@ const RESOURCES = [
   { name: "How we work", href: "/how-we-work" },
   { name: "Gallery", href: "/gallery" },
   { name: "Careers", href: "/careers" },
-  // { name: "Become a partner", href: "/become-a-partner" },
 ];
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
     <a href="/" className="flex items-center gap-3 shrink-0" aria-label="Solvoka home">
-      {/* <svg width="40" height="44" viewBox="0 0 40 44" fill="none" aria-hidden="true">
-        <path
-          d="M20 2 L36.5 11.5 V30.5 L20 40 L3.5 30.5 V11.5 Z"
-          stroke="#E8891C"
-          strokeWidth="3.2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M24.4 16.2c-1.3-1.5-3-2.2-5-2.2-2.9 0-4.9 1.5-4.9 3.7 0 2.1 1.6 3.1 4.6 3.7l1.2.2c2.9.6 4.4 1.6 4.4 3.6 0 2.2-2 3.8-5 3.8-2.1 0-3.9-.8-5.2-2.3"
-          stroke="#E8891C"
-          strokeWidth="2.8"
-          strokeLinecap="round"
-        />
-      </svg> */}
       <span
-        className={`font-display text-[20px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${scrolled ? "text-navy-800" : "text-white"
-          }`}
+        className={`font-display text-[22px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${
+          scrolled ? "text-navy-800" : "text-white"
+        }`}
       >
         SOLVOKA
       </span>
@@ -83,12 +68,12 @@ export default function Navbar() {
   const [headerTop, setHeaderTop] = useState(38);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const clearCloseTimeout = () => {
+  const clearCloseTimeout = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-  };
+  }, []);
 
   const openDropdown = (label: string) => {
     clearCloseTimeout();
@@ -99,25 +84,35 @@ export default function Navbar() {
     clearCloseTimeout();
     timeoutRef.current = setTimeout(() => {
       setOpenMenu(null);
-    }, 120);
+    }, 140);
   };
 
-  const closeImmediately = () => {
+  const closeImmediately = useCallback(() => {
     clearCloseTimeout();
     setOpenMenu(null);
-  };
+  }, [clearCloseTimeout]);
 
+  // Scroll listener for sticky header top offset
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      const y = window.scrollY;
-      setHeaderTop(Math.max(0, 38 - y));
-      setScrolled(y > 38);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          setHeaderTop(Math.max(0, 38 - y));
+          setScrolled(y > 38);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // ESC key listener to close menus
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -127,10 +122,15 @@ export default function Navbar() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [closeImmediately]);
 
+  // Body scroll lock on mobile menu open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -138,8 +138,6 @@ export default function Navbar() {
 
   return (
     <>
-      <UtilityBar />
-
       {/* Backdrop overlay for dropdown menus */}
       {openMenu && (
         <div
@@ -151,88 +149,99 @@ export default function Navbar() {
       )}
 
       <header
-        className={`fixed inset-x-0 z-50 w-full shrink-0 backdrop-blur-md transition-colors duration-300 ${
-          scrolled ? "border-b border-grey-200 bg-white/90" : "border-b border-white/10 bg-transparent"
+        className={`fixed inset-x-0 z-50 w-full shrink-0 backdrop-blur-md transition-all duration-300 ${
+          scrolled
+            ? "border-b border-grey-200 bg-white/95 shadow-sm"
+            : "border-b border-white/10 bg-navy-950/20"
         }`}
         style={{ top: `${headerTop}px` }}
       >
-        <div className="mx-auto flex h-[68px] w-full max-w-[1672px] items-center justify-between px-6 lg:px-10">
-            <Logo scrolled={scrolled} />
+        <div className="mx-auto flex h-[68px] w-full max-w-[1672px] items-center justify-between px-4 sm:px-6 lg:px-10">
+          <Logo scrolled={scrolled} />
 
-            {/* Desktop nav */}
-            <nav className="hidden items-center gap-4 xl:flex 2xl:gap-8" aria-label="Main">
-              {NAV_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (item.hasDropdown) {
-                      openDropdown(item.label);
-                    } else {
-                      closeImmediately();
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (item.hasDropdown) {
-                      scheduleClose();
-                    }
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.hasDropdown) {
-                        e.preventDefault();
-                        clearCloseTimeout();
-                        setOpenMenu((prev) => (prev === item.label ? null : item.label));
-                      }
-                    }}
-                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-normal transition-colors hover:text-amber-500 2xl:text-[17px] ${scrolled ? "text-navy-800" : "text-white"
-                      }`}
-                  >
-                    {item.label}
-                    {item.hasDropdown && <Chevron open={openMenu === item.label} />}
-                  </a>
-                  <span
-                    className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-amber-500 transition-all duration-200 ${openMenu === item.label ? "w-full" : "w-0"
-                      }`}
-                  />
-                </div>
-              ))}
-            </nav>
-
-            <div className="hidden items-center gap-4 xl:flex 2xl:gap-7">
-              <span className={`h-9 w-px transition-colors duration-300 ${scrolled ? "bg-grey-200" : "bg-white/30"}`} aria-hidden="true" />
-              <a
-                href="/get-a-quote"
-                className="group inline-flex h-[52px] items-center gap-3 bg-amber-500 px-6 font-sans text-[15px] font-semibold text-white transition-colors hover:bg-amber-600 2xl:h-[58px] 2xl:px-8 2xl:text-[17px]"
+          {/* Desktop navigation */}
+          <nav className="hidden items-center gap-4 xl:flex 2xl:gap-8" aria-label="Main Navigation">
+            {NAV_ITEMS.map((item) => (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => {
+                  if (item.hasDropdown) {
+                    openDropdown(item.label);
+                  } else {
+                    closeImmediately();
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (item.hasDropdown) {
+                    scheduleClose();
+                  }
+                }}
               >
-                Get a quote
-                <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
-                  →
-                </span>
-              </a>
-            </div>
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    if (item.hasDropdown) {
+                      e.preventDefault();
+                      clearCloseTimeout();
+                      setOpenMenu((prev) => (prev === item.label ? null : item.label));
+                    }
+                  }}
+                  className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-amber-500 2xl:text-[16px] ${
+                    scrolled ? "text-navy-800" : "text-white"
+                  }`}
+                  aria-expanded={item.hasDropdown ? openMenu === item.label : undefined}
+                  aria-haspopup={item.hasDropdown ? "true" : undefined}
+                >
+                  {item.label}
+                  {item.hasDropdown && <Chevron open={openMenu === item.label} />}
+                </a>
+                <span
+                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-amber-500 transition-all duration-200 ${
+                    openMenu === item.label ? "w-full" : "w-0"
+                  }`}
+                />
+              </div>
+            ))}
+          </nav>
 
-            {/* Mobile toggle */}
-            <button
-              type="button"
-              onClick={() => setMobileOpen((v) => !v)}
-              className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
+          <div className="hidden items-center gap-4 xl:flex 2xl:gap-7">
+            <span
+              className={`h-9 w-px transition-colors duration-300 ${
+                scrolled ? "bg-grey-200" : "bg-white/30"
+              }`}
+              aria-hidden="true"
+            />
+            <a
+              href="/request-a-quote"
+              className="group inline-flex h-[48px] items-center gap-2.5 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 2xl:h-[52px] 2xl:px-8 2xl:text-[16px]"
             >
-              <span className="block h-[2px] w-7 bg-amber-500" />
-              <span className="block h-[2px] w-7 bg-amber-500" />
-              <span className="block h-[2px] w-7 bg-amber-500" />
-            </button>
+              Get a quote
+              <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                →
+              </span>
+            </a>
           </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-transform duration-200 ${mobileOpen ? "translate-y-[8.5px] rotate-45" : ""}`} />
+            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-transform duration-200 ${mobileOpen ? "-translate-y-[8.5px] -rotate-45" : ""}`} />
+          </button>
+        </div>
 
         {/* Capabilities mega-menu */}
         {openMenu === "Capabilities" && (
           <div className="pointer-events-none absolute left-0 top-full hidden w-full xl:block">
             <div
-              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-800 shadow-2xl"
+              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-900 shadow-2xl"
               onMouseEnter={clearCloseTimeout}
               onMouseLeave={closeImmediately}
             >
@@ -242,35 +251,35 @@ export default function Navbar() {
                     key={c.code}
                     href={c.href}
                     onClick={closeImmediately}
-                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-600 py-4 transition-colors hover:border-amber-500"
+                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-700 py-3.5 transition-colors hover:border-amber-500"
                   >
                     <span className="flex items-baseline gap-4">
                       <span className="tabular font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-500">
                         {c.code}
                       </span>
-                      <span className="font-display text-[19px] font-semibold text-white">
+                      <span className="font-display text-[18px] font-semibold text-white">
                         {c.name}
                       </span>
                     </span>
-                    <span className="font-sans text-[14px] leading-relaxed text-grey-400">
+                    <span className="font-sans text-[13px] leading-relaxed text-slate-300">
                       {c.desc}
                     </span>
                   </a>
                 ))}
               </div>
-              <div className="border-t border-navy-600">
+              <div className="border-t border-navy-700 bg-navy-950/50">
                 <div className="flex items-center gap-8 px-10 py-4">
                   <a
                     href="/capabilities"
                     onClick={closeImmediately}
-                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600"
+                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-400"
                   >
                     View all capabilities →
                   </a>
                   <a
                     href="/facility"
                     onClick={closeImmediately}
-                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-600"
+                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-400"
                   >
                     Our facility →
                   </a>
@@ -284,7 +293,7 @@ export default function Navbar() {
         {openMenu === "Resources" && (
           <div className="pointer-events-none absolute left-0 top-full hidden w-full xl:block">
             <div
-              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] flex-col overflow-y-auto border-t-2 border-amber-500 bg-navy-800 px-10 py-6 shadow-2xl"
+              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] flex-col overflow-y-auto border-t-2 border-amber-500 bg-navy-900 px-10 py-6 shadow-2xl"
               onMouseEnter={clearCloseTimeout}
               onMouseLeave={closeImmediately}
             >
@@ -293,7 +302,7 @@ export default function Navbar() {
                   key={r.name}
                   href={r.href}
                   onClick={closeImmediately}
-                  className="border-b border-navy-600 py-4 font-sans text-[17px] text-white transition-colors hover:text-amber-500"
+                  className="border-b border-navy-700 py-4 font-sans text-[16px] text-white transition-colors hover:text-amber-500"
                 >
                   {r.name}
                 </a>
@@ -303,30 +312,31 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* Mobile drawer — rendered outside <header> deliberately: the header has
-          backdrop-blur, and a backdrop-filter/filter/transform ancestor becomes
-          the containing block for `position: fixed` descendants instead of the
-          viewport, which was collapsing this drawer down to the header's own
-          68px box instead of covering the screen. */}
+      {/* Mobile drawer */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 overflow-y-auto bg-navy-800 px-6 py-8 xl:hidden"
+          className="fixed inset-0 z-40 overflow-y-auto bg-navy-900 px-6 py-8 xl:hidden"
           style={{ top: `${headerTop + 68}px` }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
         >
-          <nav className="flex flex-col" aria-label="Mobile">
+          <nav className="flex flex-col divide-y divide-navy-700" aria-label="Mobile Menu Links">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="border-b border-navy-600 py-5 font-sans text-[20px] text-white"
+                onClick={() => setMobileOpen(false)}
+                className="py-4 font-sans text-[18px] font-medium text-white transition-colors hover:text-amber-500"
               >
                 {item.label}
               </a>
             ))}
           </nav>
           <a
-            href="/get-a-quote"
-            className="mt-8 flex h-[56px] w-full items-center justify-center gap-3 bg-amber-500 font-sans text-[17px] font-semibold text-white"
+            href="/request-a-quote"
+            onClick={() => setMobileOpen(false)}
+            className="mt-8 flex h-[52px] w-full items-center justify-center gap-3 bg-amber-500 font-sans text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-amber-600"
           >
             Get a quote <span aria-hidden="true">→</span>
           </a>

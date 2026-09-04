@@ -1,15 +1,8 @@
-
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-/**
- * PLACEHOLDER PATHS — swap when the real assets are ready.
- * Video: MP4/H.264, ~1920x1080, trimmed to a clean loop point (no hard
- * cut/flash at the seam). Keep it under ~8–10MB if you can — it only
- * plays on lg+ screens (see the mobile note further down).
- */
 const SLIDE_ONE_VIDEO_SRC = "/HeroPage-Video.mp4";
 const SLIDE_TWO_VIDEO_SRC = "/Solvoka_Hero.mp4";
 const MOBILE_VIDEO_SRC = "/HeroPage-VideoForPhone.mp4";
@@ -20,7 +13,6 @@ const SLIDE_TRANSITION_MS = 700;
 const TRUST_CHIPS = [
   "15+ PARTNER FACILITIES",
   "3-GATE INSPECTION",
-  // "FOCAL POINT, INDIA",
   "1-BUSINESS-DAY QUOTE",
 ];
 
@@ -39,7 +31,7 @@ function MaterialItem({ label }: { label: string }) {
   return (
     <span className="flex shrink-0 items-center gap-6">
       <span className="font-mono text-[13px] uppercase tracking-[0.1em] text-navy-800">{label}</span>
-      <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-amber-500" aria-hidden="true" />
+      <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
     </span>
   );
 }
@@ -49,22 +41,21 @@ function ShieldCheck() {
     <svg width="18" height="20" viewBox="0 0 20 22" fill="none" aria-hidden="true" className="shrink-0">
       <path
         d="M10 1.5 18 4.6v6.1c0 4.6-3.2 8.3-8 9.8-4.8-1.5-8-5.2-8-9.8V4.6L10 1.5Z"
-        stroke="#E8891C"
+        stroke="#2563eb"
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
-      <path d="M6.4 10.8 9 13.4l4.6-4.8" stroke="#E8891C" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.4 10.8 9 13.4l4.6-4.8" stroke="#2563eb" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-/** CAD-style dimension line with perpendicular end caps — the site's signature device. */
 function DimensionLine() {
   return (
     <div className="relative my-2 h-3 w-full max-w-[560px]" aria-hidden="true">
-      <span className="absolute left-0 top-0 h-3 w-[2px] bg-amber-500" />
-      <span className="absolute right-0 top-0 h-3 w-[2px] bg-amber-500" />
-      <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-amber-500" />
+      <span className="absolute left-0 top-0 h-3 w-[2px] bg-blue-600" />
+      <span className="absolute right-0 top-0 h-3 w-[2px] bg-blue-600" />
+      <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-blue-600" />
     </div>
   );
 }
@@ -77,153 +68,132 @@ function ArrowIcon({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
-/** Autoplays a background video reliably, working around React/browser quirks with <source> timing. */
-function useAutoplayVideo(videoRef: RefObject<HTMLVideoElement | null>) {
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    // Belt-and-braces: React doesn't always apply the `muted` JSX attribute
-    // to the underlying DOM property before the browser evaluates its
-    // autoplay policy, which can silently block playback. Setting it
-    // imperatively here closes that gap.
-    video.muted = true;
-    // React attaches the <source> child after the <video> element itself
-    // mounts, which can leave the browser's media engine with no source to
-    // play. Forcing a reload once the source is in place guarantees it's
-    // picked up before we call play().
-    video.load();
-    video.play().catch((err) => {
-      if (import.meta.env.DEV) {
-        console.warn("[Hero] video.play() was blocked:", err);
-      }
-    });
-  }, [videoRef]);
-}
-
-function HeroBackdrop({
-  videoSrc,
-  videoRef,
-  mobileVideoSrc,
-  mobileVideoRef,
-}: {
-  videoSrc: string;
-  videoRef: RefObject<HTMLVideoElement | null>;
-  mobileVideoSrc: string;
-  mobileVideoRef: RefObject<HTMLVideoElement | null>;
-}) {
-  return (
-    <>
-      {/* Background video — lg+ only. See the phone video below for smaller screens. */}
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-          onError={() => {
-            if (import.meta.env.DEV) {
-              console.error(
-                `[Hero] Could not load "${videoSrc}". Confirm the file exists at /public${videoSrc} and the path/case match exactly.`
-              );
-            }
-          }}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-      </div>
-
-      {/* Background video — phone screens, a lighter dedicated clip */}
-      <div className="pointer-events-none absolute inset-0 lg:hidden">
-        <video
-          ref={mobileVideoRef}
-          className="h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-          onError={() => {
-            if (import.meta.env.DEV) {
-              console.error(
-                `[Hero] Could not load "${mobileVideoSrc}". Confirm the file exists at /public${mobileVideoSrc} and the path/case match exactly.`
-              );
-            }
-          }}
-        >
-          <source src={mobileVideoSrc} type="video/mp4" />
-        </video>
-      </div>
-
-      {/* Even wash across the whole frame so text and the amber accent stay legible over any footage */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "linear-gradient(180deg, rgba(6,9,14,0.35) 0%, rgba(6,9,14,0.55) 100%)" }}
-        aria-hidden="true"
-      />
-
-      {/* Left-side blur, faded out toward the right so the footage stays sharp and visible there */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 hidden w-[64%] backdrop-blur-md lg:block"
-        style={{
-          WebkitMaskImage: "linear-gradient(to right, black 0%, black 62%, transparent 100%)",
-          maskImage: "linear-gradient(to right, black 0%, black 62%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 hidden w-[64%] lg:block"
-        style={{
-          background: "linear-gradient(to right, rgba(6,9,14,0.82) 0%, rgba(6,9,14,0.6) 45%, rgba(6,9,14,0) 100%)",
-        }}
-        aria-hidden="true"
-      />
-    </>
-  );
-}
-
 export default function Hero() {
   const [active, setActive] = useState(0);
-
-  const slideOneVideoRef = useRef<HTMLVideoElement>(null);
-  const slideTwoVideoRef = useRef<HTMLVideoElement>(null);
-  const slideOneMobileVideoRef = useRef<HTMLVideoElement>(null);
-  const slideTwoMobileVideoRef = useRef<HTMLVideoElement>(null);
-  useAutoplayVideo(slideOneVideoRef);
-  useAutoplayVideo(slideTwoVideoRef);
-  useAutoplayVideo(slideOneMobileVideoRef);
-  useAutoplayVideo(slideTwoMobileVideoRef);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const activeVideoRef = useRef<HTMLVideoElement>(null);
 
   const slideOneContentRef = useRef<HTMLDivElement>(null);
   const slideTwoContentRef = useRef<HTMLDivElement>(null);
   const slideContentRefs = [slideOneContentRef, slideTwoContentRef];
 
-  // Re-run the reveal animation on whichever slide becomes active — on mount
-  // for the first slide, and again every time the carousel advances.
+  // Screen size detection so only the relevant video is mounted
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobileScreen(window.innerWidth < 1024);
+    };
+    checkScreen();
+    window.addEventListener("resize", checkScreen, { passive: true });
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  // Autoplay and pause video when off-screen to conserve battery/memory
+  useEffect(() => {
+    const video = activeVideoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.play().catch(() => {});
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!video) return;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (heroSectionRef.current) {
+      observer.observe(heroSectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [active, isMobileScreen]);
+
+  // Entrance reveal animation with reduced motion support
   useLayoutEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const content = slideContentRefs[active]?.current;
     if (!content) return;
+
     const targets = content.querySelectorAll<HTMLElement>("[data-hero-reveal]");
+    if (prefersReducedMotion) {
+      gsap.set(targets, { opacity: 1, y: 0 });
+      return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         targets,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.09, delay: active === 0 ? 0.2 : 0.1 }
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.85, ease: "power3.out", stagger: 0.08, delay: active === 0 ? 0.15 : 0.05 }
       );
     });
     return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
+  const currentVideoSrc = isMobileScreen
+    ? MOBILE_VIDEO_SRC
+    : active === 0
+    ? SLIDE_ONE_VIDEO_SRC
+    : SLIDE_TWO_VIDEO_SRC;
+
   return (
-    <section className="relative flex min-h-dvh shrink-0 flex-col overflow-hidden bg-neutral-950">
+    <section
+      ref={heroSectionRef}
+      className="relative flex min-h-[100dvh] shrink-0 flex-col overflow-hidden bg-neutral-950"
+    >
       <div className="relative flex flex-1 flex-col overflow-hidden">
+        {/* Optimized background video layer — only renders active device stream */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <video
+            key={currentVideoSrc}
+            ref={activeVideoRef}
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          >
+            <source src={currentVideoSrc} type="video/mp4" />
+          </video>
+
+          {/* Unified scrim overlay */}
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/75"
+            aria-hidden="true"
+          />
+
+          {/* Left-side desktop backdrop blur and high-contrast wash for readability */}
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 hidden w-[68%] backdrop-blur-sm lg:block"
+            style={{
+              WebkitMaskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+              maskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 hidden w-[68%] lg:block"
+            style={{
+              background: "linear-gradient(to right, rgba(7,13,23,0.88) 0%, rgba(7,13,23,0.65) 55%, rgba(7,13,23,0) 100%)",
+            }}
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* Slides carousel container */}
         <div
-          className="flex flex-1 ease-in-out"
+          className="relative z-10 flex flex-1 ease-in-out"
           style={{
             width: `${SLIDE_COUNT * 100}%`,
             transform: `translateX(-${(active * 100) / SLIDE_COUNT}%)`,
@@ -232,37 +202,22 @@ export default function Hero() {
           }}
         >
           {/* Slide 1 */}
-          <div className="relative flex shrink-0 flex-col overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <HeroBackdrop
-              videoSrc={SLIDE_ONE_VIDEO_SRC}
-              videoRef={slideOneVideoRef}
-              mobileVideoSrc={MOBILE_VIDEO_SRC}
-              mobileVideoRef={slideOneMobileVideoRef}
-            />
-
-            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
-              <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
-                <div ref={slideOneContentRef} className="max-w-[700px]">
-                  {/* Eyebrow */}
-                  {/* <p
-                    data-hero-reveal
-                    className="tabular font-mono text-[15px] font-normal uppercase tracking-[0.14em] text-amber-500"
-                  >
-                    01 / Precision Manufacturing Partner
-                  </p> */}
-
+          <div className="relative flex shrink-0 flex-col overflow-hidden" style={{ width: `${100 / SLIDE_COUNT}%` }}>
+            <div className="relative flex flex-1 items-center overflow-hidden py-10 pt-28 sm:pt-32 lg:py-0 lg:pt-20">
+              <div className="mx-auto w-full max-w-[1672px] px-4 sm:px-6 lg:px-10">
+                <div ref={slideOneContentRef} className="max-w-[720px]">
                   {/* Headline */}
-                  <h1 className="mt-2 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white sm:mt-3">
-                    <span data-hero-reveal className="block text-[clamp(32px,4.4vw,60px)]">
+                  <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                    <span data-hero-reveal className="block text-[clamp(30px,4.4vw,58px)] font-bold">
                       One Supplier.
                     </span>
-                    <span data-hero-reveal className="block text-[clamp(32px,4.4vw,60px)]">
+                    <span data-hero-reveal className="block text-[clamp(30px,4.4vw,58px)] font-bold">
                       Six Processes.
                     </span>
                     <span
                       data-hero-reveal
-                      className="mt-1 block text-[clamp(30px,4vw,52px)] font-bold uppercase leading-[1.05] text-transparent"
-                      style={{ WebkitTextStroke: "2px #E8891C" }}
+                      className="mt-1 block text-[clamp(28px,4vw,50px)] font-extrabold uppercase leading-[1.05] text-transparent"
+                      style={{ WebkitTextStroke: "2px #2563eb" }}
                     >
                       One Quality Standard.
                     </span>
@@ -273,30 +228,30 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[15px] uppercase tracking-[0.12em] text-amber-500">
+                  <p data-hero-reveal className="tabular font-mono text-[13px] sm:text-[15px] uppercase tracking-[0.14em] text-blue-600 font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-2 max-w-[600px] font-sans text-[14px] leading-normal text-slate-200 sm:mt-3 sm:text-[17px] sm:leading-[1.55]">
+                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[14px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
                     Forging, CNC machining, casting, injection molding, sheet metal fabrication, and 3D printing —
                     coordinated through 15+ vetted facilities in Focal Point, Ludhiana, India, for automotive OEMs and
                     exporters. Drawings quoted within one business day.
                   </p>
 
-                  {/* Legacy tagline — kept, but demoted: small, quiet, secondary */}
+                  {/* Legacy tagline */}
                   <p
                     data-hero-reveal
-                    className="mt-3 border-l-2 border-amber-500/40 pl-3 font-mono text-[11px] italic uppercase tracking-[0.12em] text-slate-400 sm:mt-4 sm:text-[12px]"
+                    className="mt-3 border-l-2 border-blue-600/60 pl-3 font-mono text-[11px] sm:text-[12px] italic uppercase tracking-[0.12em] text-slate-300"
                   >
-                    "Your Challenge is Our Blueprint"
+                    &ldquo;Your Challenge is Our Blueprint&rdquo;
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-4 flex flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
+                  <div data-hero-reveal className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-11.5 items-center gap-2 bg-amber-500 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-amber-600 sm:h-13 sm:px-7 sm:text-[16px]"
+                      className="group inline-flex h-12 items-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99]"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -305,21 +260,21 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-11.5 items-center border border-white/60 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800 sm:h-13 sm:px-7 sm:text-[16px]"
+                      className="inline-flex h-12 items-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900"
                     >
                       View Capabilities
                     </a>
                   </div>
 
-                  {/* Trust chips — checkable facts only, no certification claims */}
-                  <ul data-hero-reveal className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6 sm:gap-x-5">
+                  {/* Trust chips */}
+                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-4 sm:gap-5">
-                        <span className="tabular flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] text-white sm:text-[13px]">
+                      <li key={chip} className="flex items-center gap-3 sm:gap-4">
+                        <span className="tabular flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
-                        {i < TRUST_CHIPS.length - 1 && <span className="h-4 w-[2px] bg-amber-500/70" aria-hidden="true" />}
+                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-blue-600/80" aria-hidden="true" />}
                       </li>
                     ))}
                   </ul>
@@ -329,37 +284,22 @@ export default function Hero() {
           </div>
 
           {/* Slide 2 */}
-          <div className="relative flex shrink-0 flex-col overflow-hidden bg-neutral-950" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <HeroBackdrop
-              videoSrc={SLIDE_TWO_VIDEO_SRC}
-              videoRef={slideTwoVideoRef}
-              mobileVideoSrc={MOBILE_VIDEO_SRC}
-              mobileVideoRef={slideTwoMobileVideoRef}
-            />
-
-            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-23 sm:pt-25 lg:py-0 lg:pt-17">
-              <div className="mx-auto w-full max-w-[1672px] px-6 lg:px-10">
-                <div ref={slideTwoContentRef} className="max-w-[700px]">
-                  {/* Eyebrow */}
-                  {/* <p
-                    data-hero-reveal
-                    className="tabular font-mono text-[15px] font-normal uppercase tracking-[0.14em] text-amber-500"
-                  >
-                    01 / Precision Manufacturing Partner
-                  </p> */}
-
+          <div className="relative flex shrink-0 flex-col overflow-hidden" style={{ width: `${100 / SLIDE_COUNT}%` }}>
+            <div className="relative flex flex-1 items-center overflow-hidden py-10 pt-28 sm:pt-32 lg:py-0 lg:pt-20">
+              <div className="mx-auto w-full max-w-[1672px] px-4 sm:px-6 lg:px-10">
+                <div ref={slideTwoContentRef} className="max-w-[720px]">
                   {/* Headline */}
-                  <h1 className="mt-2 font-display font-medium leading-[0.95] tracking-[-0.02em] text-white sm:mt-3">
-                    <span data-hero-reveal className="block text-[clamp(32px,3.6vw,60px)]">
-                     Forged and Machined
+                  <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                    <span data-hero-reveal className="block text-[clamp(30px,3.8vw,56px)] font-bold">
+                      Forged and Machined
                     </span>
-                    <span data-hero-reveal className="block text-[clamp(32px,3.6vw,60px)]">
-                      Components for Automotive 
+                    <span data-hero-reveal className="block text-[clamp(30px,3.8vw,56px)] font-bold">
+                      Components for Automotive
                     </span>
                     <span
                       data-hero-reveal
-                      className="mt-1 block text-[clamp(30px,3.3vw,52px)] font-bold uppercase leading-[1.05] text-transparent"
-                      style={{ WebkitTextStroke: "2px #E8891C" }}
+                      className="mt-1 block text-[clamp(28px,3.4vw,48px)] font-extrabold uppercase leading-[1.05] text-transparent"
+                      style={{ WebkitTextStroke: "2px #2563eb" }}
                     >
                       OEMs and Exporters
                     </span>
@@ -370,29 +310,28 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[15px] uppercase tracking-[0.12em] text-amber-500">
+                  <p data-hero-reveal className="tabular font-mono text-[13px] sm:text-[15px] uppercase tracking-[0.14em] text-blue-600 font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-2 max-w-[600px] font-sans text-[14px] leading-normal text-slate-200 sm:mt-3 sm:text-[17px] sm:leading-[1.55]">
-                   A coordinated network of 15+ vetted facilities in Focal Point, Ludhiana, India — one contract, one quality standard, one point of accountability. Drawings quoted within one business day.
-
+                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[14px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                    A coordinated network of 15+ vetted facilities in Focal Point, Ludhiana, India — one contract, one quality standard, one point of accountability. Drawings quoted within one business day.
                   </p>
 
-                  {/* Legacy tagline — kept, but demoted: small, quiet, secondary */}
+                  {/* Legacy tagline */}
                   <p
                     data-hero-reveal
-                    className="mt-3 border-l-2 border-amber-500/40 pl-3 font-mono text-[11px] italic uppercase tracking-[0.12em] text-slate-400 sm:mt-4 sm:text-[12px]"
+                    className="mt-3 border-l-2 border-blue-600/60 pl-3 font-mono text-[11px] sm:text-[12px] italic uppercase tracking-[0.12em] text-slate-300"
                   >
-                    "Your Challenge is Our Blueprint"
+                    &ldquo;Your Challenge is Our Blueprint&rdquo;
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-4 flex flex-wrap items-center gap-2.5 sm:mt-6 sm:gap-3">
+                  <div data-hero-reveal className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-11.5 items-center gap-2 bg-amber-500 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-amber-600 sm:h-13 sm:px-7 sm:text-[16px]"
+                      className="group inline-flex h-12 items-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99]"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -401,21 +340,21 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-11.5 items-center border border-white/60 px-5 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white hover:text-navy-800 sm:h-13 sm:px-7 sm:text-[16px]"
+                      className="inline-flex h-12 items-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900"
                     >
                       View Capabilities
                     </a>
                   </div>
 
-                  {/* Trust chips — checkable facts only, no certification claims */}
-                  <ul data-hero-reveal className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6 sm:gap-x-5">
+                  {/* Trust chips */}
+                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-4 sm:gap-5">
-                        <span className="tabular flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] text-white sm:text-[13px]">
+                      <li key={chip} className="flex items-center gap-3 sm:gap-4">
+                        <span className="tabular flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
-                        {i < TRUST_CHIPS.length - 1 && <span className="h-4 w-[2px] bg-amber-500/70" aria-hidden="true" />}
+                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-blue-600/80" aria-hidden="true" />}
                       </li>
                     ))}
                   </ul>
@@ -425,22 +364,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Slide navigation arrow — forward only, no way back to slide 1 */}
-        {active < SLIDE_COUNT - 1 && (
+        {/* Carousel indicator / slide controls */}
+        <div className="absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-2 sm:right-6 lg:right-8">
           <button
             type="button"
-            onClick={() => setActive((a) => a + 1)}
-            aria-label="Next slide"
-            className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-md transition-colors hover:border-amber-500 hover:bg-amber-500 sm:right-4 sm:h-10 sm:w-10 lg:right-8 lg:h-12 lg:w-12"
+            onClick={() => setActive((a) => (a === 0 ? 1 : 0))}
+            aria-label={active === 0 ? "Switch to slide 2" : "Switch to slide 1"}
+            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-md transition-all hover:border-blue-600 hover:bg-blue-600"
           >
-            <ArrowIcon className="h-4 w-4 lg:h-5 lg:w-5" />
+            <ArrowIcon className="h-4 w-4" />
           </button>
-        )}
+        </div>
       </div>
 
-      {/* Material ticker */}
-      <div className="group relative shrink-0 overflow-hidden border-t-2 border-amber-500 bg-white/90 px-6 py-3 backdrop-blur-sm lg:px-10">
-        <div className="flex w-max animate-[marquee-right_26s_linear_infinite] items-center gap-6 group-hover:[animation-play-state:paused]">
+      {/* Material ticker marquee */}
+      <div className="group relative z-10 shrink-0 overflow-hidden border-t-2 border-blue-600 bg-white/95 px-4 py-3 backdrop-blur-sm lg:px-10">
+        <div className="flex w-max animate-[marquee-right_28s_linear_infinite] items-center gap-6 group-hover:[animation-play-state:paused] motion-reduce:[animation-duration:60s]">
           {[...MATERIALS, ...MATERIALS].map((m, i) => (
             <MaterialItem key={`${m}-${i}`} label={m} />
           ))}

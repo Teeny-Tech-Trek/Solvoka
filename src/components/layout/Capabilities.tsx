@@ -1,4 +1,4 @@
-    type Capability = {
+type Capability = {
   code: string;
   name: string;
   poster: string;
@@ -55,34 +55,35 @@ function CapabilityCard({ item }: { item: Capability }) {
   return (
     <a
       href={item.href}
-      className="group relative block aspect-[16/10] w-full overflow-hidden bg-white lg:aspect-auto lg:h-full"
+      className="group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
       aria-label={`${item.code} — ${item.name}`}
     >
       <img
         src={item.gif}
         alt={item.name}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
       />
 
-      {/* Bottom scrim so the label stays readable */}
+      {/* Bottom scrim gradient for high text contrast */}
       <span
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[58%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[65%]"
         style={{
           background:
-            "linear-gradient(to top, rgba(11,20,32,0.94) 0%, rgba(11,20,32,0.72) 38%, rgba(11,20,32,0) 100%)",
+            "linear-gradient(to top, rgba(11,20,32,0.96) 0%, rgba(11,20,32,0.7) 45%, rgba(11,20,32,0) 100%)",
         }}
         aria-hidden="true"
       />
 
-      <div className="absolute bottom-[clamp(16px,2.1vh,26px)] left-[clamp(18px,2vw,28px)] z-20">
-        <span className="block font-mono text-[clamp(10px,0.85vh,13px)] uppercase tracking-[0.16em] text-amber-500">
+      <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20">
+        <span className="block font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.16em] text-blue-600 font-semibold">
           {item.code}
         </span>
-        <span className="mt-[6px] flex items-center gap-3 font-mono text-[clamp(15px,1.85vh,26px)] uppercase tracking-[0.03em] text-white">
+        <span className="mt-1 flex items-center gap-2.5 font-mono text-[16px] sm:text-[20px] lg:text-[22px] font-bold uppercase tracking-[0.03em] text-white">
           {item.name}
           <span
-            className="h-[2px] w-[18px] bg-amber-500 transition-all duration-200 group-hover:w-[34px]"
+            className="h-[2px] w-[18px] bg-blue-600 transition-all duration-200 group-hover:w-[32px]"
             aria-hidden="true"
           />
         </span>
@@ -94,47 +95,29 @@ function CapabilityCard({ item }: { item: Capability }) {
 export default function Capabilities() {
   return (
     <section
-      className="relative flex w-full flex-col overflow-hidden bg-grey-50 bg-cover bg-center bg-no-repeat lg:h-[100svh] lg:max-h-[100svh]"
+      id="capabilities"
+      className="relative flex w-full flex-col overflow-hidden bg-grey-50 bg-cover bg-center bg-no-repeat py-12 sm:py-16 lg:py-20"
       style={{ backgroundImage: "url('/Capabilities.png')" }}
       aria-labelledby="capabilities-heading"
     >
-      <div className="relative mx-auto flex h-full w-full max-w-[1536px] flex-col px-[clamp(20px,3.2vw,76px)] py-[clamp(20px,3.4vh,44px)]">
+      <div className="relative mx-auto flex h-full w-full max-w-[1536px] flex-col px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="flex shrink-0 flex-col gap-x-10 gap-y-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-[640px]">
-            {/* <p className="font-mono text-[clamp(11px,1.15vh,15px)] uppercase tracking-[0.16em] text-amber-500">
-              02 / Capabilities
-            </p>
-            <span className="mt-[10px] block h-[3px] w-[52px] bg-amber-500" aria-hidden="true" /> */}
-            <h2
-              id="capabilities-heading"
-              className="mt-[clamp(10px,1.6vh,20px)] font-display font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
-            >
-              <span className="block text-[clamp(22px,3.6vh,42px)]">Six core processes.</span>
-              <span className="block text-[clamp(22px,3.6vh,42px)] text-amber-500">Endless possibilities.</span>
-              <span className="block text-[clamp(22px,3.6vh,42px)]">One accountable supplier.</span>
-            </h2>
-          </div>
-
-          {/* <div className="flex max-w-[420px] flex-col gap-[clamp(10px,1.6vh,20px)] lg:pt-[clamp(28px,4.4vh,58px)]">
-            <p className="text-[clamp(13px,1.45vh,17px)] leading-[1.6] text-navy-800">
-              From a single prototype to scheduled production runs — we manage the
-              process, the inspection and the delivery.
-            </p>
-            <a
-              href="/capabilities"
-              className="group inline-flex w-fit items-center gap-2 border-b-2 border-amber-500 pb-1 font-mono text-[clamp(12px,1.3vh,16px)] text-amber-500 transition-colors hover:text-amber-600"
-            >
-              View all capabilities
-              <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
-                →
-              </span>
-            </a>
-          </div> */}
+        <div className="flex shrink-0 flex-col gap-y-3 max-w-[720px]">
+          <span className="font-mono text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-blue-600">
+            02 / Capabilities
+          </span>
+          <h2
+            id="capabilities-heading"
+            className="font-display font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
+          >
+            <span className="block text-[clamp(26px,3.5vw,44px)]">Six core processes.</span>
+            <span className="block text-[clamp(26px,3.5vw,44px)] text-blue-600">Endless possibilities.</span>
+            <span className="block text-[clamp(26px,3.5vw,44px)]">One accountable supplier.</span>
+          </h2>
         </div>
 
-        {/* Card grid — flexes to fill remaining height, never overflows */}
-        <div className="mt-[clamp(16px,2.6vh,32px)] grid min-h-0 grid-cols-1 gap-[clamp(10px,1.1vw,18px)] sm:grid-cols-2 lg:flex-1 lg:grid-cols-3 lg:grid-rows-2">
+        {/* Card grid */}
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((item) => (
             <CapabilityCard key={item.code} item={item} />
           ))}
