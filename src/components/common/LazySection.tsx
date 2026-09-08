@@ -13,13 +13,14 @@ export function LazySection({
   rootMargin = "250px",
   minHeight,
 }: LazySectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    return typeof window !== "undefined" && !("IntersectionObserver" in window);
+  });
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // If IntersectionObserver is not available, render immediately
+    // If IntersectionObserver is not available, already visible via initializer
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setIsVisible(true);
       return;
     }
 

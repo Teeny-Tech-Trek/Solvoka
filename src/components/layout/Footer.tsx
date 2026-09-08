@@ -42,7 +42,7 @@ const resourceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#F5F7FC] px-4 sm:px-8 lg:px-14 pt-14 sm:pt-16 border-t border-slate-200">
+    <footer className="relative w-full overflow-hidden bg-[#F5F7FC] px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 border-t border-slate-200">
       {/* Decorative dot grid background */}
       <div
         className="pointer-events-none absolute -bottom-4 -right-4 h-40 w-56 opacity-60"
@@ -53,7 +53,7 @@ export default function Footer() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_1.4fr_1.3fr]">
+      <div className="relative z-10 mx-auto grid max-w-[1536px] grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_1.4fr_1.3fr]">
         {/* Column 1 — Company */}
         <div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -71,7 +71,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Solvoka on Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white transition hover:opacity-90 shadow-xs"
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white transition hover:opacity-90 shadow-xs"
             >
               <InstagramIcon className="h-5 w-5" />
             </a>
@@ -80,7 +80,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Solvoka on LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white transition hover:bg-blue-700 shadow-xs"
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white transition hover:bg-blue-700 shadow-xs"
             >
               <LinkedInIcon className="h-5 w-5" />
             </a>
@@ -96,10 +96,10 @@ export default function Footer() {
         {/* Column 2 — Capabilities */}
         <div className="sm:border-l sm:border-slate-200 sm:pl-6 lg:pl-8">
           <h4 className="text-lg sm:text-xl font-bold text-slate-900">Capabilities</h4>
-          <ul className="mt-4 space-y-3 font-sans">
+          <ul className="mt-4 space-y-1.5 font-sans">
             {capabilities.map((item) => (
               <li key={item.name}>
-                <a href={item.href} className="text-sm text-slate-600 transition hover:text-blue-600">
+                <a href={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-blue-600">
                   {item.name}
                 </a>
               </li>
@@ -110,20 +110,20 @@ export default function Footer() {
         {/* Column 3 — Company / Resources */}
         <div className="sm:border-l sm:border-slate-200 sm:pl-6 lg:pl-8">
           <h4 className="text-lg sm:text-xl font-bold text-slate-900">Company / Resources</h4>
-          <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 font-sans">
-            <ul className="space-y-3">
+          <div className="mt-4 grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 font-sans">
+            <ul className="space-y-1.5">
               {companyLinks.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-sm text-slate-600 transition hover:text-blue-600">
+                  <a href={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-blue-600">
                     {item.name}
                   </a>
                 </li>
               ))}
             </ul>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5">
               {resourceLinks.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-sm text-slate-600 transition hover:text-blue-600">
+                  <a href={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-blue-600">
                     {item.name}
                   </a>
                 </li>
@@ -138,39 +138,39 @@ export default function Footer() {
 
           <ul className="mt-4 space-y-3 font-sans">
             <li className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 h-4 w-4 flex-none text-blue-600" strokeWidth={2} />
-              <span className="text-xs sm:text-sm leading-snug text-slate-600">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" strokeWidth={2} />
+              <span className="text-xs sm:text-sm leading-snug text-slate-600 break-words">
                 Cabin No. 2, 17-B, Phase-II, Focal Point, Ludhiana, Punjab 141003
               </span>
             </li>
             <li className="flex items-center gap-2.5">
-              <Mail className="h-4 w-4 flex-none text-blue-600" strokeWidth={2} />
-              <a href="mailto:solvoka@gmail.com" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600">
+              <Mail className="h-4 w-4 shrink-0 text-blue-600" strokeWidth={2} />
+              <a href="mailto:solvoka@gmail.com" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 break-all">
                 solvoka@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <Phone className="h-4 w-4 flex-none text-blue-600" strokeWidth={2} />
-              <a href="tel:+917087086696" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600">
+              <Phone className="h-4 w-4 shrink-0 text-blue-600" strokeWidth={2} />
+              <a href="tel:+917087086696" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 whitespace-nowrap">
                 +91 70870-86696
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <MessageCircle className="h-4 w-4 flex-none text-green-600" strokeWidth={2} />
+              <MessageCircle className="h-4 w-4 shrink-0 text-green-600" strokeWidth={2} />
               <a
                 href="https://wa.me/917087086696"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs sm:text-sm text-slate-600 hover:text-blue-600"
               >
-                WhatsApp Business — +91 70870-86696
+                WhatsApp Business
               </a>
             </li>
           </ul>
 
           <a
             href="/request-a-quote"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-blue-600/25 transition hover:bg-blue-700"
+            className="mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-blue-600/25 transition hover:bg-blue-700 active:scale-[0.99]"
           >
             <span>Request a Quote</span>
             <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -179,13 +179,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative z-10 mx-auto mt-12 max-w-7xl border-t border-slate-200 py-6">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row text-center sm:text-left">
+      <div className="relative z-10 mx-auto mt-12 max-w-[1536px] border-t border-slate-200 py-6">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row text-center md:text-left">
           <p className="text-xs text-slate-500">
             &copy; {new Date().getFullYear()} Solvoka Industries. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-4 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
             <a href="/privacy" className="hover:text-blue-600 transition">
               Privacy Policy
             </a>

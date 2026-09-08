@@ -109,9 +109,9 @@ function GateCard({ gate }: { gate: Gate }) {
 
 export default function QualityPreview() {
   return (
-    <section id="quality" className="w-full bg-white px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-      <div className="mx-auto max-w-[1600px]">
-        <div className="mx-auto max-w-3xl text-center pb-8">
+    <section id="quality" className="w-full bg-white px-4 sm:px-6 lg:px-10 py-10 sm:py-14">
+      <div className="mx-auto max-w-[1536px]">
+        <div className="mx-auto max-w-3xl text-center pb-6 sm:pb-8">
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-8 sm:w-14 bg-blue-500/40" />
             <span className="font-mono text-xs sm:text-[13px] font-bold tracking-widest text-blue-600 uppercase">
@@ -120,7 +120,7 @@ export default function QualityPreview() {
             <div className="h-px w-8 sm:w-14 bg-blue-500/40" />
           </div>
 
-          <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[36px] font-extrabold leading-[1.15] text-slate-900">
+          <h2 className="mt-3 text-[clamp(22px,3.5vw,36px)] font-extrabold leading-[1.15] text-slate-900">
             Credibility Built Through Execution,
             <br />
             <span className="text-slate-600">Not Just Badges</span>
@@ -136,14 +136,14 @@ export default function QualityPreview() {
         <div className="mt-8 flex justify-center">
           <a
             href="/quality"
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow"
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow active:scale-[0.99]"
           >
             <span>See Our Full Inspection Process</span>
             <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
           </a>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3 font-mono text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-400">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-200 pt-3 text-center sm:text-left font-mono text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-400">
           <span>SAME STANDARD AT EVERY STAGE.</span>
           <span>BETTER PARTS. A MORE RELIABLE TOMORROW.</span>
         </div>

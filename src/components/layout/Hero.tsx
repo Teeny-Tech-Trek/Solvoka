@@ -76,7 +76,6 @@ export default function Hero() {
 
   const slideOneContentRef = useRef<HTMLDivElement>(null);
   const slideTwoContentRef = useRef<HTMLDivElement>(null);
-  const slideContentRefs = [slideOneContentRef, slideTwoContentRef];
 
   // Screen size detection so only the relevant video is mounted
   useEffect(() => {
@@ -120,7 +119,7 @@ export default function Hero() {
   // Entrance reveal animation with reduced motion support
   useLayoutEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const content = slideContentRefs[active]?.current;
+    const content = (active === 0 ? slideOneContentRef : slideTwoContentRef).current;
     if (!content) return;
 
     const targets = content.querySelectorAll<HTMLElement>("[data-hero-reveal]");
@@ -203,21 +202,21 @@ export default function Hero() {
         >
           {/* Slide 1 */}
           <div className="relative flex shrink-0 flex-col overflow-hidden" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <div className="relative flex flex-1 items-center overflow-hidden py-10 pt-28 sm:pt-32 lg:py-0 lg:pt-20">
-              <div className="mx-auto w-full max-w-[1672px] px-4 sm:px-6 lg:px-10">
+            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-[clamp(6.5rem,14vh,8.5rem)] pb-14 sm:pb-16 lg:py-0 lg:pt-20">
+              <div className="mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
                 <div ref={slideOneContentRef} className="max-w-[720px]">
                   {/* Headline */}
                   <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
-                    <span data-hero-reveal className="block text-[clamp(30px,4.4vw,58px)] font-bold">
+                    <span data-hero-reveal className="block text-[clamp(26px,6vw,58px)] font-bold">
                       One Supplier.
                     </span>
-                    <span data-hero-reveal className="block text-[clamp(30px,4.4vw,58px)] font-bold">
+                    <span data-hero-reveal className="block text-[clamp(26px,6vw,58px)] font-bold">
                       Six Processes.
                     </span>
                     <span
                       data-hero-reveal
-                      className="mt-1 block text-[clamp(28px,4vw,50px)] font-extrabold uppercase leading-[1.05] text-transparent"
-                      style={{ WebkitTextStroke: "2px #2563eb" }}
+                      className="mt-1 block text-[clamp(22px,5.2vw,50px)] font-extrabold uppercase leading-[1.08] text-transparent"
+                      style={{ WebkitTextStroke: "1.5px #2563eb" }}
                     >
                       One Quality Standard.
                     </span>
@@ -228,13 +227,13 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[13px] sm:text-[15px] uppercase tracking-[0.14em] text-blue-600 font-semibold">
+                  <p data-hero-reveal className="tabular font-mono text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-blue-400 font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[14px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
-                    Forging, CNC machining, casting, injection molding, sheet metal fabrication, and 3D printing —
+                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                    Forging, CNC machining, casting, sheet metal fabrication, and 3D printing —
                     coordinated through 15+ vetted facilities in Focal Point, Ludhiana, India, for automotive OEMs and
                     exporters. Drawings quoted within one business day.
                   </p>
@@ -248,10 +247,10 @@ export default function Hero() {
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
+                  <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-12 items-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99]"
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -260,17 +259,17 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-12 items-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
                     >
                       View Capabilities
                     </a>
                   </div>
 
                   {/* Trust chips */}
-                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6">
+                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-3 sm:gap-4">
-                        <span className="tabular flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                      <li key={chip} className="flex items-center gap-2 sm:gap-4">
+                        <span className="tabular flex items-center gap-1.5 font-mono text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
@@ -285,21 +284,21 @@ export default function Hero() {
 
           {/* Slide 2 */}
           <div className="relative flex shrink-0 flex-col overflow-hidden" style={{ width: `${100 / SLIDE_COUNT}%` }}>
-            <div className="relative flex flex-1 items-center overflow-hidden py-10 pt-28 sm:pt-32 lg:py-0 lg:pt-20">
-              <div className="mx-auto w-full max-w-[1672px] px-4 sm:px-6 lg:px-10">
+            <div className="relative flex flex-1 items-center overflow-hidden py-8 pt-[clamp(6.5rem,14vh,8.5rem)] pb-14 sm:pb-16 lg:py-0 lg:pt-20">
+              <div className="mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
                 <div ref={slideTwoContentRef} className="max-w-[720px]">
                   {/* Headline */}
                   <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
-                    <span data-hero-reveal className="block text-[clamp(30px,3.8vw,56px)] font-bold">
+                    <span data-hero-reveal className="block text-[clamp(24px,5.5vw,56px)] font-bold">
                       Forged and Machined
                     </span>
-                    <span data-hero-reveal className="block text-[clamp(30px,3.8vw,56px)] font-bold">
+                    <span data-hero-reveal className="block text-[clamp(24px,5.5vw,56px)] font-bold">
                       Components for Automotive
                     </span>
                     <span
                       data-hero-reveal
-                      className="mt-1 block text-[clamp(28px,3.4vw,48px)] font-extrabold uppercase leading-[1.05] text-transparent"
-                      style={{ WebkitTextStroke: "2px #2563eb" }}
+                      className="mt-1 block text-[clamp(22px,4.8vw,48px)] font-extrabold uppercase leading-[1.08] text-transparent"
+                      style={{ WebkitTextStroke: "1.5px #2563eb" }}
                     >
                       OEMs and Exporters
                     </span>
@@ -310,12 +309,12 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[13px] sm:text-[15px] uppercase tracking-[0.14em] text-blue-600 font-semibold">
+                  <p data-hero-reveal className="tabular font-mono text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-blue-400 font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[14px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
                     A coordinated network of 15+ vetted facilities in Focal Point, Ludhiana, India — one contract, one quality standard, one point of accountability. Drawings quoted within one business day.
                   </p>
 
@@ -328,10 +327,10 @@ export default function Hero() {
                   </p>
 
                   {/* CTAs */}
-                  <div data-hero-reveal className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
+                  <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
-                      className="group inline-flex h-12 items-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99]"
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -340,17 +339,17 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-12 items-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
                     >
                       View Capabilities
                     </a>
                   </div>
 
                   {/* Trust chips */}
-                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6">
+                  <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
-                      <li key={chip} className="flex items-center gap-3 sm:gap-4">
-                        <span className="tabular flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                      <li key={chip} className="flex items-center gap-2 sm:gap-4">
+                        <span className="tabular flex items-center gap-1.5 font-mono text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
@@ -365,7 +364,10 @@ export default function Hero() {
         </div>
 
         {/* Carousel indicator / slide controls */}
-        <div className="absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-2 sm:right-6 lg:right-8">
+        <div className="absolute bottom-6 right-4 z-20 flex items-center gap-2 sm:bottom-auto sm:right-6 sm:top-1/2 sm:-translate-y-1/2 lg:right-8">
+          <span className="font-mono text-xs font-semibold text-white/70 tabular">
+            {active + 1} / {SLIDE_COUNT}
+          </span>
           <button
             type="button"
             onClick={() => setActive((a) => (a === 0 ? 1 : 0))}

@@ -6,7 +6,6 @@ import {
   Mail,
   Phone,
   Package,
-  ChevronDown,
   UploadCloud,
   Send,
   Lock,
@@ -62,7 +61,6 @@ export default function QuickRFQ() {
     company: "",
     email: "",
     phone: "",
-    process: "",
     material: "",
     quantity: "",
   });
@@ -105,7 +103,7 @@ export default function QuickRFQ() {
       id="contact"
       className="relative flex w-full flex-col justify-center overflow-hidden bg-white px-4 sm:px-6 lg:px-10 py-12 sm:py-16 border-t border-slate-100"
     >
-      <div className="mx-auto my-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+      <div className="mx-auto my-auto grid w-full max-w-[1536px] grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
         {/* Left column — Copy & Features (5 cols) */}
         <div className="relative lg:col-span-5 flex flex-col justify-center">
           {/* Eyebrow */}
@@ -117,8 +115,8 @@ export default function QuickRFQ() {
           </div>
 
           {/* Headline */}
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold leading-[1.12] text-slate-900 tracking-tight">
-            Get a Quote in Under a Minute
+          <h2 className="font-display text-[clamp(24px,3.5vw,38px)] font-extrabold leading-[1.12] text-slate-900 tracking-tight">
+            Get a Quote in Under a Day
           </h2>
 
           {/* Subtitle */}
@@ -127,24 +125,26 @@ export default function QuickRFQ() {
           </p>
 
           {/* 3 Pillars / Value Highlight Columns */}
-          <div className="mt-6 grid grid-cols-3 gap-2 divide-x divide-slate-200/80 pt-4 border-t border-slate-100">
+          <div className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-2 sm:divide-x sm:divide-slate-200/80 pt-4 border-t border-slate-100">
             {features.map((feature, idx) => (
-              <div key={feature.title} className={`${idx === 0 ? "pl-0" : "pl-2 sm:pl-3"}`}>
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100/80">
+              <div key={feature.title} className={`flex sm:flex-col items-center sm:items-start gap-2.5 sm:gap-0 ${idx === 0 ? "pl-0" : "sm:pl-3"}`}>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100/80">
                   {feature.icon}
                 </span>
-                <h3 className="mt-2 font-display text-xs font-bold text-slate-900 leading-tight">
-                  {feature.title}
-                </h3>
-                <p className="mt-0.5 font-mono text-[9px] font-semibold tracking-wider text-slate-400 uppercase leading-none">
-                  {feature.subtitle}
-                </p>
+                <div>
+                  <h3 className="sm:mt-2 font-display text-xs font-bold text-slate-900 leading-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-0.5 font-mono text-[9px] font-semibold tracking-wider text-slate-400 uppercase leading-none">
+                    {feature.subtitle}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Let's build together callout */}
-          <div className="mt-6 rounded-xl border border-slate-100 bg-slate-50/80 p-4">
+          <div className="mt-5 sm:mt-6 rounded-xl border border-slate-100 bg-slate-50/80 p-4">
             <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold tracking-widest text-slate-500 uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
               LET&apos;S BUILD TOGETHER
@@ -193,9 +193,9 @@ export default function QuickRFQ() {
                 onClick={() => {
                   setIsSuccess(false);
                   setUploadedFile(null);
-                  setFormData({ name: "", company: "", email: "", phone: "", process: "", material: "", quantity: "" });
+                  setFormData({ name: "", company: "", email: "", phone: "", material: "", quantity: "" });
                 }}
-                className="mt-6 inline-flex items-center rounded-lg bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition"
+                className="mt-6 inline-flex min-h-[44px] items-center rounded-lg bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition"
               >
                 Submit Another Request
               </button>
@@ -216,7 +216,7 @@ export default function QuickRFQ() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your full name"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function QuickRFQ() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Company name"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function QuickRFQ() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@company.com"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
@@ -269,39 +269,11 @@ export default function QuickRFQ() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
-              </div>
-
-              {/* Process, Material & Quantity */}
-              <div className="grid grid-cols-1 gap-x-3 gap-y-3 sm:grid-cols-12 pt-1">
-                <div className="sm:col-span-6">
-                  <FieldLabel required htmlFor="rfq-process">Process</FieldLabel>
-                  <div className="relative group">
-                    <select
-                      id="rfq-process"
-                      value={formData.process}
-                      onChange={(e) => setFormData({ ...formData, process: e.target.value })}
-                      required
-                      className="w-full appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-3 pr-8 text-xs sm:text-[13px] text-slate-800 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10 cursor-pointer"
-                    >
-                      <option value="" disabled className="text-slate-400">
-                        Select process
-                      </option>
-                      <option value="forging">Forging</option>
-                      <option value="cnc-machining">CNC Machining</option>
-                      <option value="casting">Casting</option>
-                      <option value="sheet-metal">Sheet Metal Fabrication</option>
-                      <option value="3d-printing">3D Printing</option>
-                      <option value="injection-molding">Injection Molding</option>
-                    </select>
-                    <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-blue-600" />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-3">
+                <div>
                   <FieldLabel htmlFor="rfq-material">Material</FieldLabel>
                   <div className="relative group">
                     <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-blue-600">
@@ -312,13 +284,13 @@ export default function QuickRFQ() {
                       type="text"
                       value={formData.material}
                       onChange={(e) => setFormData({ ...formData, material: e.target.value })}
-                      placeholder="e.g. SS316"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      placeholder="e.g. SS316, Al 6061, EN8"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
 
-                <div className="sm:col-span-3">
+                <div>
                   <FieldLabel required htmlFor="rfq-quantity">Quantity</FieldLabel>
                   <div className="relative group">
                     <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-blue-600">
@@ -330,8 +302,8 @@ export default function QuickRFQ() {
                       required
                       value={formData.quantity}
                       onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                      placeholder="e.g. 500 pcs"
-                      className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-xs sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
+                      placeholder="e.g. 500 pcs or prototypes"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/10"
                     />
                   </div>
                 </div>
@@ -352,10 +324,10 @@ export default function QuickRFQ() {
                 {!uploadedFile ? (
                   <label
                     htmlFor="rfq-file-upload"
-                    className="group flex cursor-pointer items-center justify-between gap-3 rounded-lg border border-dashed border-slate-300 bg-slate-50/60 px-3.5 py-2.5 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50/20"
+                    className="group flex min-h-[44px] cursor-pointer items-center justify-between gap-3 rounded-lg border border-dashed border-slate-300 bg-slate-50/60 px-3.5 py-2.5 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50/20"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-md bg-white text-blue-600 shadow-xs border border-slate-200 transition-transform group-hover:scale-105">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white text-blue-600 shadow-xs border border-slate-200 transition-transform group-hover:scale-105">
                         <UploadCloud className="h-4 w-4" strokeWidth={2} />
                       </div>
                       <p className="text-xs font-medium text-slate-700">
@@ -370,7 +342,7 @@ export default function QuickRFQ() {
                     </span>
                   </label>
                 ) : (
-                  <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50/50 px-3.5 py-2">
+                  <div className="flex min-h-[44px] items-center justify-between rounded-lg border border-blue-200 bg-blue-50/50 px-3.5 py-2">
                     <div className="flex items-center gap-2.5 overflow-hidden">
                       <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-blue-600 text-white">
                         <FileCheck2 className="h-4 w-4" />
@@ -415,7 +387,7 @@ export default function QuickRFQ() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-blue-600/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-600/35 active:scale-[0.99] disabled:opacity-75 cursor-pointer"
+                className="group mt-3 flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-bold text-white shadow-md shadow-blue-600/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-600/35 active:scale-[0.99] disabled:opacity-75 cursor-pointer"
               >
                 {isSubmitting ? (
                   <>

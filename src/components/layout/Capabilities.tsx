@@ -37,13 +37,6 @@ const CAPABILITIES: Capability[] = [
   },
   {
     code: "PRC-005",
-    name: "Injection Molding",
-    poster: "/posters/injection-molding.jpg",
-    gif: "/Gif-Assets/Video_Link_Ready_Now_.gif",
-    href: "/capabilities/injection-molding",
-  },
-  {
-    code: "PRC-006",
     name: "Sheet Metal Fabrication",
     poster: "/posters/sheet-metal.jpg",
     gif: "/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif",
@@ -51,11 +44,11 @@ const CAPABILITIES: Capability[] = [
   },
 ];
 
-function CapabilityCard({ item }: { item: Capability }) {
+function CapabilityCard({ item, className = "" }: { item: Capability; className?: string }) {
   return (
     <a
       href={item.href}
-      className="group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+      className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${className}`}
       aria-label={`${item.code} — ${item.name}`}
     >
       <img
@@ -110,16 +103,27 @@ export default function Capabilities() {
             id="capabilities-heading"
             className="font-display font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
           >
-            <span className="block text-[clamp(26px,3.5vw,44px)]">Six core processes.</span>
+            <span className="block text-[clamp(26px,3.5vw,44px)]">Five core processes.</span>
             <span className="block text-[clamp(26px,3.5vw,44px)] text-blue-600">Endless possibilities.</span>
             <span className="block text-[clamp(26px,3.5vw,44px)]">One accountable supplier.</span>
           </h2>
         </div>
 
-        {/* Card grid */}
+        {/* Row 1: 3 core processes (Casting, Forging, CNC Machining) */}
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CAPABILITIES.map((item) => (
-            <CapabilityCard key={item.code} item={item} />
+          {CAPABILITIES.slice(0, 3).map((item) => (
+            <CapabilityCard key={item.code} item={item} className="aspect-[16/10]" />
+          ))}
+        </div>
+
+        {/* Row 2: 2 core processes (3D Printing, Sheet Metal Fabrication) — Equal width, same height, covering whole row */}
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {CAPABILITIES.slice(3, 5).map((item) => (
+            <CapabilityCard
+              key={item.code}
+              item={item}
+              className="aspect-[16/10] lg:aspect-[24/10]"
+            />
           ))}
         </div>
       </div>
