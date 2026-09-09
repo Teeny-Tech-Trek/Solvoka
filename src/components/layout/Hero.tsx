@@ -60,9 +60,22 @@ function DimensionLine() {
   );
 }
 
-function ArrowIcon({ className = "h-5 w-5" }: { className?: string }) {
+function ArrowIcon({
+  className = "h-5 w-5",
+  direction = "right",
+}: {
+  className?: string;
+  direction?: "left" | "right";
+}) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+      className={`${className} origin-center transition-transform duration-300 ease-out ${
+        direction === "left" ? "rotate-180" : "rotate-0"
+      }`}
+    >
       <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -374,7 +387,7 @@ export default function Hero() {
             aria-label={active === 0 ? "Switch to slide 2" : "Switch to slide 1"}
             className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-md transition-all hover:border-blue-600 hover:bg-blue-600"
           >
-            <ArrowIcon className="h-4 w-4" />
+            <ArrowIcon className="h-4 w-4" direction={active === 1 ? "left" : "right"} />
           </button>
         </div>
       </div>
