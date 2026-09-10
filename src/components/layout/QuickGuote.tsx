@@ -103,6 +103,7 @@ export default function QuickRFQ() {
       id="contact"
       className="relative flex w-full flex-col justify-center overflow-hidden bg-white px-4 sm:px-6 lg:px-10 py-12 sm:py-16 border-t border-slate-100"
     >
+      <div id="quote" className="sr-only" aria-hidden="true" />
       <div className="mx-auto my-auto grid w-full max-w-[1536px] grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
         {/* Left column — Copy & Features (5 cols) */}
         <div className="relative lg:col-span-5 flex flex-col justify-center">

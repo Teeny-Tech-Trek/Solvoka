@@ -1,11 +1,11 @@
 export default function UtilityBar() {
   return (
-    <div className="relative z-40 w-full min-h-[38px] overflow-hidden bg-white border-b border-grey-200 text-black shadow-xs">
-      <div className="mx-auto flex min-h-[38px] max-w-[1536px] flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-6 gap-y-0.5 px-2 sm:px-4 py-1 font-mono text-[10.5px] xs:text-[11px] sm:text-[13px] tracking-wide lg:px-10">
+    <div id="utility-bar" className="relative z-40 w-full h-[38px] overflow-hidden bg-white border-b border-grey-200 text-black shadow-xs">
+      <div className="mx-auto flex h-[38px] max-w-[1536px] flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-6 gap-y-0.5 px-2 sm:px-4 font-mono text-[10.5px] xs:text-[11px] sm:text-[13px] tracking-wide lg:px-10">
         {/* Email */}
         <a
           href="mailto:solvoka@gmail.com"
-          className="flex min-h-[32px] sm:min-h-[36px] items-center gap-1 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
+          className="flex h-[38px] items-center gap-1 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
           aria-label="Email solvoka@gmail.com"
         >
           <svg
@@ -31,7 +31,7 @@ export default function UtilityBar() {
         {/* Phone */}
         <a
           href="tel:+917087086696"
-          className="flex min-h-[36px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
+          className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
           aria-label="Call +91 70870-86696"
         >
           <svg
@@ -58,7 +58,7 @@ export default function UtilityBar() {
           href="https://wa.me/917087086696"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex min-h-[36px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-emerald-600 shrink-0 select-none active:text-emerald-600"
+          className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-emerald-600 shrink-0 select-none active:text-emerald-600"
           aria-label="WhatsApp Business +91 70870-86696"
         >
           <svg

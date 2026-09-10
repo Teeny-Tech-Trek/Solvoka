@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type Capability = {
   code: string;
   name: string;
@@ -46,8 +48,8 @@ const CAPABILITIES: Capability[] = [
 
 function CapabilityCard({ item, className = "" }: { item: Capability; className?: string }) {
   return (
-    <a
-      href={item.href}
+    <Link
+      to={item.href}
       className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${className}`}
       aria-label={`${item.code} — ${item.name}`}
     >
@@ -81,7 +83,7 @@ function CapabilityCard({ item, className = "" }: { item: Capability; className?
           />
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
 

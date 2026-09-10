@@ -72,9 +72,8 @@ function ArrowIcon({
       viewBox="0 0 20 20"
       fill="none"
       aria-hidden="true"
-      className={`${className} origin-center transition-transform duration-300 ease-out ${
-        direction === "left" ? "rotate-180" : "rotate-0"
-      }`}
+      className={`${className} origin-center transition-transform duration-300 ease-out ${direction === "left" ? "rotate-180" : "rotate-0"
+        }`}
     >
       <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -106,13 +105,13 @@ export default function Hero() {
     if (!video) return;
 
     video.muted = true;
-    video.play().catch(() => {});
+    video.play().catch(() => { });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!video) return;
         if (entry.isIntersecting) {
-          video.play().catch(() => {});
+          video.play().catch(() => { });
         } else {
           video.pause();
         }
@@ -154,8 +153,8 @@ export default function Hero() {
   const currentVideoSrc = isMobileScreen
     ? MOBILE_VIDEO_SRC
     : active === 0
-    ? SLIDE_ONE_VIDEO_SRC
-    : SLIDE_TWO_VIDEO_SRC;
+      ? SLIDE_ONE_VIDEO_SRC
+      : SLIDE_TWO_VIDEO_SRC;
 
   return (
     <section

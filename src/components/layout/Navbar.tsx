@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { useLenis } from "./LenisContext";
 
 type NavItem = {
@@ -8,13 +9,13 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Capabilities", href: "/capabilities", hasDropdown: true },
-  { label: "About", href: "/about" },
+  { label: "Capabilities", href: "/#capabilities", hasDropdown: true },
+  { label: "About", href: "/about-us" },
   { label: "Quality", href: "/quality" },
-  { label: "Facility", href: "/facility" },
-  { label: "Case studies", href: "/case-studies" },
-  { label: "Resources", href: "/resources", hasDropdown: true },
-  { label: "Contact", href: "/contact" },
+  // { label: "Facility", href: "/#capabilities" },
+  // { label: "Case studies", href: "/#coordination-model" },
+  { label: "Resources", href: "/#capabilities", hasDropdown: true },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 const CAPABILITIES = [
@@ -26,23 +27,24 @@ const CAPABILITIES = [
 ];
 
 const RESOURCES = [
-  { name: "Materials guide", href: "/resources/materials-guide" },
-  { name: "How we work", href: "/how-we-work" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Careers", href: "/careers" },
+  { name: "Materials guide", href: "/materials" },
+  { name: "Automotive", href: "/automotive" },
+  // { name: "How we work", href: "/#coordination-model" },
+  // { name: "Gallery", href: "/#capabilities" },
+  // { name: "Careers", href: "/#contact" },
 ];
 
-function Logo({ scrolled, mobileOpen }: { scrolled: boolean; mobileOpen: boolean }) {
+function Logo({ scrolled, mobileOpen, darkSolid = false, light = false }: { scrolled: boolean; mobileOpen: boolean; darkSolid?: boolean; light?: boolean }) {
   return (
-    <a href="/" className="flex items-center gap-3 shrink-0" aria-label="Solvoka home">
+    <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Solvoka home">
       <span
         className={`font-display text-[22px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${
-          mobileOpen || !scrolled ? "text-white" : "text-navy-800"
+          mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"
         }`}
       >
         SOLVOKA
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -61,7 +63,7 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ darkSolid = false, light = false }: { darkSolid?: boolean; light?: boolean } = {}) {
   const lenis = useLenis();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -101,24 +103,30 @@ export default function Navbar() {
     setMobileExpanded((prev) => ({ ...prev, [label]: !prev[label] }));
   };
 
-  // Scroll listener for sticky header top offset
+  // Scroll & resize listener for sticky header top offset synced with UtilityBar
   useEffect(() => {
     let ticking = false;
-    const onScroll = () => {
+    const updateHeader = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
+          const uBar = document.getElementById("utility-bar");
+          const uBarHeight = uBar ? uBar.offsetHeight : 38;
           const y = window.scrollY;
-          setHeaderTop(Math.max(0, 38 - y));
-          setScrolled(y > 38);
+          setHeaderTop(Math.max(0, uBarHeight - y));
+          setScrolled(y > uBarHeight);
           ticking = false;
         });
         ticking = true;
       }
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", updateHeader, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", updateHeader);
+      window.removeEventListener("resize", updateHeader);
+    };
   }, []);
 
   // ESC key listener to close menus
@@ -161,17 +169,20 @@ export default function Navbar() {
       )}
 
       <header
-        className={`fixed inset-x-0 z-50 w-full shrink-0 backdrop-blur-md transition-all duration-300 ${
-          mobileOpen
-            ? "border-b border-navy-800 bg-navy-950 text-white shadow-md"
-            : scrolled
+        className={`fixed inset-x-0 z-50 w-full shrink-0 backdrop-blur-md transition-all duration-300 ${mobileOpen
+          ? "border-b border-navy-800 bg-navy-950 text-white shadow-md"
+          : scrolled
             ? "border-b border-grey-200 bg-white/95 shadow-sm"
-            : "border-b border-white/10 bg-navy-950/20"
-        }`}
+            : light
+              ? "border-b border-slate-200 bg-white/95 text-slate-900 shadow-xs"
+              : darkSolid
+                ? "border-b border-navy-800 bg-navy-950 text-white shadow-md"
+                : "border-b border-white/10 bg-navy-950/20"
+          }`}
         style={{ top: `${headerTop}px` }}
       >
         <div className="mx-auto flex h-[68px] w-full max-w-[1536px] items-center justify-between px-4 sm:px-6 lg:px-10">
-          <Logo scrolled={scrolled} mobileOpen={mobileOpen} />
+          <Logo scrolled={scrolled} mobileOpen={mobileOpen} darkSolid={darkSolid} light={light} />
 
           {/* Desktop navigation */}
           <nav className="hidden items-center gap-4 xl:flex 2xl:gap-8" aria-label="Main Navigation">
@@ -192,26 +203,36 @@ export default function Navbar() {
                   }
                 }}
               >
-                <a
-                  href={item.href}
-                  onClick={(e) => {
-                    if (item.hasDropdown) {
+                {item.hasDropdown ? (
+                  <button
+                    type="button"
+                    onClick={(e) => {
                       e.preventDefault();
                       clearCloseTimeout();
                       setOpenMenu((prev) => (prev === item.label ? null : item.label));
-                    }
-                  }}
-                  className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-amber-500 2xl:text-[16px] ${
-                    scrolled ? "text-navy-800" : "text-white"
-                  }`}
-                  aria-expanded={item.hasDropdown ? openMenu === item.label : undefined}
-                  aria-haspopup={item.hasDropdown ? "true" : undefined}
-                >
-                  {item.label}
-                  {item.hasDropdown && <Chevron open={openMenu === item.label} />}
-                </a>
+                    }}
+                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${
+                      scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                    }`}
+                    aria-expanded={openMenu === item.label}
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <Chevron open={openMenu === item.label} />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    onClick={closeImmediately}
+                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${
+                      scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
                 <span
-                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-amber-500 transition-all duration-200 ${
+                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-blue-600 transition-all duration-200 ${
                     openMenu === item.label ? "w-full" : "w-0"
                   }`}
                 />
@@ -221,20 +242,18 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-4 xl:flex 2xl:gap-7">
             <span
-              className={`h-9 w-px transition-colors duration-300 ${
-                scrolled ? "bg-grey-200" : "bg-white/30"
-              }`}
+              className={`h-9 w-px transition-colors duration-300 ${scrolled || light ? "bg-slate-200" : "bg-white/30"}`}
               aria-hidden="true"
             />
-            <a
-              href="/request-a-quote"
-              className="group inline-flex h-[48px] items-center gap-2.5 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 2xl:h-[52px] 2xl:px-8 2xl:text-[16px]"
+            <Link
+              to="/#contact"
+              className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
             >
-              Get a quote
+              Request a Quote
               <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
                 →
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu toggle */}
@@ -262,9 +281,9 @@ export default function Navbar() {
             >
               <div className="flex flex-col px-10 py-6">
                 {CAPABILITIES.map((c) => (
-                  <a
+                  <Link
                     key={c.code}
-                    href={c.href}
+                    to={c.href}
                     onClick={closeImmediately}
                     className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-700 py-3.5 transition-colors hover:border-amber-500"
                   >
@@ -279,18 +298,18 @@ export default function Navbar() {
                     <span className="font-sans text-[13px] leading-relaxed text-slate-300">
                       {c.desc}
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div className="border-t border-navy-700 bg-navy-950/50">
                 <div className="flex items-center gap-8 px-10 py-4">
-                  <a
-                    href="/capabilities"
+                  <Link
+                    to="/#capabilities"
                     onClick={closeImmediately}
                     className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-400"
                   >
                     View all capabilities →
-                  </a>
+                  </Link>
                   <a
                     href="/facility"
                     onClick={closeImmediately}
@@ -315,9 +334,9 @@ export default function Navbar() {
             >
               <div className="flex flex-col px-10 py-6">
                 {RESOURCES.map((r) => (
-                  <a
+                  <Link
                     key={r.name}
-                    href={r.href}
+                    to={r.href}
                     onClick={closeImmediately}
                     className="group flex items-center justify-between border-b border-navy-700 py-4 font-sans transition-colors hover:border-amber-500"
                   >
@@ -327,7 +346,7 @@ export default function Navbar() {
                     <span className="font-sans text-[13px] text-slate-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-amber-500">
                       Explore →
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -369,17 +388,17 @@ export default function Navbar() {
                       <div className="mt-1 flex flex-col gap-1 pl-3 pb-2 border-l-2 border-amber-500/40">
                         {item.label === "Capabilities" && (
                           <>
-                            <a
-                              href="/capabilities"
+                            <Link
+                              to="/#capabilities"
                               onClick={() => setMobileOpen(false)}
                               className="flex min-h-[42px] items-center py-2 text-[14px] font-semibold text-amber-500 hover:text-amber-400"
                             >
                               View all capabilities →
-                            </a>
+                            </Link>
                             {CAPABILITIES.map((c) => (
-                              <a
+                              <Link
                                 key={c.code}
-                                href={c.href}
+                                to={c.href}
                                 onClick={() => setMobileOpen(false)}
                                 className="flex min-h-[44px] flex-col justify-center py-2 text-slate-200 transition-colors hover:text-amber-400"
                               >
@@ -394,7 +413,7 @@ export default function Navbar() {
                                 <span className="font-sans text-[12px] text-slate-400 line-clamp-1">
                                   {c.desc}
                                 </span>
-                              </a>
+                              </Link>
                             ))}
                           </>
                         )}
@@ -402,14 +421,14 @@ export default function Navbar() {
                         {item.label === "Resources" && (
                           <>
                             {RESOURCES.map((r) => (
-                              <a
+                              <Link
                                 key={r.name}
-                                href={r.href}
+                                to={r.href}
                                 onClick={() => setMobileOpen(false)}
                                 className="flex min-h-[44px] items-center py-2 text-[15px] text-slate-200 transition-colors hover:text-amber-400"
                               >
                                 {r.name}
-                              </a>
+                              </Link>
                             ))}
                           </>
                         )}
@@ -420,26 +439,26 @@ export default function Navbar() {
               }
 
               return (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setMobileOpen(false)}
                   className="flex min-h-[48px] items-center py-3 font-sans text-[17px] font-semibold text-white transition-colors hover:text-amber-500 active:text-amber-400"
                 >
                   {item.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
 
           <div className="pt-6 pb-2">
-            <a
-              href="/request-a-quote"
+            <Link
+              to="/#contact"
               onClick={() => setMobileOpen(false)}
               className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-blue-600 font-sans text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-blue-700 active:scale-[0.99]"
             >
               Get a quote <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       )}

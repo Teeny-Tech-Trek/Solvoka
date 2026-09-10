@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, Factory, Network, Shield } from "lucide-react";
 
 export default function NetworkTeaser() {
@@ -43,13 +44,13 @@ export default function NetworkTeaser() {
 
             {/* About Solvoka Button */}
             <div className="mt-5 sm:mt-6">
-              <a
-                href="/about"
+              <Link
+                to="/about-us"
                 className="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-600/35 active:scale-[0.99]"
               >
                 <span>About Solvoka</span>
                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-              </a>
+              </Link>
             </div>
 
             {/* Stats / Value Highlights: 1 column on mobile, 3 columns on tablet/desktop */}
