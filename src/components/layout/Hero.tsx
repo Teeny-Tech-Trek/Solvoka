@@ -223,7 +223,7 @@ export default function Hero() {
                       One Supplier.
                     </span>
                     <span data-hero-reveal className="block text-[clamp(26px,6vw,58px)] font-bold">
-                      Six Processes.
+                      Five Processes.
                     </span>
                     <span
                       data-hero-reveal

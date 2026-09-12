@@ -16,6 +16,13 @@ import {
     Search,
     SlidersHorizontal,
     CheckCircle2,
+    Download,
+    ShieldCheck,
+    FileText,
+    Sparkles,
+    Layers,
+    Cpu,
+    Gauge,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -469,6 +476,69 @@ function MetallurgyLatticeGraphic() {
     );
 }
 
+/** Custom 3-layer stack icon */
+function LayerStackIcon({ className = "h-7 w-7" }: { className?: string }) {
+    return (
+        <svg
+            className={className}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+            <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5" />
+            <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5" />
+        </svg>
+    );
+}
+
+/** Custom threaded bolt / fastener icon */
+function ThreadedFastenerIcon({ className = "h-7 w-7" }: { className?: string }) {
+    return (
+        <svg
+            className={className}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <path d="m14.5 4.5 5 5-2.5 2.5-5-5z" />
+            <path d="m12 7-8 8 2.5 2.5 8-8" />
+            <path d="m10.5 8.5 2 2" />
+            <path d="m8.5 10.5 2 2" />
+            <path d="m6.5 12.5 2 2" />
+            <path d="m4.5 14.5 2 2" />
+            <path d="m4 15-1.5 1.5 1 2 2 1L8 18" />
+        </svg>
+    );
+}
+
+/** Custom green verification shield icon */
+function VerifiedShieldIcon({ className = "h-7 w-7" }: { className?: string }) {
+    return (
+        <svg
+            className={className}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+        </svg>
+    );
+}
+
 /* ------------------------------------------------------------------ */
 /* Main Materials Page Component                                      */
 /* ------------------------------------------------------------------ */
@@ -502,138 +572,217 @@ export default function MaterialsPage() {
     return (
         <main className="w-full bg-[#FAF9F7] text-slate-900 selection:bg-orange-500 selection:text-white">
             {/* ========================================================== */}
-            {/* 1. HERO SECTION — Architectural, Dark & Metallurgical     */}
+            {/* 1. HERO — Precise pixel-perfect replica of reference mockup */}
             {/* ========================================================== */}
-            <section className="relative overflow-hidden bg-slate-950 pt-28 pb-20 lg:pt-36 lg:pb-28 text-white border-b border-slate-800">
-                {/* Subtle technical background grid */}
+            <section
+                className="relative flex w-full flex-col justify-between overflow-hidden bg-cover bg-center bg-no-repeat min-h-[680px] sm:min-h-[740px] lg:aspect-[1672/941] lg:min-h-0 pt-20 sm:pt-24 lg:pt-20 xl:pt-24 pb-6 sm:pb-8 lg:pb-8 xl:pb-10"
+                style={{ backgroundImage: "url('/images/Material-Guide/MaterialGuide-HeroImage.png')" }}
+                aria-label="Certified Materials, Process By Process"
+            >
+                {/* Desktop Absolute Inscriptions on Pedestal & Dark Block */}
+                {/* White round pedestal rim text */}
                 <div
-                    aria-hidden="true"
-                    className="absolute inset-0 opacity-[0.035] pointer-events-none"
-                    style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
-                        backgroundSize: "28px 28px",
-                    }}
-                />
+                    className="pointer-events-none absolute hidden lg:block select-none z-10"
+                    style={{ left: "54.6%", top: "71.6%", transform: "rotate(-1.5deg)" }}
+                >
+                    <span className="font-mono text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700/80">
+                        FROM RAW MATERIAL &nbsp;→&nbsp; VERIFIED QUALITY &nbsp;→&nbsp; FINISHED COMPONENT
+                    </span>
+                </div>
 
-                {/* Subtle radial ambient glows */}
+                {/* Dark block front text */}
                 <div
-                    aria-hidden="true"
-                    className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-orange-600/10 blur-[120px] pointer-events-none"
-                />
-                <div
-                    aria-hidden="true"
-                    className="absolute bottom-0 right-10 h-80 w-80 rounded-full bg-blue-600/10 blur-[100px] pointer-events-none"
-                />
+                    className="pointer-events-none absolute hidden lg:block select-none z-10"
+                    style={{ left: "53.5%", top: "83.2%" }}
+                >
+                    <div className="font-mono text-[11px] xl:text-[12px] font-semibold uppercase tracking-[0.25em] text-slate-400/90 leading-tight">
+                        <div>ENGINEERED</div>
+                        <div className="mt-1">AT THE ATOMIC LEVEL</div>
+                    </div>
+                </div>
 
-                <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-16 w-full">
-                    {/* Breadcrumbs with clean engineering markers */}
-                    <div className="mb-8 flex items-center gap-2 font-mono text-[11px] text-slate-400">
-                        <Link to="/" className="transition-colors hover:text-orange-400">
-                            HOME
-                        </Link>
-                        <ChevronRight className="h-3 w-3 text-slate-600" />
-                        <span className="text-orange-500 font-semibold tracking-wider">
-                            MATERIALS &amp; METALLURGY
-                        </span>
+                <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-1 flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20">
+                    {/* Top Row: Breadcrumb & Material Science in Action Callout */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        {/* Breadcrumbs */}
+                        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-500">
+                            <Link to="/" className="transition-colors hover:text-slate-900">
+                                Home
+                            </Link>
+                            <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                            <span className="font-semibold text-slate-900">Materials &amp; Metallurgy</span>
+                        </nav>
+
+                        {/* Top Right: Material Science in Action with orange vertical accent */}
+                        <div className="flex items-center gap-3 self-end sm:self-auto">
+                            <div className="h-10 sm:h-11 w-[2.5px] bg-[#ff5500]" />
+                            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 leading-[1.35]">
+                                <div>MATERIAL</div>
+                                <div>SCIENCE</div>
+                                <div>IN ACTION</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-                        {/* Hero text column */}
-                        <div className="lg:col-span-7">
-                            <SectionMark label="CERTIFIED METALLURGICAL CAPABILITY" tone="light" />
+                    {/* Middle Row: Main Editorial Content */}
+                    <div className="relative mt-3 sm:mt-5 lg:mt-6 mb-auto pb-4 max-w-xl lg:max-w-2xl xl:max-w-[620px]">
+                        {/* Pure borderless white blur fade behind text */}
+                        <div
+                            className="pointer-events-none absolute -inset-x-8 -inset-y-10 z-0 overflow-visible select-none"
+                            aria-hidden="true"
+                        >
+                            <div
+                                className="h-full w-full"
+                                style={{
+                                    background:
+                                        "radial-gradient(ellipse 90% 80% at 30% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.80) 45%, rgba(255,255,255,0.2) 75%, transparent 100%)",
+                                    filter: "blur(36px)",
+                                }}
+                            />
+                        </div>
 
-                            <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.08]">
-                                Certified Materials, <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-white">
-                                    Process By Process.
+                        <div className="relative z-10">
+                            {/* Eyebrow Kicker */}
+                            <div className="flex items-center gap-3">
+                                <span className="h-[2.5px] w-7 bg-[#ff5500]" />
+                                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                                    CERTIFIED METALLURGICAL CAPABILITY
                                 </span>
+                            </div>
+
+                            {/* Main Title */}
+                            <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-extrabold tracking-tight text-[#0a1128] leading-[1.04]">
+                                Certified
+                                <span className="block">Materials,</span>
+                                <span className="block text-[#ff5500]">Process By Process.</span>
                             </h1>
 
-                            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-slate-300 sm:text-lg">
-                                We state our exact certified material scope for each manufacturing process by
-                                verified metallurgical grade — not as an ambiguous blanket claim. Where geometries
-                                or non-standard alloys require custom qualification, we test and verify directly
-                                against your drawing at quote time.
+                            {/* Subtext description: backdrop blur specifically behind this text only */}
+                            <p className="mt-4 max-w-xl font-sans text-sm sm:text-base leading-relaxed text-slate-900 backdrop-blur-md bg-white/40 rounded-xl p-3 sm:p-4 border border-white/30 shadow-xs">
+                                We state our exact certified material scope for each manufacturing process by verified metallurgical grade — not as an ambiguous blanket claim. Where geometries or non-standard alloys require custom qualification, we test and verify directly against your drawing at quote time.
                             </p>
 
-                            {/* Engineering Quick Metrics ribbon */}
-                            <div className="mt-10 grid grid-cols-2 gap-4 border-t border-slate-800 pt-8 sm:grid-cols-3 sm:gap-6">
-                                <div>
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        STANDARDS COMPLIANCE
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-white tabular">
-                                        ISO / DIN / ASTM
-                                    </span>
-                                    <span className="text-[11px] text-slate-400">Enforced mill certs</span>
+                            {/* The Three Inspection Badges Strip */}
+                            <div className="mt-7 flex flex-wrap items-center gap-y-4 sm:gap-y-0">
+                                {/* Badge 1: ISO / DIN / ASTM */}
+                                <div className="flex items-center gap-3 pr-4 sm:pr-6">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#ff5500]">
+                                        <LayerStackIcon className="h-7 w-7" />
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-sm font-bold text-slate-900 leading-tight">
+                                            ISO / DIN / ASTM
+                                        </div>
+                                        <div className="mt-0.5 text-[11px] font-medium leading-tight text-slate-500">
+                                            <div>International Grade</div>
+                                            <div>Compliance</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        FASTENER THREAD RANGE
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-orange-400 tabular">
-                                        M2 — M64
-                                    </span>
-                                    <span className="text-[11px] text-slate-400">Up to 3m threaded rods</span>
+
+                                {/* Divider */}
+                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
+
+                                {/* Badge 2: M2 — M64 */}
+                                <div className="flex items-center gap-3 px-0 sm:px-6">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#0284c7]">
+                                        <ThreadedFastenerIcon className="h-7 w-7" />
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-sm font-bold text-slate-900 leading-tight">
+                                            M2 — M64
+                                        </div>
+                                        <div className="mt-0.5 text-[11px] font-medium leading-tight text-slate-500">
+                                            <div>Fastener Thread Range</div>
+                                            <div>Up to 3m component size</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-span-2 sm:col-span-1">
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        TRACEABILITY
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-white tabular">
-                                        3.1 Heat Trace
-                                    </span>
-                                    <span className="text-[11px] text-slate-400">Spectro test reports</span>
+
+                                {/* Divider */}
+                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
+
+                                {/* Badge 3: 3.1 Heat Trace */}
+                                <div className="flex items-center gap-3 pl-0 sm:pl-6">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#16a34a]">
+                                        <VerifiedShieldIcon className="h-7 w-7" />
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-sm font-bold text-slate-900 leading-tight">
+                                            3.1 Heat Trace
+                                        </div>
+                                        <div className="mt-0.5 text-[11px] font-medium leading-tight text-slate-500">
+                                            <div>Full Traceability</div>
+                                            <div>Spectrum test reports</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Hero Graphic / Lattice column */}
-                        <div className="lg:col-span-5 flex flex-col items-center justify-center">
-                            <div className="relative w-full rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-sm">
-                                <MetallurgyLatticeGraphic />
+                            {/* Action Buttons */}
+                            <div className="mt-7 flex flex-wrap items-center gap-6 sm:gap-8">
+                                <a
+                                    href="#materials-matrix"
+                                    className="inline-flex items-center gap-2 rounded-lg bg-[#ff5500] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition-all hover:bg-[#e04a00] hover:shadow-orange-500/35 active:translate-y-0.5"
+                                >
+                                    Explore Material Capabilities
+                                    <ArrowRight className="h-4 w-4" />
+                                </a>
 
-                                <div className="mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3 text-[11px] font-mono text-slate-400">
-                                    <span className="flex items-center gap-1.5">
-                                        <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                                        MTR Mill Test Reports Included
+                                {/* <a
+                                    href="#standards-download"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const el = document.getElementById("standards-table") || document.getElementById("materials-matrix");
+                                        el?.scrollIntoView({ behavior: "smooth" });
+                                    }}
+                                    className="group inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition-colors hover:text-[#ff5500]"
+                                >
+                                    <span className="border-b border-slate-900 pb-0.5 transition-colors group-hover:border-[#ff5500]">
+                                        Download Standards List
                                     </span>
-                                    <span className="text-orange-400">DIN 50049 / EN 10204</span>
-                                </div>
+                                    <Download className="h-4 w-4 text-[#ff5500] transition-transform group-hover:translate-y-0.5" />
+                                </a> */}
                             </div>
                         </div>
+                    </div>
+
+                    {/* Bottom Row: Tagline */}
+                    <div className="flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                        <span className="h-px w-8 bg-slate-400/80" />
+                        <span>MATERIALS TODAY. STRONGER TOMORROW.</span>
                     </div>
                 </div>
             </section>
 
             {/* ========================================================== */}
             {/* 2. THE METALLURGY MATRIX (Materials, By Process)           */}
-            {/* Editorial open layout with zero generic card-grid boxes    */}
+            {/* Editorial open layout with bespoke architectural cards     */}
             {/* ========================================================== */}
-            <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+            <section id="materials-matrix" className="py-20 lg:py-28 bg-white border-b border-slate-200">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     {/* Section Header */}
-                    <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                         <div>
                             <SectionMark label="MANUFACTURING SCOPE" />
-                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[42px]">
                                 Materials By Manufacturing Process
                             </h2>
-                            <p className="mt-2 max-w-2xl font-sans text-sm text-slate-600 sm:text-base">
-                                Select any process to examine verified raw stock, alloy grades, and mechanical
-                                integrity guarantees.
+                            <p className="mt-3 max-w-2xl font-sans text-sm text-slate-600 sm:text-base leading-relaxed">
+                                Select any manufacturing process cluster to inspect verified raw stock billets, 
+                                certified alloy grades, and metallurgical integrity guarantees.
                             </p>
                         </div>
 
                         {/* Process Quick Filter Bar */}
-                        <div className="flex flex-wrap items-center gap-1.5 pt-2">
+                        <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-slate-200/80 bg-[#FAF9F7] p-1.5 shadow-xs">
                             <button
                                 type="button"
                                 onClick={() => setActiveProcessFilter(null)}
-                                className={`rounded-full px-3.5 py-1.5 font-mono text-xs font-semibold transition-all ${
+                                className={`rounded-xl px-4 py-2 font-mono text-xs font-semibold transition-all ${
                                     activeProcessFilter === null
-                                        ? "bg-slate-900 text-white shadow-sm"
-                                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                        ? "bg-slate-900 text-white shadow-md shadow-slate-900/10"
+                                        : "text-slate-600 hover:text-slate-900 hover:bg-white"
                                 }`}
                             >
                                 All Processes
@@ -647,10 +796,10 @@ export default function MaterialsPage() {
                                             activeProcessFilter === g.process ? null : g.process
                                         )
                                     }
-                                    className={`rounded-full px-3.5 py-1.5 font-mono text-xs font-semibold transition-all ${
+                                    className={`rounded-xl px-4 py-2 font-mono text-xs font-semibold transition-all ${
                                         activeProcessFilter === g.process
-                                            ? "bg-orange-600 text-white shadow-sm"
-                                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                            ? "bg-[#ff5500] text-white shadow-md shadow-orange-500/20"
+                                            : "text-slate-600 hover:text-slate-900 hover:bg-white"
                                     }`}
                                 >
                                     {g.process}
@@ -659,44 +808,47 @@ export default function MaterialsPage() {
                         </div>
                     </div>
 
-                    {/* Editorial Process Ledger (No generic card grid!) */}
-                    <div className="mt-12 divide-y divide-slate-200 border-y border-slate-200">
+                    {/* Editorial Process Cards */}
+                    <div className="mt-12 space-y-6">
                         {displayedMaterialGroups.map((group) => {
                             const IconComponent = group.icon;
                             return (
                                 <article
                                     key={group.process}
-                                    className="group relative py-10 transition-colors duration-300 hover:bg-[#FAF9F7]/60"
+                                    className="group relative rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-9 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.08)] hover:border-orange-300 transition-all duration-300 overflow-hidden"
                                 >
-                                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start lg:gap-10">
+                                    {/* Top accent line on hover */}
+                                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
                                         {/* Column 1: Index + Process Identity */}
                                         <div className="lg:col-span-4">
                                             <div className="flex items-center gap-3">
-                                                <span className="font-mono text-xs font-bold text-orange-600 tabular">
+                                                <span className="font-mono text-xs font-bold text-orange-600 tabular bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60">
                                                     {group.number}
                                                 </span>
-                                                <span className="h-px w-6 bg-orange-300" />
+                                                <span className="h-px w-6 bg-orange-200" />
                                                 <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                                                     PROCESS CLUSTER
                                                 </span>
                                             </div>
 
-                                            <div className="mt-2.5 flex items-center gap-3">
-                                                <span className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-orange-50 text-orange-600 ring-1 ring-orange-200/60">
-                                                    <IconComponent className="h-5 w-5" strokeWidth={1.8} />
+                                            <div className="mt-3.5 flex items-center gap-3.5">
+                                                <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-orange-50 text-[#ff5500] ring-1 ring-orange-200/70 group-hover:bg-[#ff5500] group-hover:text-white transition-all duration-300">
+                                                    <IconComponent className="h-6 w-6" strokeWidth={1.8} />
                                                 </span>
-                                                <h3 className="font-display text-2xl font-bold text-slate-900">
+                                                <h3 className="font-display text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                                                     {group.process}
                                                 </h3>
                                             </div>
 
-                                            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                                            <p className="mt-3 text-sm leading-relaxed text-slate-600">
                                                 {group.tagline}
                                             </p>
 
                                             <Link
                                                 to={group.href}
-                                                className="mt-4 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-orange-600 transition-all group-hover:text-orange-700"
+                                                className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-orange-600 transition-all group-hover:text-orange-700"
                                             >
                                                 <span>View Full {group.process} Specs</span>
                                                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -705,16 +857,19 @@ export default function MaterialsPage() {
 
                                         {/* Column 2: Metallurgical Grades & Scope */}
                                         <div className="lg:col-span-5">
-                                            <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                                                CONFIRMED ALLOY SCOPE &amp; DESIGNATIONS
-                                            </span>
+                                            <div className="flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-[#ff5500]" />
+                                                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                                    CONFIRMED ALLOY SCOPE &amp; DESIGNATIONS
+                                                </span>
+                                            </div>
 
                                             {group.materials.length > 0 ? (
-                                                <div className="mt-3 flex flex-wrap gap-2">
+                                                <div className="mt-3.5 flex flex-wrap gap-2">
                                                     {group.materials.map((m) => (
                                                         <span
                                                             key={m}
-                                                            className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs font-semibold text-slate-800 shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+                                                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/90 bg-[#FAF9F7] px-3 py-1.5 font-mono text-xs font-semibold text-slate-800 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:border-orange-300 hover:bg-white hover:text-orange-600 transition-all"
                                                         >
                                                             <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                                                             {m}
@@ -724,48 +879,61 @@ export default function MaterialsPage() {
                                             ) : null}
 
                                             {group.note ? (
-                                                <div className="mt-3 rounded-lg border border-amber-200/80 bg-amber-50/70 p-3 text-xs leading-relaxed text-amber-900">
-                                                    <span className="font-semibold">Note: </span>
-                                                    {group.note}
+                                                <div className="mt-4 rounded-xl border border-amber-200/90 bg-amber-50/70 p-3.5 text-xs leading-relaxed text-amber-900 flex items-start gap-2.5">
+                                                    <span className="font-bold text-amber-700 uppercase font-mono text-[10px] tracking-wider px-1.5 py-0.5 rounded bg-amber-200/70">
+                                                        Note
+                                                    </span>
+                                                    <span>{group.note}</span>
                                                 </div>
                                             ) : null}
 
-                                            {/* Visual Gauge for Sheet Metal */}
+                                            {/* Calibrated Visual Gauge for Sheet Metal */}
                                             {group.process.toLowerCase().includes("sheet metal") && (
-                                                <div className="mt-4 border-t border-dashed border-slate-200 pt-3">
-                                                    <div className="flex justify-between font-mono text-[10px] text-slate-500">
-                                                        <span>MIN 1.0 mm (Thin Sheet)</span>
-                                                        <span className="font-bold text-slate-800">
-                                                            THICKNESS CAPABILITY
+                                                <div className="mt-5 rounded-xl border border-slate-200/80 bg-[#FAF9F7] p-4">
+                                                    <div className="flex justify-between items-center font-mono text-[10px] text-slate-500">
+                                                        <span className="font-semibold text-slate-700">1.0 mm (Thin Sheet)</span>
+                                                        <span className="font-bold uppercase tracking-wider text-orange-600">
+                                                            THICKNESS CAPABILITY RANGE
                                                         </span>
-                                                        <span>MAX 20.0 mm (Heavy Plate)</span>
+                                                        <span className="font-semibold text-slate-700">20.0 mm (Heavy Plate)</span>
                                                     </div>
-                                                    <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
-                                                        <div className="h-full w-full bg-gradient-to-r from-orange-400 via-amber-400 to-orange-600" />
+                                                    <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+                                                        <div className="h-full w-full bg-gradient-to-r from-orange-400 via-amber-400 to-[#ff5500]" />
+                                                    </div>
+                                                    <div className="mt-2 flex justify-between font-mono text-[9px] text-slate-400">
+                                                        <span>Laser Cutting</span>
+                                                        <span>CNC Punching</span>
+                                                        <span>Precision Bending</span>
+                                                        <span>Heavy Stamping</span>
                                                     </div>
                                                 </div>
                                             )}
                                         </div>
 
                                         {/* Column 3: Quality & Process Benchmarks */}
-                                        <div className="lg:col-span-3 border-t border-slate-100 pt-4 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0">
-                                            <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                                                PROCESS BENCHMARKS
-                                            </span>
-                                            {group.specs && (
-                                                <dl className="mt-3 space-y-3">
-                                                    {group.specs.map((sp) => (
-                                                        <div key={sp.label}>
-                                                            <dt className="text-[11px] font-medium text-slate-500">
-                                                                {sp.label}
-                                                            </dt>
-                                                            <dd className="font-mono text-xs font-semibold text-slate-900 tabular">
-                                                                {sp.val}
-                                                            </dd>
-                                                        </div>
-                                                    ))}
-                                                </dl>
-                                            )}
+                                        <div className="lg:col-span-3">
+                                            <div className="rounded-xl border border-slate-200/80 bg-[#FAF9F7] p-5">
+                                                <div className="flex items-center gap-2">
+                                                    <Gauge className="h-3.5 w-3.5 text-orange-500" />
+                                                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                                                        PROCESS BENCHMARKS
+                                                    </span>
+                                                </div>
+                                                {group.specs && (
+                                                    <dl className="mt-3.5 space-y-3 divide-y divide-slate-200/70">
+                                                        {group.specs.map((sp) => (
+                                                            <div key={sp.label} className="pt-2.5 first:pt-0">
+                                                                <dt className="text-[11px] font-medium text-slate-500">
+                                                                    {sp.label}
+                                                                </dt>
+                                                                <dd className="mt-0.5 font-mono text-xs font-bold text-slate-900 tabular">
+                                                                    {sp.val}
+                                                                </dd>
+                                                            </div>
+                                                        ))}
+                                                    </dl>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -781,63 +949,69 @@ export default function MaterialsPage() {
             {/* ========================================================== */}
             <section className="py-20 lg:py-28 bg-[#FAF9F7]">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
-                    <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                         <div>
                             <SectionMark label="ENGINEERED PRODUCT CATALOGUE" />
-                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[42px]">
                                 Fasteners &amp; Scaffolding Hardware
                             </h2>
-                            <p className="mt-2 max-w-2xl text-sm text-slate-600 sm:text-base">
-                                Standard catalog items and precision drawing-based specials with certified
-                                metallurgy, dimensions, and testing standards.
+                            <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base leading-relaxed">
+                                Standard catalog components and drawing-based custom specials with certified
+                                metallurgy, precision dimensions, and stage-wise testing standards.
                             </p>
                         </div>
 
                         {/* Clean Tab Segment Switcher */}
-                        <div className="inline-flex rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
+                        <div className="inline-flex rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm">
                             <button
                                 type="button"
                                 onClick={() => setCatalogueTab("fasteners")}
-                                className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 font-mono text-xs font-semibold tracking-wide transition-all ${
+                                className={`inline-flex items-center gap-2.5 rounded-xl px-5 py-2.5 font-mono text-xs font-bold tracking-wide transition-all ${
                                     catalogueTab === "fasteners"
-                                        ? "bg-slate-900 text-white shadow-xs"
-                                        : "text-slate-600 hover:text-slate-900"
+                                        ? "bg-slate-900 text-white shadow-md"
+                                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                                 }`}
                             >
-                                <Wrench className="h-3.5 w-3.5" strokeWidth={2} />
-                                FASTENERS &amp; HARDWARE
+                                <Wrench className="h-4 w-4" strokeWidth={2} />
+                                <span>FASTENERS &amp; HARDWARE</span>
+                                <span className="ml-1 rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-orange-300">
+                                    {fastenerItems.length}
+                                </span>
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setCatalogueTab("scaffolding")}
-                                className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 font-mono text-xs font-semibold tracking-wide transition-all ${
+                                className={`inline-flex items-center gap-2.5 rounded-xl px-5 py-2.5 font-mono text-xs font-bold tracking-wide transition-all ${
                                     catalogueTab === "scaffolding"
-                                        ? "bg-slate-900 text-white shadow-xs"
-                                        : "text-slate-600 hover:text-slate-900"
+                                        ? "bg-slate-900 text-white shadow-md"
+                                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                                 }`}
                             >
-                                <Building2 className="h-3.5 w-3.5" strokeWidth={2} />
-                                SCAFFOLDING STEEL
+                                <Building2 className="h-4 w-4" strokeWidth={2} />
+                                <span>SCAFFOLDING STEEL</span>
+                                <span className="ml-1 rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-orange-300">
+                                    {scaffoldingItems.length}
+                                </span>
                             </button>
                         </div>
                     </div>
 
                     {/* Search & Filter Bar */}
-                    <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 pb-6">
+                    <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/90 pb-6">
                         <div className="relative w-full max-w-md">
                             <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                             <input
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search by bolt name, grade (10.9), DIN spec, or material..."
-                                className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 font-sans text-xs text-slate-900 placeholder:text-slate-400 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 shadow-xs"
+                                placeholder="Search by name, grade (10.9), DIN spec, or material..."
+                                className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-16 font-sans text-xs text-slate-900 placeholder:text-slate-400 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 shadow-xs"
                             />
                             {searchQuery && (
                                 <button
                                     type="button"
                                     onClick={() => setSearchQuery("")}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[10px] text-slate-400 hover:text-slate-700"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-[10px] font-bold text-slate-400 hover:text-slate-700 bg-slate-100 px-2 py-0.5 rounded"
                                 >
                                     CLEAR
                                 </button>
@@ -847,20 +1021,20 @@ export default function MaterialsPage() {
                         <div className="flex items-center gap-3 font-mono text-xs text-slate-500">
                             <SlidersHorizontal className="h-3.5 w-3.5 text-orange-500" />
                             <span>
-                                Showing <strong className="text-slate-900">{activeItems.length}</strong> confirmed items
+                                Showing <strong className="text-slate-900 font-bold">{activeItems.length}</strong> confirmed items
                             </span>
                         </div>
                     </div>
 
-                    {/* Catalogue Items: Open Spec Sheet Layout (No box-based repetition!) */}
+                    {/* Catalogue Items: Elevated Spec Sheet Cards */}
                     <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {activeItems.map((item) => (
                             <div
                                 key={item.name}
-                                className={`group relative flex flex-col justify-between rounded-xl border bg-white p-6 transition-all duration-300 hover:shadow-lg ${
+                                className={`group relative flex flex-col justify-between rounded-2xl border bg-white p-6 sm:p-7 transition-all duration-300 hover:shadow-[0_16px_36px_-8px_rgba(15,23,42,0.08)] ${
                                     item.badge
-                                        ? "border-orange-300 ring-1 ring-orange-200"
-                                        : "border-slate-200/90 hover:border-slate-300"
+                                        ? "border-orange-300 ring-1 ring-orange-200/60"
+                                        : "border-slate-200/90 hover:border-orange-300"
                                 }`}
                             >
                                 <div>
@@ -868,39 +1042,39 @@ export default function MaterialsPage() {
                                     <div className="flex items-start justify-between gap-3">
                                         <div className="flex flex-col">
                                             {item.code && (
-                                                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-orange-600">
+                                                <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60 w-fit">
                                                     {item.code}
                                                 </span>
                                             )}
-                                            <h3 className="font-display text-lg font-bold text-slate-900">
+                                            <h3 className="mt-2 font-display text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                                                 {item.name}
                                             </h3>
                                         </div>
 
                                         {item.badge && (
-                                            <span className="flex-none rounded-full bg-orange-100 px-2.5 py-0.5 font-mono text-[10px] font-bold text-orange-700">
+                                            <span className="flex-none rounded-full bg-orange-100 px-2.5 py-0.5 font-mono text-[10px] font-bold text-orange-700 shadow-xs">
                                                 {item.badge}
                                             </span>
                                         )}
                                     </div>
 
                                     {item.category && (
-                                        <span className="mt-1 block font-mono text-[10px] uppercase text-slate-400">
+                                        <span className="mt-1 block font-mono text-[10px] uppercase tracking-wider text-slate-400">
                                             {item.category}
                                         </span>
                                     )}
 
                                     {/* Spec Matrix List */}
-                                    <dl className="mt-5 space-y-2.5 border-t border-slate-100 pt-4">
+                                    <dl className="mt-5 space-y-2 border-t border-slate-100 pt-4">
                                         {item.specs.map((spec) => (
                                             <div
                                                 key={spec.label}
-                                                className="flex flex-col gap-0.5 text-xs sm:flex-row sm:items-baseline sm:justify-between"
+                                                className="flex flex-col gap-0.5 rounded-lg p-1.5 transition-colors group-hover:bg-[#FAF9F7]/70 sm:flex-row sm:items-baseline sm:justify-between"
                                             >
                                                 <dt className="font-mono text-[10px] uppercase tracking-wide text-slate-400 sm:w-28 sm:flex-none">
                                                     {spec.label}
                                                 </dt>
-                                                <dd className="font-sans text-xs font-medium text-slate-700 sm:text-right">
+                                                <dd className="font-sans text-xs font-semibold text-slate-800 sm:text-right">
                                                     {spec.value}
                                                 </dd>
                                             </div>
@@ -909,15 +1083,16 @@ export default function MaterialsPage() {
                                 </div>
 
                                 <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
-                                    <span className="font-mono text-[10px] text-slate-400">
-                                        BATCH LOT INSPECTION
+                                    <span className="flex items-center gap-1.5 font-mono text-[10px] font-semibold text-slate-400">
+                                        <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                                        MTR 3.1 CERTIFIED
                                     </span>
                                     <Link
                                         to="/#contact"
-                                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-slate-800 transition-colors group-hover:text-orange-600"
+                                        className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-slate-900 transition-colors group-hover:text-orange-600"
                                     >
                                         <span>Quote Specs</span>
-                                        <ArrowRight className="h-3 w-3" />
+                                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                                     </Link>
                                 </div>
                             </div>
@@ -930,11 +1105,11 @@ export default function MaterialsPage() {
                                 No catalogue match for "{searchQuery}"
                             </p>
                             <p className="mt-1 text-sm text-slate-500">
-                                We custom-manufacture non-standard fasteners according to CAD prints.
+                                We custom-manufacture non-standard fasteners and hardware directly according to your CAD prints.
                             </p>
                             <Link
                                 to="/#contact"
-                                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-2.5 font-mono text-xs font-bold text-white transition hover:bg-orange-600"
+                                className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-mono text-xs font-bold text-white transition hover:bg-orange-600 shadow-md"
                             >
                                 Request Custom Feasibility
                                 <ArrowRight className="h-3.5 w-3.5" />
@@ -948,10 +1123,21 @@ export default function MaterialsPage() {
             {/* 4. SPECIALIZED PROCESSES FOR CUSTOM COMPONENTS             */}
             {/* Dark industrial band showcasing micro-precision capability */}
             {/* ========================================================== */}
-            <section className="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
+            <section className="py-20 lg:py-28 bg-slate-950 text-white relative overflow-hidden border-y border-slate-800">
+                {/* Ambient dynamic glows */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-orange-600/10 blur-[130px] pointer-events-none"
+                />
+                <div
+                    aria-hidden="true"
+                    className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-600/10 blur-[130px] pointer-events-none"
+                />
+
+                {/* Subtle technical grid overlay */}
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 opacity-[0.035] pointer-events-none"
                     style={{
                         backgroundImage: `linear-gradient(90deg, #ffffff 1px, transparent 0), linear-gradient(180deg, #ffffff 1px, transparent 0)`,
                         backgroundSize: "40px 40px",
@@ -961,11 +1147,11 @@ export default function MaterialsPage() {
                 <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-16">
                     <div className="max-w-2xl">
                         <SectionMark label="ADVANCED NON-TRADITIONAL MACHINING" tone="light" />
-                        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[42px]">
                             Specialized Precision Manufacturing Processes
                         </h2>
                         <p className="mt-3 font-sans text-sm text-slate-300 sm:text-base leading-relaxed">
-                            For geometries where conventional chip-forming is physically impossible, Solvoka
+                            For complex geometries where conventional chip-forming is physically impossible, Solvoka
                             deploys non-traditional metallurgical machining and additive synthesis.
                         </p>
                     </div>
@@ -974,25 +1160,26 @@ export default function MaterialsPage() {
                         {processItems.map((item, idx) => (
                             <div
                                 key={item.name}
-                                className="relative flex flex-col justify-between border-t border-slate-800 pt-8"
+                                className="group relative flex flex-col justify-between rounded-2xl border border-slate-800/90 bg-gradient-to-b from-slate-900/90 to-slate-950/90 backdrop-blur-md p-7 sm:p-8 hover:border-orange-500/40 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition-all duration-300"
                             >
                                 <div>
                                     <div className="flex items-center justify-between">
-                                        <span className="font-mono text-xs font-bold text-orange-400">
+                                        <span className="font-mono text-xs font-bold text-orange-400 bg-orange-950/60 border border-orange-500/30 px-2.5 py-1 rounded-md">
                                             0{idx + 1}
                                         </span>
-                                        <span className="rounded-full border border-slate-700 bg-slate-800 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-slate-300">
+                                        <span className="rounded-full border border-slate-700 bg-slate-800/90 px-3 py-1 font-mono text-[10px] font-semibold text-slate-300">
                                             {item.badge}
                                         </span>
                                     </div>
 
-                                    <h3 className="mt-4 font-display text-xl font-bold text-white">
+                                    <h3 className="mt-4 font-display text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
                                         {item.name}
                                     </h3>
 
-                                    <div className="mt-2 flex items-center gap-2">
-                                        <span className="font-mono text-[10px] text-slate-400">TOLERANCE:</span>
-                                        <span className="font-mono text-xs font-semibold text-orange-300 tabular">
+                                    {/* Digital caliper tolerance readout */}
+                                    <div className="mt-3 flex items-center justify-between rounded-lg bg-black/60 border border-slate-800 px-3.5 py-2 font-mono text-xs">
+                                        <span className="text-[10px] text-slate-400 uppercase tracking-wider">TOLERANCE SPEC:</span>
+                                        <span className="font-bold text-orange-300 tabular">
                                             {item.tolerance}
                                         </span>
                                     </div>
@@ -1003,7 +1190,7 @@ export default function MaterialsPage() {
                                 </div>
 
                                 <div className="mt-8 flex items-center gap-2 border-t border-slate-800/80 pt-4 font-mono text-xs text-slate-400">
-                                    <CheckCircle2 className="h-3.5 w-3.5 text-orange-400" />
+                                    <CheckCircle2 className="h-4 w-4 text-orange-400" />
                                     <span>Certified CAD/CAM Workflow</span>
                                 </div>
                             </div>
@@ -1021,7 +1208,7 @@ export default function MaterialsPage() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
                         <div className="lg:col-span-5">
                             <SectionMark label="SURFACE PROTECTION" />
-                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[42px]">
                                 Industrial Coatings &amp; Surface Treatments
                             </h2>
                             <p className="mt-4 font-sans text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -1030,15 +1217,23 @@ export default function MaterialsPage() {
                                 chemical, and high-torque mechanical operating environments.
                             </p>
 
-                            <div className="mt-8 rounded-xl border border-slate-200 bg-[#FAF9F7] p-5">
-                                <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                                    CORROSION TESTING STANDARDS
-                                </span>
-                                <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                            {/* Salt spray test laboratory callout card */}
+                            <div className="mt-8 rounded-2xl border border-slate-200/90 bg-[#FAF9F7] p-6 shadow-xs">
+                                <div className="flex items-center gap-2.5">
+                                    <ShieldCheck className="h-4 w-4 text-[#ff5500]" />
+                                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-800">
+                                        CORROSION TESTING STANDARDS
+                                    </span>
+                                </div>
+                                <p className="mt-2.5 text-xs leading-relaxed text-slate-600">
                                     All plated and coated fasteners undergo continuous neutral salt spray (NSS) testing
                                     per <strong>ASTM B117 / ISO 9227</strong> with verified white-rust and red-rust
                                     prevention hours logged.
                                 </p>
+                                <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between font-mono text-[11px] text-slate-500">
+                                    <span>NSS Chamber Standard</span>
+                                    <strong className="text-slate-900">ASTM B117 / ISO 9227</strong>
+                                </div>
                             </div>
                         </div>
 
@@ -1046,26 +1241,26 @@ export default function MaterialsPage() {
                             {detailedCoatings.map((coating) => (
                                 <div
                                     key={coating.name}
-                                    className="group rounded-xl border border-slate-200 p-5 transition-all hover:border-orange-300 hover:bg-orange-50/20"
+                                    className="group rounded-2xl border border-slate-200/90 p-5 sm:p-6 transition-all duration-200 hover:border-orange-300 hover:shadow-md hover:bg-orange-50/20"
                                 >
-                                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                                        <div className="flex items-center gap-3">
+                                    <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+                                        <div className="flex items-center gap-3.5">
                                             <span
-                                                className={`h-3 w-3 rounded-full ${coating.colorCode} ring-2 ring-slate-200`}
+                                                className={`h-4 w-4 rounded-full ${coating.colorCode} ring-4 ring-slate-100 shadow-xs`}
                                             />
-                                            <h3 className="font-display text-base font-bold text-slate-900">
+                                            <h3 className="font-display text-base font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                                                 {coating.name}
                                             </h3>
                                         </div>
                                         <div className="flex items-center gap-3 font-mono text-xs">
-                                            <span className="rounded bg-slate-100 px-2 py-0.5 font-semibold text-slate-700">
+                                            <span className="rounded-md bg-slate-100 px-2.5 py-1 font-bold text-slate-800 border border-slate-200/60">
                                                 {coating.rating}
                                             </span>
-                                            <span className="text-slate-400">Thk: {coating.thickness}</span>
+                                            <span className="text-slate-500 font-semibold">Thk: {coating.thickness}</span>
                                         </div>
                                     </div>
-                                    <p className="mt-2.5 text-xs leading-relaxed text-slate-600">
-                                        <strong className="text-slate-700">Primary Applications: </strong>
+                                    <p className="mt-3 text-xs leading-relaxed text-slate-600 pl-7">
+                                        <strong className="text-slate-800 font-semibold">Primary Applications: </strong>
                                         {coating.applications}
                                     </p>
                                 </div>
@@ -1077,40 +1272,55 @@ export default function MaterialsPage() {
 
             {/* ========================================================== */}
             {/* 6. RFQ & CUSTOM MATERIAL FEASIBILITY SECTION               */}
-            {/* Drafting-table design console (Preserves quote action)     */}
+            {/* High-impact drafting console with CAD validation           */}
             {/* ========================================================== */}
             <section className="py-20 lg:py-28 bg-[#FAF9F7]">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     <div className="relative overflow-hidden rounded-3xl border border-slate-900 bg-slate-950 px-8 py-12 text-white shadow-2xl lg:px-16 lg:py-16">
-                        {/* Background drafting ruler marks */}
+                        {/* Drafting ruler top accent line */}
                         <div
                             aria-hidden="true"
                             className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600"
                         />
 
-                        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+                        {/* Subtle ambient glow */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-orange-600/20 blur-[100px] pointer-events-none"
+                        />
+
+                        <div className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
                             <div className="lg:col-span-7">
                                 <div className="flex items-center gap-2.5">
                                     <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
                                     <span className="font-mono text-xs font-bold uppercase tracking-widest text-orange-400">
-                                        CUSTOM ALLOY &amp; DRAWING VALIDATION
+                                        CUSTOM ALLOY &amp; DRAWING VALIDATION • DESK ACTIVE
                                     </span>
                                 </div>
 
-                                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-[1.1]">
                                     Need A Non-Standard Alloy Or Custom Fastener?
                                 </h2>
 
                                 <p className="mt-4 font-sans text-base leading-relaxed text-slate-300">
-                                    Upload your 2D engineering drawing (DWG, DXF, PDF) or native 3D CAD model
-                                    (STEP, IGES, SLDPRT). Our metallurgy team validates alloy availability,
-                                    yield tensile strength, and machine tooling feasibility within 24 hours.
+                                    Upload your 2D engineering drawing or native 3D CAD model. Our metallurgy team validates 
+                                    alloy availability, yield tensile strength, and machine tooling feasibility within 24 hours.
                                 </p>
+
+                                {/* Supported formats tags */}
+                                <div className="mt-6 flex flex-wrap items-center gap-2 font-mono text-xs text-slate-400">
+                                    <span className="text-slate-500 font-semibold">Accepted CAD:</span>
+                                    {["DWG", "DXF", "STEP", "IGES", "SLDPRT", "PDF"].map((fmt) => (
+                                        <span key={fmt} className="rounded bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-bold text-[10px]">
+                                            {fmt}
+                                        </span>
+                                    ))}
+                                </div>
 
                                 <div className="mt-8 flex flex-wrap items-center gap-4">
                                     <Link
                                         to="/#contact"
-                                        className="inline-flex items-center gap-3 rounded-lg bg-orange-600 px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-orange-950/50 transition-all duration-200 hover:bg-orange-500 hover:shadow-orange-700/40"
+                                        className="inline-flex items-center gap-3 rounded-xl bg-[#ff5500] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-xl shadow-orange-950/60 transition-all duration-200 hover:bg-orange-500 hover:shadow-orange-600/40 active:translate-y-0.5"
                                     >
                                         <span>Request Material Feasibility Quote</span>
                                         <ArrowRight className="h-4 w-4" />
@@ -1122,20 +1332,23 @@ export default function MaterialsPage() {
                             </div>
 
                             <div className="lg:col-span-5 border-t border-slate-800 pt-8 lg:border-t-0 lg:border-l lg:border-slate-800 lg:pl-10 lg:pt-0">
-                                <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-400">
-                                    QUOTE GUARANTEES
+                                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                                    SOLVOKA QUOTE GUARANTEES
                                 </span>
-                                <div className="mt-6 space-y-5">
+                                <div className="mt-6 space-y-4">
                                     {rfqFeatures.map((feat) => (
-                                        <div key={feat.title} className="flex items-start gap-4">
-                                            <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-900 ring-1 ring-slate-800 text-orange-400">
+                                        <div 
+                                            key={feat.title} 
+                                            className="flex items-start gap-4 rounded-xl border border-slate-800/80 bg-slate-900/60 p-4 transition-colors hover:border-slate-700"
+                                        >
+                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-orange-950/60 ring-1 ring-orange-500/30 text-orange-400">
                                                 {feat.icon}
                                             </div>
                                             <div>
                                                 <h3 className="font-display text-sm font-bold text-white">
                                                     {feat.title}
                                                 </h3>
-                                                <p className="mt-0.5 text-xs text-slate-400">
+                                                <p className="mt-0.5 text-xs text-slate-400 leading-relaxed">
                                                     {feat.subtitle}
                                                 </p>
                                             </div>

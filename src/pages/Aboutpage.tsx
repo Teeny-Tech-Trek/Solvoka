@@ -1,18 +1,8 @@
 import { Link } from "react-router-dom";
 import {
     ArrowRight,
-    ChevronRight,
 } from "lucide-react";
-
-/* ------------------------------------------------------------------ */
-/* Data (Preserving original copy and content)                        */
-/* ------------------------------------------------------------------ */
-
-const stats = [
-    { label: "Home Base", value: "Focal Point, Ludhiana", sub: "Punjab Heavy-Industrial Belt" },
-    { label: "Partner Network", value: "15+ Vetted Facilities", sub: "Forging, CNC, Casting, Sheet Metal, 3D" },
-    { label: "Quality Standard", value: "One Standard, Every Order", sub: "Zero-Concession Tolerance Governance" },
-];
+import AboutUsHero from "../components/layout/AboutUsHero";
 
 const whyChooseSolvoka = [
     {
@@ -153,113 +143,9 @@ export default function AboutUsPage() {
     return (
         <main className="w-full bg-white text-slate-900 selection:bg-orange-500 selection:text-white">
             {/* ========================================================== */}
-            {/* 1. HERO — Cinematic, ghost typography, no card containers  */}
+            {/* 1. HERO — Designed exactly matching reference image        */}
             {/* ========================================================== */}
-            <section className="relative flex min-h-[580px] items-center overflow-hidden bg-slate-950 pb-20 pt-28 lg:min-h-[640px] lg:pb-24 lg:pt-32">
-                {/* Background image overlay with dark gradient */}
-                <img
-                    src="/Network-Image.webp"
-                    alt="Solvoka precision manufacturing network"
-                    className="absolute inset-0 h-full w-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/90 to-slate-950/80" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
-
-                {/* Giant Ghost-Stroke Typographic Layer — like 3D printing page */}
-                <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 select-none font-display text-[220px] font-bold leading-none lg:block lg:text-[320px]"
-                    style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)", color: "transparent" }}
-                >
-                    15+
-                </span>
-
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-16">
-                    {/* Clean navigation breadcrumb */}
-                    <div className="mb-6 flex items-center gap-1.5 text-xs font-medium text-slate-400">
-                        <Link to="/" className="transition hover:text-orange-400">
-                            Home
-                        </Link>
-                        <ChevronRight className="h-3 w-3 text-slate-500" />
-                        <span className="font-semibold text-slate-200">About Solvoka</span>
-                    </div>
-
-                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
-                        <div>
-                            <SectionMark label="About Solvoka" tone="light" />
-
-                            <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl text-white">
-                                Precision Manufacturing, <br />
-                                <span className="text-orange-500">A Proven Network</span>
-                            </h1>
-
-                            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-                                Solvoka operates from Focal Point, Ludhiana — one of Punjab&rsquo;s established
-                                forging and machining districts — coordinating a network of 15+ vetted partner
-                                facilities under a single quality standard, so automotive OEMs and exporters
-                                get one point of contact for forging, CNC machining, casting, sheet metal
-                                fabrication and 3D printing.
-                            </p>
-
-                            {/* Minimal hairline stats strip — no card containers or round badges */}
-                            <div className="mt-10 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
-                                {stats.map((st) => (
-                                    <div key={st.label}>
-                                        <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                            {st.label}
-                                        </span>
-                                        <span className="mt-1 block font-display text-base font-bold text-white">
-                                            {st.value}
-                                        </span>
-                                        <span className="mt-0.5 block text-xs text-slate-400">
-                                            {st.sub}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="mt-10 flex flex-wrap items-center gap-4">
-                                <Link
-                                    to="/contact-us"
-                                    className="inline-flex items-center gap-2.5 bg-orange-500 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-400 shadow-lg shadow-orange-950/40"
-                                >
-                                    <span>Talk to Us</span>
-                                    <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-                                </Link>
-                                <Link
-                                    to="/#capabilities"
-                                    className="inline-flex items-center gap-2 border border-white/20 px-6 py-3.5 text-sm font-semibold text-slate-300 transition-colors hover:border-white/40 hover:text-white"
-                                >
-                                    View Capabilities
-                                </Link>
-                            </div>
-                        </div>
-
-                        {/* Right side focal point callout — like 3D printing page */}
-                        <div className="hidden flex-col items-end justify-between gap-10 lg:flex">
-                            <div className="flex flex-col items-end gap-3 self-end">
-                                <div className="flex items-center gap-3">
-                                    <div className="h-24 w-px bg-white/20" />
-                                    <div className="text-right font-mono text-xs font-medium uppercase leading-relaxed tracking-[0.2em] text-slate-300">
-                                        Single
-                                        <br />
-                                        Point Of
-                                        <br />
-                                        Contact
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="text-right">
-                                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Focal Point</p>
-                                <p className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-200">
-                                    Ludhiana, Punjab, India
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <AboutUsHero />
 
             {/* ========================================================== */}
             {/* 2. THE SOLVOKA MODEL — Open asymmetric split with line-art */}

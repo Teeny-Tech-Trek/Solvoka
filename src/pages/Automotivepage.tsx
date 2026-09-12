@@ -149,7 +149,7 @@ function SectionMark({ label, tone = "dark" }: { label: string; tone?: "dark" | 
 }
 
 /** Bespoke SVG Engineering Drawing of an Automotive Steering Spindle / Knuckle Assembly */
-function AutomotiveEngineeringSchematic() {
+export function AutomotiveEngineeringSchematic() {
     return (
         <div className="relative aspect-[4/3] w-full max-w-lg select-none">
             <svg viewBox="0 0 440 330" className="h-full w-full" aria-hidden="true">
@@ -231,6 +231,23 @@ function AutomotiveEngineeringSchematic() {
         </div>
     );
 }
+
+const vehiclePrograms = [
+    {
+        label: "Agricultural equipment",
+        title: "Tractor Parts",
+        image: "/images/Automotive/TractorGif.gif",
+        description: "Driveline, chassis, hitch, and hydraulic components engineered for field-duty loads.",
+        accent: "bg-emerald-400",
+    },
+    {
+        label: "Passenger & commercial vehicles",
+        title: "Car Parts",
+        image: "/images/Automotive/CarGif.gif",
+        description: "Production-ready powertrain, steering, braking, and structural components for road vehicles.",
+        accent: "bg-orange-400",
+    },
+];
 
 /* ------------------------------------------------------------------ */
 /* Page Component                                                     */
@@ -332,15 +349,40 @@ export default function AutomotivePage() {
                             </div>
                         </div>
 
-                        {/* Hero Graphic / Schematic Column */}
-                        <div className="lg:col-span-5 flex flex-col items-center justify-center">
-                            <div className="relative w-full rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-sm shadow-2xl">
-                                <AutomotiveEngineeringSchematic />
-
-                                <div className="mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3 text-[11px] font-mono text-slate-400">
+                        {/* Vehicle program gallery */}
+                        <div className="lg:col-span-5">
+                            <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-3 shadow-2xl backdrop-blur-sm sm:p-4">
+                                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                                    {vehiclePrograms.map((program) => (
+                                        <article
+                                            key={program.title}
+                                            className="group relative min-h-52 overflow-hidden rounded-xl border border-slate-700 bg-slate-950"
+                                        >
+                                            <img
+                                                src={program.image}
+                                                alt={`${program.title} manufacturing program`}
+                                                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+                                            <div className="absolute inset-x-0 bottom-0 p-4">
+                                                <span className="flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-200">
+                                                    <span className={`h-1.5 w-1.5 rounded-full ${program.accent}`} />
+                                                    {program.label}
+                                                </span>
+                                                <h2 className="mt-1 font-display text-xl font-bold text-white">
+                                                    {program.title}
+                                                </h2>
+                                                <p className="mt-1 max-w-sm text-xs leading-relaxed text-slate-300">
+                                                    {program.description}
+                                                </p>
+                                            </div>
+                                        </article>
+                                    ))}
+                                </div>
+                                <div className="mt-3 flex items-center justify-between border-t border-slate-800/80 pt-3 text-[11px] font-mono text-slate-400">
                                     <span className="flex items-center gap-1.5">
                                         <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
-                                        Dedicated Auto Tooling Lines
+                                        Dedicated Vehicle Programs
                                     </span>
                                     <span className="text-orange-400">IATF-Compliant Quality</span>
                                 </div>

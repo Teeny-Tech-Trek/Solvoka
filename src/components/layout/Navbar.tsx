@@ -38,9 +38,8 @@ function Logo({ scrolled, mobileOpen, darkSolid = false, light = false }: { scro
   return (
     <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Solvoka home">
       <span
-        className={`font-display text-[22px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${
-          mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"
-        }`}
+        className={`font-display text-[22px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"
+          }`}
       >
         SOLVOKA
       </span>
@@ -211,9 +210,8 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                       clearCloseTimeout();
                       setOpenMenu((prev) => (prev === item.label ? null : item.label));
                     }}
-                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${
-                      scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
-                    }`}
+                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                      }`}
                     aria-expanded={openMenu === item.label}
                     aria-haspopup="true"
                   >
@@ -224,17 +222,15 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   <Link
                     to={item.href}
                     onClick={closeImmediately}
-                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${
-                      scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
-                    }`}
+                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                      }`}
                   >
                     {item.label}
                   </Link>
                 )}
                 <span
-                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-blue-600 transition-all duration-200 ${
-                    openMenu === item.label ? "w-full" : "w-0"
-                  }`}
+                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-blue-600 transition-all duration-200 ${openMenu === item.label ? "w-full" : "w-0"
+                    }`}
                 />
               </div>
             ))}
@@ -301,7 +297,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   </Link>
                 ))}
               </div>
-              <div className="border-t border-navy-700 bg-navy-950/50">
+              {/* <div className="border-t border-navy-700 bg-navy-950/50">
                 <div className="flex items-center gap-8 px-10 py-4">
                   <Link
                     to="/#capabilities"
@@ -318,7 +314,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                     Our facility →
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}

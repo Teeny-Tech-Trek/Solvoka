@@ -196,75 +196,170 @@ function GateRail({
     );
 }
 
-/** Custom GD&T Feature Control & CMM Inspection Drawing — no card, purely editorial line-art */
+/** Custom GD&T Feature Control & CMM Inspection Drawing — collision-free, fully responsive technical vector */
 function MetrologyCMMDrawing() {
     return (
-        <div className="relative aspect-[4/3] w-full select-none">
-            <svg viewBox="0 0 420 310" className="h-full w-full" aria-hidden="true">
-                {/* Background Drafting Grid lines */}
-                <line x1="20" y1="260" x2="400" y2="260" stroke="#f1f5f9" strokeWidth="1" />
-                <line x1="20" y1="180" x2="400" y2="180" stroke="#f1f5f9" strokeWidth="1" />
-                <line x1="20" y1="100" x2="400" y2="100" stroke="#f1f5f9" strokeWidth="1" />
+        <div className="relative aspect-[4/3] w-full max-w-lg mx-auto select-none rounded-2xl border border-slate-200/80 bg-[#FAF9F7]/60 p-2 sm:p-4 shadow-xs">
+            <svg viewBox="0 0 440 280" className="h-full w-full" aria-hidden="true">
+                <defs>
+                    {/* Arrowhead marker for CAD leader line */}
+                    <marker
+                        id="cad-arrow"
+                        viewBox="0 0 10 10"
+                        refX="6"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                    >
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
+                    </marker>
+                    {/* Dimension line arrowheads */}
+                    <marker
+                        id="dim-arrow-start"
+                        viewBox="0 0 10 10"
+                        refX="2"
+                        refY="5"
+                        markerWidth="5"
+                        markerHeight="5"
+                        orient="auto"
+                    >
+                        <path d="M 8 1.5 L 0 5 L 8 8.5 z" fill="#ea580c" />
+                    </marker>
+                    <marker
+                        id="dim-arrow-end"
+                        viewBox="0 0 10 10"
+                        refX="6"
+                        refY="5"
+                        markerWidth="5"
+                        markerHeight="5"
+                        orient="auto"
+                    >
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
+                    </marker>
+                </defs>
+
+                {/* Subtle Technical Blueprint Grid Lines */}
+                <line x1="20" y1="60" x2="420" y2="60" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="20" y1="120" x2="420" y2="120" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="20" y1="180" x2="420" y2="180" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="120" y1="30" x2="120" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="220" y1="30" x2="220" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="320" y1="30" x2="320" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+
+                {/* Technical Annotation Callouts - Top Row */}
+                <text x="24" y="26" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="9" fontWeight="bold" letterSpacing="0.12em">
+                    CMM PROBE INSPECTION // ZEISS PRISMO
+                </text>
+                <text x="416" y="26" textAnchor="end" fill="#64748b" fontFamily="JetBrains Mono" fontSize="9" fontWeight="600" letterSpacing="0.08em">
+                    REPEATABILITY: 1.5 µm
+                </text>
+
+                {/* Center Axis Centerline */}
+                <line x1="40" y1="110" x2="400" y2="110" stroke="#ea580c" strokeWidth="0.75" strokeDasharray="8 3 1.5 3" />
 
                 {/* Isometric Machined Bearing Journal Profile */}
-                <g transform="translate(110, 50)">
-                    {/* Stepped cylindrical shaft */}
+                <g>
+                    {/* Outer profile */}
                     <path
-                        d="M 20,60 L 120,60 L 120,40 L 180,40 L 180,140 L 120,140 L 120,120 L 20,120 Z"
-                        fill="none"
-                        stroke="rgba(15,23,42,0.35)"
-                        strokeWidth="1.5"
+                        d="M 80,90 L 150,90 L 150,70 L 290,70 L 290,90 L 360,90 L 360,130 L 290,130 L 290,150 L 150,150 L 150,130 L 80,130 Z"
+                        fill="#ffffff"
+                        stroke="#0f172a"
+                        strokeWidth="1.6"
                     />
 
-                    {/* Stepped journal lines */}
-                    <line x1="60" y1="60" x2="60" y2="120" stroke="rgba(15,23,42,0.15)" strokeWidth="1" strokeDasharray="3 3" />
-                    <line x1="120" y1="60" x2="120" y2="120" stroke="rgba(15,23,42,0.15)" strokeWidth="1" strokeDasharray="3 3" />
+                    {/* Internal shoulder transition lines */}
+                    <line x1="150" y1="90" x2="150" y2="130" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="290" y1="90" x2="290" y2="130" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
 
-                    {/* Center axis centerline */}
-                    <line x1="0" y1="90" x2="200" y2="90" stroke="#f97316" strokeWidth="0.75" strokeDasharray="6 2 1 2" />
+                    {/* Center machined core hatch indication */}
+                    <line x1="220" y1="70" x2="220" y2="150" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="2 2" />
 
-                    {/* CMM Probe Stylus */}
-                    <line x1="90" y1="-10" x2="90" y2="60" stroke="#f97316" strokeWidth="1.8" />
-                    <circle cx="90" cy="60" r="4.5" fill="#f97316" />
-                    <circle cx="90" cy="60" r="8" fill="none" stroke="#f97316" strokeWidth="0.75" strokeDasharray="2 2" />
+                    {/* CMM Probe Stylus scanning center collar */}
+                    <line x1="220" y1="12" x2="220" y2="70" stroke="#ea580c" strokeWidth="2" />
+                    <circle cx="220" cy="70" r="4.5" fill="#ea580c" />
+                    <circle cx="220" cy="70" r="8.5" fill="none" stroke="#ea580c" strokeWidth="0.8" strokeDasharray="2 2" />
+                </g>
 
-                    {/* Runout Dimension indicator */}
-                    <line x1="20" y1="165" x2="180" y2="165" stroke="#f97316" strokeWidth="1" />
-                    <line x1="20" y1="158" x2="20" y2="172" stroke="#f97316" strokeWidth="1" />
-                    <line x1="180" y1="158" x2="180" y2="172" stroke="#f97316" strokeWidth="1" />
+                {/* Linear Dimension 160.00 ± 0.005 mm (Cleanly below the shaft, zero collision) */}
+                <g>
+                    {/* Extension witness lines */}
+                    <line x1="80" y1="135" x2="80" y2="185" stroke="#94a3b8" strokeWidth="0.9" />
+                    <line x1="360" y1="135" x2="360" y2="185" stroke="#94a3b8" strokeWidth="0.9" />
 
-                    <text x="75" y="180" fill="#f97316" fontFamily="JetBrains Mono" fontSize="9" letterSpacing="0.05em">
+                    {/* Main dimension line with arrowheads */}
+                    <line
+                        x1="80"
+                        y1="175"
+                        x2="360"
+                        y2="175"
+                        stroke="#ea580c"
+                        strokeWidth="1"
+                        markerStart="url(#dim-arrow-start)"
+                        markerEnd="url(#dim-arrow-end)"
+                    />
+
+                    {/* Dimension readout pill */}
+                    <rect x="160" y="166" width="120" height="18" fill="#ffffff" stroke="#e2e8f0" strokeWidth="0.8" rx="4" />
+                    <text
+                        x="220"
+                        y="179"
+                        textAnchor="middle"
+                        fill="#ea580c"
+                        fontFamily="JetBrains Mono"
+                        fontSize="9.5"
+                        fontWeight="bold"
+                        letterSpacing="0.04em"
+                    >
                         160.00 ± 0.005 mm
                     </text>
                 </g>
 
-                {/* Feature Control Frame */}
-                <g transform="translate(30, 220)">
-                    <rect x="0" y="0" width="140" height="26" fill="#ffffff" stroke="#0f172a" strokeWidth="1.2" />
-                    <line x1="30" y1="0" x2="30" y2="26" stroke="#0f172a" strokeWidth="1" />
-                    <line x1="88" y1="0" x2="88" y2="26" stroke="#0f172a" strokeWidth="1" />
-                    <line x1="114" y1="0" x2="114" y2="26" stroke="#0f172a" strokeWidth="1" />
+                {/* GD&T Feature Control Frame (Cleanly placed at bottom-left, zero collision) */}
+                <g transform="translate(24, 215)">
+                    {/* Background frame box */}
+                    <rect x="0" y="0" width="144" height="26" fill="#ffffff" stroke="#0f172a" strokeWidth="1.3" rx="2" />
+                    {/* Dividing lines */}
+                    <line x1="28" y1="0" x2="28" y2="26" stroke="#0f172a" strokeWidth="1.1" />
+                    <line x1="92" y1="0" x2="92" y2="26" stroke="#0f172a" strokeWidth="1.1" />
+                    <line x1="118" y1="0" x2="118" y2="26" stroke="#0f172a" strokeWidth="1.1" />
 
-                    {/* Position symbol */}
-                    <circle cx="15" cy="13" r="5.5" fill="none" stroke="#0f172a" strokeWidth="1.2" />
-                    <line x1="15" y1="5" x2="15" y2="21" stroke="#0f172a" strokeWidth="1" />
-                    <line x1="7" y1="13" x2="23" y2="13" stroke="#0f172a" strokeWidth="1" />
+                    {/* Compartment 1: Position Symbol ⌖ */}
+                    <circle cx="14" cy="13" r="5.5" fill="none" stroke="#0f172a" strokeWidth="1.2" />
+                    <line x1="14" y1="5" x2="14" y2="21" stroke="#0f172a" strokeWidth="1" />
+                    <line x1="6" y1="13" x2="22" y2="13" stroke="#0f172a" strokeWidth="1" />
 
-                    {/* Tolerance values */}
-                    <text x="36" y="17" fill="#0f172a" fontFamily="JetBrains Mono" fontSize="10" fontWeight="bold">Ø 0.008 M</text>
-                    <text x="96" y="17" fill="#f97316" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">A</text>
-                    <text x="122" y="17" fill="#f97316" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">B</text>
+                    {/* Compartment 2: Tolerance with MMC modifier */}
+                    <text x="35" y="17" fill="#0f172a" fontFamily="JetBrains Mono" fontSize="9.5" fontWeight="bold">
+                        Ø 0.008 M
+                    </text>
+
+                    {/* Compartment 3: Primary Datum A */}
+                    <text x="101" y="17" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">
+                        A
+                    </text>
+
+                    {/* Compartment 4: Secondary Datum B */}
+                    <text x="127" y="17" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">
+                        B
+                    </text>
                 </g>
 
-                {/* Technical Annotation Callouts */}
-                <text x="30" y="35" fill="#f97316" fontFamily="JetBrains Mono" fontSize="9" letterSpacing="0.15em">
-                    CMM PROBE INSPECTION // ZEISS PRISMO
-                </text>
-                <text x="250" y="35" fill="#64748b" fontFamily="JetBrains Mono" fontSize="9" letterSpacing="0.1em">
-                    REPEATABILITY: 1.5 µm
-                </text>
-                <text x="210" y="275" fill="#64748b" fontFamily="JetBrains Mono" fontSize="8" letterSpacing="0.1em">
+                {/* Authentic CAD Leader line from Feature Control Frame pointing to journal datum */}
+                <path
+                    d="M 70,215 L 70,140 L 95,133"
+                    fill="none"
+                    stroke="#ea580c"
+                    strokeWidth="1.2"
+                    markerEnd="url(#cad-arrow)"
+                />
+
+                {/* Technical Annotation Callouts - Bottom Right */}
+                <text x="416" y="235" textAnchor="end" fill="#64748b" fontFamily="JetBrains Mono" fontSize="8.5" letterSpacing="0.08em">
                     REF. ISO 1101 GD&amp;T SPECIFICATION
+                </text>
+                <text x="416" y="250" textAnchor="end" fill="#94a3b8" fontFamily="JetBrains Mono" fontSize="8" letterSpacing="0.06em">
+                    100% CMM FIRST-ARTICLE VERIFIED
                 </text>
             </svg>
         </div>
@@ -307,112 +402,207 @@ export default function QualityPage() {
     return (
         <main className="w-full bg-white text-slate-900 selection:bg-orange-500 selection:text-white">
             {/* ========================================================== */}
-            {/* 1. HERO — Full-bleed dark, ghost typography, no card pills */}
+            {/* 1. HERO — Precise replica of reference design              */}
             {/* ========================================================== */}
-            <section className="relative flex min-h-[580px] items-center overflow-hidden bg-slate-950 pb-20 pt-28 lg:min-h-[640px] lg:pb-24 lg:pt-32">
-                {/* Subtle radial ambient atmosphere */}
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-0 opacity-[0.035] pointer-events-none"
-                    style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
-                        backgroundSize: "28px 28px",
-                    }}
-                />
+            <section
+                className="relative flex w-full flex-col justify-between overflow-hidden bg-cover bg-center bg-no-repeat min-h-[680px] sm:min-h-[740px] lg:aspect-[1672/941] lg:min-h-0 pt-20 sm:pt-24 lg:pt-20 xl:pt-24 pb-6 sm:pb-8 lg:pb-10 xl:pb-12"
+                style={{ backgroundImage: "url('/images/QualityPage/QualityPage-HeroImage.png')" }}
+                aria-label="Quality Control and Production Governance"
+            >
+                <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-1 flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20">
+                    {/* Top Row: Breadcrumb & Protocol Callout */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        {/* Breadcrumbs */}
+                        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                            <Link to="/" className="transition-colors hover:text-slate-900">
+                                Home
+                            </Link>
+                            <ChevronRight className="h-3 w-3 text-slate-400" />
+                            <span className="font-semibold text-slate-900">Quality Governance</span>
+                        </nav>
 
-                {/* Giant Ghost-Type Depth Layer — like '3D' on the 3D printing page */}
-                <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 select-none font-display text-[220px] font-bold leading-none lg:block lg:text-[320px]"
-                    style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)", color: "transparent" }}
-                >
-                    0.001
-                </span>
-
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-16">
-                    {/* Clean navigation breadcrumb */}
-                    <div className="mb-6 flex items-center gap-1.5 text-xs font-medium text-slate-400">
-                        <Link to="/" className="transition hover:text-orange-400">
-                            Home
-                        </Link>
-                        <ChevronRight className="h-3 w-3 text-slate-500" />
-                        <span className="font-semibold text-slate-200">Quality Governance</span>
+                        {/* Top Right: Zero Defect Protocol with orange vertical accent */}
+                        <div className="flex items-center gap-3 self-end sm:self-auto">
+                            <div className="h-10 sm:h-11 w-[2.5px] bg-[#ff5500]" />
+                            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 leading-[1.35]">
+                                <div>ZERO</div>
+                                <div>DEFECT</div>
+                                <div>PROTOCOL</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
-                        <div>
-                            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
-                                Quality Control &amp; Metrology
-                            </span>
-
-                            <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl text-white">
-                                Quality Control &amp; <br />
-                                <span className="text-orange-500">Production Governance</span>
-                            </h1>
-
-                            <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                                Rigid dimensional validation, metallurgical heat isolation, and stage-wise
-                                process visibility for international supply chains.
-                            </p>
-
-                            {/* Minimal hairline metrics strip — no card containers */}
-                            <div className="mt-9 flex flex-wrap items-start gap-x-10 gap-y-5 border-t border-white/10 pt-6">
-                                <div>
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        GOVERNANCE GATES
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-white tabular">
-                                        3 Mandatory Stages
-                                    </span>
-                                </div>
-                                <div>
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        CMM METROLOGY
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-orange-400 tabular">
-                                        ± 0.0015 mm
-                                    </span>
-                                </div>
-                                <div>
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                        HEAT TRACEABILITY
-                                    </span>
-                                    <span className="mt-1 block font-display text-lg font-bold text-white tabular">
-                                        100% 3.1 MTR
-                                    </span>
-                                </div>
-                            </div>
-
-                            <a
-                                href="#inspection-gates"
-                                className="group mt-10 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 transition-colors hover:text-orange-400"
-                            >
-                                Explore the three inspection gates
-                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" strokeWidth={2.25} />
-                            </a>
+                    {/* Middle Row: Main Editorial Content */}
+                    <div className="relative mt-3 sm:mt-5 lg:mt-6 mb-auto pb-4 max-w-2xl lg:max-w-3xl">
+                        {/* Pure borderless white blur fade behind text */}
+                        <div
+                            className="pointer-events-none absolute -inset-x-8 -inset-y-10 z-0 overflow-visible select-none"
+                            aria-hidden="true"
+                        >
+                            <div
+                                className="h-full w-full"
+                                style={{
+                                    background:
+                                        "radial-gradient(ellipse 90% 80% at 30% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.2) 75%, transparent 100%)",
+                                    filter: "blur(36px)",
+                                }}
+                            />
                         </div>
 
-                        {/* Right side focal point callout — exactly like 3D printing page */}
-                        <div className="hidden flex-col items-end justify-between gap-10 lg:flex">
-                            <div className="flex flex-col items-end gap-3 self-end">
-                                <div className="flex items-center gap-3">
-                                    <div className="h-24 w-px bg-white/20" />
-                                    <div className="text-right font-mono text-xs font-medium uppercase leading-relaxed tracking-[0.2em] text-slate-300">
-                                        Zero
-                                        <br />
-                                        Defect
-                                        <br />
-                                        Protocol
+                        <div className="relative z-10">
+                            {/* Eyebrow Kicker */}
+                            <div className="flex items-center gap-3">
+                                <span className="h-[2.5px] w-7 bg-[#ff5500]" />
+                                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                                    QUALITY CONTROL &amp; METROLOGY
+                                </span>
+                            </div>
+
+                            {/* Main Title */}
+                            <h1 className="mt-4 font-display text-[32px] sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-extrabold tracking-tight text-[#0a1128] leading-[1.06] break-words">
+                                Quality Control &
+                                <span className="block text-[#ff5500]">Production</span>
+                                <span className="block text-[#ff5500]">Governance</span>
+                            </h1>
+
+                            {/* Subtext description: backdrop blur specifically behind this text only */}
+                            <p className="mt-4 max-w-xl font-sans text-sm sm:text-base leading-relaxed text-slate-900 backdrop-blur-md bg-white/40 rounded-xl p-3 sm:p-4 border border-white/30 shadow-xs">
+                                Rigid dimensional validation, metallurgical heat isolation, and stage-wise process visibility for international supply chains.
+                            </p>
+
+                            {/* The Three Inspection Badges Strip */}
+                            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 sm:gap-y-0">
+                                {/* Metric 1: 3 Mandatory Stages */}
+                                <div className="flex items-center gap-3.5 pr-0 sm:pr-7">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                        <svg
+                                            className="h-7 w-7"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.9"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+                                            <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5" />
+                                            <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-xl sm:text-2xl font-bold text-slate-900 leading-none">
+                                            3
+                                        </div>
+                                        <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
+                                            <div>Mandatory</div>
+                                            <div>Stages</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Divider */}
+                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
+
+                                {/* Metric 2: CMM Metrology */}
+                                <div className="flex items-center gap-3.5 px-0 sm:px-7">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                        <svg
+                                            className="h-7 w-7"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.9"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            aria-hidden="true"
+                                        >
+                                            <circle cx="12" cy="12" r="7.5" />
+                                            <circle cx="12" cy="12" r="1.8" fill="currentColor" />
+                                            <line x1="12" y1="1.5" x2="12" y2="4.5" />
+                                            <line x1="12" y1="19.5" x2="12" y2="22.5" />
+                                            <line x1="1.5" y1="12" x2="4.5" y2="12" />
+                                            <line x1="19.5" y1="12" x2="22.5" y2="12" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-base sm:text-lg font-bold text-slate-900 leading-none">
+                                            ± 0.0015 mm
+                                        </div>
+                                        <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
+                                            CMM Metrology
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Divider */}
+                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
+
+                                {/* Metric 3: Heat Traceability */}
+                                <div className="flex items-center gap-3.5 pl-0 sm:pl-7">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                        <svg
+                                            className="h-7 w-7"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.9"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <path d="m9 12 2 2 4-4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div className="font-display text-base sm:text-lg font-bold text-slate-900 leading-none">
+                                            100% 3.1 MTR
+                                        </div>
+                                        <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
+                                            Heat Traceability
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="text-right">
-                                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Standard</p>
-                                <p className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-200">
-                                    ISO 2859-1 // AQL 0.65
-                                </p>
+                            {/* CTA Buttons */}
+                            <div className="mt-9 sm:mt-11 flex flex-wrap items-center gap-6 sm:gap-8">
+                                {/* <a
+                                    href="#inspection-gates"
+                                    className="group inline-flex items-center gap-2.5 rounded-lg bg-[#ff5500] px-6 sm:px-7 py-3.5 sm:py-4 font-sans text-sm sm:text-[15px] font-bold text-white shadow-lg shadow-[#ff5500]/30 transition-all hover:bg-[#e04b00] hover:shadow-xl hover:shadow-[#ff5500]/40 active:scale-[0.98]"
+                                >
+                                    <span>Explore the Three Inspection Gates</span>
+                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.2} />
+                                </a> */}
+
+                                <a
+                                    href="#inspection-gates"
+                                    className="group inline-flex flex-col items-start font-sans text-sm sm:text-[15px] font-semibold text-slate-900 transition-colors hover:text-[#ff5500]"
+                                >
+                                    <span>Learn More</span>
+                                    <span className="mt-1.5 h-[3px] w-7 rounded-full bg-[#2563eb] transition-all group-hover:w-full" />
+                                </a>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Bottom Row: Left Tagline & Right Step Counter */}
+                    <div className="mt-8 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-200/40 sm:border-0">
+                        {/* Precision Today. Stronger Tomorrow. */}
+                        <div className="flex items-center gap-3">
+                            <span className="h-px w-8 bg-slate-400/80" />
+                            <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+                                PRECISION TODAY. STRONGER TOMORROW.
+                            </span>
+                        </div>
+
+                        {/* 01 Counter */}
+                        <div className="flex items-center gap-4">
+                            <span className="h-px w-10 sm:w-16 bg-slate-300" />
+                            <span className="font-display text-xl sm:text-3xl font-light text-slate-400">
+                                01
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -484,6 +674,23 @@ export default function QualityPage() {
                             onSelect={handleRailSelect}
                         />
 
+                        {/* Mobile Gate Tab Selector (Visible on < lg) */}
+                        <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:hidden no-scrollbar">
+                            {gates.map((g, i) => (
+                                <button
+                                    key={g.number}
+                                    type="button"
+                                    onClick={() => handleRailSelect(i)}
+                                    className={`flex-none rounded-xl px-4 py-2 font-mono text-xs font-semibold transition-all ${activeGate === i
+                                        ? "bg-slate-900 text-white shadow-sm"
+                                        : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+                                        }`}
+                                >
+                                    Gate {g.number}: {i === 0 ? "Receiving" : i === 1 ? "In-Process" : "Dispatch"}
+                                </button>
+                            ))}
+                        </div>
+
                         {/* Open Stacked Rows — NO BOXES OR CARDS! */}
                         <div className="space-y-16 lg:space-y-20">
                             {gates.map((gate, i) => (
@@ -493,7 +700,7 @@ export default function QualityPage() {
                                     ref={(el) => {
                                         rowRefs.current[i] = el;
                                     }}
-                                    className="relative border-b border-slate-200 pb-16 last:border-b-0 last:pb-0"
+                                    className="relative border-b border-slate-200 pb-16 last:border-b-0 last:pb-0 overflow-hidden"
                                 >
                                     {/* Large ghost sequence number floating behind */}
                                     <span

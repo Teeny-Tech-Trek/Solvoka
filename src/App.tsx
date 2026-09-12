@@ -309,7 +309,7 @@ function App() {
           path="/materials"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout>
+              <CapabilityPageLayout lightNavbar={true}>
                 <MaterialsPage />
               </CapabilityPageLayout>
             </Suspense>
@@ -319,7 +319,7 @@ function App() {
           path="/quality"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout>
+              <CapabilityPageLayout lightNavbar={true}>
                 <QualityPage />
               </CapabilityPageLayout>
             </Suspense>
