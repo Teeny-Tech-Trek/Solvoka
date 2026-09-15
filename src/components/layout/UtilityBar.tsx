@@ -1,3 +1,5 @@
+import { trackEmailClick, trackPhoneClick, trackWhatsAppClick } from "../../utils/analytics";
+
 export default function UtilityBar() {
   return (
     <div id="utility-bar" className="relative z-40 w-full h-[38px] overflow-hidden bg-white border-b border-grey-200 text-black shadow-xs">
@@ -5,6 +7,7 @@ export default function UtilityBar() {
         {/* Email */}
         <a
           href="mailto:solvoka@gmail.com"
+          onClick={() => trackEmailClick("utility_bar")}
           className="flex h-[38px] items-center gap-1 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
           aria-label="Email solvoka@gmail.com"
         >
@@ -31,6 +34,7 @@ export default function UtilityBar() {
         {/* Phone */}
         <a
           href="tel:+917087086696"
+          onClick={() => trackPhoneClick("utility_bar")}
           className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-amber-600 shrink-0 select-none active:text-amber-600"
           aria-label="Call +91 70870-86696"
         >
@@ -58,6 +62,7 @@ export default function UtilityBar() {
           href="https://wa.me/917087086696"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick("utility_bar")}
           className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-emerald-600 shrink-0 select-none active:text-emerald-600"
           aria-label="WhatsApp Business +91 70870-86696"
         >

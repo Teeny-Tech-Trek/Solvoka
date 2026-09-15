@@ -10,6 +10,7 @@ import {
   ChevronDown,
   CheckCircle2,
 } from "lucide-react";
+import { trackContactFormSubmit, trackEmailClick, trackPhoneClick } from "../../utils/analytics";
 
 /* ------------------------------------------------------------------ */
 /* Trust feature items on the left                                    */
@@ -184,6 +185,11 @@ export default function Contact({ id = "contact" }: { id?: string }) {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
+      trackContactFormSubmit({
+        form_id: "contact_form",
+        project_type: formData.projectType || "Unspecified",
+        has_company: Boolean(formData.company.trim()),
+      });
     }, 600);
   };
 
@@ -484,6 +490,13 @@ export default function Contact({ id = "contact" }: { id?: string }) {
                             {info.href ? (
                               <a
                                 href={info.href}
+                                onClick={() => {
+                                  if (info.href?.startsWith("mailto:")) {
+                                    trackEmailClick("contact_card");
+                                  } else if (info.href?.startsWith("tel:")) {
+                                    trackPhoneClick("contact_card");
+                                  }
+                                }}
                                 className="mt-0.5 block text-xs sm:text-[12.5px] text-slate-300 transition-colors hover:text-white"
                               >
                                 {info.lines[0]}

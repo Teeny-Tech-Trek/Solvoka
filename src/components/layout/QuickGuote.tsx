@@ -17,6 +17,7 @@ import {
   CheckCircle2,
   Loader2,
 } from "lucide-react";
+import { trackRfqSubmit } from "../../utils/analytics";
 
 interface Feature {
   icon: ReactNode;
@@ -91,6 +92,12 @@ export default function QuickRFQ() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 800));
       setIsSuccess(true);
+      trackRfqSubmit({
+        form_id: "quick_rfq",
+        has_cad_file: Boolean(uploadedFile),
+        has_material: Boolean(formData.material.trim()),
+        has_nda: ndaChecked,
+      });
     } catch {
       // Keep UI functional
     } finally {

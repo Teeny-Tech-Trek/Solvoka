@@ -1,6 +1,7 @@
 import { type SVGProps, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { trackQuoteCtaClick } from "../utils/analytics";
 
 /**
  * SheetMetalFabrication
@@ -459,6 +460,7 @@ function CapabilityCard({ card }: { card: CapabilityItem }) {
 
             <Link
                 to="/#contact"
+                onClick={() => trackQuoteCtaClick("sheet_metal_card")}
                 className="group/link mt-4 inline-flex items-center justify-between border-t pt-3 text-xs font-semibold uppercase tracking-wider transition-colors"
                 style={{ borderColor: ASH, color: COPPER }}
             >
@@ -592,6 +594,7 @@ function CtaSection() {
                         </p>
                         <Link
                             to="/#contact"
+                            onClick={() => trackQuoteCtaClick("sheet_metal_bottom_cta")}
                             className="group mt-6 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white transition-colors"
                             style={{ backgroundColor: COPPER }}
                             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COPPER_DARK)}

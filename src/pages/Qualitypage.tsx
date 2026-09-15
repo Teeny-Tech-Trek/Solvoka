@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     ArrowRight,
     ChevronRight,
@@ -858,6 +859,7 @@ export default function QualityPage() {
                             <div className="mt-9">
                                 <Link
                                     to="/request-a-quote"
+                                    onClick={() => trackQuoteCtaClick("quality_page")}
                                     className="inline-flex items-center gap-2.5 bg-orange-500 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-400 shadow-lg shadow-orange-950/40"
                                 >
                                     Request a Quote

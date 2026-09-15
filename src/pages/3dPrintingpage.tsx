@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     Box,
     Waves,
@@ -605,6 +606,7 @@ export default function PrintingPage() {
 
                             <Link
                                 to="/#contact"
+                                onClick={() => trackQuoteCtaClick("3d_printing_page")}
                                 className="mt-9 inline-flex items-center gap-2.5 bg-slate-900 px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-orange-500"
                             >
                                 Request a Quote

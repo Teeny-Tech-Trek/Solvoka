@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 import SmoothScroll from './components/layout/SmoothScroll';
@@ -8,6 +8,7 @@ import Hero from './components/layout/Hero';
 import SectionErrorBoundary from './components/common/SectionErrorBoundary';
 import LazySection from './components/common/LazySection';
 import { useLenis } from './components/layout/LenisContext';
+import { trackPageView } from './utils/analytics';
 import {
   CapabilitiesSkeleton,
   CoordinationModelSkeleton,
@@ -36,6 +37,28 @@ const AboutUsPage = lazy(() => import('./pages/Aboutpage'));
 const MaterialsPage = lazy(() => import('./pages/Materialspage'));
 const QualityPage = lazy(() => import('./pages/Qualitypage'));
 const AutomotivePage = lazy(() => import('./pages/Automotivepage'));
+
+function AnalyticsTracker() {
+  const location = useLocation();
+  const lastTrackedPath = useRef<string | null>(null);
+
+  useEffect(() => {
+    const currentPath = location.pathname + location.search;
+    if (lastTrackedPath.current === currentPath) {
+      return;
+    }
+    lastTrackedPath.current = currentPath;
+
+    // Small timeout ensures document.title has updated if page sets it
+    const timer = setTimeout(() => {
+      trackPageView(currentPath, document.title);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, location.search]);
+
+  return null;
+}
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -162,6 +185,7 @@ function App() {
   return (
     <SmoothScroll>
       <ScrollToTop />
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

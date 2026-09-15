@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Mail, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { trackEmailClick, trackPhoneClick, trackWhatsAppClick, trackQuoteCtaClick } from "../../utils/analytics";
 
 export function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -149,13 +150,21 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 shrink-0 text-blue-600" strokeWidth={2} />
-              <a href="mailto:solvoka@gmail.com" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 break-all">
+              <a
+                href="mailto:solvoka@gmail.com"
+                onClick={() => trackEmailClick("footer")}
+                className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 break-all"
+              >
                 solvoka@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Phone className="h-4 w-4 shrink-0 text-blue-600" strokeWidth={2} />
-              <a href="tel:+917087086696" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 whitespace-nowrap">
+              <a
+                href="tel:+917087086696"
+                onClick={() => trackPhoneClick("footer")}
+                className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 whitespace-nowrap"
+              >
                 +91 70870-86696
               </a>
             </li>
@@ -165,6 +174,7 @@ export default function Footer() {
                 href="https://wa.me/917087086696"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("footer")}
                 className="text-xs sm:text-sm text-slate-600 hover:text-blue-600"
               >
                 WhatsApp Business
@@ -174,6 +184,7 @@ export default function Footer() {
 
           <Link
             to="/#contact"
+            onClick={() => trackQuoteCtaClick("footer")}
             className="mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-blue-600/25 transition hover:bg-blue-700 active:scale-[0.99]"
           >
             <span>Request a Quote</span>

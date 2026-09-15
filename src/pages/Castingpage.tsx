@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     Settings,
     CircleDot,
@@ -449,6 +450,7 @@ export default function CastingPage() {
                                 <div className="mt-7 flex flex-col items-start gap-2.5">
                                     <Link
                                         to="/#contact"
+                                        onClick={() => trackQuoteCtaClick("casting_page")}
                                         className="group inline-flex items-center gap-2 bg-[#B5522B] px-6 py-3.5 text-sm font-bold text-white transition-colors duration-300 hover:bg-[#9C4423]"
                                     >
                                         Request a Quote

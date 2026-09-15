@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLenis } from "./LenisContext";
+import { trackQuoteCtaClick } from "../../utils/analytics";
 
 type NavItem = {
   label: string;
@@ -243,6 +244,10 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
             />
             <Link
               to="/#contact"
+              onClick={() => {
+                closeImmediately();
+                trackQuoteCtaClick("navbar_desktop");
+              }}
               className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
             >
               Request a Quote
@@ -450,7 +455,10 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           <div className="pt-6 pb-2">
             <Link
               to="/#contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                setMobileOpen(false);
+                trackQuoteCtaClick("navbar_mobile");
+              }}
               className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-blue-600 font-sans text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-blue-700 active:scale-[0.99]"
             >
               Get a quote <span aria-hidden="true">→</span>

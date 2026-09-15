@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     ShieldCheck,
     Settings,
@@ -472,6 +473,7 @@ export default function ForgingPage() {
                             <div className="flex flex-col items-start gap-2.5 lg:items-center">
                                 <Link
                                     to="/#contact"
+                                    onClick={() => trackQuoteCtaClick("forging_page")}
                                     className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/40 transition hover:bg-blue-500"
                                 >
                                     Request a Quote

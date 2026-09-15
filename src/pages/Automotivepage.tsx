@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     ShieldCheck,
     Cog,
@@ -747,6 +748,7 @@ export default function AutomotivePage() {
                                 <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
                                     <Link
                                         to="/request-a-quote"
+                                        onClick={() => trackQuoteCtaClick("automotive_page")}
                                         className="inline-flex items-center justify-center gap-3 rounded-lg bg-orange-600 px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-orange-950/50 transition-all duration-200 hover:bg-orange-500 hover:shadow-orange-700/40"
                                     >
                                         <span>Request Automotive Quote</span>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
   Crosshair,
   Layers,
@@ -808,6 +809,7 @@ export default function CncMachiningpage() {
               <div className="mt-6">
                 <Link
                   to="/#quote"
+                  onClick={() => trackQuoteCtaClick("cnc_page")}
                   className="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-7 py-3.5 text-xs font-bold text-slate-950 shadow-lg transition-all duration-200 hover:bg-cyan-300 hover:shadow-xl hover:gap-3"
                 >
                   Request a Quote

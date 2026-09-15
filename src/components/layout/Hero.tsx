@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { trackQuoteCtaClick } from "../../utils/analytics";
 
 const SLIDE_ONE_VIDEO_SRC = "/HeroPage-Video.mp4";
 const SLIDE_TWO_VIDEO_SRC = "/Solvoka_Hero.mp4";
@@ -262,6 +263,7 @@ export default function Hero() {
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
+                      onClick={() => trackQuoteCtaClick("hero_slide_1")}
                       className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
                     >
                       Request a Quote
@@ -342,6 +344,7 @@ export default function Hero() {
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
+                      onClick={() => trackQuoteCtaClick("hero_slide_2")}
                       className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
                     >
                       Request a Quote

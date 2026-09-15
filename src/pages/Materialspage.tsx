@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     Flame,
     Container,
@@ -16,12 +17,7 @@ import {
     Search,
     SlidersHorizontal,
     CheckCircle2,
-    Download,
     ShieldCheck,
-    FileText,
-    Sparkles,
-    Layers,
-    Cpu,
     Gauge,
 } from "lucide-react";
 
@@ -391,7 +387,7 @@ function SectionMark({ label, tone = "dark" }: { label: string; tone?: "dark" | 
 }
 
 /** Bespoke SVG technical drawing representing metallurgical lattice & grain structure */
-function MetallurgyLatticeGraphic() {
+export function MetallurgyLatticeGraphic() {
     return (
         <div className="relative aspect-[4/3] w-full max-w-lg select-none">
             <svg viewBox="0 0 420 320" className="h-full w-full" aria-hidden="true">
@@ -1089,6 +1085,7 @@ export default function MaterialsPage() {
                                     </span>
                                     <Link
                                         to="/#contact"
+                                        onClick={() => trackQuoteCtaClick("materials_specs_card")}
                                         className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-slate-900 transition-colors group-hover:text-orange-600"
                                     >
                                         <span>Quote Specs</span>
@@ -1109,6 +1106,7 @@ export default function MaterialsPage() {
                             </p>
                             <Link
                                 to="/#contact"
+                                onClick={() => trackQuoteCtaClick("materials_custom_feasibility")}
                                 className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-mono text-xs font-bold text-white transition hover:bg-orange-600 shadow-md"
                             >
                                 Request Custom Feasibility
@@ -1320,6 +1318,7 @@ export default function MaterialsPage() {
                                 <div className="mt-8 flex flex-wrap items-center gap-4">
                                     <Link
                                         to="/#contact"
+                                        onClick={() => trackQuoteCtaClick("materials_bottom_feasibility")}
                                         className="inline-flex items-center gap-3 rounded-xl bg-[#ff5500] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-xl shadow-orange-950/60 transition-all duration-200 hover:bg-orange-500 hover:shadow-orange-600/40 active:translate-y-0.5"
                                     >
                                         <span>Request Material Feasibility Quote</span>
