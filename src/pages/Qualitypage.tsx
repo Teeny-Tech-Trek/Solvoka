@@ -117,17 +117,17 @@ const gates: GateRow[] = [
 
 const rfqFeatures = [
     {
-        icon: <Zap className="h-4 w-4 text-orange-400" strokeWidth={2} />,
+        icon: <Zap className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
         title: "Fast Response",
         subtitle: "Typically within 24 hours",
     },
     {
-        icon: <Lock className="h-4 w-4 text-orange-400" strokeWidth={2} />,
+        icon: <Lock className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
         title: "Strict Confidentiality",
         subtitle: "Mutual NDA supported on request",
     },
     {
-        icon: <Users className="h-4 w-4 text-orange-400" strokeWidth={2} />,
+        icon: <Users className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
         title: "Direct Engineering Alignment",
         subtitle: "Direct discussion with QA lead metallurgists",
     },
@@ -142,8 +142,8 @@ function SectionMark({ label, tone = "dark" }: { label: string; tone?: "dark" | 
     const textTone = tone === "dark" ? "text-slate-500" : "text-slate-400";
     return (
         <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-orange-500" />
-            <span className={`font-mono text-xs font-semibold uppercase tracking-[0.2em] ${textTone}`}>
+            <span className="h-px w-8 bg-[#2563eb]" />
+            <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${textTone}`}>
                 {label}
             </span>
         </div>
@@ -170,11 +170,11 @@ function GateRail({
                         type="button"
                         onClick={() => onSelect(i)}
                         aria-current={active}
-                        className={`group flex items-baseline gap-3 border-l-2 py-3 pl-4 text-left transition-colors ${active ? "border-orange-500" : "border-transparent hover:border-slate-300"
+                        className={`group flex items-baseline gap-3 border-l-2 py-3 pl-4 text-left transition-colors ${active ? "border-[#2563eb]" : "border-transparent hover:border-slate-300"
                             }`}
                     >
                         <span
-                            className={`font-mono text-[11px] font-semibold transition-colors ${active ? "text-orange-600" : "text-slate-400 group-hover:text-slate-600"
+                            className={`text-[11px] font-semibold transition-colors ${active ? "text-[#2563eb]" : "text-slate-400 group-hover:text-slate-600"
                                 }`}
                         >
                             {g.number}
@@ -186,7 +186,7 @@ function GateRail({
                             >
                                 Gate {g.number}
                             </span>
-                            <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
+                            <span className="text-[9px] uppercase tracking-wider text-slate-400">
                                 {i === 0 ? "Receiving" : i === 1 ? "In-Process" : "Dispatch"}
                             </span>
                         </div>
@@ -200,7 +200,7 @@ function GateRail({
 /** Custom GD&T Feature Control & CMM Inspection Drawing — collision-free, fully responsive technical vector */
 function MetrologyCMMDrawing() {
     return (
-        <div className="relative aspect-[4/3] w-full max-w-lg mx-auto select-none rounded-2xl border border-slate-200/80 bg-[#FAF9F7]/60 p-2 sm:p-4 shadow-xs">
+        <div className="relative aspect-[4/3] w-full max-w-lg mx-auto select-none rounded-2xl border border-slate-200/80 bg-[#ffffff]/60 p-2 sm:p-4 shadow-xs">
             <svg viewBox="0 0 440 280" className="h-full w-full" aria-hidden="true">
                 <defs>
                     {/* Arrowhead marker for CAD leader line */}
@@ -213,7 +213,7 @@ function MetrologyCMMDrawing() {
                         markerHeight="6"
                         orient="auto-start-reverse"
                     >
-                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb" />
                     </marker>
                     {/* Dimension line arrowheads */}
                     <marker
@@ -225,7 +225,7 @@ function MetrologyCMMDrawing() {
                         markerHeight="5"
                         orient="auto"
                     >
-                        <path d="M 8 1.5 L 0 5 L 8 8.5 z" fill="#ea580c" />
+                        <path d="M 8 1.5 L 0 5 L 8 8.5 z" fill="#2563eb" />
                     </marker>
                     <marker
                         id="dim-arrow-end"
@@ -236,28 +236,28 @@ function MetrologyCMMDrawing() {
                         markerHeight="5"
                         orient="auto"
                     >
-                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb" />
                     </marker>
                 </defs>
 
                 {/* Subtle Technical Blueprint Grid Lines */}
-                <line x1="20" y1="60" x2="420" y2="60" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
-                <line x1="20" y1="120" x2="420" y2="120" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
-                <line x1="20" y1="180" x2="420" y2="180" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
-                <line x1="120" y1="30" x2="120" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
-                <line x1="220" y1="30" x2="220" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
-                <line x1="320" y1="30" x2="320" y2="250" stroke="#e2e8f0" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="20" y1="60" x2="420" y2="60" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="20" y1="120" x2="420" y2="120" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="20" y1="180" x2="420" y2="180" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="120" y1="30" x2="120" y2="250" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="220" y1="30" x2="220" y2="250" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
+                <line x1="320" y1="30" x2="320" y2="250" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 4" />
 
                 {/* Technical Annotation Callouts - Top Row */}
-                <text x="24" y="26" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="9" fontWeight="bold" letterSpacing="0.12em">
+                <text x="24" y="26" fill="#2563eb" fontSize="9" fontWeight="bold" letterSpacing="0.12em">
                     CMM PROBE INSPECTION // ZEISS PRISMO
                 </text>
-                <text x="416" y="26" textAnchor="end" fill="#64748b" fontFamily="JetBrains Mono" fontSize="9" fontWeight="600" letterSpacing="0.08em">
+                <text x="416" y="26" textAnchor="end" fill="#2563eb" fontSize="9" fontWeight="600" letterSpacing="0.08em">
                     REPEATABILITY: 1.5 µm
                 </text>
 
                 {/* Center Axis Centerline */}
-                <line x1="40" y1="110" x2="400" y2="110" stroke="#ea580c" strokeWidth="0.75" strokeDasharray="8 3 1.5 3" />
+                <line x1="40" y1="110" x2="400" y2="110" stroke="#2563eb" strokeWidth="0.75" strokeDasharray="8 3 1.5 3" />
 
                 {/* Isometric Machined Bearing Journal Profile */}
                 <g>
@@ -265,28 +265,28 @@ function MetrologyCMMDrawing() {
                     <path
                         d="M 80,90 L 150,90 L 150,70 L 290,70 L 290,90 L 360,90 L 360,130 L 290,130 L 290,150 L 150,150 L 150,130 L 80,130 Z"
                         fill="#ffffff"
-                        stroke="#0f172a"
+                        stroke="#2563eb"
                         strokeWidth="1.6"
                     />
 
                     {/* Internal shoulder transition lines */}
-                    <line x1="150" y1="90" x2="150" y2="130" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
-                    <line x1="290" y1="90" x2="290" y2="130" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="150" y1="90" x2="150" y2="130" stroke="#2563eb" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="290" y1="90" x2="290" y2="130" stroke="#2563eb" strokeWidth="1" strokeDasharray="3 3" />
 
                     {/* Center machined core hatch indication */}
-                    <line x1="220" y1="70" x2="220" y2="150" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="2 2" />
+                    <line x1="220" y1="70" x2="220" y2="150" stroke="#ffffff" strokeWidth="1" strokeDasharray="2 2" />
 
                     {/* CMM Probe Stylus scanning center collar */}
-                    <line x1="220" y1="12" x2="220" y2="70" stroke="#ea580c" strokeWidth="2" />
-                    <circle cx="220" cy="70" r="4.5" fill="#ea580c" />
-                    <circle cx="220" cy="70" r="8.5" fill="none" stroke="#ea580c" strokeWidth="0.8" strokeDasharray="2 2" />
+                    <line x1="220" y1="12" x2="220" y2="70" stroke="#2563eb" strokeWidth="2" />
+                    <circle cx="220" cy="70" r="4.5" fill="#2563eb" />
+                    <circle cx="220" cy="70" r="8.5" fill="none" stroke="#2563eb" strokeWidth="0.8" strokeDasharray="2 2" />
                 </g>
 
                 {/* Linear Dimension 160.00 ± 0.005 mm (Cleanly below the shaft, zero collision) */}
                 <g>
                     {/* Extension witness lines */}
-                    <line x1="80" y1="135" x2="80" y2="185" stroke="#94a3b8" strokeWidth="0.9" />
-                    <line x1="360" y1="135" x2="360" y2="185" stroke="#94a3b8" strokeWidth="0.9" />
+                    <line x1="80" y1="135" x2="80" y2="185" stroke="#2563eb" strokeWidth="0.9" />
+                    <line x1="360" y1="135" x2="360" y2="185" stroke="#2563eb" strokeWidth="0.9" />
 
                     {/* Main dimension line with arrowheads */}
                     <line
@@ -294,20 +294,19 @@ function MetrologyCMMDrawing() {
                         y1="175"
                         x2="360"
                         y2="175"
-                        stroke="#ea580c"
+                        stroke="#2563eb"
                         strokeWidth="1"
                         markerStart="url(#dim-arrow-start)"
                         markerEnd="url(#dim-arrow-end)"
                     />
 
                     {/* Dimension readout pill */}
-                    <rect x="160" y="166" width="120" height="18" fill="#ffffff" stroke="#e2e8f0" strokeWidth="0.8" rx="4" />
+                    <rect x="160" y="166" width="120" height="18" fill="#ffffff" stroke="#ffffff" strokeWidth="0.8" rx="4" />
                     <text
                         x="220"
                         y="179"
                         textAnchor="middle"
-                        fill="#ea580c"
-                        fontFamily="JetBrains Mono"
+                        fill="#2563eb"
                         fontSize="9.5"
                         fontWeight="bold"
                         letterSpacing="0.04em"
@@ -319,29 +318,29 @@ function MetrologyCMMDrawing() {
                 {/* GD&T Feature Control Frame (Cleanly placed at bottom-left, zero collision) */}
                 <g transform="translate(24, 215)">
                     {/* Background frame box */}
-                    <rect x="0" y="0" width="144" height="26" fill="#ffffff" stroke="#0f172a" strokeWidth="1.3" rx="2" />
+                    <rect x="0" y="0" width="144" height="26" fill="#ffffff" stroke="#2563eb" strokeWidth="1.3" rx="2" />
                     {/* Dividing lines */}
-                    <line x1="28" y1="0" x2="28" y2="26" stroke="#0f172a" strokeWidth="1.1" />
-                    <line x1="92" y1="0" x2="92" y2="26" stroke="#0f172a" strokeWidth="1.1" />
-                    <line x1="118" y1="0" x2="118" y2="26" stroke="#0f172a" strokeWidth="1.1" />
+                    <line x1="28" y1="0" x2="28" y2="26" stroke="#2563eb" strokeWidth="1.1" />
+                    <line x1="92" y1="0" x2="92" y2="26" stroke="#2563eb" strokeWidth="1.1" />
+                    <line x1="118" y1="0" x2="118" y2="26" stroke="#2563eb" strokeWidth="1.1" />
 
                     {/* Compartment 1: Position Symbol ⌖ */}
-                    <circle cx="14" cy="13" r="5.5" fill="none" stroke="#0f172a" strokeWidth="1.2" />
-                    <line x1="14" y1="5" x2="14" y2="21" stroke="#0f172a" strokeWidth="1" />
-                    <line x1="6" y1="13" x2="22" y2="13" stroke="#0f172a" strokeWidth="1" />
+                    <circle cx="14" cy="13" r="5.5" fill="none" stroke="#2563eb" strokeWidth="1.2" />
+                    <line x1="14" y1="5" x2="14" y2="21" stroke="#2563eb" strokeWidth="1" />
+                    <line x1="6" y1="13" x2="22" y2="13" stroke="#2563eb" strokeWidth="1" />
 
                     {/* Compartment 2: Tolerance with MMC modifier */}
-                    <text x="35" y="17" fill="#0f172a" fontFamily="JetBrains Mono" fontSize="9.5" fontWeight="bold">
+                    <text x="35" y="17" fill="#2563eb" fontSize="9.5" fontWeight="bold">
                         Ø 0.008 M
                     </text>
 
                     {/* Compartment 3: Primary Datum A */}
-                    <text x="101" y="17" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">
+                    <text x="101" y="17" fill="#2563eb" fontSize="11" fontWeight="bold">
                         A
                     </text>
 
                     {/* Compartment 4: Secondary Datum B */}
-                    <text x="127" y="17" fill="#ea580c" fontFamily="JetBrains Mono" fontSize="11" fontWeight="bold">
+                    <text x="127" y="17" fill="#2563eb" fontSize="11" fontWeight="bold">
                         B
                     </text>
                 </g>
@@ -350,16 +349,16 @@ function MetrologyCMMDrawing() {
                 <path
                     d="M 70,215 L 70,140 L 95,133"
                     fill="none"
-                    stroke="#ea580c"
+                    stroke="#2563eb"
                     strokeWidth="1.2"
-                    markerEnd="url(#cad-arrow)"
+                    markerEnd="url(#2563eb-arrow)"
                 />
 
                 {/* Technical Annotation Callouts - Bottom Right */}
-                <text x="416" y="235" textAnchor="end" fill="#64748b" fontFamily="JetBrains Mono" fontSize="8.5" letterSpacing="0.08em">
+                <text x="416" y="235" textAnchor="end" fill="#2563eb" fontSize="8.5" letterSpacing="0.08em">
                     REF. ISO 1101 GD&amp;T SPECIFICATION
                 </text>
-                <text x="416" y="250" textAnchor="end" fill="#94a3b8" fontFamily="JetBrains Mono" fontSize="8" letterSpacing="0.06em">
+                <text x="416" y="250" textAnchor="end" fill="#2563eb" fontSize="8" letterSpacing="0.06em">
                     100% CMM FIRST-ARTICLE VERIFIED
                 </text>
             </svg>
@@ -401,7 +400,7 @@ export default function QualityPage() {
     };
 
     return (
-        <main className="w-full bg-white text-slate-900 selection:bg-orange-500 selection:text-white">
+        <main className="w-full bg-white text-slate-900 selection:bg-[#2563eb] selection:text-white">
             {/* ========================================================== */}
             {/* 1. HERO — Precise replica of reference design              */}
             {/* ========================================================== */}
@@ -424,8 +423,8 @@ export default function QualityPage() {
 
                         {/* Top Right: Zero Defect Protocol with orange vertical accent */}
                         <div className="flex items-center gap-3 self-end sm:self-auto">
-                            <div className="h-10 sm:h-11 w-[2.5px] bg-[#ff5500]" />
-                            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 leading-[1.35]">
+                            <div className="h-10 sm:h-11 w-[2.5px] bg-[#2563eb]" />
+                            <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 leading-[1.35]">
                                 <div>ZERO</div>
                                 <div>DEFECT</div>
                                 <div>PROTOCOL</div>
@@ -453,21 +452,21 @@ export default function QualityPage() {
                         <div className="relative z-10">
                             {/* Eyebrow Kicker */}
                             <div className="flex items-center gap-3">
-                                <span className="h-[2.5px] w-7 bg-[#ff5500]" />
-                                <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                                <span className="h-[2.5px] w-7 bg-[#2563eb]" />
+                                <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
                                     QUALITY CONTROL &amp; METROLOGY
                                 </span>
                             </div>
 
                             {/* Main Title */}
-                            <h1 className="mt-4 font-display text-[32px] sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-extrabold tracking-tight text-[#0a1128] leading-[1.06] break-words">
+                            <h1 className="mt-4 text-[32px] sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-extrabold tracking-tight text-[#2563eb] leading-[1.06] break-words">
                                 Quality Control &
-                                <span className="block text-[#ff5500]">Production</span>
-                                <span className="block text-[#ff5500]">Governance</span>
+                                <span className="block text-[#2563eb]">Production</span>
+                                <span className="block text-[#2563eb]">Governance</span>
                             </h1>
 
                             {/* Subtext description: backdrop blur specifically behind this text only */}
-                            <p className="mt-4 max-w-xl font-sans text-sm sm:text-base leading-relaxed text-slate-900 backdrop-blur-md bg-white/40 rounded-xl p-3 sm:p-4 border border-white/30 shadow-xs">
+                            <p className="mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-slate-900 backdrop-blur-md bg-white/40 rounded-xl p-3 sm:p-4 border border-white/30 shadow-xs">
                                 Rigid dimensional validation, metallurgical heat isolation, and stage-wise process visibility for international supply chains.
                             </p>
 
@@ -475,7 +474,7 @@ export default function QualityPage() {
                             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 sm:gap-y-0">
                                 {/* Metric 1: 3 Mandatory Stages */}
                                 <div className="flex items-center gap-3.5 pr-0 sm:pr-7">
-                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#2563eb]">
                                         <svg
                                             className="h-7 w-7"
                                             viewBox="0 0 24 24"
@@ -492,7 +491,7 @@ export default function QualityPage() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <div className="font-display text-xl sm:text-2xl font-bold text-slate-900 leading-none">
+                                        <div className="text-xl sm:text-2xl font-bold text-slate-900 leading-none">
                                             3
                                         </div>
                                         <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
@@ -507,7 +506,7 @@ export default function QualityPage() {
 
                                 {/* Metric 2: CMM Metrology */}
                                 <div className="flex items-center gap-3.5 px-0 sm:px-7">
-                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#2563eb]">
                                         <svg
                                             className="h-7 w-7"
                                             viewBox="0 0 24 24"
@@ -527,7 +526,7 @@ export default function QualityPage() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <div className="font-display text-base sm:text-lg font-bold text-slate-900 leading-none">
+                                        <div className="text-base sm:text-lg font-bold text-slate-900 leading-none">
                                             ± 0.0015 mm
                                         </div>
                                         <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
@@ -541,7 +540,7 @@ export default function QualityPage() {
 
                                 {/* Metric 3: Heat Traceability */}
                                 <div className="flex items-center gap-3.5 pl-0 sm:pl-7">
-                                    <div className="flex h-10 w-10 items-center justify-center text-[#0284c7]">
+                                    <div className="flex h-10 w-10 items-center justify-center text-[#2563eb]">
                                         <svg
                                             className="h-7 w-7"
                                             viewBox="0 0 24 24"
@@ -557,7 +556,7 @@ export default function QualityPage() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <div className="font-display text-base sm:text-lg font-bold text-slate-900 leading-none">
+                                        <div className="text-base sm:text-lg font-bold text-slate-900 leading-none">
                                             100% 3.1 MTR
                                         </div>
                                         <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
@@ -571,7 +570,7 @@ export default function QualityPage() {
                             <div className="mt-9 sm:mt-11 flex flex-wrap items-center gap-6 sm:gap-8">
                                 {/* <a
                                     href="#inspection-gates"
-                                    className="group inline-flex items-center gap-2.5 rounded-lg bg-[#ff5500] px-6 sm:px-7 py-3.5 sm:py-4 font-sans text-sm sm:text-[15px] font-bold text-white shadow-lg shadow-[#ff5500]/30 transition-all hover:bg-[#e04b00] hover:shadow-xl hover:shadow-[#ff5500]/40 active:scale-[0.98]"
+                                    className="group inline-flex items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-[15px] font-bold text-white shadow-lg shadow-[#2563eb]/30 transition-all hover:bg-[#2563eb] hover:shadow-xl hover:shadow-[#2563eb]/40 active:scale-[0.98]"
                                 >
                                     <span>Explore the Three Inspection Gates</span>
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.2} />
@@ -579,7 +578,7 @@ export default function QualityPage() {
 
                                 <a
                                     href="#inspection-gates"
-                                    className="group inline-flex flex-col items-start font-sans text-sm sm:text-[15px] font-semibold text-slate-900 transition-colors hover:text-[#ff5500]"
+                                    className="group inline-flex flex-col items-start text-sm sm:text-[15px] font-semibold text-slate-900 transition-colors hover:text-[#2563eb]"
                                 >
                                     <span>Learn More</span>
                                     <span className="mt-1.5 h-[3px] w-7 rounded-full bg-[#2563eb] transition-all group-hover:w-full" />
@@ -593,7 +592,7 @@ export default function QualityPage() {
                         {/* Precision Today. Stronger Tomorrow. */}
                         <div className="flex items-center gap-3">
                             <span className="h-px w-8 bg-slate-400/80" />
-                            <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+                            <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                                 PRECISION TODAY. STRONGER TOMORROW.
                             </span>
                         </div>
@@ -601,7 +600,7 @@ export default function QualityPage() {
                         {/* 01 Counter */}
                         <div className="flex items-center gap-4">
                             <span className="h-px w-10 sm:w-16 bg-slate-300" />
-                            <span className="font-display text-xl sm:text-3xl font-light text-slate-400">
+                            <span className="text-xl sm:text-3xl font-light text-slate-400">
                                 01
                             </span>
                         </div>
@@ -617,7 +616,7 @@ export default function QualityPage() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 items-center">
                         <div>
                             <SectionMark label="Our Commitment" />
-                            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                            <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
                                 Credibility Built Through Execution, Not Just Badges
                             </h2>
 
@@ -631,12 +630,12 @@ export default function QualityPage() {
                             </p>
 
                             {/* Chronological Milestone ribbon */}
-                            <div className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-3 border-t border-slate-200 pt-6 font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                            <div className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-3 border-t border-slate-200 pt-6 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                                 {["Material Isolated", "First-Article CMM", "Hourly In-Process", "Pre-Export VCI"].map((step, i) => (
                                     <span key={step} className="flex items-center gap-2">
                                         <span className={i === 0 ? "text-slate-900 font-bold" : ""}>{step}</span>
                                         {i < 3 && (
-                                            <ArrowRight className="h-3 w-3 text-orange-400" strokeWidth={2.5} />
+                                            <ArrowRight className="h-3 w-3 text-[#2563eb]" strokeWidth={2.5} />
                                         )}
                                     </span>
                                 ))}
@@ -646,10 +645,10 @@ export default function QualityPage() {
                         <div>
                             <MetrologyCMMDrawing />
                             <div className="mt-8 border-t border-slate-200 pt-6">
-                                <p className="font-display text-xl font-bold leading-snug text-slate-900">
+                                <p className="text-xl font-bold leading-snug text-slate-900">
                                     Zero concessions.
                                     <br />
-                                    <span className="text-orange-500">Zero unverified parts.</span>
+                                    <span className="text-[#2563eb]">Zero unverified parts.</span>
                                 </p>
                             </div>
                         </div>
@@ -660,10 +659,10 @@ export default function QualityPage() {
             {/* ========================================================== */}
             {/* 3. THREE-GATE INSPECTION PIPELINE — Sticky Rail + Open Row */}
             {/* ========================================================== */}
-            <section id="inspection-gates" className="py-20 lg:py-28 bg-[#FAF9F7] border-y border-slate-200">
+            <section id="inspection-gates" className="py-20 lg:py-28 bg-[#ffffff] border-y border-slate-200">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     <SectionMark label="The Inspection Process" />
-                    <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
+                    <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
                         Three-Gate Inspection Pipeline
                     </h2>
 
@@ -682,7 +681,7 @@ export default function QualityPage() {
                                     key={g.number}
                                     type="button"
                                     onClick={() => handleRailSelect(i)}
-                                    className={`flex-none rounded-xl px-4 py-2 font-mono text-xs font-semibold transition-all ${activeGate === i
+                                    className={`flex-none rounded-xl px-4 py-2 text-xs font-semibold transition-all ${activeGate === i
                                         ? "bg-slate-900 text-white shadow-sm"
                                         : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
                                         }`}
@@ -706,42 +705,42 @@ export default function QualityPage() {
                                     {/* Large ghost sequence number floating behind */}
                                     <span
                                         aria-hidden="true"
-                                        className="pointer-events-none absolute -top-8 right-0 select-none font-display text-[100px] font-black leading-none text-slate-900/[0.04] lg:text-[140px]"
+                                        className="pointer-events-none absolute -top-8 right-0 select-none text-[100px] font-black leading-none text-slate-900/[0.04] lg:text-[140px]"
                                     >
                                         {gate.number}
                                     </span>
 
                                     <div className="flex items-center gap-3">
-                                        <span className="font-mono text-xs font-bold text-orange-600">
+                                        <span className="text-xs font-bold text-[#2563eb]">
                                             {gate.number}
                                         </span>
-                                        <span className="h-px w-6 bg-orange-300" />
-                                        <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                                        <span className="h-px w-6 bg-[#2563eb]" />
+                                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                                             {gate.stageCode}
                                         </span>
                                     </div>
 
-                                    <h3 className="mt-3 font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+                                    <h3 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
                                         {gate.title}
                                     </h3>
 
-                                    <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-orange-600 font-mono">
+                                    <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#2563eb] ">
                                         {gate.tagline}
                                     </p>
 
-                                    <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-slate-600">
+                                    <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600">
                                         {gate.description}
                                     </p>
 
                                     {/* Verification Checklist — clean hairline list */}
                                     <div className="mt-8 border-t border-slate-200 pt-6">
-                                        <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                                             MANDATORY PHYSICAL AUDIT ITEMS
                                         </span>
                                         <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
                                             {gate.protocol.map((item) => (
                                                 <li key={item} className="flex items-start gap-2.5">
-                                                    <Check className="mt-0.5 h-4 w-4 flex-none text-orange-500" strokeWidth={2.5} />
+                                                    <Check className="mt-0.5 h-4 w-4 flex-none text-[#2563eb]" strokeWidth={2.5} />
                                                     <span className="text-sm leading-relaxed text-slate-700 font-medium">
                                                         {item}
                                                     </span>
@@ -751,12 +750,12 @@ export default function QualityPage() {
                                     </div>
 
                                     {/* Apparatus and Mandate strip */}
-                                    <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-dashed border-slate-200 pt-4 font-mono text-xs">
+                                    <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-dashed border-slate-200 pt-4 text-xs">
                                         <div>
                                             <span className="text-slate-400">PRIMARY TOOLING: </span>
                                             <span className="font-semibold text-slate-900">{gate.instrument}</span>
                                         </div>
-                                        <div className="text-orange-600 font-semibold">
+                                        <div className="text-[#2563eb] font-semibold">
                                             <span>MANDATE: {gate.lockRule}</span>
                                         </div>
                                     </div>
@@ -774,7 +773,7 @@ export default function QualityPage() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     <div className="max-w-2xl">
                         <SectionMark label="Workshop Metrology" />
-                        <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                        <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
                             What We Physically Inspect With
                         </h2>
                         <p className="mt-4 text-[15px] leading-relaxed text-slate-600">
@@ -792,16 +791,16 @@ export default function QualityPage() {
                             >
                                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-baseline lg:gap-8">
                                     <div className="lg:col-span-2 flex items-baseline gap-3">
-                                        <span className="font-mono text-xs font-bold text-orange-600">
+                                        <span className="text-xs font-bold text-[#2563eb]">
                                             {item.code}
                                         </span>
-                                        <span className="font-mono text-xs text-slate-400 font-semibold tabular">
+                                        <span className="text-xs text-slate-400 font-semibold tabular">
                                             {item.precision}
                                         </span>
                                     </div>
 
                                     <div className="lg:col-span-4">
-                                        <h3 className="font-display text-base font-bold text-slate-900">
+                                        <h3 className="text-base font-bold text-slate-900">
                                             {item.tool}
                                         </h3>
                                     </div>
@@ -810,7 +809,7 @@ export default function QualityPage() {
                                         {item.domain}
                                     </div>
 
-                                    <div className="lg:col-span-2 text-right font-mono text-[11px] text-slate-400">
+                                    <div className="lg:col-span-2 text-right text-[11px] text-slate-400">
                                         {item.frequency}
                                     </div>
                                 </div>
@@ -823,12 +822,12 @@ export default function QualityPage() {
             {/* ========================================================== */}
             {/* 5. IP SECURITY NOTE — Open editorial guarantee             */}
             {/* ========================================================== */}
-            <section className="py-12 bg-[#FAF9F7] border-b border-slate-200">
+            <section className="py-12 bg-[#ffffff] border-b border-slate-200">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     <div className="flex flex-col sm:flex-row items-baseline justify-between gap-4">
                         <div className="flex items-center gap-3">
-                            <ShieldCheck className="h-5 w-5 text-orange-500" strokeWidth={2} />
-                            <span className="font-display text-sm font-bold text-slate-900">
+                            <ShieldCheck className="h-5 w-5 text-[#2563eb]" strokeWidth={2} />
+                            <span className="text-sm font-bold text-slate-900">
                                 Strict IP Confidentiality · 256-Bit Encrypted · Mutual NDA Supported
                             </span>
                         </div>
@@ -848,7 +847,7 @@ export default function QualityPage() {
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
                         <div>
                             <SectionMark label="Ready to Start" tone="light" />
-                            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                            <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                                 Get a Quote, Backed by This Process
                             </h2>
                             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-slate-400">
@@ -859,8 +858,7 @@ export default function QualityPage() {
                             <div className="mt-9">
                                 <Link
                                     to="/request-a-quote"
-                                    onClick={() => trackQuoteCtaClick("quality_page")}
-                                    className="inline-flex items-center gap-2.5 bg-orange-500 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-400 shadow-lg shadow-orange-950/40"
+                                    className="inline-flex items-center gap-2.5 bg-[#2563eb] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#2563eb] shadow-lg shadow-[#2563eb]/40"
                                 >
                                     Request a Quote
                                     <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -870,17 +868,17 @@ export default function QualityPage() {
 
                         {/* Supplier commitments with clean hairlines — no bloated gradient boxes */}
                         <div className="border-t border-slate-800 pt-8 lg:border-t-0 lg:border-l lg:border-slate-800 lg:pl-12 lg:pt-0">
-                            <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+                            <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                                 QUALITY GUARANTEES
                             </span>
                             <div className="mt-6 space-y-6">
                                 {rfqFeatures.map((feat) => (
                                     <div key={feat.title} className="flex items-start gap-4">
-                                        <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-slate-900 ring-1 ring-slate-800 text-orange-400">
+                                        <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-slate-900 ring-1 ring-slate-800 text-[#2563eb]">
                                             {feat.icon}
                                         </div>
                                         <div>
-                                            <h3 className="font-display text-sm font-bold text-white">
+                                            <h3 className="text-sm font-bold text-white">
                                                 {feat.title}
                                             </h3>
                                             <p className="mt-0.5 text-xs text-slate-400">

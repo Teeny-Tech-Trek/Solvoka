@@ -83,9 +83,9 @@ function AnimatedStatNumber() {
 
   return (
     <div ref={containerRef} className="mt-2 sm:mt-3 flex items-baseline">
-      <div ref={motionRef} className="inline-flex items-baseline text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-none text-blue-400">
+      <div ref={motionRef} className="inline-flex items-baseline text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-none text-[#2563eb]">
         <span className="tabular tabular-nums">{count}</span>
-        <span className="ml-1 text-blue-400 font-extrabold animate-pulse">+</span>
+        <span className="ml-1 text-[#2563eb] font-extrabold animate-pulse">+</span>
       </div>
     </div>
   );
@@ -100,13 +100,13 @@ export default function CoordinationModel() {
           <div className="flex flex-col justify-center px-5 py-8 sm:px-10 lg:py-14 lg:pl-12 lg:pr-10">
             <div className="max-w-xl">
               <div className="mb-3 sm:mb-4">
-                <span className="font-mono text-xs font-bold tracking-widest text-blue-600 uppercase">
+                <span className="text-xs font-bold tracking-widest text-[#2563eb] uppercase">
                   COORDINATION MODEL
                 </span>
-                <div className="mt-1.5 sm:mt-2 h-0.5 w-8 bg-blue-600" />
+                <div className="mt-1.5 sm:mt-2 h-0.5 w-8 bg-[#2563eb]" />
               </div>
 
-              <h2 className="font-display text-[clamp(24px,3.6vw,42px)] font-extrabold leading-[1.15] text-slate-900">
+              <h2 className="text-[clamp(24px,3.6vw,42px)] font-extrabold leading-[1.15] text-slate-900">
                 One contract. One quality standard. One point of accountability.
               </h2>
 
@@ -126,7 +126,7 @@ export default function CoordinationModel() {
 
               <a
                 href="#quality"
-                className="mt-5 sm:mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm sm:text-base font-semibold text-blue-600 underline decoration-blue-600 underline-offset-4 transition hover:text-blue-700"
+                className="mt-5 sm:mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm sm:text-base font-semibold text-[#2563eb] underline decoration-[#2563eb] underline-offset-4 transition hover:text-[#2563eb]"
               >
                 <span>See how we inspect every gate</span>
                 <span aria-hidden="true">→</span>
@@ -150,7 +150,7 @@ export default function CoordinationModel() {
 
             {/* Stat card: stacked below image on mobile, floating on desktop */}
             <div className="relative mt-4 w-full rounded-xl bg-slate-900/95 p-5 text-white shadow-xl backdrop-blur-md border border-slate-800 sm:p-6 lg:absolute lg:left-8 lg:top-10 lg:mt-0 lg:w-[290px] lg:max-w-[85%] lg:shadow-2xl">
-              <span className="font-mono text-[11px] font-bold tracking-widest text-slate-300 uppercase">
+              <span className="text-[11px] font-bold tracking-widest text-slate-300 uppercase">
                 PARTNER NETWORK
               </span>
 
@@ -169,7 +169,7 @@ export default function CoordinationModel() {
                       </span>
                       <span className="text-xs sm:text-sm font-medium text-slate-200">{row.label}</span>
                     </div>
-                    <span className="tabular font-mono text-base sm:text-lg font-bold text-blue-400">{row.value}</span>
+                    <span className="tabular text-base sm:text-lg font-bold text-[#2563eb]">{row.value}</span>
                   </div>
                 ))}
               </div>

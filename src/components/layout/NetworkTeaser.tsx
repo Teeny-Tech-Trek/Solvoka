@@ -24,21 +24,21 @@ export default function NetworkTeaser() {
           <div className="relative z-10">
             {/* Eyebrow */}
             <div className="mb-2">
-              <span className="font-mono text-xs sm:text-[13px] font-bold tracking-widest text-blue-600 uppercase">
+              <span className="text-xs sm:text-[13px] font-bold tracking-widest text-[#2563eb] uppercase">
                 OUR BASE &amp; NETWORK
               </span>
-              <div className="mt-1.5 h-0.5 w-10 bg-blue-600" />
+              <div className="mt-1.5 h-0.5 w-10 bg-[#2563eb]" />
             </div>
 
             {/* Main Headline */}
-            <h2 className="mt-3 font-display text-[clamp(24px,4vw,42px)] font-extrabold leading-[1.15] tracking-tight text-[#0B1420]">
+            <h2 className="mt-3 text-[clamp(24px,4vw,42px)] font-extrabold leading-[1.15] tracking-tight text-[#2563eb]">
               Based in One of India’s
               <br />
               Real Forging Clusters
             </h2>
 
             {/* Description Paragraph */}
-            <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-base leading-relaxed text-slate-600 max-w-xl">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed text-slate-600 max-w-xl">
               Solvoka operates from Focal Point, Ludhiana — one of Punjab’s established forging and machining districts — coordinating a network of 15+ vetted partner facilities under a single quality standard.
             </p>
 
@@ -46,7 +46,7 @@ export default function NetworkTeaser() {
             <div className="mt-5 sm:mt-6">
               <Link
                 to="/about-us"
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-600/35 active:scale-[0.99]"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-[#2563eb] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#2563eb]/25 transition-all duration-200 hover:bg-[#2563eb] hover:shadow-[#2563eb]/35 active:scale-[0.99]"
               >
                 <span>About Solvoka</span>
                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -57,14 +57,14 @@ export default function NetworkTeaser() {
             <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-slate-200/90 border-t border-slate-200/80 pt-5 sm:pt-6">
               {/* Stat 1: Home Base */}
               <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0 sm:pr-4 lg:pr-6">
-                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50/90 text-blue-600 border border-blue-100 shadow-xs">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#2563eb]/10 text-[#2563eb] border border-[#2563eb] shadow-xs">
                   <Factory className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <h3 className="sm:mt-2.5 font-display text-sm sm:text-[15px] font-bold text-slate-900">
+                  <h3 className="sm:mt-2.5 text-sm sm:text-[15px] font-bold text-slate-900">
                     Home Base
                   </h3>
-                  <p className="font-mono text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
                     FOCAL POINT, LUDHIANA
                   </p>
                 </div>
@@ -72,14 +72,14 @@ export default function NetworkTeaser() {
 
               {/* Stat 2: 15+ Facilities */}
               <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0 sm:px-4 lg:px-6">
-                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50/90 text-blue-600 border border-blue-100 shadow-xs">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#2563eb]/10 text-[#2563eb] border border-[#2563eb] shadow-xs">
                   <Network className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <h3 className="sm:mt-2.5 font-display text-sm sm:text-[15px] font-bold text-slate-900">
+                  <h3 className="sm:mt-2.5 text-sm sm:text-[15px] font-bold text-slate-900">
                     15+
                   </h3>
-                  <p className="font-mono text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
                     VETTED PARTNER FACILITIES
                   </p>
                 </div>
@@ -87,14 +87,14 @@ export default function NetworkTeaser() {
 
               {/* Stat 3: One Standard */}
               <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0 sm:pl-4 lg:pl-6">
-                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50/90 text-blue-600 border border-blue-100 shadow-xs">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#2563eb]/10 text-[#2563eb] border border-[#2563eb] shadow-xs">
                   <Shield className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <h3 className="sm:mt-2.5 font-display text-sm sm:text-[15px] font-bold text-slate-900 uppercase">
+                  <h3 className="sm:mt-2.5 text-sm sm:text-[15px] font-bold text-slate-900 uppercase">
                     ONE STANDARD
                   </h3>
-                  <p className="font-mono text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase leading-tight sm:leading-snug">
                     QUALITY ACROSS THE NETWORK
                   </p>
                 </div>

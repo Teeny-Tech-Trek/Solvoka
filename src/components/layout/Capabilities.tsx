@@ -50,7 +50,7 @@ function CapabilityCard({ item, className = "" }: { item: Capability; className?
   return (
     <Link
       to={item.href}
-      className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${className}`}
+      className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] ${className}`}
       aria-label={`${item.code} — ${item.name}`}
     >
       <img
@@ -72,13 +72,13 @@ function CapabilityCard({ item, className = "" }: { item: Capability; className?
       />
 
       <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20">
-        <span className="block font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.16em] text-blue-600 font-semibold">
+        <span className="block text-[11px] sm:text-[12px] uppercase tracking-[0.16em] text-[#2563eb] font-semibold">
           {item.code}
         </span>
-        <span className="mt-1 flex items-center gap-2.5 font-mono text-[16px] sm:text-[20px] lg:text-[22px] font-bold uppercase tracking-[0.03em] text-white">
+        <span className="mt-1 flex items-center gap-2.5 text-[16px] sm:text-[20px] lg:text-[22px] font-bold uppercase tracking-[0.03em] text-white">
           {item.name}
           <span
-            className="h-[2px] w-[18px] bg-blue-600 transition-all duration-200 group-hover:w-[32px]"
+            className="h-[2px] w-[18px] bg-[#2563eb] transition-all duration-200 group-hover:w-[32px]"
             aria-hidden="true"
           />
         </span>
@@ -98,15 +98,15 @@ export default function Capabilities() {
       <div className="relative mx-auto flex h-full w-full max-w-[1536px] flex-col px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="flex shrink-0 flex-col gap-y-3 max-w-[720px]">
-          <span className="font-mono text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-blue-600">
+          <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
             02 / Capabilities
           </span>
           <h2
             id="capabilities-heading"
-            className="font-display font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
+            className="font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
           >
             <span className="block text-[clamp(26px,3.5vw,44px)]">Five core processes.</span>
-            <span className="block text-[clamp(26px,3.5vw,44px)] text-blue-600">Endless possibilities.</span>
+            <span className="block text-[clamp(26px,3.5vw,44px)] text-[#2563eb]">Endless possibilities.</span>
             <span className="block text-[clamp(26px,3.5vw,44px)]">One accountable supplier.</span>
           </h2>
         </div>

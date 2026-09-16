@@ -102,17 +102,17 @@ const coreList = ["Design", "Restore", "Prototype", "Produce", "Scale"];
 
 const rfqFeatures = [
     {
-        icon: <Zap className="h-5 w-5 text-orange-600" strokeWidth={2} />,
+        icon: <Zap className="h-5 w-5 text-[#2563eb]" strokeWidth={2} />,
         title: "Fast Response",
         subtitle: "Typically within 24 hours",
     },
     {
-        icon: <ShieldCheck className="h-5 w-5 text-orange-600" strokeWidth={2} />,
+        icon: <ShieldCheck className="h-5 w-5 text-[#2563eb]" strokeWidth={2} />,
         title: "Confidential",
         subtitle: "Your data is safe with us",
     },
     {
-        icon: <Users className="h-5 w-5 text-orange-600" strokeWidth={2} />,
+        icon: <Users className="h-5 w-5 text-[#2563eb]" strokeWidth={2} />,
         title: "Expert Support",
         subtitle: "We help you find the right solution",
     },
@@ -128,38 +128,15 @@ function SectionMark({ label, tone = "dark" }: { label: string; tone?: "dark" | 
     const textTone = tone === "dark" ? "text-slate-500" : "text-slate-400";
     return (
         <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-orange-500" />
-            <span className={`font-mono text-xs font-semibold uppercase tracking-[0.2em] ${textTone}`}>
+            <span className="h-px w-8 bg-[#2563eb]" />
+            <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${textTone}`}>
                 {label}
             </span>
         </div>
     );
 }
 
-/** Decorative stack of thin bars evoking printed layers building up.
- *  Animates in once on mount — a single deliberate motion beat. */
-function LayerStack({ className = "", align = "start" }: { className?: string; align?: "start" | "end" }) {
-    const bars = [
-        { w: "w-6", opacity: "bg-orange-500/70" },
-        { w: "w-9", opacity: "bg-amber-400/50" },
-        { w: "w-4", opacity: "bg-orange-500/40" },
-        { w: "w-11", opacity: "bg-amber-400/25" },
-    ];
-    return (
-        <div
-            aria-hidden="true"
-            className={`pointer-events-none absolute flex flex-col gap-1 ${align === "end" ? "items-end" : "items-start"} ${className}`}
-        >
-            {bars.map((bar, i) => (
-                <span
-                    key={i}
-                    className={`h-[3px] ${bar.w} ${bar.opacity} origin-left animate-[layer-grow_0.5s_ease-out_backwards]`}
-                    style={{ animationDelay: `${i * 90}ms` }}
-                />
-            ))}
-        </div>
-    );
-}
+
 
 /** Custom line-art bracket illustration with dimension callouts —
  *  replaces stock photography with an honest, on-brand technical drawing. */
@@ -178,22 +155,22 @@ function BracketWireframe() {
                 <circle cx="100" cy="200" r="10" fill="none" stroke="rgba(15,23,42,0.35)" strokeWidth="1.5" />
                 <circle cx="220" cy="100" r="8" fill="none" stroke="rgba(15,23,42,0.35)" strokeWidth="1.5" />
 
-                <line x1="60" y1="266" x2="260" y2="266" stroke="#f97316" strokeWidth="1" />
-                <line x1="60" y1="258" x2="60" y2="274" stroke="#f97316" strokeWidth="1" />
-                <line x1="260" y1="258" x2="260" y2="274" stroke="#f97316" strokeWidth="1" />
+                <line x1="60" y1="266" x2="260" y2="266" stroke="#2563eb" strokeWidth="1" />
+                <line x1="60" y1="258" x2="60" y2="274" stroke="#2563eb" strokeWidth="1" />
+                <line x1="260" y1="258" x2="260" y2="274" stroke="#2563eb" strokeWidth="1" />
 
-                <line x1="36" y1="80" x2="36" y2="240" stroke="#f97316" strokeWidth="1" />
-                <line x1="28" y1="80" x2="44" y2="80" stroke="#f97316" strokeWidth="1" />
-                <line x1="28" y1="240" x2="44" y2="240" stroke="#f97316" strokeWidth="1" />
+                <line x1="36" y1="80" x2="36" y2="240" stroke="#2563eb" strokeWidth="1" />
+                <line x1="28" y1="80" x2="44" y2="80" stroke="#2563eb" strokeWidth="1" />
+                <line x1="28" y1="240" x2="44" y2="240" stroke="#2563eb" strokeWidth="1" />
             </svg>
 
-            <span className="absolute left-1/2 top-[91%] -translate-x-1/2 font-mono text-[10px] uppercase tracking-wider text-orange-600">
+            <span className="absolute left-1/2 top-[91%] -translate-x-1/2 text-[10px] uppercase tracking-wider text-[#2563eb]">
                 Overall width
             </span>
-            <span className="absolute left-[1%] top-1/2 -translate-y-1/2 -rotate-90 font-mono text-[10px] uppercase tracking-wider text-orange-600">
+            <span className="absolute left-[1%] top-1/2 -translate-y-1/2 -rotate-90 text-[10px] uppercase tracking-wider text-[#2563eb]">
                 Overall height
             </span>
-            <span className="absolute right-0 top-0 font-mono text-[10px] uppercase tracking-wider text-slate-400">
+            <span className="absolute right-0 top-0 text-[10px] uppercase tracking-wider text-slate-400">
                 Ref. illustrative — not to scale
             </span>
         </div>
@@ -230,27 +207,27 @@ function BuildEnvelopeDiagram() {
                 <line x1="160" y1="180" x2="100" y2="220" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4 4" />
                 <line x1="160" y1="180" x2="280" y2="180" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4 4" />
 
-                <line x1="100" y1="248" x2="220" y2="248" stroke="#f97316" strokeWidth="1" />
-                <line x1="100" y1="240" x2="100" y2="256" stroke="#f97316" strokeWidth="1" />
-                <line x1="220" y1="240" x2="220" y2="256" stroke="#f97316" strokeWidth="1" />
+                <line x1="100" y1="248" x2="220" y2="248" stroke="#2563eb" strokeWidth="1" />
+                <line x1="100" y1="240" x2="100" y2="256" stroke="#2563eb" strokeWidth="1" />
+                <line x1="220" y1="240" x2="220" y2="256" stroke="#2563eb" strokeWidth="1" />
 
-                <line x1="70" y1="120" x2="70" y2="220" stroke="#f97316" strokeWidth="1" />
-                <line x1="62" y1="120" x2="78" y2="120" stroke="#f97316" strokeWidth="1" />
-                <line x1="62" y1="220" x2="78" y2="220" stroke="#f97316" strokeWidth="1" />
+                <line x1="70" y1="120" x2="70" y2="220" stroke="#2563eb" strokeWidth="1" />
+                <line x1="62" y1="120" x2="78" y2="120" stroke="#2563eb" strokeWidth="1" />
+                <line x1="62" y1="220" x2="78" y2="220" stroke="#2563eb" strokeWidth="1" />
 
-                <line x1="232" y1="108" x2="292" y2="68" stroke="#f97316" strokeWidth="1" strokeDasharray="2 3" />
+                <line x1="232" y1="108" x2="292" y2="68" stroke="#2563eb" strokeWidth="1" strokeDasharray="2 3" />
             </svg>
 
-            <span className="absolute left-[22%] top-[83%] font-mono text-[10px] uppercase tracking-wider text-orange-400">
+            <span className="absolute left-[22%] top-[83%] text-[10px] uppercase tracking-wider text-[#2563eb]">
                 X — width
             </span>
-            <span className="absolute left-[8%] top-[54%] -translate-y-1/2 font-mono text-[10px] uppercase tracking-wider text-orange-400">
+            <span className="absolute left-[8%] top-[54%] -translate-y-1/2 text-[10px] uppercase tracking-wider text-[#2563eb]">
                 Y — height
             </span>
-            <span className="absolute left-[68%] top-[20%] font-mono text-[10px] uppercase tracking-wider text-orange-400">
+            <span className="absolute left-[68%] top-[20%] text-[10px] uppercase tracking-wider text-[#2563eb]">
                 Z — depth
             </span>
-            <span className="absolute right-0 top-0 font-mono text-[10px] uppercase tracking-wider text-slate-500">
+            <span className="absolute right-0 top-0 text-[10px] uppercase tracking-wider text-slate-500">
                 Envelope — confirmed per drawing
             </span>
         </div>
@@ -266,7 +243,7 @@ function ProcessThumb({ label, gifSrc, tag }: { label: string; gifSrc: string; t
                 className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/thumb:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-wider text-white/80">{tag}</p>
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/80">{tag}</p>
             </div>
         </div>
     );
@@ -288,12 +265,12 @@ function ProcessRowItem({
             className="scroll-mt-32 grid grid-cols-1 gap-6 border-t border-slate-200 py-10 first:border-t-0 first:pt-0 lg:grid-cols-[88px_minmax(0,1fr)_minmax(280px,360px)] lg:items-center lg:gap-10"
         >
             <div className="flex items-center gap-3 lg:block">
-                <p className="font-display text-4xl font-bold leading-none text-slate-200 lg:text-5xl">
+                <p className="text-4xl font-bold leading-none text-slate-200 lg:text-5xl">
                     {row.number}
                 </p>
                 <div className="flex items-center gap-1.5 lg:mt-2">
-                    <span className="h-px w-3 bg-orange-500" />
-                    <p className="font-mono text-[10px] font-bold tracking-wider text-slate-400">{row.code}</p>
+                    <span className="h-px w-3 bg-[#2563eb]" />
+                    <p className="text-[10px] font-bold tracking-wider text-slate-400">{row.code}</p>
                 </div>
             </div>
 
@@ -303,7 +280,7 @@ function ProcessRowItem({
                 <ul className="mt-4 space-y-2">
                     {row.benefits.map((benefit) => (
                         <li key={benefit} className="flex items-start gap-2.5">
-                            <Check className="mt-0.5 h-4 w-4 flex-none text-orange-500" strokeWidth={2.5} />
+                            <Check className="mt-0.5 h-4 w-4 flex-none text-[#2563eb]" strokeWidth={2.5} />
                             <span className="text-sm leading-relaxed text-slate-600">{benefit}</span>
                         </li>
                     ))}
@@ -337,12 +314,12 @@ function ProcessRail({
                         onClick={() => onSelect(i)}
                         aria-current={active}
                         className={`group flex items-baseline gap-3 border-l-2 py-2.5 pl-4 text-left transition-colors ${
-                            active ? "border-orange-500" : "border-transparent hover:border-slate-300"
+                            active ? "border-[#2563eb]" : "border-transparent hover:border-slate-300"
                         }`}
                     >
                         <span
-                            className={`font-mono text-[11px] font-semibold transition-colors ${
-                                active ? "text-orange-600" : "text-slate-400 group-hover:text-slate-600"
+                            className={`text-[11px] font-semibold transition-colors ${
+                                active ? "text-[#2563eb]" : "text-slate-400 group-hover:text-slate-600"
                             }`}
                         >
                             {row.number}
@@ -402,94 +379,153 @@ export default function PrintingPage() {
                 }
             `}</style>
 
-            {/* Hero — full-bleed dark image, no glass badges, ghost-type depth layer */}
-            <section className="relative flex min-h-[640px] items-center overflow-hidden bg-slate-950 pb-20 pt-28 lg:min-h-[700px] lg:pb-24 lg:pt-32">
-                <img
-                    src="/Gif-Assets/ded_lmd_3dprint.jpg"
-                    alt="Metal 3D printing in progress"
-                    className="absolute inset-0 h-full w-full object-cover opacity-60"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+            {/* Hero — Matching Main Project Hero Architecture */}
+            <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
+                {/* Full-bleed Industrial DMLS Motion GIF */}
+                <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+                    <img
+                        src="/Gif-Assets/DMLS_Video_Is_Ready_.gif"
+                        alt="Direct metal laser sintering 3D printing in progress"
+                        className="h-full w-full object-cover object-center filter contrast-110"
+                    />
+
+                    {/* Unified dark scrim overlay matching main hero */}
+                    <div
+                        className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/80"
+                        aria-hidden="true"
+                    />
+
+                    {/* Left-side desktop backdrop blur and high-contrast wash for text readability */}
+                    <div
+                        className="pointer-events-none absolute inset-y-0 left-0 hidden w-[72%] backdrop-blur-sm lg:block"
+                        style={{
+                            WebkitMaskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                            maskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                        }}
+                        aria-hidden="true"
+                    />
+                    <div
+                        className="pointer-events-none absolute inset-y-0 left-0 hidden w-[72%] lg:block"
+                        style={{
+                            background: "linear-gradient(to right, rgba(7,13,23,0.92) 0%, rgba(7,13,23,0.72) 55%, rgba(7,13,23,0) 100%)",
+                        }}
+                        aria-hidden="true"
+                    />
+                </div>
 
                 <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 select-none font-display text-[260px] font-bold leading-none lg:block lg:text-[360px]"
+                    className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 select-none text-[260px] font-bold leading-none lg:block lg:text-[360px]"
                     style={{ WebkitTextStroke: "1px rgba(255,255,255,0.06)", color: "transparent" }}
                 >
                     3D
                 </span>
 
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-16">
-                    <div className="mb-6 flex items-center gap-1.5 text-xs font-medium text-slate-400">
-                        <Link to="/" className="transition hover:text-orange-400">
-                            Home
-                        </Link>
-                        <ChevronRight className="h-3 w-3 text-slate-500" />
-                        <span className="font-semibold text-slate-200">3D Printing</span>
-                    </div>
+                <div className="relative z-10 mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
+                    <div className="max-w-[760px]">
+                        {/* Breadcrumb */}
+                        <div className="mb-5 flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+                            <Link to="/" className="transition hover:text-[#2563eb]">
+                                Home
+                            </Link>
+                            <ChevronRight className="h-3 w-3 text-slate-500" />
+                            <Link to="/#capabilities" className="transition hover:text-[#2563eb]">
+                                Capabilities
+                            </Link>
+                            <ChevronRight className="h-3 w-3 text-slate-500" />
+                            <span className="font-semibold text-slate-200">3D Printing</span>
+                        </div>
 
-                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
-                        <div>
-                            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
-                                Additive Manufacturing
+                        {/* Category Tag with Process Code */}
+                        <div className="mb-3 flex items-center gap-2.5">
+                            <span className="inline-flex items-center rounded-md bg-[#2563eb]/20 border border-[#2563eb]/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
+                                PRC-004
                             </span>
+                            <span className="h-[2px] w-6 bg-[#2563eb]" />
+                            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                                ADDITIVE MANUFACTURING
+                            </span>
+                        </div>
 
-                            <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                                <span className="text-white">3D</span> <span className="text-orange-500">Printing</span>
-                            </h1>
+                        {/* Headline with Main Project Outline Typography */}
+                        <h1 className="font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                            <span className="block text-[clamp(28px,5.5vw,58px)] font-bold">
+                                Additive Manufacturing.
+                            </span>
+                            <span
+                                className="mt-1 block text-[clamp(24px,4.8vw,50px)] font-extrabold uppercase leading-[1.08] text-[#2563eb]"
+                            >
+                                Metal Layer by Layer.
+                            </span>
+                        </h1>
 
-                            <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                                Additive manufacturing, engineered for real-world performance. A
-                                strategic extension of our forging and CNC capabilities.
-                            </p>
+                        {/* Dimension Line matching main project */}
+                        <div className="relative my-3 h-3 w-full max-w-[560px]" aria-hidden="true">
+                            <span className="absolute left-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+                            <span className="absolute right-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+                            <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-[#2563eb]" />
+                        </div>
 
-                            <div className="mt-9 flex flex-wrap items-start gap-x-8 gap-y-5 border-t border-white/10 pt-6">
-                                <div className="flex items-center gap-2.5">
-                                    <Box className="h-[18px] w-[18px] text-orange-400" strokeWidth={1.75} />
-                                    <span className="text-xs font-medium text-slate-300">Complex Geometries</span>
-                                </div>
-                                <div className="flex items-center gap-2.5">
-                                    <Waves className="h-[18px] w-[18px] text-orange-400" strokeWidth={1.75} />
-                                    <span className="text-xs font-medium text-slate-300">Low-Volume Production</span>
-                                </div>
-                                <div className="flex items-center gap-2.5">
-                                    <Layers className="h-[18px] w-[18px] text-orange-400" strokeWidth={1.75} />
-                                    <span className="text-xs font-medium text-slate-300">Repair &amp; Restoration</span>
-                                </div>
-                            </div>
+                        {/* Location */}
+                        <p className="text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-[#2563eb] font-semibold">
+                            Focal Point, Ludhiana, India
+                        </p>
 
+                        {/* Subheadline */}
+                        <p className="mt-3 max-w-[640px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                            Direct Metal Laser Sintering (DMLS), Selective Laser Melting (SLM), WAAM, and Binder Jetting — engineered for complex internal cooling channels, lightweighting, and rapid part restoration.
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                            <a
+                                href="/request-a-quote"
+                                className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-600 active:scale-[0.99] text-center"
+                            >
+                                Request a Quote
+                                <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                                    →
+                                </span>
+                            </a>
                             <a
                                 href="#processes"
-                                className="group mt-10 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 transition-colors hover:text-orange-400"
+                                className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
                             >
-                                Explore the five processes
-                                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" strokeWidth={2.25} />
+                                Explore 5 Additive Processes
                             </a>
                         </div>
 
-                        <div className="hidden flex-col items-end justify-between gap-10 lg:flex">
-                            <div className="flex flex-col items-end gap-3 self-end">
-                                <LayerStack align="end" className="mb-2 flex" />
-                                <div className="flex items-center gap-3">
-                                    <div className="h-24 w-px bg-white/20" />
-                                    <div className="text-right font-mono text-xs font-medium uppercase leading-relaxed tracking-[0.2em] text-slate-300">
-                                        Metal Ideas
-                                        <br />
-                                        Layer By
-                                        <br />
-                                        Layer
-                                    </div>
-                                </div>
-                            </div>
+                        {/* Trust chips */}
+                        <ul className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
+                            <li className="flex items-center gap-2 sm:gap-4">
+                                <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                    <svg width="18" height="20" viewBox="0 0 20 22" fill="none" aria-hidden="true" className="shrink-0">
+                                        <path
+                                            d="M10 1.5 18 4.6v6.1c0 4.6-3.2 8.3-8 9.8-4.8-1.5-8-5.2-8-9.8V4.6L10 1.5Z"
+                                            stroke="#2563eb"
+                                            strokeWidth="1.5"
+                                            strokeLinejoin="round"
+                                        />
+                                        <path d="M6.4 10.8 9 13.4l4.6-4.8" stroke="#2563eb" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                    UP TO 99.8% DENSITY
+                                </span>
+                                <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
+                            </li>
 
-                            <div className="text-right">
-                                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Focal Point</p>
-                                <p className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-200">
-                                    Ludhiana, India
-                                </p>
-                            </div>
-                        </div>
+                            <li className="flex items-center gap-2 sm:gap-4">
+                                <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                    DMLS / SLM / WAAM
+                                </span>
+                                <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
+                            </li>
+
+                            <li className="flex items-center gap-2 sm:gap-4">
+                                <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                    RAPID PROTOTYPE TO RUN
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -500,7 +536,7 @@ export default function PrintingPage() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
                         <div>
                             <SectionMark label="Our capability" />
-                            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                            <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
                                 Additive Manufacturing, Alongside Our Core Processes
                             </h2>
                             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-600">
@@ -512,12 +548,12 @@ export default function PrintingPage() {
                                 combination of part size, complexity, and volume.
                             </p>
 
-                            <div className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-3 border-t border-slate-200 pt-6 font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                            <div className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-3 border-t border-slate-200 pt-6 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                                 {coreList.map((item, i) => (
                                     <span key={item} className="flex items-center gap-2">
                                         <span className={i === 0 ? "text-slate-900" : ""}>{item}</span>
                                         {i < coreList.length - 1 && (
-                                            <ArrowRight className="h-3 w-3 text-orange-400" strokeWidth={2.5} />
+                                            <ArrowRight className="h-3 w-3 text-[#2563eb]" strokeWidth={2.5} />
                                         )}
                                     </span>
                                 ))}
@@ -527,10 +563,10 @@ export default function PrintingPage() {
                         <div>
                             <BracketWireframe />
                             <div className="mt-8 border-t border-slate-200 pt-6">
-                                <p className="font-display text-xl font-bold leading-snug text-slate-900">
+                                <p className="text-xl font-bold leading-snug text-slate-900">
                                     Same metal.
                                     <br />
-                                    <span className="text-orange-500">More freedom.</span>
+                                    <span className="text-[#2563eb]">More freedom.</span>
                                 </p>
                             </div>
                         </div>
@@ -566,7 +602,7 @@ export default function PrintingPage() {
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.95fr_1fr] lg:gap-16">
                         <div>
                             <SectionMark label="Materials & build envelope" tone="light" />
-                            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                            <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                                 What We Print, and How Big
                             </h2>
                             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-slate-400">
@@ -576,7 +612,7 @@ export default function PrintingPage() {
 
                             <a
                                 href="#"
-                                className="mt-9 inline-flex items-center gap-2.5 bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-400"
+                                className="mt-9 inline-flex items-center gap-2.5 bg-[#2563eb] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#2563eb]"
                             >
                                 Discuss Your Part
                                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -594,7 +630,7 @@ export default function PrintingPage() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
                         <div>
                             <SectionMark label="Ready to build?" />
-                            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] text-slate-900 sm:text-5xl lg:text-6xl">
+                            <h2 className="mt-4 text-4xl font-bold leading-[1.05] text-slate-900 sm:text-5xl lg:text-6xl">
                                 Get a Quote for
                                 <br />
                                 3D Printing
@@ -606,13 +642,12 @@ export default function PrintingPage() {
 
                             <Link
                                 to="/#contact"
-                                onClick={() => trackQuoteCtaClick("3d_printing_page")}
-                                className="mt-9 inline-flex items-center gap-2.5 bg-slate-900 px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-orange-500"
+                                className="mt-9 inline-flex items-center gap-2.5 bg-slate-900 px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-[#2563eb]"
                             >
                                 Request a Quote
                                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
                             </Link>
-                            <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                            <p className="mt-3 text-[11px] uppercase tracking-wider text-slate-400">
                                 Process pre-selected: 3D Printing
                             </p>
                         </div>

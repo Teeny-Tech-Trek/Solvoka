@@ -41,10 +41,10 @@ export class SectionErrorBoundary extends Component<Props, State> {
       return (
         <div className="w-full bg-slate-50 border-y border-slate-200 py-12 px-6 text-center">
           <div className="max-w-md mx-auto flex flex-col items-center">
-            <div className="h-12 w-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 mb-4">
+            <div className="h-12 w-12 rounded-full bg-[#2563eb]/10 border border-[#2563eb] flex items-center justify-center text-[#2563eb] mb-4">
               <AlertTriangle className="h-6 w-6" />
             </div>
-            <h3 className="font-display text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-bold text-slate-900">
               {this.props.sectionName ? `${this.props.sectionName} Temporarily Unavailable` : "Content Temporarily Unavailable"}
             </h3>
             <p className="mt-2 text-sm text-slate-600">

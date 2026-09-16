@@ -95,7 +95,7 @@ function ScrollToTop() {
 
 function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-amber-500 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#2563eb] selection:text-white">
       {/* 1. CRITICAL INITIAL VIEWPORT RENDER (Synchronous, immediate FCP/LCP) */}
       <UtilityBar />
       <Navbar />
@@ -160,7 +160,7 @@ function HomePage() {
 
 function CapabilityPageLayout({ children, lightNavbar = false }: { children: React.ReactNode; lightNavbar?: boolean }) {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#2563eb] selection:text-white">
       <UtilityBar />
       <Navbar light={lightNavbar} darkSolid={!lightNavbar} />
       <div className="flex-1">
@@ -176,7 +176,7 @@ function CapabilityPageLayout({ children, lightNavbar = false }: { children: Rea
 function PageFallback() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-white">
-      <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+      <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#2563eb] border-t-transparent" />
     </div>
   );
 }

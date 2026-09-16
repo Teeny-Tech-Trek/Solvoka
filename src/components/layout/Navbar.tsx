@@ -13,9 +13,8 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Capabilities", href: "/#capabilities", hasDropdown: true },
   { label: "About", href: "/about-us" },
   { label: "Quality", href: "/quality" },
-  // { label: "Facility", href: "/#capabilities" },
-  // { label: "Case studies", href: "/#coordination-model" },
-  { label: "Resources", href: "/#capabilities", hasDropdown: true },
+  { label: "Automotive", href: "/automotive" },
+  { label: "Material Guide", href: "/materials" },
   { label: "Contact", href: "/contact-us" },
 ];
 
@@ -27,19 +26,14 @@ const CAPABILITIES = [
   { code: "PRC-005", name: "Sheet Metal Fabrication", desc: "Laser, plasma, waterjet, bending, welding", href: "/capabilities/sheet-metal-fabrication" },
 ];
 
-const RESOURCES = [
-  { name: "Materials guide", href: "/materials" },
-  { name: "Automotive", href: "/automotive" },
-  // { name: "How we work", href: "/#coordination-model" },
-  // { name: "Gallery", href: "/#capabilities" },
-  // { name: "Careers", href: "/#contact" },
-];
-
 function Logo({ scrolled, mobileOpen, darkSolid = false, light = false }: { scrolled: boolean; mobileOpen: boolean; darkSolid?: boolean; light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Solvoka home">
+    <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="Solvoka home">
+      <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-navy-900 ring-1 ring-white/25 shadow-sm sm:h-10 sm:w-10">
+        <img src="/solvoka-logo.png" alt="" className="h-full w-full object-contain" />
+      </span>
       <span
-        className={`font-display text-[22px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[26px] ${mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"
+        className={`text-[21px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[24px] ${mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"
           }`}
       >
         SOLVOKA
@@ -69,7 +63,6 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
     Capabilities: false,
-    Resources: false,
   });
   const [scrolled, setScrolled] = useState(false);
   const [headerTop, setHeaderTop] = useState(38);
@@ -211,7 +204,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                       clearCloseTimeout();
                       setOpenMenu((prev) => (prev === item.label ? null : item.label));
                     }}
-                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                    className={`group flex items-center gap-2 py-2 text-[15px] font-medium transition-colors hover:text-[#2563eb] 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-[#2563eb]"
                       }`}
                     aria-expanded={openMenu === item.label}
                     aria-haspopup="true"
@@ -223,14 +216,14 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   <Link
                     to={item.href}
                     onClick={closeImmediately}
-                    className={`group flex items-center gap-2 py-2 font-sans text-[15px] font-medium transition-colors hover:text-blue-600 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-amber-400"
+                    className={`group flex items-center gap-2 py-2 text-[15px] font-medium transition-colors hover:text-[#2563eb] 2xl:text-[16px] ${scrolled || light ? "text-slate-800" : "text-white hover:text-[#2563eb]"
                       }`}
                   >
                     {item.label}
                   </Link>
                 )}
                 <span
-                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-blue-600 transition-all duration-200 ${openMenu === item.label ? "w-full" : "w-0"
+                  className={`pointer-events-none absolute -bottom-0.5 left-0 h-[2px] bg-[#2563eb] transition-all duration-200 ${openMenu === item.label ? "w-full" : "w-0"
                     }`}
                 />
               </div>
@@ -244,11 +237,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
             />
             <Link
               to="/#contact"
-              onClick={() => {
-                closeImmediately();
-                trackQuoteCtaClick("navbar_desktop");
-              }}
-              className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
+              className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-[#2563eb] 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
             >
               Request a Quote
               <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -261,13 +250,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb]"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
-            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-transform duration-200 ${mobileOpen ? "translate-y-[8.5px] rotate-45" : ""}`} />
-            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-[2.5px] w-7 bg-amber-500 transition-transform duration-200 ${mobileOpen ? "-translate-y-[8.5px] -rotate-45" : ""}`} />
+            <span className={`block h-[2.5px] w-7 bg-[#2563eb] transition-transform duration-200 ${mobileOpen ? "translate-y-[8.5px] rotate-45" : ""}`} />
+            <span className={`block h-[2.5px] w-7 bg-[#2563eb] transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-[2.5px] w-7 bg-[#2563eb] transition-transform duration-200 ${mobileOpen ? "-translate-y-[8.5px] -rotate-45" : ""}`} />
           </button>
         </div>
 
@@ -276,7 +265,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           <div className="pointer-events-none absolute left-0 top-full hidden w-full xl:block">
             <div
               data-lenis-prevent
-              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-900 shadow-2xl"
+              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-[#2563eb] bg-navy-900 shadow-2xl"
               onMouseEnter={clearCloseTimeout}
               onMouseLeave={closeImmediately}
             >
@@ -286,17 +275,17 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                     key={c.code}
                     to={c.href}
                     onClick={closeImmediately}
-                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-700 py-3.5 transition-colors hover:border-amber-500"
+                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-700 py-3.5 transition-colors hover:border-[#2563eb]"
                   >
                     <span className="flex items-baseline gap-4">
-                      <span className="tabular font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-500">
+                      <span className="tabular text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2563eb]">
                         {c.code}
                       </span>
-                      <span className="font-display text-[18px] font-semibold text-white">
+                      <span className="text-[18px] font-semibold text-white">
                         {c.name}
                       </span>
                     </span>
-                    <span className="font-sans text-[13px] leading-relaxed text-slate-300">
+                    <span className="text-[13px] leading-relaxed text-slate-300">
                       {c.desc}
                     </span>
                   </Link>
@@ -307,14 +296,14 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   <Link
                     to="/#capabilities"
                     onClick={closeImmediately}
-                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-400"
+                    className="text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
                   >
                     View all capabilities →
                   </Link>
                   <a
                     href="/facility"
                     onClick={closeImmediately}
-                    className="font-sans text-[14px] font-semibold text-amber-500 hover:text-amber-400"
+                    className="text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
                   >
                     Our facility →
                   </a>
@@ -329,22 +318,22 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           <div className="pointer-events-none absolute left-0 top-full hidden w-full xl:block">
             <div
               data-lenis-prevent
-              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-amber-500 bg-navy-900 shadow-2xl"
+              className="pointer-events-auto mx-auto max-h-[calc(100dvh-68px)] max-w-[900px] overflow-y-auto border-t-2 border-[#2563eb] bg-navy-900 shadow-2xl"
               onMouseEnter={clearCloseTimeout}
               onMouseLeave={closeImmediately}
             >
               <div className="flex flex-col px-10 py-6">
-                {RESOURCES.map((r) => (
+                {[].map((r: { name: string; href: string }) => (
                   <Link
                     key={r.name}
                     to={r.href}
                     onClick={closeImmediately}
-                    className="group flex items-center justify-between border-b border-navy-700 py-4 font-sans transition-colors hover:border-amber-500"
+                    className="group flex items-center justify-between border-b border-navy-700 py-4 transition-colors hover:border-[#2563eb]"
                   >
-                    <span className="font-display text-[17px] font-medium text-white transition-colors group-hover:text-amber-500">
+                    <span className="text-[17px] font-medium text-white transition-colors group-hover:text-[#2563eb]">
                       {r.name}
                     </span>
-                    <span className="font-sans text-[13px] text-slate-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-amber-500">
+                    <span className="text-[13px] text-slate-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#2563eb]">
                       Explore →
                     </span>
                   </Link>
@@ -375,7 +364,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                     <button
                       type="button"
                       onClick={() => toggleMobileSubmenu(item.label)}
-                      className="flex min-h-[48px] w-full items-center justify-between py-2 text-left font-sans text-[17px] font-semibold text-white transition-colors hover:text-amber-500 active:text-amber-400"
+                      className="flex min-h-[48px] w-full items-center justify-between py-2 text-left text-[17px] font-semibold text-white transition-colors hover:text-[#2563eb] active:text-[#2563eb]"
                       aria-expanded={isExpanded}
                     >
                       <span>{item.label}</span>
@@ -386,13 +375,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
 
                     {/* Expandable submenu */}
                     {isExpanded && (
-                      <div className="mt-1 flex flex-col gap-1 pl-3 pb-2 border-l-2 border-amber-500/40">
+                      <div className="mt-1 flex flex-col gap-1 pl-3 pb-2 border-l-2 border-[#2563eb]/40">
                         {item.label === "Capabilities" && (
                           <>
                             <Link
                               to="/#capabilities"
                               onClick={() => setMobileOpen(false)}
-                              className="flex min-h-[42px] items-center py-2 text-[14px] font-semibold text-amber-500 hover:text-amber-400"
+                              className="flex min-h-[42px] items-center py-2 text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
                             >
                               View all capabilities →
                             </Link>
@@ -401,17 +390,17 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                                 key={c.code}
                                 to={c.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="flex min-h-[44px] flex-col justify-center py-2 text-slate-200 transition-colors hover:text-amber-400"
+                                className="flex min-h-[44px] flex-col justify-center py-2 text-slate-200 transition-colors hover:text-[#2563eb]"
                               >
                                 <span className="flex items-center gap-2">
-                                  <span className="tabular font-mono text-[11px] font-bold text-amber-500">
+                                  <span className="tabular text-[11px] font-bold text-[#2563eb]">
                                     {c.code}
                                   </span>
-                                  <span className="font-display text-[15px] font-semibold text-white">
+                                  <span className="text-[15px] font-semibold text-white">
                                     {c.name}
                                   </span>
                                 </span>
-                                <span className="font-sans text-[12px] text-slate-400 line-clamp-1">
+                                <span className="text-[12px] text-slate-400 line-clamp-1">
                                   {c.desc}
                                 </span>
                               </Link>
@@ -421,12 +410,12 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
 
                         {item.label === "Resources" && (
                           <>
-                            {RESOURCES.map((r) => (
+                            {[].map((r: { name: string; href: string }) => (
                               <Link
                                 key={r.name}
                                 to={r.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="flex min-h-[44px] items-center py-2 text-[15px] text-slate-200 transition-colors hover:text-amber-400"
+                                className="flex min-h-[44px] items-center py-2 text-[15px] text-slate-200 transition-colors hover:text-[#2563eb]"
                               >
                                 {r.name}
                               </Link>
@@ -444,7 +433,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   key={item.label}
                   to={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex min-h-[48px] items-center py-3 font-sans text-[17px] font-semibold text-white transition-colors hover:text-amber-500 active:text-amber-400"
+                  className="flex min-h-[48px] items-center py-3 text-[17px] font-semibold text-white transition-colors hover:text-[#2563eb] active:text-[#2563eb]"
                 >
                   {item.label}
                 </Link>
@@ -455,11 +444,8 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           <div className="pt-6 pb-2">
             <Link
               to="/#contact"
-              onClick={() => {
-                setMobileOpen(false);
-                trackQuoteCtaClick("navbar_mobile");
-              }}
-              className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-blue-600 font-sans text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-blue-700 active:scale-[0.99]"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-[#2563eb] text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-[#2563eb] active:scale-[0.99]"
             >
               Get a quote <span aria-hidden="true">→</span>
             </Link>

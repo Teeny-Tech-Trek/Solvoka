@@ -56,7 +56,7 @@ export function CoordinationModelSkeleton() {
             <div className="h-4 w-5/6 bg-slate-200 animate-pulse rounded" />
             <div className="h-4 w-3/4 bg-slate-200 animate-pulse rounded" />
             <div className="pt-4">
-              <div className="h-5 w-44 bg-blue-100 animate-pulse rounded" />
+              <div className="h-5 w-44 bg-[#2563eb] animate-pulse rounded" />
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export function CoordinationModelSkeleton() {
             <div className="h-[220px] sm:h-[300px] w-full rounded-xl bg-slate-100 animate-pulse lg:absolute lg:inset-4 lg:h-auto" />
             <div className="relative mt-4 w-full rounded-xl bg-slate-900/40 p-5 space-y-3 sm:p-6 lg:absolute lg:left-8 lg:top-10 lg:mt-0 lg:w-[290px]">
               <div className="h-3 w-24 bg-slate-700 rounded" />
-              <div className="h-10 w-20 bg-blue-900/60 rounded" />
+              <div className="h-10 w-20 bg-[#2563eb]/60 rounded" />
               <div className="h-3 w-36 bg-slate-700 rounded" />
             </div>
           </div>
@@ -113,7 +113,7 @@ export function NetworkTeaserSkeleton() {
           <div className="h-10 w-3/4 bg-slate-200 animate-pulse rounded" />
           <div className="h-4 w-full bg-slate-200 animate-pulse rounded" />
           <div className="h-4 w-4/5 bg-slate-200 animate-pulse rounded" />
-          <div className="h-10 w-36 bg-blue-100 animate-pulse rounded pt-2" />
+          <div className="h-10 w-36 bg-[#2563eb] animate-pulse rounded pt-2" />
         </div>
       </div>
     </section>
@@ -143,7 +143,7 @@ export function QuickRFQSkeleton() {
             <div className="h-10 bg-slate-100 rounded animate-pulse" />
           </div>
           <div className="h-10 bg-slate-100 rounded animate-pulse" />
-          <div className="h-12 bg-blue-100 rounded animate-pulse" />
+          <div className="h-12 bg-[#2563eb] rounded animate-pulse" />
         </div>
       </div>
     </section>
@@ -152,7 +152,7 @@ export function QuickRFQSkeleton() {
 
 export function FooterSkeleton() {
   return (
-    <footer className="w-full bg-[#F5F7FC] px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 pb-8 border-t border-slate-200">
+    <footer className="w-full bg-[#ffffff] px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 pb-8 border-t border-slate-200">
       <div className="mx-auto max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_1.4fr_1.3fr] gap-8">
         {[...Array(4)].map((_, i) => (
           <div key={i} className="space-y-3">

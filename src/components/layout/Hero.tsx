@@ -31,8 +31,8 @@ const MATERIALS = [
 function MaterialItem({ label }: { label: string }) {
   return (
     <span className="flex shrink-0 items-center gap-6">
-      <span className="font-mono text-[13px] uppercase tracking-[0.1em] text-navy-800">{label}</span>
-      <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
+      <span className="text-[13px] uppercase tracking-[0.1em] text-navy-800">{label}</span>
+      <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-[#2563eb]" aria-hidden="true" />
     </span>
   );
 }
@@ -54,9 +54,9 @@ function ShieldCheck() {
 function DimensionLine() {
   return (
     <div className="relative my-2 h-3 w-full max-w-[560px]" aria-hidden="true">
-      <span className="absolute left-0 top-0 h-3 w-[2px] bg-blue-600" />
-      <span className="absolute right-0 top-0 h-3 w-[2px] bg-blue-600" />
-      <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-blue-600" />
+      <span className="absolute left-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+      <span className="absolute right-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+      <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-[#2563eb]" />
     </div>
   );
 }
@@ -219,7 +219,7 @@ export default function Hero() {
               <div className="mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
                 <div ref={slideOneContentRef} className="max-w-[720px]">
                   {/* Headline */}
-                  <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                  <h1 className="font-medium leading-[0.98] tracking-[-0.02em] text-white">
                     <span data-hero-reveal className="block text-[clamp(26px,6vw,58px)] font-bold">
                       One Supplier.
                     </span>
@@ -240,31 +240,23 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-blue-400 font-semibold">
+                  <p data-hero-reveal className="tabular text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-[#2563eb] font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                  <p data-hero-reveal className="mt-3 max-w-[620px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
                     Forging, CNC machining, casting, sheet metal fabrication, and 3D printing —
                     coordinated through 15+ vetted facilities in Focal Point, Ludhiana, India, for automotive OEMs and
                     exporters. Drawings quoted within one business day.
                   </p>
 
                   {/* Legacy tagline */}
-                  <p
-                    data-hero-reveal
-                    className="mt-3 border-l-2 border-blue-600/60 pl-3 font-mono text-[11px] sm:text-[12px] italic uppercase tracking-[0.12em] text-slate-300"
-                  >
-                    &ldquo;Your Challenge is Our Blueprint&rdquo;
-                  </p>
-
                   {/* CTAs */}
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
-                      onClick={() => trackQuoteCtaClick("hero_slide_1")}
-                      className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -273,7 +265,7 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
                     >
                       View Capabilities
                     </a>
@@ -283,11 +275,11 @@ export default function Hero() {
                   <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
                       <li key={chip} className="flex items-center gap-2 sm:gap-4">
-                        <span className="tabular flex items-center gap-1.5 font-mono text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                        <span className="tabular flex items-center gap-1.5 text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
-                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-blue-600/80" aria-hidden="true" />}
+                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />}
                       </li>
                     ))}
                   </ul>
@@ -302,7 +294,7 @@ export default function Hero() {
               <div className="mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
                 <div ref={slideTwoContentRef} className="max-w-[720px]">
                   {/* Headline */}
-                  <h1 className="font-display font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                  <h1 className="font-medium leading-[0.98] tracking-[-0.02em] text-white">
                     <span data-hero-reveal className="block text-[clamp(24px,5.5vw,56px)] font-bold">
                       Forged and Machined
                     </span>
@@ -323,29 +315,21 @@ export default function Hero() {
                   </div>
 
                   {/* Location */}
-                  <p data-hero-reveal className="tabular font-mono text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-blue-400 font-semibold">
+                  <p data-hero-reveal className="tabular text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-[#2563eb] font-semibold">
                     Focal Point, Ludhiana, India
                   </p>
 
                   {/* Subheadline */}
-                  <p data-hero-reveal className="mt-3 max-w-[620px] font-sans text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                  <p data-hero-reveal className="mt-3 max-w-[620px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
                     A coordinated network of 15+ vetted facilities in Focal Point, Ludhiana, India — one contract, one quality standard, one point of accountability. Drawings quoted within one business day.
                   </p>
 
                   {/* Legacy tagline */}
-                  <p
-                    data-hero-reveal
-                    className="mt-3 border-l-2 border-blue-600/60 pl-3 font-mono text-[11px] sm:text-[12px] italic uppercase tracking-[0.12em] text-slate-300"
-                  >
-                    &ldquo;Your Challenge is Our Blueprint&rdquo;
-                  </p>
-
                   {/* CTAs */}
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
                       href="/request-a-quote"
-                      onClick={() => trackQuoteCtaClick("hero_slide_2")}
-                      className="group inline-flex h-12 items-center justify-center gap-2 bg-blue-600 px-6 font-sans text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99] text-center"
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -354,7 +338,7 @@ export default function Hero() {
                     </a>
                     <a
                       href="/capabilities"
-                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 font-sans text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
                     >
                       View Capabilities
                     </a>
@@ -364,11 +348,11 @@ export default function Hero() {
                   <ul data-hero-reveal className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4 sm:mt-6">
                     {TRUST_CHIPS.map((chip, i) => (
                       <li key={chip} className="flex items-center gap-2 sm:gap-4">
-                        <span className="tabular flex items-center gap-1.5 font-mono text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                        <span className="tabular flex items-center gap-1.5 text-[10px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
                           {i === 0 && <ShieldCheck />}
                           {chip}
                         </span>
-                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-blue-600/80" aria-hidden="true" />}
+                        {i < TRUST_CHIPS.length - 1 && <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />}
                       </li>
                     ))}
                   </ul>
@@ -380,14 +364,14 @@ export default function Hero() {
 
         {/* Carousel indicator / slide controls */}
         <div className="absolute bottom-6 right-4 z-20 flex items-center gap-2 sm:bottom-auto sm:right-6 sm:top-1/2 sm:-translate-y-1/2 lg:right-8">
-          <span className="font-mono text-xs font-semibold text-white/70 tabular">
+          <span className="text-xs font-semibold text-white/70 tabular">
             {active + 1} / {SLIDE_COUNT}
           </span>
           <button
             type="button"
             onClick={() => setActive((a) => (a === 0 ? 1 : 0))}
             aria-label={active === 0 ? "Switch to slide 2" : "Switch to slide 1"}
-            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-md transition-all hover:border-blue-600 hover:bg-blue-600"
+            className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-md transition-all hover:border-[#2563eb] hover:bg-[#2563eb]"
           >
             <ArrowIcon className="h-4 w-4" direction={active === 1 ? "left" : "right"} />
           </button>
@@ -395,7 +379,7 @@ export default function Hero() {
       </div>
 
       {/* Material ticker marquee */}
-      <div className="group relative z-10 shrink-0 overflow-hidden border-t-2 border-blue-600 bg-white/95 px-4 py-3 backdrop-blur-sm lg:px-10">
+      <div className="group relative z-10 shrink-0 overflow-hidden border-t-2 border-[#2563eb] bg-white/95 px-4 py-3 backdrop-blur-sm lg:px-10">
         <div className="flex w-max animate-[marquee-right_28s_linear_infinite] items-center gap-6 group-hover:[animation-play-state:paused] motion-reduce:[animation-duration:60s]">
           {[...MATERIALS, ...MATERIALS].map((m, i) => (
             <MaterialItem key={`${m}-${i}`} label={m} />

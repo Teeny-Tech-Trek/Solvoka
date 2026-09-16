@@ -100,11 +100,11 @@ const IconBell = (props: IconProps) => (
 /*  Shared tokens (kept in sync with the Casting capability page)      */
 /* ------------------------------------------------------------------ */
 
-const COPPER = "#B5522B";
-const COPPER_DARK = "#9C4423";
-const GRAPHITE = "#1B1F23";
-const PAPER = "#FAF8F4";
-const ASH = "#E7E3DC";
+const COPPER = "#2563eb";
+const COPPER_DARK = "#2563eb";
+const GRAPHITE = "#000000";
+const PAPER = "#ffffff";
+const ASH = "#ffffff";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                                */
@@ -278,7 +278,7 @@ const ctaFeatures: CtaFeature[] = [
 function SectionKicker({ children }: { children: ReactNode }) {
     return (
         <div
-            className="mb-3 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest sm:text-sm"
+            className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest sm:text-sm"
             style={{ color: COPPER }}
         >
             <span className="h-3.5 w-0.5" style={{ backgroundColor: COPPER }} />
@@ -289,90 +289,144 @@ function SectionKicker({ children }: { children: ReactNode }) {
 
 function Hero() {
     return (
-        <section className="relative overflow-hidden bg-slate-950 min-h-[600px] lg:min-h-[660px] flex items-center pt-28 pb-16 lg:pt-32 lg:pb-20">
-            {/* Full-bleed industrial fiber laser cutting background */}
-            <img
-                src="/images/sheetmetal/hero.jpg"
-                alt="High-precision fiber laser cutting sheet metal with sparks"
-                className="absolute inset-0 h-full w-full object-cover object-center opacity-55"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
+        <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
+            {/* Full-bleed industrial fiber laser & sheet metal cutting motion GIF */}
+            <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+                <img
+                    src="/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif"
+                    alt="High-precision waterjet and laser sheet metal cutting with sparks"
+                    className="h-full w-full object-cover object-center filter contrast-110"
+                />
 
-            <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-16 w-full">
-                {/* Breadcrumb */}
-                <div className="mb-6 flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-                    <Link to="/" className="transition hover:text-white" style={{ color: "rgb(148, 163, 184)" }}>Home</Link>
-                    <ChevronRight className="h-3 w-3 text-slate-500" />
-                    <span className="text-slate-200 font-semibold">Sheet Metal Fabrication</span>
-                </div>
+                {/* Unified dark scrim overlay matching main hero */}
+                <div
+                    className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/80"
+                    aria-hidden="true"
+                />
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] items-center gap-12">
-                    {/* Left column */}
-                    <div>
-                        <SectionKicker>Sheet Metal Fabrication</SectionKicker>
-                        <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
-                            From Sheet
-                            <br />
-                            to <span style={{ color: COPPER }}>Solution</span>
-                        </h1>
-                        <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                            From precise cutting to complex forming and finishing, we deliver
-                            high-quality sheet metal solutions for demanding applications.
-                        </p>
+                {/* Left-side desktop backdrop blur and high-contrast wash for text readability */}
+                <div
+                    className="pointer-events-none absolute inset-y-0 left-0 hidden w-[72%] backdrop-blur-sm lg:block"
+                    style={{
+                        WebkitMaskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                        maskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                    }}
+                    aria-hidden="true"
+                />
+                <div
+                    className="pointer-events-none absolute inset-y-0 left-0 hidden w-[72%] lg:block"
+                    style={{
+                        background: "linear-gradient(to right, rgba(7,13,23,0.92) 0%, rgba(7,13,23,0.72) 55%, rgba(7,13,23,0) 100%)",
+                    }}
+                    aria-hidden="true"
+                />
+            </div>
 
-                        {/* 4 Frosted Badges */}
-                        <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-                            {heroFeatures.map((f) => (
-                                <div
-                                    key={f.lineOne}
-                                    className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 backdrop-blur-md"
-                                >
-                                    <span className="flex h-7 w-7 items-center justify-center rounded-md border border-white/15 bg-white/10 text-neutral-300">
-                                        <f.icon className="h-4 w-4" />
-                                    </span>
-                                    <span className="text-xs font-medium leading-tight text-slate-200">
-                                        {f.lineOne}
-                                        <br />
-                                        {f.lineTwo}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+            <div className="relative z-10 mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
+                <div className="max-w-[760px]">
+                    {/* Breadcrumb */}
+                    <div className="mb-5 flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+                        <Link to="/" className="transition hover:text-[#2563eb]">Home</Link>
+                        <ChevronRight className="h-3 w-3 text-slate-500" />
+                        <Link to="/#capabilities" className="transition hover:text-[#2563eb]">Capabilities</Link>
+                        <ChevronRight className="h-3 w-3 text-slate-500" />
+                        <span className="text-slate-200 font-semibold">Sheet Metal Fabrication</span>
+                    </div>
 
-                        {/* Divider and focal point footer line */}
-                        <div className="mt-14 flex items-center gap-4">
-                            <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-                                CUT. FORM. FINISH.
+                    {/* Category Tag with Process Code */}
+                    <div className="mb-3 flex items-center gap-2.5">
+                        <span className="inline-flex items-center rounded-md bg-[#2563eb]/20 border border-[#2563eb]/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
+                            PRC-005
+                        </span>
+                        <span className="h-[2px] w-6 bg-[#2563eb]" />
+                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                            SHEET METAL FABRICATION
+                        </span>
+                    </div>
+
+                    {/* Headline with Main Project Outline Typography */}
+                    <h1 className="font-medium leading-[0.98] tracking-[-0.02em] text-white">
+                        <span className="block text-[clamp(28px,5.5vw,58px)] font-bold">
+                            From Sheet to Solution.
+                        </span>
+                        <span
+                            className="mt-1 block text-[clamp(24px,4.8vw,50px)] font-extrabold uppercase leading-[1.08] text-[#2563eb]"
+                        >
+                            Precision Fabrication.
+                        </span>
+                    </h1>
+
+                    {/* Dimension Line matching main project */}
+                    <div className="relative my-3 h-3 w-full max-w-[560px]" aria-hidden="true">
+                        <span className="absolute left-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+                        <span className="absolute right-0 top-0 h-3 w-[2px] bg-[#2563eb]" />
+                        <span className="absolute left-0 right-0 top-[5px] h-[2px] bg-[#2563eb]" />
+                    </div>
+
+                    {/* Location */}
+                    <p className="text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-[#2563eb] font-semibold">
+                        Focal Point, Ludhiana, India
+                    </p>
+
+                    {/* Subheadline */}
+                    <p className="mt-3 max-w-[640px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
+                        Laser cutting, cold waterjet cutting, CNC bending, and structural welding services. From flat sheet metal prototypes to fully finished enclosures, chassis, and brackets with zero heat-affected distortion.
+                    </p>
+
+                    {/* Action Buttons */}
+                    <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                        <a
+                            href="/request-a-quote"
+                            className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-600 active:scale-[0.99] text-center"
+                        >
+                            Request a Quote
+                            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                                →
                             </span>
-                            <span className="h-px w-36 bg-slate-700" />
-                        </div>
+                        </a>
+                        <a
+                            href="#capabilities"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 750, behavior: 'smooth' });
+                            }}
+                            className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
+                        >
+                            View 8 Fabrication Services
+                        </a>
                     </div>
 
-                    {/* Right column: Vertical Tagline + Focal point */}
-                    <div className="flex flex-col items-start lg:items-end justify-between h-full space-y-12">
-                        <div className="hidden lg:flex items-center gap-3 self-end">
-                            <div className="h-32 w-px bg-white/20" />
-                            <div className="font-mono text-xs font-medium tracking-[0.2em] uppercase leading-relaxed text-slate-300">
-                                SHEET
-                                <br />
-                                METAL
-                                <br />
-                                IDEAS INTO
-                                <br />
-                                REALITY
-                            </div>
-                        </div>
+                    {/* Trust chips */}
+                    <ul className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
+                        <li className="flex items-center gap-2 sm:gap-4">
+                            <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                <svg width="18" height="20" viewBox="0 0 20 22" fill="none" aria-hidden="true" className="shrink-0">
+                                    <path
+                                        d="M10 1.5 18 4.6v6.1c0 4.6-3.2 8.3-8 9.8-4.8-1.5-8-5.2-8-9.8V4.6L10 1.5Z"
+                                        stroke="#2563eb"
+                                        strokeWidth="1.5"
+                                        strokeLinejoin="round"
+                                    />
+                                    <path d="M6.4 10.8 9 13.4l4.6-4.8" stroke="#2563eb" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                COLD WATERJET & LASER
+                            </span>
+                            <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
+                        </li>
 
-                        <div className="text-left lg:text-right">
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                                FOCAL POINT
-                            </p>
-                            <p className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-200">
-                                LUDHIANA, INDIA
-                            </p>
-                        </div>
-                    </div>
+                        <li className="flex items-center gap-2 sm:gap-4">
+                            <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                FORMING & WELDING
+                            </span>
+                            <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
+                        </li>
+
+                        <li className="flex items-center gap-2 sm:gap-4">
+                            <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
+                                1-BUSINESS-DAY QUOTE
+                            </span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -385,7 +439,7 @@ function OverviewSection() {
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-[1.3fr_1fr] lg:gap-12 lg:px-16">
                 <div>
                     <SectionKicker>Our Capability</SectionKicker>
-                    <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
                         Integrated Sheet Metal Fabrication, From Raw Sheet to Assembly
                     </h2>
                     <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600 sm:text-base">
@@ -393,7 +447,7 @@ function OverviewSection() {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-between rounded-2xl border bg-[#FAF8F4] px-6 py-5 shadow-xs" style={{ borderColor: ASH }}>
+                <div className="flex items-center justify-between rounded-2xl border bg-[#ffffff] px-6 py-5 shadow-xs" style={{ borderColor: ASH }}>
                     <div className="flex items-center gap-4">
                         <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl border bg-white shadow-xs" style={{ borderColor: ASH, color: COPPER }}>
                             <IconLayers className="h-6 w-6" />
@@ -477,11 +531,11 @@ function CapabilitiesGrid() {
             <div className="mx-auto max-w-7xl px-6 lg:px-16">
                 <div className="mb-10 flex flex-col justify-between gap-4 border-b pb-6 sm:flex-row sm:items-end lg:mb-14" style={{ borderColor: ASH }}>
                     <div>
-                        <div className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-500 sm:text-sm">
+                        <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 sm:text-sm">
                             <span className="h-px w-8 bg-neutral-300" />
                             Our Capabilities
                         </div>
-                        <h2 className="font-display text-3xl font-semibold text-neutral-900 sm:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl font-semibold text-neutral-900 sm:text-4xl lg:text-5xl">
                             Sheet Metal Fabrication Capabilities
                         </h2>
                     </div>
@@ -502,13 +556,13 @@ function CapabilitiesGrid() {
 
 function MaterialsSection() {
     return (
-        <section className="border-t py-16 lg:py-24" style={{ borderColor: ASH, backgroundColor: "#F3F0EA" }}>
+        <section className="border-t py-16 lg:py-24" style={{ borderColor: ASH, backgroundColor: "#ffffff" }}>
             <div className="mx-auto max-w-7xl px-6 lg:px-16">
                 <div className="grid gap-10 lg:grid-cols-[0.85fr_1.2fr_0.95fr] lg:items-center lg:gap-12">
                     {/* Intro */}
                     <div>
                         <SectionKicker>Materials &amp; Specifications</SectionKicker>
-                        <h2 className="font-display text-3xl font-semibold text-neutral-900 sm:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl font-semibold text-neutral-900 sm:text-4xl lg:text-5xl">
                             What We Work With
                         </h2>
                         <p className="mt-3 max-w-xs text-sm leading-relaxed text-neutral-500">
@@ -583,7 +637,7 @@ function CtaSection() {
                     {/* Copy + CTA */}
                     <div className="relative z-10">
                         <SectionKicker>Get Started Today</SectionKicker>
-                        <h2 className="font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
                             Get a Quote for
                             <br />
                             Sheet Metal Fabrication
@@ -640,7 +694,7 @@ function CtaSection() {
                                 className="h-full w-full object-cover"
                             />
                         </div>
-                        <span className="pointer-events-none absolute -top-4 right-2 -rotate-6 font-serif text-lg italic text-neutral-400">
+                        <span className="pointer-events-none absolute -top-4 right-2 -rotate-6 text-lg italic text-neutral-400">
                             Your Designs.
                             <br />
                             Our Expertise.
@@ -663,7 +717,7 @@ export default function SheetMetalFabrication() {
             <OverviewSection />
             <CapabilitiesGrid />
             <MaterialsSection />
-            <DiagonalDivider from="#F3F0EA" to={GRAPHITE} />
+            <DiagonalDivider from="#ffffff" to={GRAPHITE} />
             <CtaSection />
         </main>
     );

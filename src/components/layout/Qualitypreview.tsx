@@ -41,7 +41,7 @@ const gates: Gate[] = [
     imageAlt: "CMM probe inspecting metallic part for first-article validation",
     description:
       "The first piece off the die or the line is checked against your STEP/IGES drawing before the run continues. Fixed-interval gauge checks catch tool wear before it becomes a bad part.",
-    tileFrom: "from-blue-100",
+    tileFrom: "from-[#2563eb]",
     tileTo: "to-slate-100",
   },
   {
@@ -53,7 +53,7 @@ const gates: Gate[] = [
     imageAlt: "Finished parts packed in a wooden crate for export",
     description:
       "Finished parts receive a final clean-and-inspect pass before packing. Rust-preventative treatment, vacuum sealing where needed, and reinforced crating protect the shipment through weeks of maritime freight.",
-    tileFrom: "from-amber-100",
+    tileFrom: "from-[#2563eb]",
     tileTo: "to-slate-100",
   },
 ];
@@ -66,7 +66,7 @@ function GateCard({ gate }: { gate: Gate }) {
   return (
     <div className="flex flex-col rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
       <div className="flex items-center gap-2.5">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2563eb] text-sm font-bold text-white">
           {gate.number}
         </span>
         <h3 className="text-base sm:text-[17px] font-bold leading-snug text-slate-900">
@@ -95,7 +95,7 @@ function GateCard({ gate }: { gate: Gate }) {
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center">
             <Icon className="h-10 w-10 text-slate-400" strokeWidth={1.5} />
-            <span className="font-mono text-xs text-slate-500 font-medium">Stage {gate.number} Active Inspection</span>
+            <span className="text-xs text-slate-500 font-medium">Stage {gate.number} Active Inspection</span>
           </div>
         )}
       </div>
@@ -113,11 +113,11 @@ export default function QualityPreview() {
       <div className="mx-auto max-w-[1536px]">
         <div className="mx-auto max-w-3xl text-center pb-6 sm:pb-8">
           <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-8 sm:w-14 bg-blue-500/40" />
-            <span className="font-mono text-xs sm:text-[13px] font-bold tracking-widest text-blue-600 uppercase">
+            <div className="h-px w-8 sm:w-14 bg-[#2563eb]/40" />
+            <span className="text-xs sm:text-[13px] font-bold tracking-widest text-[#2563eb] uppercase">
               QUALITY PREVIEW
             </span>
-            <div className="h-px w-8 sm:w-14 bg-blue-500/40" />
+            <div className="h-px w-8 sm:w-14 bg-[#2563eb]/40" />
           </div>
 
           <h2 className="mt-3 text-[clamp(22px,3.5vw,36px)] font-extrabold leading-[1.15] text-slate-900">
@@ -136,14 +136,14 @@ export default function QualityPreview() {
         <div className="mt-8 flex justify-center">
           <a
             href="/quality"
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow active:scale-[0.99]"
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#2563eb] hover:shadow active:scale-[0.99]"
           >
             <span>See Our Full Inspection Process</span>
             <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
           </a>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-200 pt-3 text-center sm:text-left font-mono text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-400">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-200 pt-3 text-center sm:text-left text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-400">
           <span>SAME STANDARD AT EVERY STAGE.</span>
           <span>BETTER PARTS. A MORE RELIABLE TOMORROW.</span>
         </div>
