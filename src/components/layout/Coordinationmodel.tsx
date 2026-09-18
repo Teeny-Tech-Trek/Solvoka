@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { FileCheck2, ShieldCheck, User } from "lucide-react";
 import { gsap } from "gsap";
 
@@ -124,13 +125,13 @@ export default function CoordinationModel() {
                 network sit with Solvoka, end to end.
               </p>
 
-              <a
-                href="#quality"
+              <Link
+                to="/quality"
                 className="mt-5 sm:mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm sm:text-base font-semibold text-[#2563eb] underline decoration-[#2563eb] underline-offset-4 transition hover:text-[#2563eb]"
               >
                 <span>See how we inspect every gate</span>
                 <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
 

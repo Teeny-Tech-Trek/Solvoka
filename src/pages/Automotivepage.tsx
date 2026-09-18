@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
 import {
     ArrowRight,
-    Play,
     Car,
     Truck,
     Bike,
@@ -11,7 +9,6 @@ import {
     ShieldCheck,
     Package,
     Users,
-    Leaf,
     CheckCircle2,
     Clock,
     Handshake,
@@ -162,58 +159,6 @@ function GeoShapes() {
                     borderRadius: "8px",
                 }}
             />
-        </div>
-    );
-}
-
-/** Video card with play-button overlay */
-function VideoCard({
-    src,
-    accent,
-}: {
-    src: string;
-    accent: string;
-}) {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [playing, setPlaying] = useState(false);
-
-    const handlePlay = () => {
-        if (videoRef.current) {
-            videoRef.current.play();
-            setPlaying(true);
-        }
-    };
-
-    return (
-        <div className="relative overflow-hidden rounded-lg">
-            <video
-                ref={videoRef}
-                src={src}
-                className="aspect-video w-full object-cover"
-                muted
-                playsInline
-                preload="metadata"
-                controls={playing}
-                onPlay={() => setPlaying(true)}
-                onPause={() => setPlaying(false)}
-                onEnded={() => setPlaying(false)}
-            />
-            {!playing && (
-                <button
-                    onClick={handlePlay}
-                    className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors hover:bg-black/30"
-                    aria-label="Play video"
-                >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform hover:scale-110">
-                        <Play
-                            className="ml-0.5 h-6 w-6"
-                            style={{ color: accent }}
-                            fill={accent}
-                            strokeWidth={0}
-                        />
-                    </div>
-                </button>
-            )}
         </div>
     );
 }
@@ -447,7 +392,7 @@ export default function AutomotivePage() {
 
                             <div className="mt-8">
                                 <Link
-                                    to="/request-a-quote"
+                                    to="/#quote"
                                     className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#2563eb] px-8 py-4 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#2563eb]"
                                 >
                                     <span>Request a Quote</span>

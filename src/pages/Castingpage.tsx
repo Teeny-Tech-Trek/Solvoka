@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { trackQuoteCtaClick } from "../utils/analytics";
 import {
-    Settings,
-    CircleDot,
-    ShieldCheck,
     ArrowRight,
     Check,
     Share2,
@@ -148,12 +145,6 @@ const rfqFeatures = [
         title: "Expert Support",
         subtitle: "We help you find the right solution",
     },
-];
-
-const heroFeatures = [
-    { icon: Settings, label: "Multiple Processes" },
-    { icon: CircleDot, label: "Wide Material Range" },
-    { icon: ShieldCheck, label: "Single Point of Contact" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -354,13 +345,13 @@ export default function CastingPage() {
 
                         {/* Action Buttons */}
                         <div className="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-                            <a
-                                href="/request-a-quote"
+                            <Link
+                                to="/#quote"
                                 className="group inline-flex h-12 items-center justify-center gap-3 rounded-lg bg-[#2563eb] px-5 text-[15px] font-bold text-white shadow-lg shadow-[#2563eb]/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl hover:shadow-[#2563eb]/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0"
                             >
                                 Start Your Casting RFQ
                                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.5} />
-                            </a>
+                            </Link>
                             <a
                                 href="#casting-methods"
                                 onClick={(e) => {
@@ -440,7 +431,7 @@ export default function CastingPage() {
             </section>
 
             {/* 3. Five Casting Processes Rows (Alternating Layout) */}
-            <section className="py-4 lg:py-8">
+            <section id="casting-methods" className="py-4 lg:py-8">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
                     {processSections.map((section) => (
                         <ProcessRow key={section.number} section={section} />
@@ -506,7 +497,7 @@ export default function CastingPage() {
 
                                 <div className="mt-7 flex flex-col items-start gap-2.5">
                                     <Link
-                                        to="/#contact"
+                                        to="/#quote"
                                         onClick={() => trackQuoteCtaClick("casting-rfq")}
                                         className="group inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#2563eb] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#2563eb]/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2563eb]"
                                     >

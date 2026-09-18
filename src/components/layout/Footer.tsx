@@ -64,7 +64,7 @@ export default function Footer() {
               <img src="/solvoka-logo.png" alt="" className="h-full w-full object-contain" />
             </span>
             <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-              SOLVOKA<sup className="ml-0.5 text-xs font-bold align-super">TM</sup>
+              SOLVOKA
             </h3>
           </Link>
           <div className="mt-2 h-0.5 w-8 bg-[#2563eb]" />
@@ -116,8 +116,8 @@ export default function Footer() {
         </div>
 
         {/* Column 3 — Company / Resources */}
-        <div className="sm:border-l sm:border-slate-200 sm:pl-6 lg:pl-8">
-          <h4 className="text-lg sm:text-xl font-bold text-slate-900">Company / Resources</h4>
+        <div className="sm:border-l sm:border-slate-200 sm:pl-6 lg:pl-8 sm:pr-6 lg:pr-8">
+          <h4 className="text-lg sm:text-xl font-bold text-slate-900 text-center">Company</h4>
           <div className="mt-4 grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 ">
             <ul className="space-y-1.5">
               {companyLinks.map((item) => (
@@ -153,13 +153,13 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 shrink-0 text-[#2563eb]" strokeWidth={2} />
-              <a href="mailto:solvoka@gmail.com" className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] break-all">
+              <a href="mailto:solvoka@gmail.com" onClick={() => trackEmailClick("footer")} className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] break-all">
                 solvoka@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Phone className="h-4 w-4 shrink-0 text-[#2563eb]" strokeWidth={2} />
-              <a href="tel:+917087086696" className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] whitespace-nowrap">
+              <a href="tel:+917087086696" onClick={() => trackPhoneClick("footer")} className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] whitespace-nowrap">
                 +91 70870-86696
               </a>
             </li>
@@ -169,6 +169,7 @@ export default function Footer() {
                 href="https://wa.me/917087086696"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("footer")}
                 className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb]"
               >
                 WhatsApp Business
@@ -177,7 +178,8 @@ export default function Footer() {
           </ul>
 
           <Link
-            to="/#contact"
+            to="/#quote"
+            onClick={() => trackQuoteCtaClick("footer")}
             className="mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-[#2563eb]/25 transition hover:bg-[#2563eb] active:scale-[0.99]"
           >
             <span>Request a Quote</span>

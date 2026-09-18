@@ -236,7 +236,8 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
               aria-hidden="true"
             />
             <Link
-              to="/#contact"
+              to="/#quote"
+              onClick={() => trackQuoteCtaClick("navbar_desktop")}
               className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-[#2563eb] 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
             >
               Request a Quote
@@ -378,13 +379,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                       <div className="mt-1 flex flex-col gap-1 pl-3 pb-2 border-l-2 border-[#2563eb]/40">
                         {item.label === "Capabilities" && (
                           <>
-                            <Link
-                              to="/#capabilities"
-                              onClick={() => setMobileOpen(false)}
-                              className="flex min-h-[42px] items-center py-2 text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
-                            >
-                              View all capabilities →
-                            </Link>
+
                             {CAPABILITIES.map((c) => (
                               <Link
                                 key={c.code}
@@ -443,8 +438,11 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
 
           <div className="pt-6 pb-2">
             <Link
-              to="/#contact"
-              onClick={() => setMobileOpen(false)}
+              to="/#quote"
+              onClick={() => {
+                trackQuoteCtaClick("navbar_mobile");
+                setMobileOpen(false);
+              }}
               className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-[#2563eb] text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-[#2563eb] active:scale-[0.99]"
             >
               Get a quote <span aria-hidden="true">→</span>

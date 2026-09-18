@@ -7,6 +7,7 @@ import Navbar from './components/layout/Navbar';
 import Hero from './components/layout/Hero';
 import SectionErrorBoundary from './components/common/SectionErrorBoundary';
 import LazySection from './components/common/LazySection';
+import WhatsAppFloatingButton from './components/common/WhatsAppFloatingButton';
 import { useLenis } from './components/layout/LenisContext';
 import { trackPageView } from './utils/analytics';
 import {
@@ -63,26 +64,67 @@ function AnalyticsTracker() {
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   const lenis = useLenis();
+  const prevPathRef = useRef<string>(pathname);
 
   useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    const isNewPage = prevPathRef.current !== pathname;
+    prevPathRef.current = pathname;
+
     if (hash) {
+      const targetHash = hash.toLowerCase();
+
+      // When navigating from another page, start at the top so the user experiences
+      // the smooth downward glide to the section!
+      if (isNewPage) {
+        window.scrollTo(0, 0);
+        lenis?.scrollTo(0, { immediate: true });
+      }
+
+      // Notify lazy sections to render immediately if target matches
+      window.dispatchEvent(new Event("hashchange"));
+
       let attempts = 0;
       const tryScroll = () => {
+        let elem: HTMLElement | null = null;
         try {
-          const elem = document.querySelector(hash);
-          if (elem) {
-            lenis?.scrollTo(elem as HTMLElement, { offset: -70 });
-            return;
-          }
+          elem = document.querySelector(targetHash);
         } catch {
-          // ignore
+          // ignore invalid selector
         }
+        if (!elem && (targetHash === "#quote" || targetHash === "#contact" || targetHash === "#rfq")) {
+          elem =
+            document.getElementById("quote") ||
+            document.getElementById("contact") ||
+            document.getElementById("rfq");
+        }
+        if (!elem && targetHash === "#capabilities") {
+          elem = document.getElementById("capabilities");
+        }
+
+        if (elem) {
+          if (lenis) {
+            lenis.scrollTo(elem, { offset: -70, duration: 1.4 });
+          } else {
+            const top = elem.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+          return;
+        }
+
         attempts++;
-        if (attempts < 6) {
-          setTimeout(tryScroll, 80);
+        if (attempts < 25) {
+          setTimeout(tryScroll, 50);
         }
       };
-      const timer = setTimeout(tryScroll, 40);
+
+      const delay = isNewPage ? 100 : 30;
+      const timer = setTimeout(tryScroll, delay);
       return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
@@ -103,7 +145,7 @@ function HomePage() {
 
       {/* 2. CAPABILITIES (Loaded immediately after Hero enters viewport) */}
       <SectionErrorBoundary sectionName="Capabilities" fallback={<CapabilitiesSkeleton />}>
-        <LazySection fallback={<CapabilitiesSkeleton />} minHeight="clamp(480px, 75vh, 620px)">
+        <LazySection id="capabilities" fallback={<CapabilitiesSkeleton />} minHeight="clamp(480px, 75vh, 620px)">
           <Suspense fallback={<CapabilitiesSkeleton />}>
             <Capabilities />
           </Suspense>
@@ -139,7 +181,7 @@ function HomePage() {
 
       {/* 6. QUICK RFQ */}
       <SectionErrorBoundary sectionName="Quick RFQ" fallback={<QuickRFQSkeleton />}>
-        <LazySection fallback={<QuickRFQSkeleton />} minHeight="clamp(480px, 75vh, 620px)">
+        <LazySection id="quote" fallback={<QuickRFQSkeleton />} minHeight="clamp(480px, 75vh, 620px)">
           <Suspense fallback={<QuickRFQSkeleton />}>
             <QuickRFQ />
           </Suspense>
@@ -378,12 +420,13 @@ function App() {
         <Route path="/how-we-work" element={<Navigate to="/#coordination-model" replace />} />
         <Route path="/resources" element={<Navigate to="/#capabilities" replace />} />
         <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
-        <Route path="/quote" element={<Navigate to="/#contact" replace />} />
-        <Route path="/request-a-quote" element={<Navigate to="/#contact" replace />} />
+        <Route path="/quote" element={<Navigate to="/#quote" replace />} />
+        <Route path="/request-a-quote" element={<Navigate to="/#quote" replace />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
 
       </Routes>
+      <WhatsAppFloatingButton />
     </SmoothScroll>
   );
 }

@@ -7,6 +7,7 @@ export default function UtilityBar() {
         {/* Email */}
         <a
           href="mailto:solvoka@gmail.com"
+          onClick={() => trackEmailClick("utility_bar")}
           className="flex h-[38px] items-center gap-1 sm:gap-2 px-1 text-black transition-colors hover:text-[#2563eb] shrink-0 select-none active:text-[#2563eb]"
           aria-label="Email solvoka@gmail.com"
         >
@@ -33,6 +34,7 @@ export default function UtilityBar() {
         {/* Phone */}
         <a
           href="tel:+917087086696"
+          onClick={() => trackPhoneClick("utility_bar")}
           className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-[#2563eb] shrink-0 select-none active:text-[#2563eb]"
           aria-label="Call +91 70870-86696"
         >
@@ -58,6 +60,7 @@ export default function UtilityBar() {
         {/* WhatsApp */}
         <a
           href="https://wa.me/917087086696"
+          onClick={() => trackWhatsAppClick("utility_bar")}
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-[38px] items-center gap-1.5 sm:gap-2 px-1 text-black transition-colors hover:text-[#2563eb] shrink-0 select-none active:text-[#2563eb]"

@@ -857,7 +857,8 @@ export default function QualityPage() {
 
                             <div className="mt-9">
                                 <Link
-                                    to="/request-a-quote"
+                                    to="/#quote"
+                                    onClick={() => trackQuoteCtaClick("quality_bottom_cta")}
                                     className="inline-flex items-center gap-2.5 bg-[#2563eb] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#2563eb] shadow-lg shadow-[#2563eb]/40"
                                 >
                                     Request a Quote

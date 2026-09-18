@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Layers,
@@ -25,7 +26,7 @@ const gates: Gate[] = [
     title: "Material Isolation & MTR Verification",
     icon: Layers,
     image: "/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.gif",
-    fallbackImage: "/QualtiyPreview-GifAssets/Factory_metal_cylinders_checklist_orig.gif",
+    fallbackImage: "/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.gif",
     imageAlt: "Raw material stock isolated for verification with checklist",
     description:
       "Every batch of raw stock is isolated on arrival and held until its chemical composition is verified against the original Mill Test Report — before production starts.",
@@ -37,7 +38,7 @@ const gates: Gate[] = [
     title: "First-Article Validation",
     icon: Crosshair,
     image: "/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.gif",
-    fallbackImage: "/QualtiyPreview-GifAssets/CMM_probe_inspecting_metallic_part_orig.gif",
+    fallbackImage: "/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.gif",
     imageAlt: "CMM probe inspecting metallic part for first-article validation",
     description:
       "The first piece off the die or the line is checked against your STEP/IGES drawing before the run continues. Fixed-interval gauge checks catch tool wear before it becomes a bad part.",
@@ -49,7 +50,7 @@ const gates: Gate[] = [
     title: "Pre-Export Protection",
     icon: PackageCheck,
     image: "/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.gif",
-    fallbackImage: "/QualtiyPreview-GifAssets/Machines_packing_parts_in_crate_orig.gif",
+    fallbackImage: "/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.gif",
     imageAlt: "Finished parts packed in a wooden crate for export",
     description:
       "Finished parts receive a final clean-and-inspect pass before packing. Rust-preventative treatment, vacuum sealing where needed, and reinforced crating protect the shipment through weeks of maritime freight.",
@@ -134,13 +135,13 @@ export default function QualityPreview() {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <a
-            href="/quality"
+          <Link
+            to="/quality"
             className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#2563eb] hover:shadow active:scale-[0.99]"
           >
             <span>See Our Full Inspection Process</span>
             <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-200 pt-3 text-center sm:text-left text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-400">

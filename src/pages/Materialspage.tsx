@@ -9,14 +9,10 @@ import {
     Boxes,
     ArrowRight,
     ChevronRight,
-    Zap,
-    Lock,
-    Users,
     Wrench,
     Building2,
     Search,
     SlidersHorizontal,
-    CheckCircle2,
     ShieldCheck,
     Gauge,
 } from "lucide-react";
@@ -112,13 +108,6 @@ interface CatalogueItem {
     category?: string;
     badge?: string;
     specs: CatalogueSpec[];
-}
-
-interface ProcessItem {
-    name: string;
-    badge: string;
-    tolerance: string;
-    description: string;
 }
 
 const fastenerItems: CatalogueItem[] = [
@@ -278,94 +267,6 @@ const scaffoldingItems: CatalogueItem[] = [
             { label: "Material", value: "EN8, high-tensile carbon steel" },
             { label: "Coatings", value: "Self-color plain, Hot Dip Galvanized" },
         ],
-    },
-];
-
-const processItems: ProcessItem[] = [
-    {
-        name: "3D Additive Metal Fusion (Binder Jetting / SLS / DED)",
-        badge: "Additive",
-        tolerance: "Layer: 20–50 µm",
-        description:
-            "Complex conformal cooling channels, topology-optimized lightweight geometry, and near-zero tooling cost. Ideal for rapid prototyping and low-to-mid volume high-complexity components.",
-    },
-    {
-        name: "Powder Metallurgy & Sintering",
-        badge: "Net-Shape",
-        tolerance: "IT8 — IT9 Class",
-        description:
-            "High-volume, repeatable net-shape compaction. Delivers self-lubricating porous bronze/iron bearings, complex gears, and high-density cams with minimal post-machining scrap.",
-    },
-    {
-        name: "CNC EDM Wire Cutting",
-        badge: "Sub-Micron",
-        tolerance: "± 0.003 mm",
-        description:
-            "Stress-free electro-discharge erosion for hardened tool steels, carbide dies, and razor-sharp internal radii without inducing thermal warping or mechanical tool deflection.",
-    },
-];
-
-interface CoatingDetail {
-    name: string;
-    rating: string;
-    thickness: string;
-    applications: string;
-    colorCode: string;
-}
-
-const detailedCoatings: CoatingDetail[] = [
-    {
-        name: "Hot Dip Galvanizing (HDG)",
-        rating: "1,000+ Hrs Salt Spray",
-        thickness: "45–85 µm",
-        applications: "Marine, outdoor structural scaffolding, solar mounting, civil engineering.",
-        colorCode: "bg-slate-400",
-    },
-    {
-        name: "Zinc Electroplating (Clear / Yellow)",
-        rating: "120–240 Hrs Salt Spray",
-        thickness: "8–15 µm",
-        applications: "Internal fasteners, precision electronics, light assembly hardware.",
-        colorCode: "bg-[#2563eb]",
-    },
-    {
-        name: "Dacromet & Geomet Coatings",
-        rating: "1,500+ Hrs Salt Spray",
-        thickness: "5–12 µm",
-        applications: "Automotive chassis fasteners, subsea connections, hydrogen-embrittlement-free applications.",
-        colorCode: "bg-zinc-500",
-    },
-    {
-        name: "PTFE / Teflon Fluoropolymer",
-        rating: "Low Friction & Chem-Resistant",
-        thickness: "15–25 µm",
-        applications: "Offshore oil & gas flanges, chemical processing valves, easy-breakout studs.",
-        colorCode: "bg-[#2563eb]",
-    },
-    {
-        name: "Black Oxide & Phosphating",
-        rating: "Oil-Retention & Anti-Galling",
-        thickness: "1–3 µm",
-        applications: "High-torque machine bolts, internal engine fasteners, hydraulic fittings.",
-        colorCode: "bg-slate-900",
-    },
-];
-
-const rfqFeatures = [
-    {
-        icon: <Zap className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
-        title: "24-Hour Engineering DFM",
-        subtitle: "Rapid material feasibility analysis",
-    },
-    {
-        icon: <Lock className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
-        title: "Mutual NDA Protected",
-        subtitle: "Your proprietary CAD models stay secure",
-    },
-    {
-        icon: <Users className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />,
-        title: "Chief Metallurgist Review",
-        subtitle: "Direct grade & heat-treatment advice",
     },
 ];
 
@@ -1079,7 +980,8 @@ export default function MaterialsPage() {
                                         MTR 3.1 CERTIFIED
                                     </span>
                                     <Link
-                                        to="/#contact"
+                                        to="/#quote"
+                                        onClick={() => trackQuoteCtaClick("material_card")}
                                         className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 transition-colors group-hover:text-[#2563eb]"
                                     >
                                         <span>Quote Specs</span>
@@ -1099,7 +1001,7 @@ export default function MaterialsPage() {
                                 We custom-manufacture non-standard fasteners and hardware directly according to your CAD prints.
                             </p>
                             <Link
-                                to="/#contact"
+                                to="/#quote"
                                 className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-xs font-bold text-white transition hover:bg-[#2563eb] shadow-md"
                             >
                                 Request Custom Feasibility

@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { trackQuoteCtaClick } from "../utils/analytics";
 import {
-    Box,
-    Waves,
-    Layers,
     Check,
     ArrowRight,
     Zap,
@@ -40,7 +37,7 @@ const processRows: ProcessRow[] = [
             "Multi-material capability",
         ],
         tag: "DED / LMD",
-        gifSrc: "/Gif-Assets/ded_lmd_3dprint.jpg",
+        gifSrc: "/Gif-Assets/Laser_metal_deposition_manufacture.gif",
     },
     {
         number: "02",
@@ -53,7 +50,7 @@ const processRows: ProcessRow[] = [
             "High deposition rate and low material cost",
         ],
         tag: "WAAM",
-        gifSrc: "/Gif-Assets/waam_3dprint.jpg",
+        gifSrc: "/Gif-Assets/Robotic_arm_manufacturing_metal.gif",
     },
     {
         number: "03",
@@ -80,7 +77,7 @@ const processRows: ProcessRow[] = [
             "Excellent surface finish and dimensional accuracy",
         ],
         tag: "SLM",
-        gifSrc: "/Gif-Assets/slm_3dprint.jpg",
+        gifSrc: "/Gif-Assets/Metal_3D_printing_process.gif",
     },
     {
         number: "05",
@@ -94,7 +91,7 @@ const processRows: ProcessRow[] = [
             "Smooth surface finish and post-processing flexibility",
         ],
         tag: "BINDER JETTING",
-        gifSrc: "/Gif-Assets/binder_jetting_3dprint.jpg",
+        gifSrc: "/Gif-Assets/Metal_binder_jetting_3D_printing.gif",
     },
 ];
 
@@ -478,15 +475,16 @@ export default function PrintingPage() {
 
                         {/* Action Buttons */}
                         <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-                            <a
-                                href="/request-a-quote"
+                            <Link
+                                to="/#quote"
+                                onClick={() => trackQuoteCtaClick("3d_printing_hero")}
                                 className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-600 active:scale-[0.99] text-center"
                             >
                                 Request a Quote
                                 <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
                                     →
                                 </span>
-                            </a>
+                            </Link>
                             <a
                                 href="#processes"
                                 className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
@@ -610,13 +608,13 @@ export default function PrintingPage() {
                                 details are confirmed against the drawing before quotation.
                             </p>
 
-                            <a
-                                href="#"
+                            <Link
+                                to="/#quote"
                                 className="mt-9 inline-flex items-center gap-2.5 bg-[#2563eb] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#2563eb]"
                             >
                                 Discuss Your Part
                                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-                            </a>
+                            </Link>
                         </div>
 
                         <BuildEnvelopeDiagram />
@@ -641,7 +639,8 @@ export default function PrintingPage() {
                             </p>
 
                             <Link
-                                to="/#contact"
+                                to="/#quote"
+                                onClick={() => trackQuoteCtaClick("3d_printing_bottom")}
                                 className="mt-9 inline-flex items-center gap-2.5 bg-slate-900 px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-[#2563eb]"
                             >
                                 Request a Quote

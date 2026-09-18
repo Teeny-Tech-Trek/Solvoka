@@ -91,28 +91,32 @@ export default function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="relative flex w-full flex-col overflow-hidden bg-grey-50 bg-cover bg-center bg-no-repeat py-12 sm:py-16 lg:py-20"
+      className="relative flex w-full flex-col overflow-hidden bg-grey-50 bg-cover bg-center bg-no-repeat pt-7 sm:pt-9 lg:pt-11 pb-12 sm:pb-16 lg:pb-20"
       style={{ backgroundImage: "url('/Capabilities.png')" }}
       aria-labelledby="capabilities-heading"
     >
       <div className="relative mx-auto flex h-full w-full max-w-[1536px] flex-col px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="flex shrink-0 flex-col gap-y-3 max-w-[720px]">
+        <div className="flex shrink-0 flex-col gap-y-2 max-w-[880px]">
           <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
             02 / Capabilities
           </span>
           <h2
             id="capabilities-heading"
-            className="font-bold leading-[1.12] tracking-[-0.02em] text-navy-800"
+            className="font-bold leading-[1.15] tracking-[-0.02em] text-navy-800"
           >
-            <span className="block text-[clamp(26px,3.5vw,44px)]">Five core processes.</span>
-            <span className="block text-[clamp(26px,3.5vw,44px)] text-[#2563eb]">Endless possibilities.</span>
-            <span className="block text-[clamp(26px,3.5vw,44px)]">One accountable supplier.</span>
+            <span className="block text-[clamp(24px,3.2vw,42px)]">
+              Five core processes.{" "}
+              <span className="text-[#2563eb]">Endless possibilities.</span>
+            </span>
+            <span className="block text-[clamp(24px,3.2vw,42px)]">
+              One accountable supplier.
+            </span>
           </h2>
         </div>
 
         {/* Row 1: 3 core processes (Casting, Forging, CNC Machining) */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 sm:mt-7 lg:mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.slice(0, 3).map((item) => (
             <CapabilityCard key={item.code} item={item} className="aspect-[16/10]" />
           ))}

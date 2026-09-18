@@ -19,9 +19,8 @@ const TRUST_CHIPS = [
 
 const MATERIALS = [
   "CARBON STEEL",
-  "ALLOY STEEL",
-  "STAINLESS STEEL",
   "MILD STEEL",
+  "STAINLESS STEEL",
   "ALUMINIUM",
   "BRASS",
   "BRONZE",
@@ -255,8 +254,9 @@ export default function Hero() {
                   {/* CTAs */}
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
-                      href="/request-a-quote"
-                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center"
+                      href="/#quote"
+                      onClick={() => trackQuoteCtaClick("hero_slide_1")}
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center cursor-pointer"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -264,8 +264,8 @@ export default function Hero() {
                       </span>
                     </a>
                     <a
-                      href="/capabilities"
-                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
+                      href="/#capabilities"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
                     >
                       View Capabilities
                     </a>
@@ -328,8 +328,9 @@ export default function Hero() {
                   {/* CTAs */}
                   <div data-hero-reveal className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:mt-6 w-full sm:w-auto">
                     <a
-                      href="/request-a-quote"
-                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center"
+                      href="/#quote"
+                      onClick={() => trackQuoteCtaClick("hero_slide_2")}
+                      className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-[#2563eb] active:scale-[0.99] text-center cursor-pointer"
                     >
                       Request a Quote
                       <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
@@ -337,8 +338,8 @@ export default function Hero() {
                       </span>
                     </a>
                     <a
-                      href="/capabilities"
-                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center"
+                      href="/#capabilities"
+                      className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
                     >
                       View Capabilities
                     </a>

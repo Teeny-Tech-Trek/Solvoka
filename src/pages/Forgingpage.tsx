@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { trackQuoteCtaClick } from "../utils/analytics";
 import {
     ShieldCheck,
-    Settings,
-    BarChart3,
     ArrowRight,
     Check,
     ChevronRight,
@@ -272,13 +270,13 @@ export default function ForgingPage() {
 
                         {/* Action Buttons */}
                         <div className="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-                            <a
-                                href="/request-a-quote"
+                            <Link
+                                to="/#quote"
                                 className="group inline-flex h-12 items-center justify-center gap-3 rounded-lg bg-[#2563eb] px-5 text-[15px] font-bold text-white shadow-lg shadow-[#2563eb]/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl hover:shadow-[#2563eb]/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0"
                             >
                                 Start Your Forging RFQ
                                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.5} />
-                            </a>
+                            </Link>
                             <a
                                 href="#forging-processes"
                                 onClick={(e) => {
@@ -362,7 +360,7 @@ export default function ForgingPage() {
             </section>
 
             {/* Sections 2–4 — Open-Die, Closed-Die, Ring Forging */}
-            <section className="pb-16 lg:pb-24 space-y-12 lg:space-y-16">
+            <section id="forging-processes" className="pb-16 lg:pb-24 space-y-12 lg:space-y-16">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16 space-y-12 lg:space-y-16">
                     {processSections.map((section) => {
                         const textCol = (
@@ -509,7 +507,7 @@ export default function ForgingPage() {
                             {/* Middle Column */}
                             <div className="flex flex-col items-start gap-2.5 lg:items-center">
                                 <Link
-                                    to="/#contact"
+                                    to="/#quote"
                                     onClick={() => trackQuoteCtaClick("forging-rfq")}
                                     className="group inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#2563eb] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#2563eb]/35 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >

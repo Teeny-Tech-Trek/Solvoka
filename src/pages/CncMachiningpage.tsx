@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Play,
   Check,
   ArrowRight,
   Zap,
@@ -147,8 +146,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Excellent for tight-tolerance and miniature parts",
       "High-speed, automated production",
     ],
-    image: "/Gif-Assets/CNC_Turning_Machine_Video_Ready.gif",
-    videoGif: "/Gif-Assets/CNC_Turning_Machine_Video_Ready.gif",
+    image: "/Gif-Assets/Swiss CNC_machine_machining_metal_comp.gif",
+    videoGif: "/Gif-Assets/Swiss CNC_machine_machining_metal_comp.gif",
     tolerance: "± 0.003 mm (± 0.0001 in)",
     materials: "Medical 316LVM, Titanium Grade 5, Brass, Nickel Alloys",
   },
@@ -176,8 +175,8 @@ function IsometricMetallicCube({
       type="button"
       onClick={onClick}
       className={`group flex flex-col items-center justify-center p-3 rounded-md transition-all duration-300 cursor-pointer ${active
-          ? "bg-[#2563eb]/10 ring-1 ring-[#2563eb]/50"
-          : "bg-white/[0.04] hover:bg-white/[0.08]"
+        ? "bg-[#2563eb]/10 ring-1 ring-[#2563eb]/50"
+        : "bg-white/[0.04] hover:bg-white/[0.08]"
         }`}
     >
       <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -364,15 +363,15 @@ export default function CncMachiningpage() {
 
             {/* Action Buttons */}
             <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-              <a
-                href="/request-a-quote"
+              <Link
+                to="/#quote"
                 className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-600 active:scale-[0.99] text-center"
               >
                 Request a Quote
                 <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
                   →
                 </span>
-              </a>
+              </Link>
               <a
                 href="#processes"
                 onClick={(e) => {
@@ -383,7 +382,7 @@ export default function CncMachiningpage() {
                 }}
                 className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
               >
-                View 8 Machining Processes
+                View 9 Machining Processes
               </a>
             </div>
 
@@ -423,125 +422,9 @@ export default function CncMachiningpage() {
       </section>
 
       {/* ------------------------------------------------------------ */}
-      {/* 3. Section 01: ADVANCED MACHINING                             */}
-      {/* ------------------------------------------------------------ */}
-      <section className="border-b border-slate-100 bg-[#ffffff] px-6 py-16 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            {/* Left Content */}
-            <div>
-              {/* Eyebrow badge */}
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-5 items-center justify-center rounded border border-slate-300 px-1.5 text-[11px] font-bold text-slate-700">
-                  01
-                </span>
-                <span className="text-xs sm:text-sm uppercase tracking-widest text-slate-500">
-                  ADVANCED MACHINING
-                </span>
-              </div>
-
-              {/* Title */}
-              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-950 leading-tight">
-                For the Most Demanding Projects
-              </h2>
-
-              {/* Description */}
-              <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Advanced machining solutions cover high-performance materials,
-                tight tolerances, and complex part geometries. Using
-                state-of-the-art machinery and experienced engineers, we solve
-                your toughest manufacturing challenges.
-              </p>
-
-              {/* Checklist */}
-              <ul className="mt-6 space-y-3.5">
-                {[
-                  "Custom solutions tailored to your industry",
-                  "Integration of multiple machining technologies",
-                  "Optimized performance for critical applications",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-[#2563eb] text-slate-950 mt-0.5">
-                      <Check className="h-3 w-3 stroke-[3]" />
-                    </span>
-                    <span className="text-sm font-semibold text-slate-800">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Overview Video Button */}
-              <div className="mt-8">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setSelectedProcess({
-                      number: "01",
-                      title: "Advanced CNC Machining Overview",
-                      description:
-                        "Comprehensive look into Solvoka's high-speed 5-axis centers, wire EDM, and micron-level precision quality inspection facilities.",
-                      bullets: [
-                        "5-axis continuous milling centers",
-                        "Live tooling turning with sub-spindles",
-                        "Class-leading CMM & optical inspection",
-                      ],
-                      image: "/cnc/precision-manifold.jpg",
-                      videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
-                      tolerance: "± 0.002 mm (± 0.00008 in)",
-                      materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
-                    })
-                  }
-                  className="inline-flex items-center gap-3 rounded-md bg-slate-950 px-6 py-3.5 text-xs font-bold text-white shadow-lg transition-all duration-200 hover:bg-[#2563eb] hover:text-slate-950 hover:shadow-[#2563eb]/20"
-                >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#2563eb] text-slate-950">
-                    <Play className="ml-0.5 h-2.5 w-2.5 fill-current" />
-                  </span>
-                  Watch Overview Video
-                </button>
-              </div>
-            </div>
-
-            {/* Right Visual Graphic */}
-            <div className="relative flex items-center justify-center">
-              {/* Soft radial spotlight */}
-              <div className="absolute inset-0 rounded-full bg-radial from-slate-200/60 via-slate-100/20 to-transparent blur-2xl" />
-
-              <div className="relative z-10 flex w-full max-w-md items-center justify-between gap-6">
-                {/* Machined Manifold Visual */}
-                <div className="relative overflow-hidden rounded-lg border border-slate-200/80 bg-white p-2 shadow-2xl shadow-slate-300/40">
-                  <img
-                    src="/cnc/precision-manifold.jpg"
-                    alt="Precision 5-axis CNC machined 6061-T6 aluminum engine block and manifold"
-                    className="h-72 w-full object-contain rounded-md sm:h-80"
-                  />
-                </div>
-
-                {/* Right side typography */}
-                <div className="flex flex-col items-start text-left">
-                  <p className="text-[11px] uppercase tracking-widest leading-relaxed text-slate-500">
-                    COMPLEX
-                    <br />
-                    MATERIALS
-                    <br />
-                    TIGHTER
-                    <br />
-                    TOLERANCES
-                    <br />
-                    REAL RESULTS
-                  </p>
-                  <div className="mt-3 h-[1px] w-8 bg-[#2563eb]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------ */}
       {/* 4. Category Header: OUR CNC MACHINING PROCESSES               */}
       {/* ------------------------------------------------------------ */}
-      <section className="px-6 pt-14 lg:pt-20 pb-8 lg:px-16">
+      <section id="processes" className="px-6 pt-14 lg:pt-20 pb-8 lg:px-16">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center">
           {/* Left label with dash */}
           <div className="flex items-center gap-3">
@@ -622,38 +505,117 @@ export default function CncMachiningpage() {
                 <button
                   type="button"
                   onClick={() => setSelectedProcess(process)}
-                  className="text-xs font-bold text-slate-900 hover:text-[#2563eb] transition flex items-center gap-1"
+                  aria-label={`View ${process.title}`}
+                  className="text-slate-900 hover:text-[#2563eb] transition flex items-center group/btn p-0.5"
                 >
-                  Details
-                  <ArrowRight className="h-3 w-3" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
                 </button>
               </div>
             </div>
           ))}
 
-          {/* Position 9: Dark Feature / Showcase Tile */}
-          <div className="flex flex-col justify-between overflow-hidden rounded-lg border border-slate-800 bg-[#000000] p-6 text-white shadow-xl">
-            {/* Top Typography */}
+          {/* Position 9: 01 ADVANCED MACHINING (alongside Swiss Machining) */}
+          <div className="group flex flex-col justify-between overflow-hidden rounded-lg border border-slate-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#2563eb]/40 hover:shadow-xl">
             <div>
-              <p className="text-xs uppercase tracking-widest leading-relaxed text-slate-300">
-                SAME
-                <br />
-                MATERIALS.
-                <br />
-                HIGHER
-                <br />
-                POSSIBILITIES.
-              </p>
-              <div className="my-4 h-[1px] w-10 bg-[#2563eb]" />
+              {/* Media Banner (GIF plays on loop) */}
+              <div
+                onClick={() =>
+                  setSelectedProcess({
+                    number: "01",
+                    title: "Advanced CNC Machining Overview",
+                    subtitle: "For the Most Demanding Projects",
+                    description:
+                      "Advanced machining solutions cover high-performance materials, tight tolerances, and complex part geometries. Using state-of-the-art machinery and experienced engineers, we solve your toughest manufacturing challenges.",
+                    bullets: [
+                      "Custom solutions tailored to your industry",
+                      "Integration of multiple machining technologies",
+                      "Optimized performance for critical applications",
+                    ],
+                    image: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    tolerance: "± 0.002 mm (± 0.00008 in)",
+                    materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
+                  })
+                }
+                className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-md bg-slate-950"
+              >
+                <img
+                  src="/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif"
+                  alt="Advanced CNC Machining"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="pt-5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-5 items-center justify-center rounded border border-slate-300 px-1.5 text-[10px] font-bold text-slate-700">
+                    01
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2563eb]">
+                    ADVANCED MACHINING
+                  </span>
+                </div>
+
+                <h4 className="mt-2 text-xl font-semibold tracking-tight text-slate-950">
+                  For the Most Demanding Projects
+                </h4>
+
+                <p className="mt-2.5 text-xs leading-relaxed text-slate-600 line-clamp-3">
+                  Advanced machining solutions cover high-performance materials, tight tolerances, and complex part geometries. Using state-of-the-art machinery and experienced engineers, we solve your toughest manufacturing challenges.
+                </p>
+
+                {/* Bullets (Services Mentioned) */}
+                <ul className="mt-4 space-y-2">
+                  {[
+                    "Custom solutions tailored to your industry",
+                    "Integration of multiple machining technologies",
+                    "Optimized performance for critical applications",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check
+                        className="mt-0.5 h-3.5 w-3.5 flex-none text-[#2563eb]"
+                        strokeWidth={2.6}
+                      />
+                      <span className="text-xs font-medium text-slate-700 leading-snug">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Bottom Machined Part Graphic */}
-            <div className="relative mt-4 flex items-center justify-center overflow-hidden rounded-md bg-black/40 p-4 border border-white/5">
-              <img
-                src="/cnc/precision-manifold.jpg"
-                alt="Precision machined aerospace manifold"
-                className="h-44 w-full object-contain filter contrast-125 hover:scale-105 transition-transform duration-500"
-              />
+            {/* Quick Spec Bar & Action */}
+            <div className="mt-6 border-t border-slate-100 pt-3 flex items-center justify-between">
+              <span className="text-[10px] font-bold text-slate-500">
+                ± 0.002 mm (± 0.00008 in)
+              </span>
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedProcess({
+                    number: "01",
+                    title: "Advanced CNC Machining Overview",
+                    subtitle: "For the Most Demanding Projects",
+                    description:
+                      "Advanced machining solutions cover high-performance materials, tight tolerances, and complex part geometries. Using state-of-the-art machinery and experienced engineers, we solve your toughest manufacturing challenges.",
+                    bullets: [
+                      "Custom solutions tailored to your industry",
+                      "Integration of multiple machining technologies",
+                      "Optimized performance for critical applications",
+                    ],
+                    image: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    tolerance: "± 0.002 mm (± 0.00008 in)",
+                    materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
+                  })
+                }
+                aria-label="View Advanced CNC Machining"
+                className="text-slate-900 hover:text-[#2563eb] transition flex items-center group/btn p-0.5"
+              >
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+              </button>
             </div>
           </div>
         </div>

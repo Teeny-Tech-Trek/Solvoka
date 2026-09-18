@@ -52,30 +52,6 @@ const IconLayers = (props: IconProps) => (
     </svg>
 );
 
-const IconBox = (props: IconProps) => (
-    <svg {...iconBase} {...props}>
-        <path d="M21 8 12 3 3 8l9 5 9-5Z" />
-        <path d="M3 8v8l9 5 9-5V8" />
-        <path d="M12 13v8" />
-    </svg>
-);
-
-const IconSettings = (props: IconProps) => (
-    <svg {...iconBase} {...props}>
-        <circle cx="12" cy="12" r="3" />
-        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.64 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z" />
-    </svg>
-);
-
-const IconBarChart = (props: IconProps) => (
-    <svg {...iconBase} {...props}>
-        <path d="M3 3v18h18" />
-        <rect x="7" y="12" width="3" height="6" />
-        <rect x="12" y="8" width="3" height="10" />
-        <rect x="17" y="5" width="3" height="13" />
-    </svg>
-);
-
 const IconZap = (props: IconProps) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
         <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" />
@@ -109,19 +85,6 @@ const ASH = "#ffffff";
 /* ------------------------------------------------------------------ */
 /*  Data                                                                */
 /* ------------------------------------------------------------------ */
-
-interface HeroFeature {
-    icon: (props: IconProps) => ReactNode;
-    lineOne: string;
-    lineTwo: string;
-}
-
-const heroFeatures: HeroFeature[] = [
-    { icon: IconLayers, lineOne: "Precision", lineTwo: "Processes" },
-    { icon: IconBox, lineOne: "Wide", lineTwo: "Material Range" },
-    { icon: IconSettings, lineOne: "From Prototype", lineTwo: "to Production" },
-    { icon: IconBarChart, lineOne: "Reliable", lineTwo: "& Scalable" },
-];
 
 interface CapabilityItem {
     id: string;
@@ -216,7 +179,7 @@ const capabilities: CapabilityItem[] = [
             "Consistent quality in high-volume runs",
             "Minimal tooling wear",
         ],
-        gifSrc: "/Gif-Assets/pneumatic_metal_forming.jpg",
+        gifSrc: "/Gif-Assets/Pneumatic_metal_forming_machine.gif",
     },
     {
         id: "welding-services",
@@ -230,7 +193,7 @@ const capabilities: CapabilityItem[] = [
             "Wide range of materials",
             "Full welding & finishing solutions",
         ],
-        gifSrc: "/Gif-Assets/Video_Link_Steel_Casting.gif",
+        gifSrc: "/Gif-Assets/Professional_welding_services_ma.gif",
     },
     {
         id: "deburring-finishing",
@@ -375,15 +338,15 @@ function Hero() {
 
                     {/* Action Buttons */}
                     <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-                        <a
-                            href="/request-a-quote"
+                        <Link
+                            to="/#quote"
                             className="group inline-flex h-12 items-center justify-center gap-2 bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-600 active:scale-[0.99] text-center"
                         >
                             Request a Quote
                             <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
                                 →
                             </span>
-                        </a>
+                        </Link>
                         <a
                             href="#capabilities"
                             onClick={(e) => {
@@ -513,7 +476,7 @@ function CapabilityCard({ card }: { card: CapabilityItem }) {
             </ul>
 
             <Link
-                to="/#contact"
+                to="/#quote"
                 onClick={() => trackQuoteCtaClick("sheet_metal_card")}
                 className="group/link mt-4 inline-flex items-center justify-between border-t pt-3 text-xs font-semibold uppercase tracking-wider transition-colors"
                 style={{ borderColor: ASH, color: COPPER }}
@@ -527,7 +490,7 @@ function CapabilityCard({ card }: { card: CapabilityItem }) {
 
 function CapabilitiesGrid() {
     return (
-        <section className="py-16 lg:py-24" style={{ backgroundColor: PAPER }}>
+        <section id="capabilities" className="py-16 lg:py-24" style={{ backgroundColor: PAPER }}>
             <div className="mx-auto max-w-7xl px-6 lg:px-16">
                 <div className="mb-10 flex flex-col justify-between gap-4 border-b pb-6 sm:flex-row sm:items-end lg:mb-14" style={{ borderColor: ASH }}>
                     <div>
@@ -647,7 +610,7 @@ function CtaSection() {
                             competitive quote and expert guidance.
                         </p>
                         <Link
-                            to="/#contact"
+                            to="/#quote"
                             onClick={() => trackQuoteCtaClick("sheet_metal_bottom_cta")}
                             className="group mt-6 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white transition-colors"
                             style={{ backgroundColor: COPPER }}
@@ -694,11 +657,11 @@ function CtaSection() {
                                 className="h-full w-full object-cover"
                             />
                         </div>
-                        <span className="pointer-events-none absolute -top-4 right-2 -rotate-6 text-lg italic text-neutral-400">
+                        {/* <span className="pointer-events-none absolute -top-4 right-2 -rotate-6 text-lg italic text-neutral-400">
                             Your Designs.
                             <br />
                             Our Expertise.
-                        </span>
+                        </span> */}
                     </div>
                 </div>
             </div>
