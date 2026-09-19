@@ -286,6 +286,7 @@ export default function CncMachiningpage() {
             loop
             muted
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover object-center filter contrast-110"
           />
 
@@ -460,9 +461,13 @@ export default function CncMachiningpage() {
                   onClick={() => setSelectedProcess(process)}
                   className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-md bg-slate-950"
                 >
-                  <img
-                    src={process.image}
-                    alt={process.title}
+                  <video
+                    src={process.videoGif || process.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -548,6 +553,7 @@ export default function CncMachiningpage() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -910,6 +916,7 @@ export default function CncMachiningpage() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-cover"
               />
             </div>

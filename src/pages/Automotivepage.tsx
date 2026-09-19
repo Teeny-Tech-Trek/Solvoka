@@ -206,7 +206,7 @@ function VehicleSegment({
                             loop
                             muted
                             playsInline
-                            preload="auto"
+                            preload="metadata"
                         />
                     </div>
                 </div>

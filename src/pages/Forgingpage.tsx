@@ -158,6 +158,7 @@ function VideoCard({
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
         </div>
@@ -197,6 +198,7 @@ export default function ForgingPage() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 

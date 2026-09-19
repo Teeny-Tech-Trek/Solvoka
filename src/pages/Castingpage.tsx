@@ -194,6 +194,7 @@ function MediaCard({ number, gifSrc }: { number: string; gifSrc: string }) {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
         </div>
@@ -272,6 +273,7 @@ export default function CastingPage() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 

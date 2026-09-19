@@ -241,6 +241,7 @@ function ProcessThumb({ label, gifSrc, tag }: { label: string; gifSrc: string; t
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/thumb:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
@@ -390,6 +391,7 @@ export default function PrintingPage() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 

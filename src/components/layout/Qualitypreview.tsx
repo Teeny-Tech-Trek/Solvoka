@@ -85,6 +85,7 @@ function GateCard({ gate }: { gate: Gate }) {
             loop
             muted
             playsInline
+            preload="metadata"
             onError={() => {
               if (gate.fallbackImage && imgSrc !== gate.fallbackImage) {
                 setImgSrc(gate.fallbackImage);

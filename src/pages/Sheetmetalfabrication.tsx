@@ -261,6 +261,7 @@ function Hero() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="h-full w-full object-cover object-center filter contrast-110"
                 />
 
@@ -465,6 +466,7 @@ function CapabilityCard({ card }: { card: CapabilityItem }) {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
             </div>

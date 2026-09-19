@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 type Capability = {
@@ -12,53 +13,72 @@ const CAPABILITIES: Capability[] = [
   {
     code: "PRC-001",
     name: "Casting",
-    poster: "/posters/casting.jpg",
+    poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/die-casting.webp",
     gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
     href: "/capabilities/casting",
   },
   {
     code: "PRC-002",
     name: "Forging",
-    poster: "/posters/forging.jpg",
+    poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/closed-die.webp",
     gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
     href: "/capabilities/forging",
   },
   {
     code: "PRC-003",
     name: "CNC Machining",
-    poster: "/posters/cnc-machining.jpg",
+    poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/cnc/flange-hub.webp",
     gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
     href: "/capabilities/cnc-machining",
   },
   {
     code: "PRC-004",
     name: "3D Printing",
-    poster: "/posters/3d-printing.jpg",
+    poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/AboutUs-Image.webp",
     gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
     href: "/capabilities/3d-printing",
   },
   {
     code: "PRC-005",
     name: "Sheet Metal Fabrication",
-    poster: "/posters/sheet-metal.jpg",
+    poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/cta-parts.webp",
     gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
     href: "/capabilities/sheet-metal-fabrication",
   },
 ];
 
 function CapabilityCard({ item, className = "" }: { item: Capability; className?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {/* autoplay policy — silently ignore */});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
     <Link
       to={item.href}
       className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] ${className}`}
       aria-label={`${item.code} — ${item.name}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <video
+        ref={videoRef}
         src={item.gif}
-        autoPlay
+        poster={item.poster}
         loop
         muted
         playsInline
+        preload="none"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
       />
 
