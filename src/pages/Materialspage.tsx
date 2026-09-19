@@ -473,7 +473,7 @@ export default function MaterialsPage() {
             {/* ========================================================== */}
             <section
                 className="relative flex w-full flex-col justify-between overflow-hidden bg-cover bg-center bg-no-repeat min-h-[680px] sm:min-h-[740px] lg:aspect-[1672/941] lg:min-h-0 pt-20 sm:pt-24 lg:pt-20 xl:pt-24 pb-6 sm:pb-8 lg:pb-8 xl:pb-10"
-                style={{ backgroundImage: "url('/images/Material-Guide/MaterialGuide-HeroImage.png')" }}
+                style={{ backgroundImage: "url('https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/Material-Guide/MaterialGuide-HeroImage.webp')" }}
                 aria-label="Certified Materials, Process By Process"
             >
                 {/* Desktop Absolute Inscriptions on Pedestal & Dark Block */}

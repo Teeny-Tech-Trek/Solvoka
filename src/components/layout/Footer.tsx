@@ -61,7 +61,7 @@ export default function Footer() {
         <div>
           <Link to="/" className="inline-flex items-center gap-3" aria-label="Solvoka home">
             <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-navy-900 shadow-sm sm:h-12 sm:w-12">
-              <img src="/solvoka-logo.png" alt="" className="h-full w-full object-contain" />
+              <img src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/solvoka-logo.webp" alt="" className="h-full w-full object-contain" />
             </span>
             <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
               SOLVOKA

@@ -6,7 +6,7 @@ export default function NetworkTeaser() {
     <section
       id="about"
       className="relative w-full overflow-hidden bg-white bg-cover bg-center bg-no-repeat min-h-[480px] sm:min-h-[580px] lg:min-h-[680px] py-12 sm:py-16"
-      style={{ backgroundImage: "url('/Network-Image.png')" }}
+      style={{ backgroundImage: "url('https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Network-Image.webp')" }}
       aria-label="Our Base & Network"
     >
       <div className="relative mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">

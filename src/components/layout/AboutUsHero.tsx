@@ -38,7 +38,7 @@ export default function AboutUsHero() {
       <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
         {/* Full resolution AboutUs-Image background artwork */}
         <img
-          src="/AboutUs-Image.png"
+          src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/AboutUs-Image.webp"
           alt="Solvoka Precision Manufacturing Network"
           className="h-full w-full object-cover object-[72%_center] lg:object-[68%_center] xl:object-[65%_center]"
         />

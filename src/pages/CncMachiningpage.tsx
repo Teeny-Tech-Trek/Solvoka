@@ -37,8 +37,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Scalability from prototypes to production",
       "Material flexibility",
     ],
-    image: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
-    videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
     tolerance: "± 0.005 mm (± 0.0002 in)",
     materials: "Aluminum (6061, 7075), Stainless Steel, Brass, Delrin",
   },
@@ -53,8 +53,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Cost-effective for symmetrical parts",
       "Quick prototyping to mass production",
     ],
-    image: "/Gif-Assets/CNC_Turning_Machine_Video_Ready.gif",
-    videoGif: "/Gif-Assets/CNC_Turning_Machine_Video_Ready.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
     tolerance: "± 0.008 mm (± 0.0003 in)",
     materials: "Alloy Steels, Titanium, Copper, Inconel",
   },
@@ -68,8 +68,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Multiple-hole and deep-hole supported",
       "Ideal for flanges, panels, brackets.",
     ],
-    image: "/Gif-Assets/CNC_Drilling_Machine_Video_Ready.gif",
-    videoGif: "/Gif-Assets/CNC_Drilling_Machine_Video_Ready.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
     tolerance: "± 0.01 mm (± 0.0004 in)",
     materials: "Structural Carbon Steel, Tool Steel, Cast Iron",
   },
@@ -83,8 +83,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Excellent for ultra-fine features and hard metals",
       "No tool wear or deformation",
     ],
-    image: "/Gif-Assets/working_of_cnc_wire_edm_machine.gif",
-    videoGif: "/Gif-Assets/working_of_cnc_wire_edm_machine.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
     tolerance: "± 0.002 mm (± 0.00008 in)",
     materials: "Hardened D2/H13 Steel, Carbide, Titanium",
   },
@@ -100,8 +100,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Centerless Grinding",
       "Profile Grinding",
     ],
-    image: "/Gif-Assets/Video_Link_CNC_Machine.gif",
-    videoGif: "/Gif-Assets/Video_Link_CNC_Machine.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
     tolerance: "Ra 0.1 µm (4 µin) / ± 0.002 mm",
     materials: "Hardened Bearing Steel, Tool Steel, Tungsten Carbide",
   },
@@ -116,8 +116,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Custom shapes with high-speed production",
       "Minimal material wastage",
     ],
-    image: "/Gif-Assets/Video_Ready_CNC_Machine.gif",
-    videoGif: "/Gif-Assets/Video_Ready_CNC_Machine.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
     tolerance: "± 0.05 mm (± 0.002 in)",
     materials: "Engineering Plastics (PEEK, POM), Aluminum Sheets, Composites",
   },
@@ -131,8 +131,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Fewer setups, tighter tolerances",
       "Handles undercuts, angles, and curves",
     ],
-    image: "/Gif-Assets/Video_Link_Provided.gif",
-    videoGif: "/Gif-Assets/Video_Link_Provided.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
     tolerance: "± 0.005 mm (± 0.0002 in)",
     materials: "Aerospace Grade 7075-T6, Inconel 718, 17-4 PH Stainless",
   },
@@ -146,8 +146,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Excellent for tight-tolerance and miniature parts",
       "High-speed, automated production",
     ],
-    image: "/Gif-Assets/Swiss CNC_machine_machining_metal_comp.gif",
-    videoGif: "/Gif-Assets/Swiss CNC_machine_machining_metal_comp.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
     tolerance: "± 0.003 mm (± 0.0001 in)",
     materials: "Medical 316LVM, Titanium Grade 5, Brass, Nickel Alloys",
   },
@@ -280,9 +280,12 @@ export default function CncMachiningpage() {
       <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
         {/* Full-bleed Industrial Machining Background Motion GIF */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <img
-            src="/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif"
-            alt="High-precision CNC milling machine machining complex aluminum aerospace component"
+          <video
+            src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="h-full w-full object-cover object-center filter contrast-110"
           />
 
@@ -531,17 +534,20 @@ export default function CncMachiningpage() {
                       "Integration of multiple machining technologies",
                       "Optimized performance for critical applications",
                     ],
-                    image: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
-                    videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
                     tolerance: "± 0.002 mm (± 0.00008 in)",
                     materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
                   })
                 }
                 className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-md bg-slate-950"
               >
-                <img
-                  src="/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif"
-                  alt="Advanced CNC Machining"
+                <video
+                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -605,8 +611,8 @@ export default function CncMachiningpage() {
                       "Integration of multiple machining technologies",
                       "Optimized performance for critical applications",
                     ],
-                    image: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
-                    videoGif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
                     tolerance: "± 0.002 mm (± 0.00008 in)",
                     materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
                   })
@@ -707,7 +713,7 @@ export default function CncMachiningpage() {
 
               <div className="relative h-24 w-36 overflow-hidden rounded-md bg-black/40 border border-white/10">
                 <img
-                  src="/cnc/precision-manifold.jpg"
+                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/cnc/precision-manifold.webp"
                   alt="Precision machined manifold"
                   className="h-full w-full object-contain"
                 />
@@ -753,7 +759,7 @@ export default function CncMachiningpage() {
             {/* Caliper Measurement Photo */}
             <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md">
               <img
-                src="/cnc/caliper-inspection.jpg"
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/cnc/caliper-inspection.webp"
                 alt="Quality inspector using digital vernier caliper to check precision CNC turned part"
                 className="h-56 w-full object-cover sm:h-64"
               />
@@ -849,7 +855,7 @@ export default function CncMachiningpage() {
             <div className="flex items-center justify-start gap-5 border-t border-white/10 pt-6 lg:border-t-0 lg:pt-0">
               <div className="relative h-32 w-32 flex-none overflow-hidden rounded-full border border-white/20 bg-black/60 shadow-inner">
                 <img
-                  src="/cnc/flange-hub.jpg"
+                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/cnc/flange-hub.webp"
                   alt="Precision CNC turned and milled circular aerospace flange hub"
                   className="h-full w-full object-cover scale-110"
                 />
@@ -898,9 +904,12 @@ export default function CncMachiningpage() {
 
             {/* Video / GIF Player */}
             <div className="relative aspect-video w-full overflow-hidden bg-black">
-              <img
+              <video
                 src={selectedProcess.videoGif || selectedProcess.image}
-                alt={selectedProcess.title}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover"
               />
             </div>

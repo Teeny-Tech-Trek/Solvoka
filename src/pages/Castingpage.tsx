@@ -40,8 +40,8 @@ const processSections: ProcessSection[] = [
             "Reduces need for machining",
             "Suitable for small-to-medium runs",
         ],
-        imageSrc: "/images/casting/investment-casting.jpg",
-        gifSrc: "/Gif-Assets/Video_on_Investment_Casting_Process.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/investment-casting.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Investment_Casting_Process.webm",
         layout: "media-first",
     },
     {
@@ -57,8 +57,8 @@ const processSections: ProcessSection[] = [
             "Minimal porosity and excellent mechanical strength",
             "Suitable for steel, bronze, and other alloys",
         ],
-        imageSrc: "/images/casting/centrifugal-casting.jpg",
-        gifSrc: "/Gif-Assets/Video_on_Centrifugal_Casting.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/centrifugal-casting.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Centrifugal_Casting.webm",
         layout: "info-first",
     },
     {
@@ -74,8 +74,8 @@ const processSections: ProcessSection[] = [
             "Ideal for complex internal cavities",
             "Supports a wide range of materials",
         ],
-        imageSrc: "/images/casting/sand-casting.jpg",
-        gifSrc: "/Gif-Assets/Steel_Bar_Dipped_in_Water.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/sand-casting.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Dipped_in_Water.webm",
         layout: "media-first",
     },
     {
@@ -91,8 +91,8 @@ const processSections: ProcessSection[] = [
             "Resistant to corrosion",
             "Good surface finish and machinability",
         ],
-        imageSrc: "/images/casting/aluminum-casting.jpg",
-        gifSrc: "/Gif-Assets/Steel_Bar_Cooling_Video_Link.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/aluminum-casting.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Cooling_Video_Link.webm",
         layout: "info-first",
     },
     {
@@ -108,8 +108,8 @@ const processSections: ProcessSection[] = [
             "High-speed production",
             "Ideal for zinc, aluminum, and magnesium alloys",
         ],
-        imageSrc: "/images/casting/die-casting.jpg",
-        gifSrc: "/Gif-Assets/Steel_Die_Casting_Video_Ready.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/die-casting.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
         layout: "media-first",
     },
 ];
@@ -187,9 +187,13 @@ function MediaCard({ number, gifSrc }: { number: string; gifSrc: string }) {
     return (
         <div className="group relative aspect-[16/10] w-full overflow-hidden rounded-md bg-slate-900 ring-1 ring-slate-950/10">
             <FramedCorners tone="light" />
-            <img
+            <video
                 src={gifSrc}
-                alt={`Casting process ${number}`}
+                aria-label={`Casting process ${number}`}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
         </div>
@@ -262,9 +266,12 @@ export default function CastingPage() {
             <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
                 {/* Full-bleed Industrial Foundry Background Motion GIF */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                    <img
-                        src="/Gif-Assets/Steel_Die_Casting_Video_Ready.gif"
-                        alt="High-pressure metal casting process in industrial foundry"
+                    <video
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 
@@ -445,7 +452,7 @@ export default function CastingPage() {
                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-slate-100 ring-1 ring-slate-950/10">
                         <FramedCorners tone="dark" />
                         <img
-                            src="/images/casting/materials.jpg"
+                            src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/materials.webp"
                             alt="Precision machined and cast metal components"
                             className="h-full w-full object-cover"
                         />
@@ -539,7 +546,7 @@ export default function CastingPage() {
                                 </div>
                                 <div className="relative aspect-square w-full max-w-[220px] overflow-hidden">
                                     <img
-                                        src="/images/casting/cad-blueprint.jpg"
+                                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/cad-blueprint.webp"
                                         alt="CAD assembly illustration"
                                         className="h-full w-full object-contain mix-blend-multiply opacity-90"
                                     />

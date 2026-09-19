@@ -1,0 +1,546 @@
+[
+  {
+    "type": "image",
+    "file": "AboutUs-Image.png",
+    "beforeSize": 1749967,
+    "afterSize": 80788,
+    "newFile": "AboutUs-Image.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Automotive-Assets\\Car parts.png",
+    "beforeSize": 2060690,
+    "afterSize": 346320,
+    "newFile": "Automotive-Assets\\Car parts.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Automotive-Assets\\cta image.png",
+    "beforeSize": 471583,
+    "afterSize": 75218,
+    "newFile": "Automotive-Assets\\cta image.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Automotive-Assets\\hero image.png",
+    "beforeSize": 1829037,
+    "afterSize": 264060,
+    "newFile": "Automotive-Assets\\hero image.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Automotive-Assets\\Tractor parts.png",
+    "beforeSize": 2424348,
+    "afterSize": 347916,
+    "newFile": "Automotive-Assets\\Tractor parts.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Capabilities.png",
+    "beforeSize": 1804653,
+    "afterSize": 59784,
+    "newFile": "Capabilities.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "cnc\\caliper-inspection.jpg",
+    "beforeSize": 740307,
+    "afterSize": 82890,
+    "newFile": "cnc\\caliper-inspection.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "cnc\\flange-hub.jpg",
+    "beforeSize": 740388,
+    "afterSize": 84262,
+    "newFile": "cnc\\flange-hub.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "cnc\\precision-manifold.jpg",
+    "beforeSize": 682017,
+    "afterSize": 76520,
+    "newFile": "cnc\\precision-manifold.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\aluminum-casting.jpg",
+    "beforeSize": 892913,
+    "afterSize": 140856,
+    "newFile": "images\\casting\\aluminum-casting.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\cad-blueprint.jpg",
+    "beforeSize": 812647,
+    "afterSize": 143152,
+    "newFile": "images\\casting\\cad-blueprint.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\centrifugal-casting.jpg",
+    "beforeSize": 925907,
+    "afterSize": 141768,
+    "newFile": "images\\casting\\centrifugal-casting.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\die-casting.jpg",
+    "beforeSize": 826072,
+    "afterSize": 100978,
+    "newFile": "images\\casting\\die-casting.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\investment-casting.jpg",
+    "beforeSize": 657361,
+    "afterSize": 51198,
+    "newFile": "images\\casting\\investment-casting.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\materials.jpg",
+    "beforeSize": 737306,
+    "afterSize": 79614,
+    "newFile": "images\\casting\\materials.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\casting\\sand-casting.jpg",
+    "beforeSize": 913989,
+    "afterSize": 143924,
+    "newFile": "images\\casting\\sand-casting.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\forging\\closed-die.jpg",
+    "beforeSize": 919271,
+    "afterSize": 147760,
+    "newFile": "images\\forging\\closed-die.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\forging\\hero.jpg",
+    "beforeSize": 984137,
+    "afterSize": 169708,
+    "newFile": "images\\forging\\hero.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\forging\\ring-forging.jpg",
+    "beforeSize": 900239,
+    "afterSize": 135568,
+    "newFile": "images\\forging\\ring-forging.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\forging\\tolerance-pin.jpg",
+    "beforeSize": 412805,
+    "afterSize": 15070,
+    "newFile": "images\\forging\\tolerance-pin.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\Material-Guide\\MaterialGuide-HeroImage.png",
+    "beforeSize": 1673668,
+    "afterSize": 79442,
+    "newFile": "images\\Material-Guide\\MaterialGuide-HeroImage.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\QualityPage\\QualityPage-HeroImage.png",
+    "beforeSize": 1704021,
+    "afterSize": 70670,
+    "newFile": "images\\QualityPage\\QualityPage-HeroImage.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\sheetmetal\\cta-parts.jpg",
+    "beforeSize": 998187,
+    "afterSize": 176544,
+    "newFile": "images\\sheetmetal\\cta-parts.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\sheetmetal\\materials\\aluminum.jpg",
+    "beforeSize": 892913,
+    "afterSize": 140856,
+    "newFile": "images\\sheetmetal\\materials\\aluminum.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\sheetmetal\\materials\\mild-steel.jpg",
+    "beforeSize": 913989,
+    "afterSize": 143924,
+    "newFile": "images\\sheetmetal\\materials\\mild-steel.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\sheetmetal\\materials\\stainless-steel.jpg",
+    "beforeSize": 925907,
+    "afterSize": 141768,
+    "newFile": "images\\sheetmetal\\materials\\stainless-steel.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "images\\sheetmetal\\materials\\thickness-grid.jpg",
+    "beforeSize": 740307,
+    "afterSize": 82890,
+    "newFile": "images\\sheetmetal\\materials\\thickness-grid.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "Network-Image.png",
+    "beforeSize": 1474627,
+    "afterSize": 64704,
+    "newFile": "Network-Image.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "official-logo.png",
+    "beforeSize": 464892,
+    "afterSize": 18442,
+    "newFile": "official-logo.webp",
+    "success": true
+  },
+  {
+    "type": "image",
+    "file": "solvoka-logo.png",
+    "beforeSize": 424254,
+    "afterSize": 101230,
+    "newFile": "solvoka-logo.webp",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Cordinationmodelgif.gif",
+    "beforeSize": 7570173,
+    "afterSize": 190303,
+    "newFile": "Cordinationmodelgif.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Adobe Express - Video_Ready_Sheet_Cutting.gif",
+    "beforeSize": 5245330,
+    "afterSize": 341095,
+    "newFile": "Gif-Assets\\Adobe Express - Video_Ready_Sheet_Cutting.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\CNC_Drilling_Machine_Video_Ready.gif",
+    "beforeSize": 6652154,
+    "afterSize": 210343,
+    "newFile": "Gif-Assets\\CNC_Drilling_Machine_Video_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\CNC_Milling_Machine_Video_Ready.gif",
+    "beforeSize": 6038237,
+    "afterSize": 149880,
+    "newFile": "Gif-Assets\\CNC_Milling_Machine_Video_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\CNC_Turning_Machine_Video_Ready.gif",
+    "beforeSize": 6137410,
+    "afterSize": 158939,
+    "newFile": "Gif-Assets\\CNC_Turning_Machine_Video_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Deburring_Video_Is_Ready_.gif",
+    "beforeSize": 6728207,
+    "afterSize": 418658,
+    "newFile": "Gif-Assets\\Deburring_Video_Is_Ready_.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\DMLS_Video_Is_Ready_.gif",
+    "beforeSize": 6722294,
+    "afterSize": 201426,
+    "newFile": "Gif-Assets\\DMLS_Video_Is_Ready_.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Laser_Cutting_Video_Ready.gif",
+    "beforeSize": 6374136,
+    "afterSize": 242248,
+    "newFile": "Gif-Assets\\Laser_Cutting_Video_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Laser_metal_deposition_manufacture.gif",
+    "beforeSize": 6930928,
+    "afterSize": 156779,
+    "newFile": "Gif-Assets\\Laser_metal_deposition_manufacture.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Metal_3D_printing_process.gif",
+    "beforeSize": 6478413,
+    "afterSize": 191188,
+    "newFile": "Gif-Assets\\Metal_3D_printing_process.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Metal_binder_jetting_3D_printing.gif",
+    "beforeSize": 7873844,
+    "afterSize": 239949,
+    "newFile": "Gif-Assets\\Metal_binder_jetting_3D_printing.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Pneumatic_metal_forming_machine.gif",
+    "beforeSize": 7346756,
+    "afterSize": 168963,
+    "newFile": "Gif-Assets\\Pneumatic_metal_forming_machine.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Professional_welding_services_ma.gif",
+    "beforeSize": 8020301,
+    "afterSize": 290640,
+    "newFile": "Gif-Assets\\Professional_welding_services_ma.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Ring_Forging_Video_Available_Now.gif",
+    "beforeSize": 6029342,
+    "afterSize": 158764,
+    "newFile": "Gif-Assets\\Ring_Forging_Video_Available_Now.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Robotic_arm_manufacturing_metal.gif",
+    "beforeSize": 8869367,
+    "afterSize": 242216,
+    "newFile": "Gif-Assets\\Robotic_arm_manufacturing_metal.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Steel_Bar_Cooling_Video_Link.gif",
+    "beforeSize": 6781681,
+    "afterSize": 258954,
+    "newFile": "Gif-Assets\\Steel_Bar_Cooling_Video_Link.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Steel_Bar_Dipped_in_Water.gif",
+    "beforeSize": 6495535,
+    "afterSize": 373472,
+    "newFile": "Gif-Assets\\Steel_Bar_Dipped_in_Water.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Steel_Die_Casting_Video_Ready.gif",
+    "beforeSize": 5162763,
+    "afterSize": 89520,
+    "newFile": "Gif-Assets\\Steel_Die_Casting_Video_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Swiss CNC_machine_machining_metal_comp.gif",
+    "beforeSize": 7626781,
+    "afterSize": 231034,
+    "newFile": "Gif-Assets\\Swiss CNC_machine_machining_metal_comp.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Link_CNC_Machine.gif",
+    "beforeSize": 6142218,
+    "afterSize": 143460,
+    "newFile": "Gif-Assets\\Video_Link_CNC_Machine.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Link_Provided.gif",
+    "beforeSize": 7164218,
+    "afterSize": 198678,
+    "newFile": "Gif-Assets\\Video_Link_Provided.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Link_Ready_Now_.gif",
+    "beforeSize": 5592057,
+    "afterSize": 154036,
+    "newFile": "Gif-Assets\\Video_Link_Ready_Now_.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Link_Ready_Sheet_Metal.gif",
+    "beforeSize": 6712489,
+    "afterSize": 346044,
+    "newFile": "Gif-Assets\\Video_Link_Ready_Sheet_Metal.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_of_Steel_Rod_Ready.gif",
+    "beforeSize": 7062561,
+    "afterSize": 122818,
+    "newFile": "Gif-Assets\\Video_of_Steel_Rod_Ready.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_on_Centrifugal_Casting.gif",
+    "beforeSize": 8223816,
+    "afterSize": 262904,
+    "newFile": "Gif-Assets\\Video_on_Centrifugal_Casting.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_on_Investment_Casting_Process.gif",
+    "beforeSize": 6853941,
+    "afterSize": 165397,
+    "newFile": "Gif-Assets\\Video_on_Investment_Casting_Process.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Ready_Closed_Die_Forging.gif",
+    "beforeSize": 4375514,
+    "afterSize": 80713,
+    "newFile": "Gif-Assets\\Video_Ready_Closed_Die_Forging.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Ready_CNC_Machine.gif",
+    "beforeSize": 6252303,
+    "afterSize": 159378,
+    "newFile": "Gif-Assets\\Video_Ready_CNC_Machine.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\Video_Ready_Plasma_Cutting.gif",
+    "beforeSize": 5648582,
+    "afterSize": 303674,
+    "newFile": "Gif-Assets\\Video_Ready_Plasma_Cutting.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "Gif-Assets\\working_of_cnc_wire_edm_machine.gif",
+    "beforeSize": 4605925,
+    "afterSize": 196064,
+    "newFile": "Gif-Assets\\working_of_cnc_wire_edm_machine.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "qualitypreview-gifassets\\CMM_probe_inspecting_metallic_part_orig.gif",
+    "beforeSize": 3309589,
+    "afterSize": 115665,
+    "newFile": "qualitypreview-gifassets\\CMM_probe_inspecting_metallic_part_orig.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "qualitypreview-gifassets\\Factory_metal_cylinders_checklist_orig.gif",
+    "beforeSize": 2999283,
+    "afterSize": 104674,
+    "newFile": "qualitypreview-gifassets\\Factory_metal_cylinders_checklist_orig.webm",
+    "success": true
+  },
+  {
+    "type": "gif",
+    "file": "qualitypreview-gifassets\\Machines_packing_parts_in_crate_orig.gif",
+    "beforeSize": 5714357,
+    "afterSize": 200730,
+    "newFile": "qualitypreview-gifassets\\Machines_packing_parts_in_crate_orig.webm",
+    "success": true
+  },
+  {
+    "type": "video",
+    "file": "Automotive-Assets\\Car video.mp4",
+    "beforeSize": 5227109,
+    "afterSize": 3033156,
+    "newFile": "Automotive-Assets\\Car video.webm",
+    "success": true
+  },
+  {
+    "type": "video",
+    "file": "Automotive-Assets\\Tractor video.mp4",
+    "beforeSize": 4401807,
+    "afterSize": 2495187,
+    "newFile": "Automotive-Assets\\Tractor video.webm",
+    "success": true
+  },
+  {
+    "type": "video",
+    "file": "HeroPage-Video.mp4",
+    "beforeSize": 6802022,
+    "afterSize": 2346054,
+    "newFile": "HeroPage-Video.webm",
+    "success": true
+  },
+  {
+    "type": "video",
+    "file": "HeroPage-VideoForPhone.mp4",
+    "beforeSize": 8955306,
+    "afterSize": 3602241,
+    "newFile": "HeroPage-VideoForPhone.webm",
+    "success": true
+  },
+  {
+    "type": "video",
+    "file": "Solvoka_Hero.mp4",
+    "beforeSize": 11269386,
+    "afterSize": 5930760,
+    "newFile": "Solvoka_Hero.webm",
+    "success": true
+  }
+]

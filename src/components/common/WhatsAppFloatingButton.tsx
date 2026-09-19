@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { trackWhatsAppClick } from "../../utils/analytics";
 
 const WHATSAPP_NUMBER = "917087086696";
@@ -18,6 +19,13 @@ function WhatsAppIcon({ className = "h-7 w-7" }: { className?: string }) {
 }
 
 export default function WhatsAppFloatingButton() {
+  const location = useLocation();
+
+  // Hide WhatsApp floating button on all admin panel routes
+  if (location.pathname.startsWith("/admin")) {
+    return null;
+  }
+
   const handleClick = () => {
     trackWhatsAppClick("floating_button");
   };

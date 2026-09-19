@@ -30,7 +30,7 @@ function Logo({ scrolled, mobileOpen, darkSolid = false, light = false }: { scro
   return (
     <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="Solvoka home">
       <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-navy-900 ring-1 ring-white/25 shadow-sm sm:h-10 sm:w-10">
-        <img src="/solvoka-logo.png" alt="" className="h-full w-full object-contain" />
+        <img src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/solvoka-logo.webp" alt="" className="h-full w-full object-contain" />
       </span>
       <span
         className={`text-[21px] font-bold tracking-[-0.01em] transition-colors duration-300 sm:text-[24px] ${mobileOpen || (!scrolled && !light && !darkSolid) || (darkSolid && !scrolled && !light) ? "text-white" : "text-navy-800"

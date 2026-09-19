@@ -4,9 +4,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { trackQuoteCtaClick } from "../../utils/analytics";
 
-const SLIDE_ONE_VIDEO_SRC = "/HeroPage-Video.mp4";
-const SLIDE_TWO_VIDEO_SRC = "/Solvoka_Hero.mp4";
-const MOBILE_VIDEO_SRC = "/HeroPage-VideoForPhone.mp4";
+const SLIDE_ONE_VIDEO_SRC = "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-Video.webm";
+const SLIDE_TWO_VIDEO_SRC = "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Solvoka_Hero.webm";
+const MOBILE_VIDEO_SRC = "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-VideoForPhone.webm";
 
 const SLIDE_COUNT = 2;
 const SLIDE_TRANSITION_MS = 700;

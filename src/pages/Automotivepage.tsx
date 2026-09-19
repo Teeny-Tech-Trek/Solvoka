@@ -20,10 +20,10 @@ import {
 /* ------------------------------------------------------------------ */
 
 const ASSETS = {
-    hero: "/Automotive-Assets/hero%20image.png",
-    tractorImage: "/Automotive-Assets/Tractor%20parts.png",
-    carImage: "/Automotive-Assets/Car%20parts.png",
-    closing: "/Automotive-Assets/cta%20image.png",
+    hero: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/hero%20image.webp",
+    tractorImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20parts.webp",
+    carImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20parts.webp",
+    closing: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/cta%20image.webp",
 };
 
 const BLUE = "#2563eb";
@@ -45,7 +45,7 @@ const segments = [
         titleHighlight: "Agricultural Equipment",
         description:
             "Components supplied for tractors and other agricultural equipment:",
-        video: "/Automotive-Assets/Tractor%20video.mp4",
+        video: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20video.webm",
         image: ASSETS.tractorImage,
         sidebarTitle: "Tractor Parts",
         sidebarDesc:
@@ -66,7 +66,7 @@ const segments = [
         titleHighlight: "Cars, Trucks, and Two-Wheelers",
         description:
             "Components supplied for cars, trucks, and two-wheelers:",
-        video: "/Automotive-Assets/Car%20video.mp4",
+        video: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20video.webm",
         image: ASSETS.carImage,
         sidebarTitle: "Car, Truck & Two-Wheeler Parts",
         sidebarDesc:

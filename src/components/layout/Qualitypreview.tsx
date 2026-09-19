@@ -25,8 +25,8 @@ const gates: Gate[] = [
     number: "1",
     title: "Material Isolation & MTR Verification",
     icon: Layers,
-    image: "/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.gif",
-    fallbackImage: "/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
     imageAlt: "Raw material stock isolated for verification with checklist",
     description:
       "Every batch of raw stock is isolated on arrival and held until its chemical composition is verified against the original Mill Test Report — before production starts.",
@@ -37,8 +37,8 @@ const gates: Gate[] = [
     number: "2",
     title: "First-Article Validation",
     icon: Crosshair,
-    image: "/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.gif",
-    fallbackImage: "/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
     imageAlt: "CMM probe inspecting metallic part for first-article validation",
     description:
       "The first piece off the die or the line is checked against your STEP/IGES drawing before the run continues. Fixed-interval gauge checks catch tool wear before it becomes a bad part.",
@@ -49,8 +49,8 @@ const gates: Gate[] = [
     number: "3",
     title: "Pre-Export Protection",
     icon: PackageCheck,
-    image: "/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.gif",
-    fallbackImage: "/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.gif",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
     imageAlt: "Finished parts packed in a wooden crate for export",
     description:
       "Finished parts receive a final clean-and-inspect pass before packing. Rust-preventative treatment, vacuum sealing where needed, and reinforced crating protect the shipment through weeks of maritime freight.",
@@ -79,11 +79,12 @@ function GateCard({ gate }: { gate: Gate }) {
         className={`relative mt-3.5 mb-4 aspect-[18/10] w-full overflow-hidden rounded-xl bg-gradient-to-br ${gate.tileFrom} ${gate.tileTo} border border-slate-200`}
       >
         {!imgFailed ? (
-          <img
+          <video
             src={imgSrc}
-            alt={gate.imageAlt}
-            loading="lazy"
-            decoding="async"
+            autoPlay
+            loop
+            muted
+            playsInline
             onError={() => {
               if (gate.fallbackImage && imgSrc !== gate.fallbackImage) {
                 setImgSrc(gate.fallbackImage);

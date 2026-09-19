@@ -139,11 +139,12 @@ export default function CoordinationModel() {
           <div className="relative flex flex-col p-4 sm:p-5 lg:block lg:min-h-[520px]">
             {/* Facility image container */}
             <div className="relative h-[220px] sm:h-[300px] w-full overflow-hidden rounded-xl bg-slate-900 lg:absolute lg:inset-4 lg:h-auto">
-              <img
-                src="/Cordinationmodelgif.gif"
-                alt="CNC machining partner facility"
-                loading="lazy"
-                decoding="async"
+              <video
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Cordinationmodelgif.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="absolute inset-0 h-full w-full object-cover opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:hidden" />

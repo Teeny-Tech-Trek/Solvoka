@@ -109,7 +109,7 @@ const capabilities: CapabilityItem[] = [
             "Efficient material utilization",
             "Supports pre-fabrication needs",
         ],
-        gifSrc: "/Gif-Assets/Adobe Express - Video_Ready_Sheet_Cutting.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Adobe%20Express%20-%20Video_Ready_Sheet_Cutting.webm",
     },
     {
         id: "laser-cutting",
@@ -123,7 +123,7 @@ const capabilities: CapabilityItem[] = [
             "Cost-efficient production",
             "Design flexibility",
         ],
-        gifSrc: "/Gif-Assets/Laser_Cutting_Video_Ready.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_Cutting_Video_Ready.webm",
     },
     {
         id: "plasma-cutting",
@@ -137,7 +137,7 @@ const capabilities: CapabilityItem[] = [
             "Faster and more affordable than traditional methods",
             "Smooth edges, minimal post-processing",
         ],
-        gifSrc: "/Gif-Assets/Video_Ready_Plasma_Cutting.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Plasma_Cutting.webm",
     },
     {
         id: "water-jet-cutting",
@@ -151,7 +151,7 @@ const capabilities: CapabilityItem[] = [
             "Suitable for thick & hard materials",
             "Highly detailed, clean finishes",
         ],
-        gifSrc: "/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
     },
     {
         id: "sheet-metal-bending",
@@ -165,7 +165,7 @@ const capabilities: CapabilityItem[] = [
             "Supports multiple materials",
             "Critical for enclosures & chassis",
         ],
-        gifSrc: "/Gif-Assets/Video_Link_Ready_Now_.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Now_.webm",
     },
     {
         id: "pneumatic-metal-forming",
@@ -179,7 +179,7 @@ const capabilities: CapabilityItem[] = [
             "Consistent quality in high-volume runs",
             "Minimal tooling wear",
         ],
-        gifSrc: "/Gif-Assets/Pneumatic_metal_forming_machine.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Pneumatic_metal_forming_machine.webm",
     },
     {
         id: "welding-services",
@@ -193,7 +193,7 @@ const capabilities: CapabilityItem[] = [
             "Wide range of materials",
             "Full welding & finishing solutions",
         ],
-        gifSrc: "/Gif-Assets/Professional_welding_services_ma.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Professional_welding_services_ma.webm",
     },
     {
         id: "deburring-finishing",
@@ -207,7 +207,7 @@ const capabilities: CapabilityItem[] = [
             "Better coating and painting adhesion",
             "Increased part lifespan",
         ],
-        gifSrc: "/Gif-Assets/Deburring_Video_Is_Ready_.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Deburring_Video_Is_Ready_.webm",
     },
 ];
 
@@ -217,9 +217,9 @@ interface Material {
 }
 
 const materials: Material[] = [
-    { name: "Mild Steel", image: "/images/sheetmetal/materials/mild-steel.jpg" },
-    { name: "Stainless Steel (SS304/SS316)", image: "/images/sheetmetal/materials/stainless-steel.jpg" },
-    { name: "Aluminum", image: "/images/sheetmetal/materials/aluminum.jpg" },
+    { name: "Mild Steel", image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/materials/mild-steel.webp" },
+    { name: "Stainless Steel (SS304/SS316)", image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/materials/stainless-steel.webp" },
+    { name: "Aluminum", image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/materials/aluminum.webp" },
 ];
 
 interface CtaFeature {
@@ -255,9 +255,12 @@ function Hero() {
         <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
             {/* Full-bleed industrial fiber laser & sheet metal cutting motion GIF */}
             <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                <img
-                    src="/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif"
-                    alt="High-precision waterjet and laser sheet metal cutting with sparks"
+                <video
+                    src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="h-full w-full object-cover object-center filter contrast-110"
                 />
 
@@ -456,9 +459,12 @@ function CapabilityCard({ card }: { card: CapabilityItem }) {
             style={{ borderColor: ASH }}
         >
             <div className="relative overflow-hidden" style={{ backgroundColor: GRAPHITE }}>
-                <img
+                <video
                     src={card.gifSrc}
-                    alt={card.title}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
             </div>
@@ -567,7 +573,7 @@ function MaterialsSection() {
 
                         <div className="mt-6 aspect-[4/3] w-full overflow-hidden border bg-white" style={{ borderColor: ASH }}>
                             <img
-                                src="/images/sheetmetal/materials/thickness-grid.jpg"
+                                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/materials/thickness-grid.webp"
                                 alt="Sheet metal thickness reference grid"
                                 className="h-full w-full object-cover"
                             />
@@ -652,7 +658,7 @@ function CtaSection() {
                     <div className="relative z-10 border-t border-white/10 pt-8 lg:border-t-0 lg:pt-0">
                         <div className="aspect-[4/3] w-full overflow-hidden">
                             <img
-                                src="/images/sheetmetal/cta-parts.jpg"
+                                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/cta-parts.webp"
                                 alt="Finished sheet metal brackets and enclosures"
                                 className="h-full w-full object-cover"
                             />

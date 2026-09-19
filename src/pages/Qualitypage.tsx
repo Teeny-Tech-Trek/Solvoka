@@ -406,7 +406,7 @@ export default function QualityPage() {
             {/* ========================================================== */}
             <section
                 className="relative flex w-full flex-col justify-between overflow-hidden bg-cover bg-center bg-no-repeat min-h-[680px] sm:min-h-[740px] lg:aspect-[1672/941] lg:min-h-0 pt-20 sm:pt-24 lg:pt-20 xl:pt-24 pb-6 sm:pb-8 lg:pb-10 xl:pb-12"
-                style={{ backgroundImage: "url('/images/QualityPage/QualityPage-HeroImage.png')" }}
+                style={{ backgroundImage: "url('https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/QualityPage/QualityPage-HeroImage.webp')" }}
                 aria-label="Quality Control and Production Governance"
             >
                 <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-1 flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20">

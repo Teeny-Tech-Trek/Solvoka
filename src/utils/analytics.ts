@@ -39,9 +39,9 @@ export function initGA(): void {
     document.head.appendChild(script);
   }
 
-  if (import.meta.env?.DEV) {
-    console.log(`[GA4] Initialized with ID: ${GA_MEASUREMENT_ID}`);
-  }
+  // if (import.meta.env?.DEV) {
+  //   console.log(`[GA4] Initialized with ID: ${GA_MEASUREMENT_ID}`);
+  // }
 }
 
 /**

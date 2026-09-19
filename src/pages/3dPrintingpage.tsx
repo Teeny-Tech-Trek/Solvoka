@@ -37,7 +37,7 @@ const processRows: ProcessRow[] = [
             "Multi-material capability",
         ],
         tag: "DED / LMD",
-        gifSrc: "/Gif-Assets/Laser_metal_deposition_manufacture.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_metal_deposition_manufacture.webm",
     },
     {
         number: "02",
@@ -50,7 +50,7 @@ const processRows: ProcessRow[] = [
             "High deposition rate and low material cost",
         ],
         tag: "WAAM",
-        gifSrc: "/Gif-Assets/Robotic_arm_manufacturing_metal.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Robotic_arm_manufacturing_metal.webm",
     },
     {
         number: "03",
@@ -63,7 +63,7 @@ const processRows: ProcessRow[] = [
             "Minimal material waste",
         ],
         tag: "DMLS",
-        gifSrc: "/Gif-Assets/DMLS_Video_Is_Ready_.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
     },
     {
         number: "04",
@@ -77,7 +77,7 @@ const processRows: ProcessRow[] = [
             "Excellent surface finish and dimensional accuracy",
         ],
         tag: "SLM",
-        gifSrc: "/Gif-Assets/Metal_3D_printing_process.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_3D_printing_process.webm",
     },
     {
         number: "05",
@@ -91,7 +91,7 @@ const processRows: ProcessRow[] = [
             "Smooth surface finish and post-processing flexibility",
         ],
         tag: "BINDER JETTING",
-        gifSrc: "/Gif-Assets/Metal_binder_jetting_3D_printing.gif",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_binder_jetting_3D_printing.webm",
     },
 ];
 
@@ -234,9 +234,13 @@ function BuildEnvelopeDiagram() {
 function ProcessThumb({ label, gifSrc, tag }: { label: string; gifSrc: string; tag: string }) {
     return (
         <div className="group/thumb relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
-            <img
+            <video
                 src={gifSrc}
-                alt={label}
+                aria-label={label}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/thumb:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
@@ -380,9 +384,12 @@ export default function PrintingPage() {
             <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
                 {/* Full-bleed Industrial DMLS Motion GIF */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                    <img
-                        src="/Gif-Assets/DMLS_Video_Is_Ready_.gif"
-                        alt="Direct metal laser sintering 3D printing in progress"
+                    <video
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 

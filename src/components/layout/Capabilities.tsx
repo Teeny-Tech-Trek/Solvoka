@@ -13,35 +13,35 @@ const CAPABILITIES: Capability[] = [
     code: "PRC-001",
     name: "Casting",
     poster: "/posters/casting.jpg",
-    gif: "/Gif-Assets/Steel_Die_Casting_Video_Ready.gif",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
     href: "/capabilities/casting",
   },
   {
     code: "PRC-002",
     name: "Forging",
     poster: "/posters/forging.jpg",
-    gif: "/Gif-Assets/Video_Ready_Closed_Die_Forging.gif",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
     href: "/capabilities/forging",
   },
   {
     code: "PRC-003",
     name: "CNC Machining",
     poster: "/posters/cnc-machining.jpg",
-    gif: "/Gif-Assets/CNC_Milling_Machine_Video_Ready.gif",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
     href: "/capabilities/cnc-machining",
   },
   {
     code: "PRC-004",
     name: "3D Printing",
     poster: "/posters/3d-printing.jpg",
-    gif: "/Gif-Assets/DMLS_Video_Is_Ready_.gif",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
     href: "/capabilities/3d-printing",
   },
   {
     code: "PRC-005",
     name: "Sheet Metal Fabrication",
     poster: "/posters/sheet-metal.jpg",
-    gif: "/Gif-Assets/Video_Link_Ready_Sheet_Metal.gif",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
     href: "/capabilities/sheet-metal-fabrication",
   },
 ];
@@ -53,11 +53,12 @@ function CapabilityCard({ item, className = "" }: { item: Capability; className?
       className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] ${className}`}
       aria-label={`${item.code} — ${item.name}`}
     >
-      <img
+      <video
         src={item.gif}
-        alt={item.name}
-        loading="lazy"
-        decoding="async"
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
       />
 
@@ -92,7 +93,7 @@ export default function Capabilities() {
     <section
       id="capabilities"
       className="relative flex w-full flex-col overflow-hidden bg-grey-50 bg-cover bg-center bg-no-repeat pt-7 sm:pt-9 lg:pt-11 pb-12 sm:pb-16 lg:pb-20"
-      style={{ backgroundImage: "url('/Capabilities.png')" }}
+      style={{ backgroundImage: "url('https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Capabilities.webp')" }}
       aria-labelledby="capabilities-heading"
     >
       <div className="relative mx-auto flex h-full w-full max-w-[1536px] flex-col px-4 sm:px-6 lg:px-10">

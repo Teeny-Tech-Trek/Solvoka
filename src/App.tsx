@@ -39,6 +39,15 @@ const MaterialsPage = lazy(() => import('./pages/Materialspage'));
 const QualityPage = lazy(() => import('./pages/Qualitypage'));
 const AutomotivePage = lazy(() => import('./pages/Automotivepage'));
 
+// Admin CRM Components
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/admin/ProtectedRoute';
+const AdminLoginPage = lazy(() => import('./pages/admin/AdminLoginPage'));
+const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
+const AdminDashboardPage = lazy(() => import('./pages/admin/AdminDashboardPage'));
+const AdminContactsPage = lazy(() => import('./pages/admin/AdminContactsPage'));
+const AdminRfqsPage = lazy(() => import('./pages/admin/AdminRfqsPage'));
+
 function AnalyticsTracker() {
   const location = useLocation();
   const lastTrackedPath = useRef<string | null>(null);
@@ -412,6 +421,51 @@ function App() {
           }
         />
 
+        {/* Admin CRM Routes */}
+        <Route
+          path="/admin/login"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <AdminLoginPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Suspense fallback={<PageFallback />}>
+                <AdminLayout />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        >
+          <Route
+            index
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AdminDashboardPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AdminContactsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="rfqs"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AdminRfqsPage />
+              </Suspense>
+            }
+          />
+        </Route>
+
         {/* Section shortcuts & redirects */}
         <Route path="/capabilities" element={<Navigate to="/#capabilities" replace />} />
         <Route path="/about" element={<Navigate to="/about-us" replace />} />
@@ -431,4 +485,12 @@ function App() {
   );
 }
 
-export default App;
+function AppWithAuth() {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+}
+
+export default AppWithAuth;

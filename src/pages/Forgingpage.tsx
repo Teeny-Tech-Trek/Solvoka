@@ -45,8 +45,8 @@ const processSections: ProcessSection[] = [
         ],
         videoLabel: "Open-Die Forging",
         videoTagline: "Watch Process Video",
-        imageSrc: "/images/forging/hero.jpg",
-        gifSrc: "/Gif-Assets/Video_of_Steel_Rod_Ready.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/hero.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_of_Steel_Rod_Ready.webm",
         layout: "media-right",
     },
     {
@@ -63,8 +63,8 @@ const processSections: ProcessSection[] = [
         ],
         videoLabel: "Closed-Die Forging",
         videoTagline: "Precision shapes. High strength.",
-        imageSrc: "/images/forging/closed-die.jpg",
-        gifSrc: "/Gif-Assets/Video_Ready_Closed_Die_Forging.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/closed-die.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
         layout: "media-left",
     },
     {
@@ -80,8 +80,8 @@ const processSections: ProcessSection[] = [
         ],
         videoLabel: "Ring Forging",
         videoTagline: "Watch Process Video",
-        imageSrc: "/images/forging/ring-forging.jpg",
-        gifSrc: "/Gif-Assets/Ring_Forging_Video_Available_Now.gif",
+        imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/ring-forging.webp",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Ring_Forging_Video_Available_Now.webm",
         layout: "media-right",
     },
 ];
@@ -151,9 +151,13 @@ function VideoCard({
 }) {
     return (
         <div className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm">
-            <img
+            <video
                 src={gifSrc}
-                alt={label}
+                aria-label={label}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
         </div>
@@ -187,9 +191,12 @@ export default function ForgingPage() {
             <section className="relative flex min-h-[85vh] lg:min-h-[90vh] shrink-0 flex-col justify-center overflow-hidden bg-neutral-950 pt-24 pb-16 lg:pt-28 lg:pb-20">
                 {/* Hero Background motion GIF with dramatic closed-die forging press */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                    <img
-                        src="/Gif-Assets/Video_Ready_Closed_Die_Forging.gif"
-                        alt="Industrial hydraulic closed die forging press stamping glowing steel billet"
+                    <video
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="h-full w-full object-cover object-center filter contrast-110"
                     />
 
@@ -472,7 +479,7 @@ export default function ForgingPage() {
                             </div>
                         </div>
                         <img
-                            src="/images/forging/tolerance-pin.jpg"
+                            src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/tolerance-pin.webp"
                             alt="Machined stepped steel pin detail"
                             className="h-16 w-20 flex-none rounded-lg object-contain bg-white/80 p-1 border border-[#2563eb] shadow-xs"
                         />

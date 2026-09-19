@@ -162,6 +162,8 @@ function ListBulletsIcon({ className = "" }: { className?: string }) {
   );
 }
 
+import { contactService } from "../../services/contact.service";
+
 /* ------------------------------------------------------------------ */
 /* Main Contact Component                                             */
 /* ------------------------------------------------------------------ */
@@ -176,21 +178,36 @@ export default function Contact({ id = "contact" }: { id?: string }) {
     message: "",
   });
 
+  const [hpWebsite, setHpWebsite] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage("");
+
+    try {
+      await contactService.submitContact({
+        ...formData,
+        _hp_website: hpWebsite,
+      });
+
       setIsSubmitted(true);
       trackContactFormSubmit({
         form_id: "contact_form",
         project_type: formData.projectType || "Unspecified",
         has_company: Boolean(formData.company.trim()),
       });
-    }, 600);
+    } catch (err: unknown) {
+      const msg =
+        (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
+        "Failed to send message. Please check your connection and try again.";
+      setErrorMessage(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -202,6 +219,8 @@ export default function Contact({ id = "contact" }: { id?: string }) {
       projectType: "",
       message: "",
     });
+    setHpWebsite("");
+    setErrorMessage("");
     setIsSubmitted(false);
   };
 
@@ -350,6 +369,23 @@ export default function Contact({ id = "contact" }: { id?: string }) {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-5 sm:mt-6 space-y-3 sm:space-y-3.5">
+                    {/* Honeypot field (hidden from real users) */}
+                    <input
+                      type="text"
+                      name="_hp_website"
+                      value={hpWebsite}
+                      onChange={(e) => setHpWebsite(e.target.value)}
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+
+                    {errorMessage && (
+                      <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-xs text-red-600">
+                        <span className="font-semibold">{errorMessage}</span>
+                      </div>
+                    )}
+
                     {/* Row 1: Name & Company */}
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       <div className="flex items-center gap-2.5 rounded-lg border border-slate-200/90 bg-white px-3 sm:px-3.5 py-2.5 transition-all focus-within:border-[#0062d2] focus-within:ring-2 focus-within:ring-[#0062d2]/10">
