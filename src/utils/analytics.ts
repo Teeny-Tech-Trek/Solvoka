@@ -56,10 +56,6 @@ export function trackEvent(
   if (window.gtag) {
     window.gtag("event", eventName, eventParams);
   }
-
-  if (import.meta.env?.DEV) {
-    console.log(`[GA4 Event] ${eventName}:`, eventParams);
-  }
 }
 
 /**

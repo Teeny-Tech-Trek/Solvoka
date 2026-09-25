@@ -56,29 +56,22 @@ function CapabilityCard({ item, className = "" }: { item: Capability; className?
     }
   };
 
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
   return (
     <Link
       to={item.href}
       className={`group relative block aspect-[16/10] w-full overflow-hidden rounded-lg bg-navy-900 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] ${className}`}
       aria-label={`${item.code} — ${item.name}`}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <video
         ref={videoRef}
         src={item.gif}
         poster={item.poster}
+        autoPlay
         loop
         muted
         playsInline
-        preload="none"
+        preload="auto"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
       />
 
