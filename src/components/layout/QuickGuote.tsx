@@ -72,9 +72,30 @@ export default function QuickRFQ() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB limit
+  const ALLOWED_EXTENSIONS = ['.step', '.stp', '.iges', '.igs', '.dwg', '.dxf', '.pdf', '.zip', '.rar'];
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setUploadedFile(e.target.files[0]);
+      const file = e.target.files[0];
+      const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+
+      if (!ALLOWED_EXTENSIONS.includes(ext)) {
+        setErrorMessage(`Invalid file format "${ext}". Allowed formats: STEP, STP, IGES, IGS, DWG, DXF, PDF, ZIP, RAR.`);
+        if (fileInputRef.current) fileInputRef.current.value = "";
+        setUploadedFile(null);
+        return;
+      }
+
+      if (file.size > MAX_FILE_SIZE) {
+        setErrorMessage(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)}MB). The maximum allowed file size is 25MB.`);
+        if (fileInputRef.current) fileInputRef.current.value = "";
+        setUploadedFile(null);
+        return;
+      }
+
+      setErrorMessage("");
+      setUploadedFile(file);
     }
   };
 
@@ -111,9 +132,15 @@ export default function QuickRFQ() {
         has_nda: ndaChecked,
       });
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-        "Failed to submit RFQ. Please check your inputs and try again.";
+      const axiosErr = err as { response?: { status?: number; data?: { message?: string } } };
+      let msg = axiosErr?.response?.data?.message;
+      if (!msg) {
+        if (axiosErr?.response?.status === 413) {
+          msg = "Uploaded file exceeds the maximum allowed server limit (25MB). Please upload a smaller file or contact us directly.";
+        } else {
+          msg = "Failed to submit RFQ. Please check your inputs and try again.";
+        }
+      }
       setErrorMessage(msg);
     } finally {
       setIsSubmitting(false);

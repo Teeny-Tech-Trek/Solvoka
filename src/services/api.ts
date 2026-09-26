@@ -8,6 +8,14 @@ export const api = axios.create({
   },
 });
 
+// Request interceptor to allow proper browser multipart boundary calculation
+api.interceptors.request.use((reqConfig) => {
+  if (reqConfig.data instanceof FormData) {
+    delete reqConfig.headers['Content-Type'];
+  }
+  return reqConfig;
+});
+
 // Response interceptor for error normalization and 401 handling
 api.interceptors.response.use(
   (response) => response,

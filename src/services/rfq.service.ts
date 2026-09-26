@@ -27,11 +27,7 @@ export const rfqService = {
       formData.append('cadFile', file);
     }
 
-    const response = await api.post('/rfq', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const response = await api.post('/rfq', formData);
 
     return response.data;
   },

@@ -69,11 +69,11 @@ export default function AdminLoginPage() {
         {/* Top: Logo & Subtitle */}
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2.5">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#2563eb] p-1.5 shadow-md shadow-[#2563eb]/25">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200">
               <img
-                src="/solvoka-logo.webp"
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/solvoka-logo.webp"
                 alt="Solvoka"
-                className="h-full w-full object-contain brightness-0 invert"
+                className="h-full w-full object-contain p-1"
               />
             </span>
             <span className="font-display text-xl font-bold tracking-tight text-slate-900">
@@ -146,11 +146,11 @@ export default function AdminLoginPage() {
         {/* Header visible above login card */}
         <div className="mb-6 text-center">
           <div className="inline-flex items-center justify-center gap-2.5">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#2563eb] p-1.5 shadow-md shadow-[#2563eb]/20">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200">
               <img
-                src="/solvoka-logo.webp"
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/solvoka-logo.webp"
                 alt="Solvoka"
-                className="h-full w-full object-contain brightness-0 invert"
+                className="h-full w-full object-contain p-1"
               />
             </span>
             <span className="font-display text-2xl font-bold tracking-tight text-slate-900">
