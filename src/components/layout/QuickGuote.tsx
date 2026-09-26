@@ -58,6 +58,7 @@ export default function QuickRFQ() {
   const [ndaChecked, setNdaChecked] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [hpWebsite, setHpWebsite] = useState("");
@@ -113,6 +114,9 @@ export default function QuickRFQ() {
 
     setIsSubmitting(true);
     setErrorMessage("");
+    if (uploadedFile) {
+      setUploadProgress(0);
+    }
 
     try {
       await rfqService.submitRfq(
@@ -121,7 +125,10 @@ export default function QuickRFQ() {
           ndaRequired: ndaChecked,
           _hp_website: hpWebsite,
         },
-        uploadedFile
+        uploadedFile,
+        (percent) => {
+          setUploadProgress(Math.round(percent));
+        }
       );
 
       setIsSuccess(true);
@@ -138,12 +145,13 @@ export default function QuickRFQ() {
         if (axiosErr?.response?.status === 413) {
           msg = "Uploaded file exceeds the maximum allowed server limit (25MB). Please upload a smaller file or contact us directly.";
         } else {
-          msg = "Failed to submit RFQ. Please check your inputs and try again.";
+          msg = (err as Error)?.message || "Failed to submit RFQ. Please check your inputs and try again.";
         }
       }
       setErrorMessage(msg);
     } finally {
       setIsSubmitting(false);
+      setUploadProgress(null);
     }
   };
 
@@ -462,7 +470,11 @@ export default function QuickRFQ() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>Processing RFQ...</span>
+                    <span>
+                      {uploadProgress !== null
+                        ? `Uploading CAD File (${uploadProgress}%)...`
+                        : "Processing RFQ..."}
+                    </span>
                   </>
                 ) : (
                   <>

@@ -129,10 +129,10 @@ export default function AdminRfqsPage() {
     finally { setActionLoading(false); }
   };
 
-  const handleDownloadCad = async (rfqId: string, filename: string) => {
+  const handleDownloadCad = async (rfqId: string, filename: string, blobUrl?: string) => {
     try {
       setDownloadingFile(true);
-      await adminService.downloadCadFile(rfqId, filename);
+      await adminService.downloadCadFile(rfqId, filename, blobUrl);
     } catch (err) {
       alert('Failed to download CAD file: ' + ((err as Error).message || 'Server error'));
     } finally { setDownloadingFile(false); }
@@ -457,7 +457,7 @@ export default function AdminRfqsPage() {
                         </div>
                       </div>
                       <button type="button" disabled={downloadingFile}
-                        onClick={() => handleDownloadCad(selectedRfq._id, selectedRfq.cadFile!.originalName)}
+                        onClick={() => handleDownloadCad(selectedRfq._id, selectedRfq.cadFile!.originalName, selectedRfq.cadFile?.blobUrl)}
                         className="flex items-center gap-1.5 rounded-lg bg-[#2563eb] px-4 py-2 text-[11px] font-semibold text-white hover:bg-[#1d4ed8] disabled:opacity-50 transition cursor-pointer shrink-0">
                         {downloadingFile ? <Loader2 className="h-3 w-3 animate-spin" /> : <Download className="h-3 w-3" />}
                         Download

@@ -35,7 +35,9 @@ export interface RfqItem {
   ndaRequired: boolean;
   cadFile?: {
     originalName: string;
-    filename: string;
+    filename?: string;
+    blobUrl?: string;
+    downloadUrl?: string;
     size: number;
     mimeType: string;
   };
@@ -147,7 +149,11 @@ export const adminService = {
     return res.data.data;
   },
 
-  async downloadCadFile(id: string, fileName = 'attachment') {
+  async downloadCadFile(id: string, fileName = 'attachment', blobUrl?: string) {
+    if (blobUrl) {
+      window.open(blobUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
     const res = await api.get(`/admin/rfqs/${id}/file`, {
       responseType: 'blob',
     });
