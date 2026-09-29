@@ -432,16 +432,7 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          path="/privacy-policy"
-          element={
-            <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout lightNavbar={true}>
-                <PrivacyPolicyPage />
-              </CapabilityPageLayout>
-            </Suspense>
-          }
-        />
+        <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
         <Route
           path="/terms"
           element={
@@ -452,16 +443,7 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          path="/terms-and-conditions"
-          element={
-            <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout lightNavbar={true}>
-                <TermsPage />
-              </CapabilityPageLayout>
-            </Suspense>
-          }
-        />
+        <Route path="/terms-and-conditions" element={<Navigate to="/terms" replace />} />
 
         {/* Admin CRM Routes */}
         <Route
