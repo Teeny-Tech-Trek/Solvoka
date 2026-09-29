@@ -33,7 +33,7 @@ export default function WhatsAppFloatingButton() {
   return (
     <aside
       aria-label="Contact via WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center group select-none"
+      className="fixed bottom-6 right-[92px] z-40 flex items-center group select-none"
     >
       {/* Tooltip badge that reveals on desktop hover */}
       <div

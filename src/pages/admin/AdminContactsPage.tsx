@@ -49,7 +49,7 @@ export default function AdminContactsPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
+  const statusFilter = searchParams.get('status') || 'all';
   const [loading, setLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState<ContactItem | null>(null);
   const [noteText, setNoteText] = useState('');
@@ -86,9 +86,28 @@ export default function AdminContactsPage() {
     }
   };
 
+  const handleTabChange = (tabId: string) => {
+    setPage(1);
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (tabId === 'all') {
+        next.delete('status');
+      } else {
+        next.set('status', tabId);
+      }
+      return next;
+    });
+  };
+
   const handleCloseDetail = () => {
     setSelectedContact(null);
-    if (searchParams.has('id')) { searchParams.delete('id'); setSearchParams(searchParams); }
+    if (searchParams.has('id')) {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        next.delete('id');
+        return next;
+      });
+    }
   };
 
   const handleStatusChange = async (newStatus: string) => {
@@ -161,7 +180,7 @@ export default function AdminContactsPage() {
           {TABS.map((tab) => {
             const active = statusFilter === tab.id;
             return (
-              <button key={tab.id} type="button" onClick={() => { setStatusFilter(tab.id); setPage(1); }}
+              <button key={tab.id} type="button" onClick={() => handleTabChange(tab.id)}
                 className={`rounded-md px-3.5 py-1.5 text-[12px] font-semibold transition-all duration-150 cursor-pointer whitespace-nowrap ${
                   active ? 'bg-white text-zinc-900 shadow-sm border border-zinc-200/80' : 'text-zinc-500 hover:text-zinc-800'
                 }`}>

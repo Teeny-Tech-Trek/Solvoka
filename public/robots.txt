@@ -1,0 +1,19 @@
+# Solvoka Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+# Googlebot specific rules to ensure rich snippets and icons are indexed
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /solvoka-logo.webp
+Allow: /favicon.ico
+Allow: /logo192.png
+Allow: /logo512.png
+Allow: /apple-touch-icon.png
+
+Sitemap: https://www.solvoka.com/sitemap.xml

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLenis } from "./LenisContext";
 import { trackQuoteCtaClick } from "../../utils/analytics";
+import { scrollToElement } from "./SmoothScroll";
 
 type NavItem = {
   label: string;
@@ -59,6 +60,8 @@ function Chevron({ open }: { open: boolean }) {
 
 export default function Navbar({ darkSolid = false, light = false }: { darkSolid?: boolean; light?: boolean } = {}) {
   const lenis = useLenis();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
@@ -67,6 +70,21 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
   const [scrolled, setScrolled] = useState(false);
   const [headerTop, setHeaderTop] = useState(38);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleQuoteClick = (e: React.MouseEvent, source: "navbar_desktop" | "navbar_mobile") => {
+    e.preventDefault();
+    trackQuoteCtaClick(source);
+    if (mobileOpen) setMobileOpen(false);
+
+    if (location.pathname === "/") {
+      if (window.location.hash !== "#quote") {
+        window.history.pushState(null, "", "#quote");
+      }
+      scrollToElement("quote", -72, 1.2);
+    } else {
+      navigate("/#quote");
+    }
+  };
 
   const clearCloseTimeout = useCallback(() => {
     if (timeoutRef.current) {
@@ -235,16 +253,19 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
               className={`h-9 w-px transition-colors duration-300 ${scrolled || light ? "bg-slate-200" : "bg-white/30"}`}
               aria-hidden="true"
             />
-            <Link
-              to="/#quote"
-              onClick={() => trackQuoteCtaClick("navbar_desktop")}
-              className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-[#2563eb] 2xl:h-[48px] 2xl:px-7 2xl:text-[16px]"
+            <a
+              href="/#quote"
+              onClick={(e) => handleQuoteClick(e, "navbar_desktop")}
+              onMouseEnter={() => {
+                import("./QuickGuote").catch(() => {});
+              }}
+              className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-[#1d4ed8] 2xl:h-[48px] 2xl:px-7 2xl:text-[16px] cursor-pointer"
             >
               Request a Quote
               <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
                 →
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu toggle */}
@@ -437,16 +458,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
           </nav>
 
           <div className="pt-6 pb-2">
-            <Link
-              to="/#quote"
-              onClick={() => {
-                trackQuoteCtaClick("navbar_mobile");
-                setMobileOpen(false);
-              }}
-              className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-[#2563eb] text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-[#2563eb] active:scale-[0.99]"
+            <a
+              href="/#quote"
+              onClick={(e) => handleQuoteClick(e, "navbar_mobile")}
+              className="flex min-h-[48px] sm:min-h-[52px] w-full items-center justify-center gap-3 bg-[#2563eb] text-[16px] font-semibold text-white shadow-md transition-colors hover:bg-[#1d4ed8] active:scale-[0.99] cursor-pointer"
             >
               Get a quote <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </div>
       )}

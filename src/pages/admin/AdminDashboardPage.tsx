@@ -80,6 +80,12 @@ export default function AdminDashboardPage() {
 
   const totalInquiries = stats.contacts.total + stats.rfqs.total;
   const pendingReview = stats.contacts.unread + stats.rfqs.unread;
+  const actionNeededUrl =
+    stats.contacts.unread > 0
+      ? '/admin/contacts?status=new'
+      : stats.rfqs.unread > 0
+        ? '/admin/rfqs?status=new'
+        : '/admin/contacts?status=new';
 
   return (
     <div className="space-y-6 select-none">
@@ -142,41 +148,45 @@ export default function AdminDashboardPage() {
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 lg:gap-4 self-start lg:self-center shrink-0">
 
             {/* Stat Card 1 – Total Queries */}
-            <div
-              className="flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3.5 min-w-[138px]"
+            <Link
+              to="/admin/contacts"
+              className="group flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3.5 min-w-[138px] transition-all duration-200 hover:shadow-md hover:scale-[1.02] hover:border-blue-300 cursor-pointer"
               style={{ boxShadow: '0 2px 12px rgba(59,130,246,0.10), 0 1px 3px rgba(0,0,0,0.06)', border: '1px solid rgba(219,234,254,0.8)' }}
+              title="View all queries"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563eb]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563eb] group-hover:bg-blue-100 group-hover:scale-105 transition-all">
                 <MessageSquare className="h-[18px] w-[18px]" />
               </div>
               <div>
-                <span className="text-[10.5px] font-medium text-slate-400 block leading-tight tracking-wide">
+                <span className="text-[10.5px] font-medium text-slate-400 block leading-tight tracking-wide group-hover:text-blue-600 transition-colors">
                   Total Queries
                 </span>
-                <span className="text-[1.6rem] font-black text-slate-900 leading-none mt-0.5 block">
+                <span className="text-[1.6rem] font-black text-slate-900 leading-none mt-0.5 block group-hover:text-[#2563eb] transition-colors">
                   {totalInquiries}
                 </span>
               </div>
-            </div>
+            </Link>
 
             {/* Stat Card 2 – Action Needed */}
-            <div
-              className="flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3.5 min-w-[138px]"
+            <Link
+              to={actionNeededUrl}
+              className="group flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3.5 min-w-[138px] transition-all duration-200 hover:shadow-md hover:scale-[1.02] hover:border-rose-300 cursor-pointer"
               style={{ boxShadow: '0 2px 12px rgba(239,68,68,0.09), 0 1px 3px rgba(0,0,0,0.06)', border: '1px solid rgba(254,226,226,0.9)' }}
+              title="View new queries requiring action"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-500">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-500 group-hover:bg-rose-100 group-hover:scale-105 transition-all">
                 <AlertTriangle className="h-[18px] w-[18px]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5 leading-tight">
-                  <span className="text-[10.5px] font-medium text-slate-400 tracking-wide">Action Needed</span>
-                  <span className="h-[7px] w-[7px] rounded-full bg-rose-500 shrink-0 shadow-[0_0_0_2px_rgba(239,68,68,0.2)]" />
+                  <span className="text-[10.5px] font-medium text-slate-400 tracking-wide group-hover:text-rose-600 transition-colors">Action Needed</span>
+                  <span className={`h-[7px] w-[7px] rounded-full shrink-0 shadow-[0_0_0_2px_rgba(239,68,68,0.2)] ${pendingReview > 0 ? 'bg-rose-500 animate-pulse' : 'bg-slate-300'}`} />
                 </div>
-                <span className="text-[1.6rem] font-black text-slate-900 leading-none mt-0.5 block">
+                <span className="text-[1.6rem] font-black text-slate-900 leading-none mt-0.5 block group-hover:text-rose-600 transition-colors">
                   {pendingReview}
                 </span>
               </div>
-            </div>
+            </Link>
 
             {/* Quote text + CSS-only abstract precision gear orb (no image) */}
             <div className="hidden xl:flex items-center gap-4 pl-1">
@@ -283,52 +293,64 @@ export default function AdminDashboardPage() {
           {/* 4 Stat Boxes inside */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {/* Total Inquiries */}
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/contacts"
+              className="group rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-slate-100/80 hover:shadow-xs hover:border-slate-200 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-600">
                 <FileText className="h-3.5 w-3.5 text-blue-600" />
                 <span className="truncate">Total Inquiries</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.contacts.total}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">{stats.contacts.total}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 All lifetime submissions
               </span>
-            </div>
+            </Link>
 
             {/* New / Unread */}
-            <div className="rounded-2xl border border-amber-100/70 bg-amber-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/contacts?status=new"
+              className="group rounded-2xl border border-amber-100/70 bg-amber-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-amber-100/50 hover:shadow-xs hover:border-amber-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-800">
                 <Mail className="h-3.5 w-3.5 text-amber-600" />
                 <span className="truncate">New / Unread</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.contacts.unread}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-amber-700 transition-colors">{stats.contacts.unread}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Pending initial review
               </span>
-            </div>
+            </Link>
 
             {/* In Progress */}
-            <div className="rounded-2xl border border-purple-100/70 bg-purple-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/contacts?status=in-progress"
+              className="group rounded-2xl border border-purple-100/70 bg-purple-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-purple-100/50 hover:shadow-xs hover:border-purple-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-purple-800">
                 <RotateCw className="h-3.5 w-3.5 text-purple-600" />
                 <span className="truncate">In Progress</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.contacts.inProgress}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-purple-700 transition-colors">{stats.contacts.inProgress}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Active client dialogue
               </span>
-            </div>
+            </Link>
 
             {/* Resolved */}
-            <div className="rounded-2xl border border-emerald-100/70 bg-emerald-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/contacts?status=resolved"
+              className="group rounded-2xl border border-emerald-100/70 bg-emerald-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-emerald-100/50 hover:shadow-xs hover:border-emerald-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-800">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 <span className="truncate">Resolved</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.contacts.resolved}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-emerald-700 transition-colors">{stats.contacts.resolved}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Successfully closed
               </span>
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -360,52 +382,64 @@ export default function AdminDashboardPage() {
           {/* 4 Stat Boxes inside */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {/* Total RFQs */}
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/rfqs"
+              className="group rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-slate-100/80 hover:shadow-xs hover:border-slate-200 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-600">
                 <FileText className="h-3.5 w-3.5 text-blue-600" />
                 <span className="truncate">Total RFQs</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.rfqs.total}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">{stats.rfqs.total}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Quotes registered
               </span>
-            </div>
+            </Link>
 
             {/* New / Unread */}
-            <div className="rounded-2xl border border-amber-100/70 bg-amber-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/rfqs?status=new"
+              className="group rounded-2xl border border-amber-100/70 bg-amber-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-amber-100/50 hover:shadow-xs hover:border-amber-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-800">
                 <Mail className="h-3.5 w-3.5 text-amber-600" />
                 <span className="truncate">New / Unread</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.rfqs.unread}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-amber-700 transition-colors">{stats.rfqs.unread}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Pending CAD & costing
               </span>
-            </div>
+            </Link>
 
             {/* In Review */}
-            <div className="rounded-2xl border border-purple-100/70 bg-purple-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/rfqs?status=in-progress"
+              className="group rounded-2xl border border-purple-100/70 bg-purple-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-purple-100/50 hover:shadow-xs hover:border-purple-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-purple-800">
                 <Clock className="h-3.5 w-3.5 text-purple-600" />
                 <span className="truncate">In Review</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.rfqs.inProgress}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-purple-700 transition-colors">{stats.rfqs.inProgress}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 DFM & supplier quotes
               </span>
-            </div>
+            </Link>
 
             {/* Quoted */}
-            <div className="rounded-2xl border border-emerald-100/70 bg-emerald-50/40 p-3.5 flex flex-col justify-between">
+            <Link
+              to="/admin/rfqs?status=resolved"
+              className="group rounded-2xl border border-emerald-100/70 bg-emerald-50/40 p-3.5 flex flex-col justify-between transition-all duration-200 hover:bg-emerald-100/50 hover:shadow-xs hover:border-emerald-300/80 cursor-pointer"
+            >
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-800">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 <span className="truncate">Quoted</span>
               </div>
-              <p className="mt-2.5 text-2xl font-black text-slate-900">{stats.rfqs.resolved}</p>
+              <p className="mt-2.5 text-2xl font-black text-slate-900 group-hover:text-emerald-700 transition-colors">{stats.rfqs.resolved}</p>
               <span className="mt-1 text-[10px] text-slate-400 block truncate">
                 Proposal sent to client
               </span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

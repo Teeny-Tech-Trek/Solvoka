@@ -8,6 +8,7 @@ import Hero from './components/layout/Hero';
 import SectionErrorBoundary from './components/common/SectionErrorBoundary';
 import LazySection from './components/common/LazySection';
 import WhatsAppFloatingButton from './components/common/WhatsAppFloatingButton';
+import { ChatWidget } from './solvix-chatbot';
 import { useLenis } from './components/layout/LenisContext';
 import { trackPageView } from './utils/analytics';
 import {
@@ -25,7 +26,9 @@ const CoordinationModel = lazy(() => import('./components/layout/Coordinationmod
 const QualityPreview = lazy(() => import('./components/layout/Qualitypreview'));
 const NetworkTeaser = lazy(() => import('./components/layout/NetworkTeaser'));
 const QuickRFQ = lazy(() => import('./components/layout/QuickGuote'));
+export const preloadQuickRFQ = () => import('./components/layout/QuickGuote');
 const Footer = lazy(() => import('./components/layout/Footer'));
+import { scrollToElement } from './components/layout/SmoothScroll';
 
 // Pages
 const ForgingPage = lazy(() => import('./pages/Forgingpage'));
@@ -88,8 +91,6 @@ function ScrollToTop() {
     prevPathRef.current = pathname;
 
     if (hash) {
-      const targetHash = hash.toLowerCase();
-
       // When navigating from another page, start at the top so the user experiences
       // the smooth downward glide to the section!
       if (isNewPage) {
@@ -99,43 +100,12 @@ function ScrollToTop() {
 
       // Notify lazy sections to render immediately if target matches
       window.dispatchEvent(new Event("hashchange"));
+      window.dispatchEvent(new CustomEvent("render-all-sections"));
 
-      let attempts = 0;
-      const tryScroll = () => {
-        let elem: HTMLElement | null = null;
-        try {
-          elem = document.querySelector(targetHash);
-        } catch {
-          // ignore invalid selector
-        }
-        if (!elem && (targetHash === "#quote" || targetHash === "#contact" || targetHash === "#rfq")) {
-          elem =
-            document.getElementById("quote") ||
-            document.getElementById("contact") ||
-            document.getElementById("rfq");
-        }
-        if (!elem && targetHash === "#capabilities") {
-          elem = document.getElementById("capabilities");
-        }
-
-        if (elem) {
-          if (lenis) {
-            lenis.scrollTo(elem, { offset: -70, duration: 1.4 });
-          } else {
-            const top = elem.getBoundingClientRect().top + window.scrollY - 70;
-            window.scrollTo({ top, behavior: "smooth" });
-          }
-          return;
-        }
-
-        attempts++;
-        if (attempts < 25) {
-          setTimeout(tryScroll, 50);
-        }
-      };
-
-      const delay = isNewPage ? 100 : 30;
-      const timer = setTimeout(tryScroll, delay);
+      const delay = isNewPage ? 120 : 40;
+      const timer = setTimeout(() => {
+        scrollToElement(hash, -72, 1.2);
+      }, delay);
       return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
@@ -147,6 +117,14 @@ function ScrollToTop() {
 }
 
 function HomePage() {
+  useEffect(() => {
+    // Preload QuickRFQ on idle so quote form renders with 0 delay
+    const timer = setTimeout(() => {
+      preloadQuickRFQ();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#2563eb] selection:text-white">
       {/* 1. CRITICAL INITIAL VIEWPORT RENDER (Synchronous, immediate FCP/LCP) */}
@@ -382,6 +360,8 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/about" element={<Navigate to="/about-us" replace />} />
         <Route
           path="/materials"
           element={
@@ -505,8 +485,17 @@ function App() {
 
       </Routes>
       <WhatsAppFloatingButton />
+      <ChatbotWrapper />
     </SmoothScroll>
   );
+}
+
+function ChatbotWrapper() {
+  const location = useLocation();
+  if (location.pathname.startsWith("/admin")) {
+    return null;
+  }
+  return <ChatWidget pageUrl={typeof window !== "undefined" ? window.location.href : ""} />;
 }
 
 function AppWithAuth() {

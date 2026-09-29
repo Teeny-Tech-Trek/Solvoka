@@ -16,12 +16,17 @@ export function LazySection({
   id,
 }: LazySectionProps) {
   const isTargetHash = (hash: string, sectionId?: string): boolean => {
-    if (!hash || !sectionId) return false;
+    if (!hash) return false;
     const h = hash.toLowerCase();
+    // When targeting quote/contact/rfq at the bottom of the page, render all sections immediately
+    // to eliminate cumulative layout shifts that cause smooth scrolling to undershoot!
+    if (h.includes("quote") || h.includes("contact") || h.includes("rfq")) {
+      return true;
+    }
+    if (!sectionId) return false;
     const s = sectionId.toLowerCase();
     return (
       h === `#${s}` ||
-      (s.includes("quote") && (h === "#quote" || h === "#contact" || h === "#rfq")) ||
       (s.includes("capabilit") && h.includes("capabilit"))
     );
   };
@@ -29,7 +34,7 @@ export function LazySection({
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === "undefined") return false;
     if (!("IntersectionObserver" in window)) return true;
-    if (window.location.hash && id) {
+    if (window.location.hash) {
       return isTargetHash(window.location.hash, id);
     }
     return false;
@@ -38,14 +43,19 @@ export function LazySection({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleRenderAll = () => setIsVisible(true);
     const checkHash = () => {
-      if (window.location.hash && id && isTargetHash(window.location.hash, id)) {
+      if (window.location.hash && isTargetHash(window.location.hash, id)) {
         setIsVisible(true);
       }
     };
     checkHash();
     window.addEventListener("hashchange", checkHash);
-    return () => window.removeEventListener("hashchange", checkHash);
+    window.addEventListener("render-all-sections", handleRenderAll);
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+      window.removeEventListener("render-all-sections", handleRenderAll);
+    };
   }, [id]);
 
   useEffect(() => {
@@ -72,7 +82,7 @@ export function LazySection({
   }, [rootMargin, isVisible]);
 
   return (
-    <div ref={containerRef} id={id} style={{ minHeight }} className="w-full">
+    <div ref={containerRef} id={id ? `${id}-section` : undefined} style={{ minHeight }} className="w-full">
       {isVisible ? children : fallback}
     </div>
   );
