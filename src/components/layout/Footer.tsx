@@ -196,13 +196,13 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
-            <a href="/privacy" className="hover:text-[#2563eb] transition">
+            <Link to="/privacy" className="hover:text-[#2563eb] transition">
               Privacy Policy
-            </a>
+            </Link>
             <span className="h-3.5 w-px bg-slate-300" aria-hidden="true" />
-            <a href="/terms" className="hover:text-[#2563eb] transition">
+            <Link to="/terms" className="hover:text-[#2563eb] transition">
               Terms &amp; Conditions
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center gap-2">

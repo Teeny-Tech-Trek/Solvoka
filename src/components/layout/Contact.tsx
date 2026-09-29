@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 import {
   User,
   Building2,
@@ -485,13 +486,12 @@ export default function Contact({ id = "contact" }: { id?: string }) {
 
                       <p className="text-[11.5px] text-[#64748b] text-center sm:text-left">
                         By submitting, you agree to our{" "}
-                        <a
-                          href="#"
-                          onClick={(e) => e.preventDefault()}
+                        <Link
+                          to="/privacy"
                           className="font-medium text-[#0062d2] hover:underline"
                         >
                           Privacy Policy.
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </form>

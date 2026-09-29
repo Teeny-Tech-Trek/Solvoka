@@ -38,6 +38,8 @@ const AboutUsPage = lazy(() => import('./pages/Aboutpage'));
 const MaterialsPage = lazy(() => import('./pages/Materialspage'));
 const QualityPage = lazy(() => import('./pages/Qualitypage'));
 const AutomotivePage = lazy(() => import('./pages/Automotivepage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicypage'));
+const TermsPage = lazy(() => import('./pages/Termspage'));
 
 // Admin CRM Components
 import { AuthProvider } from './context/AuthContext';
@@ -416,6 +418,46 @@ function App() {
             <Suspense fallback={<PageFallback />}>
               <CapabilityPageLayout>
                 <AutomotivePage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout lightNavbar={true}>
+                <PrivacyPolicyPage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout lightNavbar={true}>
+                <PrivacyPolicyPage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout lightNavbar={true}>
+                <TermsPage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms-and-conditions"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout lightNavbar={true}>
+                <TermsPage />
               </CapabilityPageLayout>
             </Suspense>
           }
