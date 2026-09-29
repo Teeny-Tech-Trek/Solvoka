@@ -4,8 +4,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
 import styles from "./ChatWidget.module.css";
 import { useChatStream } from "../hooks/useChatStream";
-import { requestHandoff } from "../lib/api";
-import type { HandoffResponse } from "../types";
+// import { requestHandoff } from "../lib/api";
+// import type { HandoffResponse } from "../types";
 
 // Self-contained widget component — drop
 // <ChatWidget pageUrl={...} /> into any page; it renders its own floating
@@ -34,8 +34,8 @@ function formatSourceName(source: string): string {
 export function ChatWidget({ pageUrl }: { pageUrl: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState("");
-  const [handoff, setHandoff] = useState<HandoffResponse | null>(null);
-  const [handoffLoading, setHandoffLoading] = useState(false);
+  // const [handoff, setHandoff] = useState<HandoffResponse | null>(null);
+  // const [handoffLoading, setHandoffLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const userScrolledUpRef = useRef(false);
@@ -79,18 +79,18 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
     retryLastMessage();
   };
 
-  const handleHandoffClick = async () => {
-    if (!sessionId || handoffLoading) return;
-    setHandoffLoading(true);
-    try {
-      const result = await requestHandoff(sessionId, "either");
-      setHandoff(result);
-    } catch {
-      setHandoff(null);
-    } finally {
-      setHandoffLoading(false);
-    }
-  };
+  // const handleHandoffClick = async () => {
+  //   if (!sessionId || handoffLoading) return;
+  //   setHandoffLoading(true);
+  //   try {
+  //     const result = await requestHandoff(sessionId, "either");
+  //     setHandoff(result);
+  //   } catch {
+  //     setHandoff(null);
+  //   } finally {
+  //     setHandoffLoading(false);
+  //   }
+  // };
 
   if (!isOpen) {
     return (
@@ -282,6 +282,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
         <div ref={messagesEndRef} />
       </div>
 
+      {/* Handoff panel — re-enable when live agent integration is ready
       {handoff && (
         <div className={styles.handoffPanel}>
           <span>{handoff.hours_note}</span>
@@ -300,6 +301,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
           )}
         </div>
       )}
+      */}
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputPill}>
