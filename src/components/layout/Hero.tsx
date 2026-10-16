@@ -22,15 +22,12 @@ const MATERIALS = [
   "MILD STEEL",
   "STAINLESS STEEL",
   "ALUMINIUM",
-  "BRASS",
-  "BRONZE",
-  "ENGINEERING PLASTICS",
 ];
 
 function MaterialItem({ label }: { label: string }) {
   return (
-    <span className="flex shrink-0 items-center gap-6">
-      <span className="text-[13px] uppercase tracking-[0.1em] text-navy-800">{label}</span>
+    <span className="flex shrink-0 items-center gap-10 sm:gap-14">
+      <span className="text-[13px] font-medium uppercase tracking-[0.14em] text-navy-800">{label}</span>
       <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-[#2563eb]" aria-hidden="true" />
     </span>
   );
@@ -381,8 +378,8 @@ export default function Hero() {
 
       {/* Material ticker marquee */}
       <div className="group relative z-10 shrink-0 overflow-hidden border-t-2 border-[#2563eb] bg-white/95 px-4 py-3 backdrop-blur-sm lg:px-10">
-        <div className="flex w-max animate-[marquee-right_28s_linear_infinite] items-center gap-6 group-hover:[animation-play-state:paused] motion-reduce:[animation-duration:60s]">
-          {[...MATERIALS, ...MATERIALS].map((m, i) => (
+        <div className="flex w-max animate-[marquee-right_14s_linear_infinite] items-center gap-10 sm:gap-14 group-hover:[animation-play-state:paused] motion-reduce:[animation-duration:40s]">
+          {[...MATERIALS, ...MATERIALS, ...MATERIALS, ...MATERIALS, ...MATERIALS, ...MATERIALS, ...MATERIALS, ...MATERIALS].map((m, i) => (
             <MaterialItem key={`${m}-${i}`} label={m} />
           ))}
         </div>

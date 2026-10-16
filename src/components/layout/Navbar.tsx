@@ -12,6 +12,7 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Capabilities", href: "/#capabilities", hasDropdown: true },
+  { label: "Infrastructure", href: "/#infrastructure", hasDropdown: true },
   { label: "About", href: "/about-us" },
   { label: "Quality", href: "/quality" },
   { label: "Automotive", href: "/automotive" },
@@ -20,11 +21,38 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const CAPABILITIES = [
-  { code: "PRC-001", name: "Casting", desc: "Investment, sand, die and centrifugal casting", href: "/capabilities/casting" },
-  { code: "PRC-002", name: "Forging", desc: "Open-die, closed-die and seamless ring forging", href: "/capabilities/forging" },
-  { code: "PRC-003", name: "CNC Machining", desc: "Milling, turning, grinding, EDM and Swiss", href: "/capabilities/cnc-machining" },
-  { code: "PRC-004", name: "3D Printing", desc: "DMLS, SLM, WAAM, DED and binder jetting", href: "/capabilities/3d-printing" },
-  { code: "PRC-005", name: "Sheet Metal Fabrication", desc: "Laser, plasma, waterjet, bending, welding", href: "/capabilities/sheet-metal-fabrication" },
+  { name: "Casting", desc: "Investment, sand, die and centrifugal casting", href: "/capabilities/casting" },
+  { name: "Forging", desc: "Open-die, closed-die and cold forging", href: "/capabilities/forging" },
+  { name: "CNC Machining", desc: "Milling, turning, grinding, EDM and Swiss", href: "/capabilities/cnc-machining" },
+  { name: "3D Printing", desc: "DMLS, SLM, WAAM, DED and binder jetting", href: "/capabilities/3d-printing" },
+  { name: "Sheet Metal Fabrication", desc: "Laser, plasma, bending, pneumatic forming", href: "/capabilities/sheet-metal-fabrication" },
+];
+
+const INFRASTRUCTURE = [
+  {
+    name: "Scaffolding Hardware",
+    desc: "Adjustable base jacks, couplers, ringlock standards, transoms & beam clamps",
+    href: "/infrastructure/scaffolding-hardware",
+    image: "/Infrastructure-Assets/Golden Hour Scaffolding Yard.png",
+    count: "9 Components",
+    badge: "Shoring & Towers",
+  },
+  {
+    name: "Pre-casted Lifting Equipments and Foundation Bolts",
+    desc: "Spherical & erection anchors, hoist rings, clevises, L/J foundation bolts",
+    href: "/infrastructure/precast-lifting-foundation-bolts",
+    image: "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png",
+    count: "10 Components",
+    badge: "Precast & Civil",
+  },
+  {
+    name: "Formwork Hardware",
+    desc: "Dywidag tie rods, wing nuts, water stops, waller plates, wedge & rapid clamps",
+    href: "/infrastructure/formwork-hardware",
+    image: "/Infrastructure-Assets/Golden-Hour Formwork Over City Skyline.png",
+    count: "12 Components",
+    badge: "Formwork Systems",
+  },
 ];
 
 function Logo({ scrolled, mobileOpen, darkSolid = false, light = false }: { scrolled: boolean; mobileOpen: boolean; darkSolid?: boolean; light?: boolean }) {
@@ -66,6 +94,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
     Capabilities: false,
+    Infrastructure: false,
   });
   const [scrolled, setScrolled] = useState(false);
   const [headerTop, setHeaderTop] = useState(38);
@@ -257,7 +286,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
               href="/#quote"
               onClick={(e) => handleQuoteClick(e, "navbar_desktop")}
               onMouseEnter={() => {
-                import("./QuickGuote").catch(() => {});
+                import("./QuickGuote").catch(() => { });
               }}
               className="group inline-flex h-[44px] items-center gap-2.5 rounded-lg bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-xs transition-colors hover:bg-[#1d4ed8] 2xl:h-[48px] 2xl:px-7 2xl:text-[16px] cursor-pointer"
             >
@@ -294,18 +323,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
               <div className="flex flex-col px-10 py-6">
                 {CAPABILITIES.map((c) => (
                   <Link
-                    key={c.code}
+                    key={c.name}
                     to={c.href}
                     onClick={closeImmediately}
                     className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-navy-700 py-3.5 transition-colors hover:border-[#2563eb]"
                   >
-                    <span className="flex items-baseline gap-4">
-                      <span className="tabular text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2563eb]">
-                        {c.code}
-                      </span>
-                      <span className="text-[18px] font-semibold text-white">
-                        {c.name}
-                      </span>
+                    <span className="text-[18px] font-semibold text-white transition-colors group-hover:text-[#2563eb]">
+                      {c.name}
                     </span>
                     <span className="text-[13px] leading-relaxed text-slate-300">
                       {c.desc}
@@ -313,24 +337,107 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                   </Link>
                 ))}
               </div>
-              {/* <div className="border-t border-navy-700 bg-navy-950/50">
-                <div className="flex items-center gap-8 px-10 py-4">
-                  <Link
-                    to="/#capabilities"
-                    onClick={closeImmediately}
-                    className="text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
-                  >
-                    View all capabilities →
-                  </Link>
-                  <a
-                    href="/facility"
-                    onClick={closeImmediately}
-                    className="text-[14px] font-semibold text-[#2563eb] hover:text-[#2563eb]"
-                  >
-                    Our facility →
-                  </a>
+            </div>
+          </div>
+        )}
+
+        {/* Infrastructure mega-menu */}
+        {openMenu === "Infrastructure" && (
+          <div className="pointer-events-none absolute left-0 top-full hidden w-full xl:block pt-1">
+            <div
+              data-lenis-prevent
+              className="pointer-events-auto mx-auto max-w-[1120px] overflow-hidden rounded-2xl border border-white/10 bg-navy-950/98 shadow-2xl backdrop-blur-xl border-t-2 border-t-[#2563eb]"
+              onMouseEnter={clearCloseTimeout}
+              onMouseLeave={closeImmediately}
+            >
+              {/* Header Bar */}
+              <div className="flex items-center justify-between border-b border-white/10 px-8 py-3.5 bg-white/[0.02]">
+                <div className="flex items-center gap-3">
+                  <span className="h-2 w-2 rounded-full bg-[#2563eb] animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-300">
+                    Infrastructure &amp; Shoring Manufacturing
+                  </span>
                 </div>
-              </div> */}
+                <span className="text-xs text-slate-400">
+                  Precision-engineered components for construction &amp; civil projects
+                </span>
+              </div>
+
+              {/* 3 Visual Cards */}
+              <div className="grid grid-cols-3 gap-6 p-6">
+                {INFRASTRUCTURE.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={closeImmediately}
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-all duration-300 hover:border-[#2563eb]/60 hover:bg-white/[0.08] hover:shadow-xl hover:shadow-blue-950/40"
+                  >
+                    <div>
+                      {/* Image Thumbnail with Badges */}
+                      <div className="relative h-36 w-full overflow-hidden rounded-lg bg-navy-900 border border-white/10">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          onError={(e) => {
+                            const target = e.currentTarget as HTMLImageElement;
+                            if (target.src.includes("Construction%20Site.png")) {
+                              target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction aSite.png";
+                            } else if (target.src.includes("Construction%20aSite.png")) {
+                              target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png";
+                            }
+                          }}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-black/20" />
+
+                        <div className="absolute top-2.5 left-2.5">
+                          <span className="rounded bg-navy-950/85 px-2 py-0.5 text-[11px] font-semibold text-blue-300 border border-white/15 backdrop-blur-sm">
+                            {item.count}
+                          </span>
+                        </div>
+
+                        <div className="absolute top-2.5 right-2.5">
+                          <span className="rounded bg-[#2563eb] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+                            {item.badge}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="pt-3.5 pb-2">
+                        <h4 className="text-[15px] font-bold text-white transition-colors group-hover:text-blue-400 leading-snug">
+                          {item.name}
+                        </h4>
+                        <p className="mt-1.5 text-[12px] leading-relaxed text-slate-300 line-clamp-2">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Footer link */}
+                    <div className="pt-2 border-t border-white/10 mt-2 flex items-center justify-between text-xs font-semibold text-[#2563eb]">
+                      <span>View All Components</span>
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Bottom Quick Info strip */}
+              <div className="flex items-center justify-between border-t border-white/10 bg-white/[0.02] px-8 py-3.5 text-xs text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400">Manufactured in Ludhiana, Punjab</span>
+                  <span className="text-slate-600">•</span>
+                  <span className="text-slate-400">Direct Containerized Global Exports</span>
+                </div>
+                <Link
+                  to="/#quote"
+                  onClick={closeImmediately}
+                  className="font-semibold text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1"
+                >
+                  Request Bulk Project RFQ →
+                </Link>
+              </div>
             </div>
           </div>
         )}
@@ -403,18 +510,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
 
                             {CAPABILITIES.map((c) => (
                               <Link
-                                key={c.code}
+                                key={c.name}
                                 to={c.href}
                                 onClick={() => setMobileOpen(false)}
                                 className="flex min-h-[44px] flex-col justify-center py-2 text-slate-200 transition-colors hover:text-[#2563eb]"
                               >
-                                <span className="flex items-center gap-2">
-                                  <span className="tabular text-[11px] font-bold text-[#2563eb]">
-                                    {c.code}
-                                  </span>
-                                  <span className="text-[15px] font-semibold text-white">
-                                    {c.name}
-                                  </span>
+                                <span className="text-[15px] font-semibold text-white">
+                                  {c.name}
                                 </span>
                                 <span className="text-[12px] text-slate-400 line-clamp-1">
                                   {c.desc}
@@ -422,6 +524,46 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                               </Link>
                             ))}
                           </>
+                        )}
+
+                        {item.label === "Infrastructure" && (
+                          <div className="mt-2 flex flex-col gap-2">
+                            {INFRASTRUCTURE.map((inf) => (
+                              <Link
+                                key={inf.name}
+                                to={inf.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-2.5 text-slate-200 transition-colors hover:border-[#2563eb] hover:bg-white/[0.07]"
+                              >
+                                <img
+                                  src={inf.image}
+                                  alt={inf.name}
+                                  onError={(e) => {
+                                    const target = e.currentTarget as HTMLImageElement;
+                                    if (target.src.includes("Construction%20Site.png")) {
+                                      target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction aSite.png";
+                                    } else if (target.src.includes("Construction%20aSite.png")) {
+                                      target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png";
+                                    }
+                                  }}
+                                  className="h-12 w-16 rounded object-cover border border-white/10 shrink-0"
+                                />
+                                <div className="min-w-0 flex-1">
+                                  <div className="flex items-center justify-between gap-1">
+                                    <span className="text-[13px] font-semibold text-white truncate">
+                                      {inf.name}
+                                    </span>
+                                    <span className="text-[10px] text-blue-400 shrink-0 font-medium">
+                                      {inf.count}
+                                    </span>
+                                  </div>
+                                  <span className="text-[11px] text-slate-400 line-clamp-1">
+                                    {inf.desc}
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                         )}
 
                         {item.label === "Resources" && (

@@ -139,6 +139,7 @@ const capabilities: CapabilityItem[] = [
         ],
         gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Plasma_Cutting.webm",
     },
+    /*
     {
         id: "water-jet-cutting",
         number: "04",
@@ -153,9 +154,10 @@ const capabilities: CapabilityItem[] = [
         ],
         gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
     },
+    */
     {
         id: "sheet-metal-bending",
-        number: "05",
+        number: "04",
         title: "Sheet Metal Bending",
         subtitle: "Perfect Angles, Every Time",
         duration: "01:30",
@@ -169,7 +171,7 @@ const capabilities: CapabilityItem[] = [
     },
     {
         id: "pneumatic-metal-forming",
-        number: "06",
+        number: "05",
         title: "Pneumatic Metal Forming",
         subtitle: "High-Precision Forming",
         duration: "01:28",
@@ -181,6 +183,7 @@ const capabilities: CapabilityItem[] = [
         ],
         gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Pneumatic_metal_forming_machine.webm",
     },
+    /*
     {
         id: "welding-services",
         number: "07",
@@ -209,6 +212,7 @@ const capabilities: CapabilityItem[] = [
         ],
         gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Deburring_Video_Is_Ready_.webm",
     },
+    */
 ];
 
 interface Material {
@@ -300,13 +304,10 @@ function Hero() {
                         <span className="text-slate-200 font-semibold">Sheet Metal Fabrication</span>
                     </div>
 
-                    {/* Category Tag with Process Code */}
+                    {/* Category Tag */}
                     <div className="mb-3 flex items-center gap-2.5">
-                        <span className="inline-flex items-center rounded-md bg-[#2563eb]/20 border border-[#2563eb]/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
-                            PRC-005
-                        </span>
                         <span className="h-[2px] w-6 bg-[#2563eb]" />
-                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2563eb]">
                             SHEET METAL FABRICATION
                         </span>
                     </div>
@@ -337,7 +338,7 @@ function Hero() {
 
                     {/* Subheadline */}
                     <p className="mt-3 max-w-[640px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
-                        Laser cutting, cold waterjet cutting, CNC bending, and structural welding services. From flat sheet metal prototypes to fully finished enclosures, chassis, and brackets with zero heat-affected distortion.
+                        Laser cutting, CNC bending, and pneumatic metal forming. From flat sheet metal prototypes to fully finished enclosures, chassis, and brackets with zero heat-affected distortion.
                     </p>
 
                     {/* Action Buttons */}
@@ -359,7 +360,7 @@ function Hero() {
                             }}
                             className="inline-flex h-12 items-center justify-center border border-white/70 bg-black/20 px-6 text-[15px] font-semibold text-white backdrop-blur-xs transition-colors hover:bg-white hover:text-navy-900 text-center cursor-pointer"
                         >
-                            View 8 Fabrication Services
+                            View {capabilities.length} Fabrication Services
                         </a>
                     </div>
 
@@ -376,14 +377,14 @@ function Hero() {
                                     />
                                     <path d="M6.4 10.8 9 13.4l4.6-4.8" stroke="#2563eb" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                                COLD WATERJET & LASER
+                                PRECISION LASER & FORMING
                             </span>
                             <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
                         </li>
 
                         <li className="flex items-center gap-2 sm:gap-4">
                             <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
-                                FORMING & WELDING
+                                FORMING & BENDING
                             </span>
                             <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
                         </li>
@@ -410,7 +411,7 @@ function OverviewSection() {
                         Integrated Sheet Metal Fabrication, From Raw Sheet to Assembly
                     </h2>
                     <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600 sm:text-base">
-                        From high-speed fiber laser cutting and precision CNC press braking to structural welding and surface finishing, Solvoka delivers tightly toleranced sheet metal assemblies engineered for demanding automotive, industrial, and enclosure applications.
+                        From high-speed fiber laser cutting and precision CNC press braking to pneumatic metal forming, Solvoka delivers tightly toleranced sheet metal assemblies engineered for demanding automotive, industrial, and enclosure applications.
                     </p>
                 </div>
 

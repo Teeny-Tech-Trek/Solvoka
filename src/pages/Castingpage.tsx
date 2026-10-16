@@ -312,13 +312,10 @@ export default function CastingPage() {
                             <span className="text-slate-200 font-semibold">Casting</span>
                         </div>
 
-                        {/* Category Tag with Process Code */}
+                        {/* Category Tag */}
                         <div className="mb-3 flex items-center gap-2.5">
-                            <span className="inline-flex items-center rounded-md bg-[#2563eb]/20 border border-[#2563eb]/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
-                                PRC-001
-                            </span>
                             <span className="h-[2px] w-6 bg-[#2563eb]" />
-                            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2563eb]">
                                 CASTING SERVICES
                             </span>
                         </div>

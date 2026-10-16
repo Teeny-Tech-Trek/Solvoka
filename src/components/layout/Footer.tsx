@@ -29,18 +29,17 @@ const capabilities = [
 ];
 
 const companyLinks = [
-  { name: "Quality", href: "/quality" },
   { name: "About", href: "/about-us" },
-  // { name: "Facility", href: "/#capabilities" },
+  { name: "Quality", href: "/quality" },
+  { name: "Automotive", href: "/automotive" },
+  { name: "Material Guide", href: "/materials" },
   { name: "Contact", href: "/contact-us" },
 ];
 
-const resourceLinks = [
-  { name: "Material Guide", href: "/materials" },
-  { name: "Automotive", href: "/automotive" },
-  // { name: "How We Work", href: "/#coordination-model" },
-  // { name: "Export & Shipping", href: "/#capabilities" },
-  // { name: "Parts Gallery", href: "/#capabilities" },
+const infrastructureLinks = [
+  { name: "Scaffolding Hardware", href: "/infrastructure/scaffolding-hardware" },
+  { name: "Precast & Foundation Bolts", href: "/infrastructure/precast-lifting-foundation-bolts" },
+  { name: "Formwork Hardware", href: "/infrastructure/formwork-hardware" },
 ];
 
 export default function Footer() {
@@ -115,28 +114,33 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 3 — Company / Resources */}
+        {/* Column 3 — Company & Infrastructure */}
         <div className="sm:border-l sm:border-slate-200 sm:pl-6 lg:pl-8 sm:pr-6 lg:pr-8">
-          <h4 className="text-lg sm:text-xl font-bold text-slate-900 text-center">Company</h4>
-          <div className="mt-4 grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 ">
-            <ul className="space-y-1.5">
-              {companyLinks.map((item) => (
-                <li key={item.name}>
-                  <Link to={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-[#2563eb]">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="space-y-1.5">
-              {resourceLinks.map((item) => (
-                <li key={item.name}>
-                  <Link to={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-[#2563eb]">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2">
+            <div>
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900">Company</h4>
+              <ul className="mt-4 space-y-1.5">
+                {companyLinks.map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-[#2563eb]">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900">Infrastructure</h4>
+              <ul className="mt-4 space-y-1.5">
+                {infrastructureLinks.map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.href} className="inline-flex min-h-[38px] items-center text-sm text-slate-600 transition hover:text-[#2563eb]">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 

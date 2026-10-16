@@ -36,7 +36,7 @@ const gates: GateRow[] = [
             "Every batch of raw stock is isolated on arrival and held until its chemical composition is verified against the original Mill Test Report — before production starts. Ingot heats that fail spectrometer optical chemistry or show surface inclusion marks are immediately quarantined and rejected.",
         protocol: [
             "Optical emission spectrometer chemical composition testing",
-            "Heat number matching directly against 3.1 mill certificate",
+            "Heat number matching directly against mill certificate",
             "Ultrasonic sub-surface flaw & inclusion screening",
             "Grain size verification per ASTM E112",
         ],
@@ -57,7 +57,7 @@ const gates: GateRow[] = [
             "Surface roughness profilometer trace (Ra ≤ 0.8 µm)",
         ],
         instrument: "Zeiss CNC CMM, Mitutoyo Digital Micrometers, Surface Roughness Tester",
-        lockRule: "Automatic CNC spindle pause if Cpk drops below 1.33 benchmark",
+        lockRule: "Automatic CNC spindle pause if Cpk drops below 1.33 threshold",
     },
     {
         number: "03",
@@ -505,7 +505,7 @@ export default function QualityPage() {
                                 <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
 
                                 {/* Metric 2: CMM Metrology */}
-                                <div className="flex items-center gap-3.5 px-0 sm:px-7">
+                                <div className="flex items-center gap-3.5 pl-0 sm:pl-7">
                                     <div className="flex h-10 w-10 items-center justify-center text-[#2563eb]">
                                         <svg
                                             className="h-7 w-7"
@@ -531,36 +531,6 @@ export default function QualityPage() {
                                         </div>
                                         <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
                                             CMM Metrology
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Divider */}
-                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
-
-                                {/* Metric 3: Heat Traceability */}
-                                <div className="flex items-center gap-3.5 pl-0 sm:pl-7">
-                                    <div className="flex h-10 w-10 items-center justify-center text-[#2563eb]">
-                                        <svg
-                                            className="h-7 w-7"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="1.9"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            aria-hidden="true"
-                                        >
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                            <path d="m9 12 2 2 4-4" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div className="text-base sm:text-lg font-bold text-slate-900 leading-none">
-                                            100% 3.1 MTR
-                                        </div>
-                                        <div className="mt-1 text-xs font-medium leading-tight text-slate-500">
-                                            Heat Traceability
                                         </div>
                                     </div>
                                 </div>

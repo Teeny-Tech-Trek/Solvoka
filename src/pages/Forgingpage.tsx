@@ -69,17 +69,18 @@ const processSections: ProcessSection[] = [
     },
     {
         number: "03",
-        eyebrow: "RING FORGING",
-        title: "Ring Forging — Seamless Rings Built to Withstand Pressure",
+        eyebrow: "COLD FORGING",
+        title: "Cold Forging — Precision Shapes at Room Temperature",
         description:
-            "We offer Seamless Ring Forging for producing strong, fatigue-resistant ring-shaped components. These forged rings are used in critical applications such as bearings, flanges, gear blanks.",
+            "Our Cold Forging process shapes metal at or near room temperature, delivering exceptional dimensional accuracy, excellent surface finish, and enhanced mechanical strength through work-hardening. It is ideal for high-volume production of precision components with minimal material waste and reduced post-machining.",
         benefits: [
-            "Exceptional strength and toughness",
-            "Can be customized in various diameters, thicknesses, and materials",
-            "Withstands high pressure, heat, and rotational stress",
+            "Superior dimensional accuracy with tight tolerances",
+            "Enhanced mechanical strength and fatigue resistance via work hardening",
+            "High material efficiency with near-net shape production",
+            "Cost-effective for high-volume automotive and industrial components",
         ],
-        videoLabel: "Ring Forging",
-        videoTagline: "Watch Process Video",
+        videoLabel: "Cold Forging",
+        videoTagline: "Precision forming at room temperature",
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/ring-forging.webp",
         gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Ring_Forging_Video_Available_Now.webm",
         layout: "media-right",
@@ -104,7 +105,7 @@ const specItems = [
     },
     {
         icon: <CircleDot className="h-5 w-5 text-[#2563eb]" strokeWidth={2} />,
-        label: "Ring Forging Diameter Range",
+        label: "Cold Forging Diameter Range",
         value: "15 mm to 60 mm",
     },
 ];
@@ -237,13 +238,10 @@ export default function ForgingPage() {
                             <span className="text-slate-200 font-semibold">Forging</span>
                         </div>
 
-                        {/* Category Tag with Process Code */}
+                        {/* Category Tag */}
                         <div className="mb-3 flex items-center gap-2.5">
-                            <span className="inline-flex items-center rounded-md bg-[#2563eb]/20 border border-[#2563eb]/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563eb]">
-                                PRC-002
-                            </span>
                             <span className="h-[2px] w-6 bg-[#2563eb]" />
-                            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2563eb]">
                                 PRECISION FORGING
                             </span>
                         </div>
@@ -274,7 +272,7 @@ export default function ForgingPage() {
 
                         {/* Subheadline */}
                         <p className="mt-3 max-w-[640px] text-[13px] leading-relaxed text-slate-200 sm:text-[16px] sm:leading-[1.6]">
-                            Open-die, closed-die, and seamless ring forging for automotive transmission, powertrain, and heavy industrial equipment — engineered grain structure with continuous fiber integrity, not just cut metal.
+                            Open-die, closed-die, and cold forging for automotive transmission, powertrain, and heavy industrial equipment — engineered grain structure with continuous fiber integrity, not just cut metal.
                         </p>
 
                         {/* Action Buttons */}
@@ -319,7 +317,7 @@ export default function ForgingPage() {
 
                             <li className="flex items-center gap-2 sm:gap-4">
                                 <span className="flex items-center gap-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.06em] text-white">
-                                    SEAMLESS RINGS TO 60MM
+                                    COLD FORGING TO 60MM
                                 </span>
                                 <span className="h-3.5 w-[2px] bg-[#2563eb]/80" aria-hidden="true" />
                             </li>
@@ -368,7 +366,7 @@ export default function ForgingPage() {
                 </div>
             </section>
 
-            {/* Sections 2–4 — Open-Die, Closed-Die, Ring Forging */}
+            {/* Sections 2–4 — Open-Die, Closed-Die, Cold Forging */}
             <section id="forging-processes" className="pb-16 lg:pb-24 space-y-12 lg:space-y-16">
                 <div className="mx-auto max-w-7xl px-6 lg:px-16 space-y-12 lg:space-y-16">
                     {processSections.map((section) => {

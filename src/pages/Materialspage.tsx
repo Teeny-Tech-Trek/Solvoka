@@ -13,8 +13,6 @@ import {
     Building2,
     Search,
     SlidersHorizontal,
-    ShieldCheck,
-    Gauge,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -29,7 +27,6 @@ interface MaterialGroup {
     materials: string[];
     note?: string;
     href: string;
-    specs?: { label: string; val: string }[];
 }
 
 const materialGroups: MaterialGroup[] = [
@@ -40,10 +37,6 @@ const materialGroups: MaterialGroup[] = [
         tagline: "High-integrity grain flow for heavy-duty structural parts",
         materials: ["EN8D", "EN9", "EN15", "20MnCr5", "LC / MS", "Carbon Alloy Steels"],
         href: "/capabilities/forging",
-        specs: [
-            { label: "Yield Strength", val: "Up to 1100 MPa" },
-            { label: "Grain Alignment", val: "Continuous metallurgical flow" },
-        ],
     },
     {
         number: "02",
@@ -52,10 +45,6 @@ const materialGroups: MaterialGroup[] = [
         tagline: "Near-net shape density across complex internal geometry",
         materials: ["Carbon Steel", "Stainless Steel (CF8M/CF3M)", "Aluminum Alloys", "Ductile Iron"],
         href: "/capabilities/casting",
-        specs: [
-            { label: "Tolerance Class", val: "ISO 8062-CT6 to CT9" },
-            { label: "Surface Finish", val: "Ra 3.2 – 6.3 µm" },
-        ],
     },
     {
         number: "03",
@@ -64,10 +53,6 @@ const materialGroups: MaterialGroup[] = [
         tagline: "Sub-millimeter multi-axis precision on standard & exotic stock",
         materials: ["Alloy Steels", "Aluminum (6061-T6, 7075)", "Stainless Steel (304, 316L)", "Brass / Bronze"],
         href: "/capabilities/cnc-machining",
-        specs: [
-            { label: "Positional Accuracy", val: "± 0.005 mm" },
-            { label: "Axis Configurations", val: "3-Axis, 4-Axis & 5-Axis Simultaneous" },
-        ],
     },
     {
         number: "04",
@@ -77,10 +62,6 @@ const materialGroups: MaterialGroup[] = [
         materials: ["Mild Steel", "Stainless Steel (SS304 / SS316)", "Aluminum (5052-H32)"],
         // note: "Certified sheet thickness range: 1.0 mm to 20.0 mm across cold-rolled & pickled stock.",
         href: "/capabilities/sheet-metal-fabrication",
-        specs: [
-            { label: "Laser Cutting Bed", val: "Up to 4000 × 2000 mm" },
-            { label: "Gauge Capability", val: "1.0 mm — 20.0 mm" },
-        ],
     },
     {
         number: "05",
@@ -90,10 +71,6 @@ const materialGroups: MaterialGroup[] = [
         materials: ["Stainless Steel (17-4 PH, 316L)", "Inconel 718", "Ti-6Al-4V", "AlSi10Mg"],
         // note: "No rigid material limit — metallurgy confirmed directly against your native 3D CAD drawing at quote time.",
         href: "/capabilities/3d-printing",
-        specs: [
-            { label: "Density Guarantee", val: "≥ 99.6% relative density" },
-            { label: "Layer Resolution", val: "20 µm to 60 µm" },
-        ],
     },
 ];
 
@@ -417,25 +394,6 @@ function ThreadedFastenerIcon({ className = "h-7 w-7" }: { className?: string })
     );
 }
 
-/** Custom green verification shield icon */
-function VerifiedShieldIcon({ className = "h-7 w-7" }: { className?: string }) {
-    return (
-        <svg
-            className={className}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.9"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-        >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <path d="m9 12 2 2 4-4" />
-        </svg>
-    );
-}
-
 /* ------------------------------------------------------------------ */
 /* Main Materials Page Component                                      */
 /* ------------------------------------------------------------------ */
@@ -581,7 +539,7 @@ export default function MaterialsPage() {
                                 <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
 
                                 {/* Badge 2: M2 — M64 */}
-                                <div className="flex items-center gap-3 px-0 sm:px-6">
+                                <div className="flex items-center gap-3 pl-0 sm:pl-6">
                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#2563eb]">
                                         <ThreadedFastenerIcon className="h-7 w-7" />
                                     </div>
@@ -592,25 +550,6 @@ export default function MaterialsPage() {
                                         <div className="mt-0.5 text-[11px] font-medium leading-tight text-slate-500">
                                             <div>Fastener Thread Range</div>
                                             <div>Up to 3m component size</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Divider */}
-                                <div className="hidden h-9 w-px bg-slate-200/90 sm:block" />
-
-                                {/* Badge 3: 3.1 Heat Trace */}
-                                <div className="flex items-center gap-3 pl-0 sm:pl-6">
-                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#2563eb]">
-                                        <VerifiedShieldIcon className="h-7 w-7" />
-                                    </div>
-                                    <div>
-                                        <div className="text-sm font-bold text-slate-900 leading-tight">
-                                            3.1 Heat Trace
-                                        </div>
-                                        <div className="mt-0.5 text-[11px] font-medium leading-tight text-slate-500">
-                                            <div>Full Traceability</div>
-                                            <div>Spectrum test reports</div>
                                         </div>
                                     </div>
                                 </div>
@@ -751,7 +690,7 @@ export default function MaterialsPage() {
                                         </div>
 
                                         {/* Column 2: Metallurgical Grades & Scope */}
-                                        <div className="lg:col-span-5">
+                                        <div className="lg:col-span-8">
                                             <div className="flex items-center gap-2">
                                                 <span className="h-1.5 w-1.5 rounded-full bg-[#2563eb]" />
                                                 <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
@@ -803,32 +742,6 @@ export default function MaterialsPage() {
                                                     </div>
                                                 </div>
                                             )}
-                                        </div>
-
-                                        {/* Column 3: Quality & Process Benchmarks */}
-                                        <div className="lg:col-span-3">
-                                            <div className="rounded-xl border border-slate-200/80 bg-[#ffffff] p-5">
-                                                <div className="flex items-center gap-2">
-                                                    <Gauge className="h-3.5 w-3.5 text-[#2563eb]" />
-                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                                                        PROCESS BENCHMARKS
-                                                    </span>
-                                                </div>
-                                                {group.specs && (
-                                                    <dl className="mt-3.5 space-y-3 divide-y divide-slate-200/70">
-                                                        {group.specs.map((sp) => (
-                                                            <div key={sp.label} className="pt-2.5 first:pt-0">
-                                                                <dt className="text-[11px] font-medium text-slate-500">
-                                                                    {sp.label}
-                                                                </dt>
-                                                                <dd className="mt-0.5 text-xs font-bold text-slate-900 tabular">
-                                                                    {sp.val}
-                                                                </dd>
-                                                            </div>
-                                                        ))}
-                                                    </dl>
-                                                )}
-                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -974,11 +887,7 @@ export default function MaterialsPage() {
                                     </dl>
                                 </div>
 
-                                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
-                                    <span className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-400">
-                                        <ShieldCheck className="h-3.5 w-3.5 text-[#2563eb]" />
-                                        MTR 3.1 CERTIFIED
-                                    </span>
+                                <div className="mt-6 flex items-center justify-end border-t border-slate-100 pt-4">
                                     <Link
                                         to="/#quote"
                                         onClick={() => trackQuoteCtaClick("material_card")}

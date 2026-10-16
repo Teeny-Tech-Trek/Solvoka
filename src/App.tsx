@@ -43,6 +43,9 @@ const QualityPage = lazy(() => import('./pages/Qualitypage'));
 const AutomotivePage = lazy(() => import('./pages/Automotivepage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicypage'));
 const TermsPage = lazy(() => import('./pages/Termspage'));
+const FormworkHardwarePage = lazy(() => import('./pages/FormworkHardwarePage'));
+const ScaffoldingHardwarePage = lazy(() => import('./pages/ScaffoldingHardwarePage'));
+const PrecastLiftingFoundationBoltsPage = lazy(() => import('./pages/PrecastLiftingFoundationBoltsPage'));
 
 // Admin CRM Components
 import { AuthProvider } from './context/AuthContext';
@@ -338,6 +341,84 @@ function App() {
               </CapabilityPageLayout>
             </Suspense>
           }
+        />
+
+        {/* Infrastructure Routes */}
+        <Route
+          path="/infrastructure/scaffolding-hardware"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout>
+                <ScaffoldingHardwarePage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/scaffolding-hardware"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout>
+                <ScaffoldingHardwarePage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/infrastructure/formwork-hardware"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout>
+                <FormworkHardwarePage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/formwork-hardware"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout>
+                <FormworkHardwarePage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/infrastructure/formwork-scaffolding-hardware"
+          element={<Navigate to="/infrastructure/scaffolding-hardware" replace />}
+        />
+
+        <Route
+          path="/infrastructure/precast-lifting-foundation-bolts"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <CapabilityPageLayout>
+                <PrecastLiftingFoundationBoltsPage />
+              </CapabilityPageLayout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/infrastructure/precast-lifting-equipment"
+          element={<Navigate to="/infrastructure/precast-lifting-foundation-bolts" replace />}
+        />
+        <Route
+          path="/infrastructure/precast-lifting-equipments"
+          element={<Navigate to="/infrastructure/precast-lifting-foundation-bolts" replace />}
+        />
+        <Route
+          path="/precast-lifting-equipment"
+          element={<Navigate to="/infrastructure/precast-lifting-foundation-bolts" replace />}
+        />
+        <Route
+          path="/infrastructure/foundation-bolts"
+          element={<Navigate to="/infrastructure/precast-lifting-foundation-bolts" replace />}
+        />
+        <Route
+          path="/foundation-bolts"
+          element={<Navigate to="/infrastructure/precast-lifting-foundation-bolts" replace />}
         />
 
         <Route
