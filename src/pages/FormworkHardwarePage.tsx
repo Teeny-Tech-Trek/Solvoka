@@ -10,13 +10,8 @@ import {
     ShieldCheck,
     Settings,
     Building2,
-    CheckCircle2,
     X,
     Maximize2,
-    Factory,
-    Truck,
-    Award,
-    Compass,
 } from "lucide-react";
 import { trackQuoteCtaClick } from "../utils/analytics";
 
@@ -37,7 +32,7 @@ const formworkItems: FormworkItem[] = [
         name: "Tie Rod",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Diagonal Galvanised Threaded Steel Rods.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Diagonal%20Galvanised%20Threaded%20Steel%20Rods.webp",
         application: "Wall, column & core concrete shoring",
         features: ["Continuous Dywidag coarse self-cleaning pitch", "High yield hydrostatic pull-out capacity"],
         standardFinish: "Hot-Rolled / Galvanised PSB830 Steel",
@@ -47,7 +42,7 @@ const formworkItems: FormworkItem[] = [
         name: "Tie Nut",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Galvanised Hexagonal Formwork Tie Nut.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Hexagonal%20Formwork%20Tie%20Nut.webp",
         application: "Heavy waler channel & soldier beam anchoring",
         features: ["Hexagonal & round heavy-duty bearing face", "Vibration strip-proof thread lock"],
         standardFinish: "Electro-Galvanised QT450 Ductile Iron",
@@ -57,7 +52,7 @@ const formworkItems: FormworkItem[] = [
         name: "Wing Nut",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Industrial Wing Nut on White Background.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Industrial%20Wing%20Nut%20on%20White%20Background.webp",
         application: "Fast hammer-tightening on concrete panel forms",
         features: ["Dual-wing ergonomic hammer driving lugs", "Integrated circular swivel bearing flange"],
         standardFinish: "Zinc Plated Ductile Cast Iron",
@@ -67,7 +62,7 @@ const formworkItems: FormworkItem[] = [
         name: "Water Stop Tie Rod",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Industrial Water Stop Tie Rod Components.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Industrial%20Water%20Stop%20Tie%20Rod%20Components.webp",
         application: "Basement walls, water tanks & culvert structures",
         features: ["Integrated impermeable central water-stop disc", "Dual internal Dywidag coarse threads"],
         standardFinish: "Watertight Cast Ductile Core",
@@ -77,7 +72,7 @@ const formworkItems: FormworkItem[] = [
         name: "Coupler Nut",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Galvanised Hex Coupler Nut Stack.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Hex%20Coupler%20Nut%20Stack.webp",
         application: "Continuous tie rod length splicing on deep pours",
         features: ["Extended thread engagement length", "High-torque heavy hex profile"],
         standardFinish: "Electro-Galvanised Structural Carbon Steel",
@@ -87,7 +82,7 @@ const formworkItems: FormworkItem[] = [
         name: "Waller Plate",
         category: "ties",
         categoryLabel: "Tie Systems",
-        image: "/Infrastructure-Assets/Nine-Metal Plate Hardware Grid.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Nine-Metal%20Plate%20Hardware%20Grid.webp",
         application: "Spreading tie tension across timber walers & soldiers",
         features: ["Pressed structural dish with central embossed hole", "Distributes immense point-load forces evenly"],
         standardFinish: "Hot-Dip Galvanised / Zinc Plated",
@@ -97,7 +92,7 @@ const formworkItems: FormworkItem[] = [
         name: "Stub & Wedge Pin",
         category: "accessories",
         categoryLabel: "Pins & Accessories",
-        image: "/Infrastructure-Assets/Iridescent Zinc Formwork Hardware Set.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Iridescent%20Zinc%20Formwork%20Hardware%20Set.webp",
         application: "Fast interlocking of modular aluminum & steel panels",
         features: ["Tapered wedge for rapid single-stroke locking", "High-shear alloy steel pin shaft"],
         standardFinish: "Iridescent Zinc Plated High-Tensile Steel",
@@ -107,7 +102,7 @@ const formworkItems: FormworkItem[] = [
         name: "Wedge Clamp",
         category: "clamps",
         categoryLabel: "Clamps & Couplers",
-        image: "/Infrastructure-Assets/Galvanised Wedge Clamp Product Shot.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Wedge%20Clamp%20Product%20Shot.webp",
         application: "Secure clamping of timber & steel formwork walers",
         features: ["Captive drop-forged drive wedge mechanism", "High-friction clamping jaw against concrete pressure"],
         standardFinish: "Galvanised Forged Structural Steel",
@@ -117,7 +112,7 @@ const formworkItems: FormworkItem[] = [
         name: "Rapid Clamp",
         category: "clamps",
         categoryLabel: "Clamps & Couplers",
-        image: "/Infrastructure-Assets/Galvanised Steel Scaffold Clamp Assembly.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Steel%20Scaffold%20Clamp%20Assembly.webp",
         application: "Instant spring cam tie rod locking without nuts",
         features: ["Hardened high-grip spring cam tooth", "Rapid tension lever engagement"],
         standardFinish: "Galvanised Stamped & Forged Assembly",
@@ -127,7 +122,7 @@ const formworkItems: FormworkItem[] = [
         name: "Deck Slab Accessories",
         category: "accessories",
         categoryLabel: "Pins & Accessories",
-        image: "/Infrastructure-Assets/Galvanised Crown-Head Deck Support.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Crown-Head%20Deck%20Support.webp",
         application: "Supporting slab drop-heads & primary decking beams",
         features: ["Crown-head four-way beam locating socket", "Direct vertical shoring load transfer"],
         standardFinish: "Galvanised High-Strength Cast Steel",
@@ -137,7 +132,7 @@ const formworkItems: FormworkItem[] = [
         name: "Flange Clamps",
         category: "clamps",
         categoryLabel: "Clamps & Couplers",
-        image: "/Infrastructure-Assets/Galvanised Twin-Bolt Pipe Clamp.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Twin-Bolt%20Pipe%20Clamp.webp",
         application: "Rigidly securing H20 timber beams to steel walers",
         features: ["Dual high-tensile clamping bolts & nuts", "Prevents beam slipping during concrete vibration"],
         standardFinish: "Hot-Dip Galvanised Forged Body",
@@ -147,7 +142,7 @@ const formworkItems: FormworkItem[] = [
         name: "Tekko Clips",
         category: "accessories",
         categoryLabel: "Pins & Accessories",
-        image: "/Infrastructure-Assets/Galvanised Tekko Hook Clip.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanised%20Tekko%20Hook%20Clip.webp",
         application: "Modular formwork panel alignment & joint latching",
         features: ["Hook-profile swift joint connection", "Resilient alloy spring steel flex"],
         standardFinish: "Zinc Plated High-Tensile Steel",
@@ -167,7 +162,7 @@ export default function FormworkHardwarePage() {
     const filteredItems = useMemo(() => {
         return formworkItems.filter((item) => {
             const matchesQuery = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                item.application.toLowerCase().includes(searchQuery.toLowerCase());
+                item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
             const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
             return matchesQuery && matchesCategory;
         });
@@ -180,7 +175,7 @@ export default function FormworkHardwarePage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/Infrastructure-Assets/Golden-Hour Formwork Over City Skyline.png"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Golden-Hour%20Formwork%20Over%20City%20Skyline.webp"
                         alt="Golden-Hour Formwork Over City Skyline"
                         className="h-full w-full object-cover object-center"
                     />
@@ -274,7 +269,7 @@ export default function FormworkHardwarePage() {
                             <Layers className="h-6 w-6" />
                         </div>
                         <div>
-                            <div className="text-2xl font-black text-slate-900">12+</div>
+                            <div className="text-2xl font-black text-slate-900">View all</div>
                             <div className="text-xs font-semibold text-slate-500">Component Types</div>
                         </div>
                     </div>
@@ -339,26 +334,20 @@ export default function FormworkHardwarePage() {
                         {/* Category Filter Pills */}
                         <div className="flex flex-wrap items-center gap-2">
                             {[
-                                { key: "all", label: "All Components", count: 12 },
-                                { key: "ties", label: "Tie Systems", count: 6 },
-                                { key: "clamps", label: "Clamps & Couplers", count: 3 },
-                                { key: "accessories", label: "Pins & Accessories", count: 3 },
+                                { key: "all", label: "All Components" },
+                                { key: "ties", label: "Tie Systems" },
+                                { key: "clamps", label: "Clamps & Couplers" },
+                                { key: "accessories", label: "Pins & Accessories" },
                             ].map((tab) => (
                                 <button
                                     key={tab.key}
                                     onClick={() => setSelectedCategory(tab.key as any)}
-                                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
+                                    className={`inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
                                         ? "bg-[#2563eb] text-white shadow-sm"
                                         : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                                         }`}
                                 >
                                     <span>{tab.label}</span>
-                                    <span
-                                        className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${selectedCategory === tab.key ? "bg-white/25 text-white" : "bg-white text-slate-600 border border-slate-200"
-                                            }`}
-                                    >
-                                        {tab.count}
-                                    </span>
                                 </button>
                             ))}
                         </div>
@@ -369,7 +358,7 @@ export default function FormworkHardwarePage() {
                                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                                 <input
                                     type="text"
-                                    placeholder="Search part name or application..."
+                                    placeholder="Search tie rod, wing nut, clamp..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-9 text-xs font-medium text-slate-900 placeholder-slate-400 transition focus:border-[#2563eb] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#2563eb]"
@@ -466,51 +455,21 @@ export default function FormworkHardwarePage() {
 
                                         {/* Card Content */}
                                         <div className="p-5 sm:p-6">
-                                            <div className="flex items-start justify-between gap-2">
-                                                <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-[#2563eb]">
-                                                    {item.name}
-                                                </h3>
-                                            </div>
-
-                                            <p className="mt-2 text-xs font-medium text-slate-500 leading-relaxed">
-                                                {item.application}
-                                            </p>
-
-                                            {/* Bullet Highlights */}
-                                            <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3.5">
-                                                {item.features.map((feat, fIdx) => (
-                                                    <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-600">
-                                                        <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                        <span className="truncate">{feat}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            {/* Finish Tag */}
-                                            <div className="mt-4 flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
-                                                <span className="font-semibold text-slate-400">FINISH:</span>
-                                                <span className="font-semibold text-slate-700 truncate max-w-[200px]">
-                                                    {item.standardFinish}
-                                                </span>
-                                            </div>
+                                            <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-[#2563eb]">
+                                                {item.name}
+                                            </h3>
                                         </div>
                                     </div>
 
-                                    {/* Action Buttons */}
-                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0 flex gap-2">
-                                        <button
-                                            onClick={() => setActiveModalItem(item)}
-                                            className="inline-flex h-10 w-1/3 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 transition hover:bg-slate-100"
-                                        >
-                                            Specs
-                                        </button>
+                                    {/* Action Button */}
+                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0">
                                         <Link
                                             to="/#quote"
                                             onClick={() => trackQuoteCtaClick(`formwork_${item.id}`)}
-                                            className="inline-flex h-10 w-2/3 items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
+                                            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-sm font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
                                         >
                                             <span>Inquire Item</span>
-                                            <ArrowRight className="h-3.5 w-3.5" />
+                                            <ArrowRight className="h-4 w-4" />
                                         </Link>
                                     </div>
                                 </div>
@@ -523,9 +482,8 @@ export default function FormworkHardwarePage() {
                                 <thead className="bg-slate-100 text-xs font-bold uppercase tracking-wider text-slate-700 border-b border-slate-200">
                                     <tr>
                                         <th className="py-4 px-6 w-1/12">#</th>
-                                        <th className="py-4 px-6 w-4/12">Components</th>
-                                        <th className="py-4 px-6 w-3/12 text-center">Picture</th>
-                                        <th className="py-4 px-6 w-2/12">Scope &amp; Finish</th>
+                                        <th className="py-4 px-6 w-5/12">Components</th>
+                                        <th className="py-4 px-6 w-4/12 text-center">Picture</th>
                                         <th className="py-4 px-6 w-2/12 text-right">Inquiry</th>
                                     </tr>
                                 </thead>
@@ -558,21 +516,13 @@ export default function FormworkHardwarePage() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="py-4 px-6">
-                                                <div className="text-xs font-medium text-slate-700">
-                                                    {item.application}
-                                                </div>
-                                                <div className="text-[11px] text-slate-400 mt-1">
-                                                    {item.standardFinish}
-                                                </div>
-                                            </td>
                                             <td className="py-4 px-6 text-right">
                                                 <Link
                                                     to="/#quote"
                                                     onClick={() => trackQuoteCtaClick(`table_formwork_${item.id}`)}
                                                     className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2563eb] px-4 text-xs font-bold text-white hover:bg-blue-600 transition shadow-xs"
                                                 >
-                                                    Get Quote
+                                                    Inquire Item
                                                 </Link>
                                             </td>
                                         </tr>
@@ -599,96 +549,9 @@ export default function FormworkHardwarePage() {
                 </div>
             </section>
 
-            {/* ENGINEERING ASSURANCE GRID: Hydrostatic pressure, Materials, Surface Treatments */}
-            <section className="py-16 bg-white border-y border-slate-200/80">
-                <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-                    <div className="text-center max-w-3xl mx-auto mb-12">
-                        <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3.5 py-1 text-xs font-bold text-[#2563eb]">
-                            <Award className="h-3.5 w-3.5" />
-                            <span>MANUFACTURING ASSURANCE</span>
-                        </div>
-                        <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                            Engineered for High-Pressure Concrete Casting
-                        </h2>
-                        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-                            Formwork hardware failure causes devastating blowouts on site. We forge and cast every piece to withstand immense hydrostatic pressures.
-                        </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="rounded-2xl border border-slate-200/90 bg-slate-50/60 p-7 transition hover:shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2563eb] text-white shadow-md">
-                                <Compass className="h-6 w-6" />
-                            </div>
-                            <h3 className="mt-5 text-xl font-bold text-slate-900">Hydrostatic Pressure Rating</h3>
-                            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                                Formwork ties and nuts proof-tested to safely handle wet-concrete lateral pressures exceeding 90 kN to 190 kN on tall wall and dam placements.
-                            </p>
-                        </div>
 
-                        <div className="rounded-2xl border border-slate-200/90 bg-slate-50/60 p-7 transition hover:shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2563eb] text-white shadow-md">
-                                <Factory className="h-6 w-6" />
-                            </div>
-                            <h3 className="mt-5 text-xl font-bold text-slate-900">Forged &amp; Ductile QT450 Iron</h3>
-                            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                                Wing nuts and clamps formulated from high-toughness ductile iron and hot-forged alloy steel preventing brittle fracture under heavy hammer tightening.
-                            </p>
-                        </div>
 
-                        <div className="rounded-2xl border border-slate-200/90 bg-slate-50/60 p-7 transition hover:shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2563eb] text-white shadow-md">
-                                <Truck className="h-6 w-6" />
-                            </div>
-                            <h3 className="mt-5 text-xl font-bold text-slate-900">Containerized Global Export</h3>
-                            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                                Direct mill volume packaging in steel crates and reinforced pallets dispatched directly to major ports worldwide with fast turnaround times.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* HIGH-IMPACT BOTTOM RFQ BANNER */}
-            <section className="py-16 sm:py-20 bg-slate-50">
-                <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-navy-950 via-slate-900 to-navy-900 p-8 sm:p-14 text-white shadow-2xl">
-                        {/* Subtle decorative glow */}
-                        <div className="pointer-events-none absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-
-                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-                            <div className="max-w-2xl">
-                                <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 border border-blue-400/30">
-                                    Direct Factory Pricing
-                                </span>
-                                <h3 className="mt-3 text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                                    Ready to source Formwork Hardware in bulk?
-                                </h3>
-                                <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-                                    Contact our technical export desk for container volume discounts, custom tie rod cuts, and guaranteed dispatch schedules.
-                                </p>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-3.5 shrink-0 w-full sm:w-auto">
-                                <Link
-                                    to="/#quote"
-                                    onClick={() => trackQuoteCtaClick("bottom_cta_formwork_hardware")}
-                                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-7 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-600 transition"
-                                >
-                                    <span>Request Volume RFQ</span>
-                                    <ArrowRight className="h-4 w-4" />
-                                </Link>
-                                <Link
-                                    to="/contact-us"
-                                    className="inline-flex h-12 items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/15 transition"
-                                >
-                                    Contact Sales Desk
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* QUICK SPECS MODAL */}
             {activeModalItem && (
@@ -697,7 +560,7 @@ export default function FormworkHardwarePage() {
                     onClick={() => setActiveModalItem(null)}
                 >
                     <div
-                        className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+                        className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
@@ -718,35 +581,12 @@ export default function FormworkHardwarePage() {
                         </div>
 
                         <div className="p-6">
-                            <div className="flex flex-col sm:flex-row items-center gap-6">
-                                <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-4">
-                                    <img
-                                        src={activeModalItem.image}
-                                        alt={activeModalItem.name}
-                                        className="max-h-full max-w-full object-contain drop-shadow-md"
-                                    />
-                                </div>
-                                <div className="space-y-3">
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Application</span>
-                                        <p className="text-sm font-semibold text-slate-800">{activeModalItem.application}</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Key Engineering Features</span>
-                                        <ul className="mt-1 space-y-1">
-                                            {activeModalItem.features.map((feat, i) => (
-                                                <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                                                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                    <span>{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Standard Export Finish</span>
-                                        <p className="text-xs font-semibold text-slate-700">{activeModalItem.standardFinish}</p>
-                                    </div>
-                                </div>
+                            <div className="flex h-72 w-full items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-6">
+                                <img
+                                    src={activeModalItem.image}
+                                    alt={activeModalItem.name}
+                                    className="max-h-full max-w-full object-contain drop-shadow-md"
+                                />
                             </div>
                         </div>
 
@@ -765,7 +605,7 @@ export default function FormworkHardwarePage() {
                                 }}
                                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-md hover:bg-blue-600"
                             >
-                                <span>Inquire This Component</span>
+                                <span>Inquire Item</span>
                                 <ArrowRight className="h-3.5 w-3.5" />
                             </Link>
                         </div>

@@ -9,7 +9,6 @@ import {
     Layers,
     ShieldCheck,
     Settings,
-    CheckCircle2,
     X,
     Maximize2,
 } from "lucide-react";
@@ -32,7 +31,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Lifting eye anchors",
         category: "anchors",
         categoryLabel: "Lifting Anchors",
-        image: "/Infrastructure-Assets/Lifting Eye Anchors.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Lifting%20Eye%20Anchors.webp",
         application: "Through-bar tension distribution in thin precast panels & beams",
         features: ["Drop-forged base rebar eyelet allows continuous steel keying", "5:1 ultimate safety ratio for overhead hoisting"],
         standardFinish: "Drop-Forged 20Mn2 / Black Oxide or Hot-Dip Galvanised",
@@ -42,7 +41,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Erection Anchors",
         category: "anchors",
         categoryLabel: "Erection Systems",
-        image: "/Infrastructure-Assets/Erection Anchors.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Erection%20Anchors.webp",
         application: "Tilt-up wall panel edge lifts and 90° rotation operations",
         features: ["Dual lateral shear notches prevent concrete blowout", "Locked foot geometry seats firmly in edge reinforcement"],
         standardFinish: "Structural Alloy Steel Q345B / Hot-Dip Galvanised",
@@ -52,7 +51,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Anchors",
         category: "anchors",
         categoryLabel: "Lifting Anchors",
-        image: "/Infrastructure-Assets/Anchors.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Anchors.webp",
         application: "Cast-in inserts for modular precast boxes, barriers & culverts",
         features: ["Positive mechanical concrete interlock", "Wavy-tail and straight stud embedment profiles"],
         standardFinish: "Electro-Galvanised / Passivated High-Tensile Steel",
@@ -62,7 +61,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "U-Anchor",
         category: "anchors",
         categoryLabel: "Lifting Loops",
-        image: "/Infrastructure-Assets/U-Anchor.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/U-Anchor.webp",
         application: "Embedded lifting loops for slabs, pipes, and utility culverts",
         features: ["High-tensile wire strand loop with embossed capacity tag", "Flexible geometry allows recessing or bend-down flush"],
         standardFinish: "Zinc Plated High-Tensile Steel Wire",
@@ -72,7 +71,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Spherical-Head-Lifting Anchor",
         category: "anchors",
         categoryLabel: "Lifting Anchors",
-        image: "/Infrastructure-Assets/Spherical-Head-Lifting Anchor.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Spherical-Head-Lifting%20Anchor.webp",
         application: "Rapid crane hook connection with universal ring clutches",
         features: ["Drop-forged spherical hemisphere engagement head", "Spread foot and plate foot options for concrete anchorage"],
         standardFinish: "Hot-Forged High-Strength Alloy 20Mn2",
@@ -82,7 +81,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Hoist Ring",
         category: "rigging",
         categoryLabel: "Rigging Hardware",
-        image: "/Infrastructure-Assets/Hoist Ring.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Hoist%20Ring.webp",
         application: "Multi-directional crane rigging lifts and 360-degree rotation",
         features: ["360° rotational swivel and 180° pivot bail action", "100% proof-load tested forged alloy steel components"],
         standardFinish: "Heat-Treated Alloy Steel with High-Vis Safety Coating",
@@ -92,7 +91,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Heavy-Duty Lifting Anchor Swivel Long Clevis D",
         category: "rigging",
         categoryLabel: "Rigging Hardware",
-        image: "/Infrastructure-Assets/Heavy-Duty Lifting Anchor Swivel Long Clevis D.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Heavy-Duty%20Lifting%20Anchor%20Swivel%20Long%20Clevis%20D.webp",
         application: "Heavy civil precast lifting connections with long clevis pin",
         features: ["Extended throat depth for wide anchor clearance", "Captive high-shear safety pin and secure cotter locking"],
         standardFinish: "Drop-Forged High-Strength Steel / Hot-Dip Galvanised",
@@ -102,7 +101,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "L-Bolt",
         category: "bolts",
         categoryLabel: "Foundation Bolts",
-        image: "/Infrastructure-Assets/L-Bolt.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/L-Bolt.webp",
         application: "Embedded 90-degree bent hook anchoring for columns & footings",
         features: ["90° mechanical hook leg resists vertical pullout", "Precision cut or rolled threads for heavy nut engagement"],
         standardFinish: "Grade 4.6 / 8.8 Galvanised or Plain Carbon Steel",
@@ -112,7 +111,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "J-Bolt",
         category: "bolts",
         categoryLabel: "Foundation Bolts",
-        image: "/Infrastructure-Assets/J-Bolt.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/J-Bolt.webp",
         application: "Hooked embedment in structural concrete foundation slabs",
         features: ["Smooth curved J-hook geometry prevents stress concentration", "Supplied with heavy hex nuts and wide flat washers"],
         standardFinish: "Hot-Dip Galvanised / High-Tensile Zinc Plated",
@@ -122,7 +121,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Heavy-Duty Foundation Bolt with Stiffner Plate",
         category: "bolts",
         categoryLabel: "Foundation Bolts",
-        image: "/Infrastructure-Assets/Heavy-Duty Foundation Bolt with Stiffner Plate.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Heavy-Duty%20Foundation%20Bolt%20with%20Stiffner%20Plate.webp",
         application: "Structural column bases, transmission towers & bridge piers",
         features: ["Welded bottom stiffener plate for immense tension anchorage", "Complete cage assembly with double leveling nuts"],
         standardFinish: "Hot-Dip Galvanised Structural Grade 8.8 / 10.9",
@@ -142,7 +141,7 @@ export default function PrecastLiftingFoundationBoltsPage() {
     const filteredItems = useMemo(() => {
         return precastFoundationItems.filter((item) => {
             const matchesQuery = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                item.application.toLowerCase().includes(searchQuery.toLowerCase());
+                item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
             const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
             return matchesQuery && matchesCategory;
         });
@@ -155,7 +154,7 @@ export default function PrecastLiftingFoundationBoltsPage() {
                 {/* Full-bleed background image - pure and vivid across the screen */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/Infrastructure-Assets/Precast Slab Lift at Construction Site.png"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Precast%20Slab%20Lift%20at%20Construction%20Site.webp"
                         alt="Precast Slab Lift at Construction Site"
                         className="h-full w-full object-cover object-center"
                     />
@@ -198,7 +197,7 @@ export default function PrecastLiftingFoundationBoltsPage() {
                                 href="#components"
                                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-7 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-600 transition"
                             >
-                                <span>View All Components ({precastFoundationItems.length})</span>
+                                <span>Explore Components</span>
                                 <ArrowRight className="h-4 w-4" />
                             </a>
                             <Link
@@ -275,26 +274,20 @@ export default function PrecastLiftingFoundationBoltsPage() {
                         {/* Category Filter Pills */}
                         <div className="flex flex-wrap items-center gap-2">
                             {[
-                                { key: "all", label: "All Components", count: 10 },
-                                { key: "anchors", label: "Precast Lifting Anchors", count: 5 },
-                                { key: "rigging", label: "Rigging Hardware", count: 2 },
-                                { key: "bolts", label: "Foundation Anchor Bolts", count: 3 },
+                                { key: "all", label: "All Components" },
+                                { key: "anchors", label: "Precast Lifting Anchors" },
+                                { key: "rigging", label: "Rigging Hardware" },
+                                { key: "bolts", label: "Foundation Anchor Bolts" },
                             ].map((tab) => (
                                 <button
                                     key={tab.key}
                                     onClick={() => setSelectedCategory(tab.key as any)}
-                                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
+                                    className={`inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
                                         ? "bg-[#2563eb] text-white shadow-sm"
                                         : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                                         }`}
                                 >
                                     <span>{tab.label}</span>
-                                    <span
-                                        className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${selectedCategory === tab.key ? "bg-white/25 text-white" : "bg-white text-slate-600 border border-slate-200"
-                                            }`}
-                                    >
-                                        {tab.count}
-                                    </span>
                                 </button>
                             ))}
                         </div>
@@ -405,46 +398,18 @@ export default function PrecastLiftingFoundationBoltsPage() {
                                             <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-[#2563eb]">
                                                 {item.name}
                                             </h3>
-
-                                            <p className="mt-2 text-xs font-medium text-slate-500 leading-relaxed">
-                                                {item.application}
-                                            </p>
-
-                                            {/* Bullet Highlights */}
-                                            <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3.5">
-                                                {item.features.map((feat, fIdx) => (
-                                                    <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-600">
-                                                        <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                        <span className="truncate">{feat}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            {/* Finish Tag */}
-                                            <div className="mt-4 flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
-                                                <span className="font-semibold text-slate-400">FINISH:</span>
-                                                <span className="font-semibold text-slate-700 truncate max-w-[200px]">
-                                                    {item.standardFinish}
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
 
-                                    {/* Action Buttons */}
-                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0 flex gap-2">
-                                        <button
-                                            onClick={() => setActiveModalItem(item)}
-                                            className="inline-flex h-10 w-1/3 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 transition hover:bg-slate-100"
-                                        >
-                                            Specs
-                                        </button>
+                                    {/* Action Button */}
+                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0">
                                         <Link
                                             to="/#quote"
                                             onClick={() => trackQuoteCtaClick(`precast_${item.id}`)}
-                                            className="inline-flex h-10 w-2/3 items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
+                                            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-sm font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
                                         >
                                             <span>Inquire Item</span>
-                                            <ArrowRight className="h-3.5 w-3.5" />
+                                            <ArrowRight className="h-4 w-4" />
                                         </Link>
                                     </div>
                                 </div>
@@ -457,9 +422,8 @@ export default function PrecastLiftingFoundationBoltsPage() {
                                 <thead className="bg-slate-100 text-xs font-bold uppercase tracking-wider text-slate-700 border-b border-slate-200">
                                     <tr>
                                         <th className="py-4 px-6 w-1/12">#</th>
-                                        <th className="py-4 px-6 w-4/12">Components</th>
-                                        <th className="py-4 px-6 w-3/12 text-center">Picture</th>
-                                        <th className="py-4 px-6 w-2/12">Application &amp; Finish</th>
+                                        <th className="py-4 px-6 w-5/12">Components</th>
+                                        <th className="py-4 px-6 w-4/12 text-center">Picture</th>
                                         <th className="py-4 px-6 w-2/12 text-right">Inquiry</th>
                                     </tr>
                                 </thead>
@@ -492,21 +456,13 @@ export default function PrecastLiftingFoundationBoltsPage() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="py-4 px-6">
-                                                <div className="text-xs font-medium text-slate-700">
-                                                    {item.application}
-                                                </div>
-                                                <div className="text-[11px] text-slate-400 mt-1">
-                                                    {item.standardFinish}
-                                                </div>
-                                            </td>
                                             <td className="py-4 px-6 text-right">
                                                 <Link
                                                     to="/#quote"
                                                     onClick={() => trackQuoteCtaClick(`table_precast_${item.id}`)}
                                                     className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2563eb] px-4 text-xs font-bold text-white hover:bg-blue-600 transition shadow-xs"
                                                 >
-                                                    Get Quote
+                                                    Inquire Item
                                                 </Link>
                                             </td>
                                         </tr>
@@ -542,7 +498,7 @@ export default function PrecastLiftingFoundationBoltsPage() {
                     onClick={() => setActiveModalItem(null)}
                 >
                     <div
-                        className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+                        className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
@@ -563,35 +519,12 @@ export default function PrecastLiftingFoundationBoltsPage() {
                         </div>
 
                         <div className="p-6">
-                            <div className="flex flex-col sm:flex-row items-center gap-6">
-                                <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-4">
-                                    <img
-                                        src={activeModalItem.image}
-                                        alt={activeModalItem.name}
-                                        className="max-h-full max-w-full object-contain drop-shadow-md"
-                                    />
-                                </div>
-                                <div className="space-y-3">
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Application</span>
-                                        <p className="text-sm font-semibold text-slate-800">{activeModalItem.application}</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Key Engineering Features</span>
-                                        <ul className="mt-1 space-y-1">
-                                            {activeModalItem.features.map((feat, i) => (
-                                                <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                                                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                    <span>{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Standard Export Finish</span>
-                                        <p className="text-xs font-semibold text-slate-700">{activeModalItem.standardFinish}</p>
-                                    </div>
-                                </div>
+                            <div className="flex h-72 w-full items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-6">
+                                <img
+                                    src={activeModalItem.image}
+                                    alt={activeModalItem.name}
+                                    className="max-h-full max-w-full object-contain drop-shadow-md"
+                                />
                             </div>
                         </div>
 
@@ -610,7 +543,7 @@ export default function PrecastLiftingFoundationBoltsPage() {
                                 }}
                                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-md hover:bg-blue-600"
                             >
-                                <span>Inquire This Component</span>
+                                <span>Inquire Item</span>
                                 <ArrowRight className="h-3.5 w-3.5" />
                             </Link>
                         </div>

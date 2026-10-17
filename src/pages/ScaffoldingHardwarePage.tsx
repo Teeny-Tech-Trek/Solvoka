@@ -9,7 +9,6 @@ import {
     Layers,
     ShieldCheck,
     Settings,
-    CheckCircle2,
     X,
     Maximize2,
 } from "lucide-react";
@@ -32,7 +31,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Adjustable Base Jack",
         category: "base",
         categoryLabel: "Base & Jacks",
-        image: "/Infrastructure-Assets/Five Galvanized Scaffolding Jacks-1.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Five%20Galvanized%20Scaffolding%20Jacks-1.webp",
         application: "Foundational height leveling and vertical load transfer for scaffold towers",
         features: ["Acme self-cleaning cold-rolled thread bar", "Heavy pressed steel base plate with anchor holes"],
         standardFinish: "Electro-Galvanised / Hot-Dip Galvanised",
@@ -42,7 +41,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Coupler",
         category: "couplers",
         categoryLabel: "Couplers & Clamps",
-        image: "/Infrastructure-Assets/Coupler.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Coupler.webp",
         application: "Connecting two standard 48.3mm scaffold tubes at a rigid 90-degree angle",
         features: ["Drop-forged carbon steel caps and body", "Grade 8.8 T-bolts with 21mm flange nuts"],
         standardFinish: "Hot-Dip Galvanised / Zinc Plated EN 74",
@@ -52,7 +51,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Intermediate transom",
         category: "standards",
         categoryLabel: "Standards & Transoms",
-        image: "/Infrastructure-Assets/Intermediate Transom.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Intermediate%20Transom.webp",
         application: "Mid-span scaffold plank support on non-standard scaffolding bay widths",
         features: ["Hook-ended locking profile over ledgers", "Prevents board deflection and sagging under load"],
         standardFinish: "Hot-Dip Galvanised Structural Steel",
@@ -62,17 +61,17 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Ringlock standard and Accessories",
         category: "standards",
         categoryLabel: "Standards & Transoms",
-        image: "/Infrastructure-Assets/Ringlock Standard.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Ringlock%20Standard.webp",
         application: "Modular vertical column standards with 8-hole rosette connection rings",
         features: ["Multi-directional connection points every 500mm", "Integrated spigot connection ends for stacking"],
         standardFinish: "Hot-Dip Galvanised High-Yield Steel",
     },
     {
         id: "spigot",
-        name: "Spigot",
+        name: "Spigot Accessories",
         category: "standards",
         categoryLabel: "Standards & Transoms",
-        image: "/Infrastructure-Assets/Spigot.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanized_Steel_Coupler_and_L-Bracket-removebg-preview.png",
         application: "Vertical axial joining of consecutive scaffolding standard tubes",
         features: ["Heavy-duty solid/tubular internal sleeve", "Pre-drilled bolt lock hole for tensile safety lock"],
         standardFinish: "Electro-Galvanised High-Tensile Steel",
@@ -82,7 +81,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Sleeve coupler",
         category: "couplers",
         categoryLabel: "Couplers & Clamps",
-        image: "/Infrastructure-Assets/Sleeve Coupler.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Sleeve%20Coupler.webp",
         application: "External end-to-end joining of two standard 48.3mm scaffold tubes",
         features: ["Semi-tubular wrap profile with central stop divider", "Twin locking bolt mechanism ensures concentric alignment"],
         standardFinish: "Hot-Dip Galvanised High-Strength Steel",
@@ -92,7 +91,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Fork head",
         category: "base",
         categoryLabel: "Base & Jacks",
-        image: "/Infrastructure-Assets/Fork Head.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Fork%20Head.webp",
         application: "Supporting primary timber H20 beams and steel soldiers atop props",
         features: ["Four-corner locating prongs", "Welded solid stem for screw jack insertion"],
         standardFinish: "Galvanised / Zinc Chromate Plated",
@@ -102,7 +101,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Swivel coupler",
         category: "couplers",
         categoryLabel: "Couplers & Clamps",
-        image: "/Infrastructure-Assets/Swivel Coupler.png",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Swivel%20Coupler.webp",
         application: "Connecting two 48.3mm tubes at any angle for diagonal facade bracing",
         features: ["360-degree rotational center rivet", "Drop-forged dual caps for zero slippage under tension"],
         standardFinish: "Hot-Dip Galvanised EN 74 Standard",
@@ -112,7 +111,7 @@ const scaffoldingItems: ScaffoldingItem[] = [
         name: "Beam clamp",
         category: "couplers",
         categoryLabel: "Couplers & Clamps",
-        image: "/Infrastructure-Assets/Beam Clamp.jpeg",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Beam%20Clamp.webp",
         application: "Anchoring scaffold tubes directly to structural I-beam & H-beam steel flanges",
         features: ["Heavy cast jaw teeth grip flange securely", "Heavy hex drive clamp bolt prevents slipping"],
         standardFinish: "Drop-Forged Steel / Hot-Dip Galvanised",
@@ -132,7 +131,7 @@ export default function ScaffoldingHardwarePage() {
     const filteredItems = useMemo(() => {
         return scaffoldingItems.filter((item) => {
             const matchesQuery = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                item.application.toLowerCase().includes(searchQuery.toLowerCase());
+                item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
             const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
             return matchesQuery && matchesCategory;
         });
@@ -145,7 +144,7 @@ export default function ScaffoldingHardwarePage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/Infrastructure-Assets/Golden Hour Scaffolding Yard.png"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Golden%20Hour%20Scaffolding%20Yard.webp"
                         alt="Golden Hour Scaffolding Yard"
                         className="h-full w-full object-cover object-center"
                     />
@@ -187,7 +186,7 @@ export default function ScaffoldingHardwarePage() {
                                 href="#components"
                                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-7 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-600 transition"
                             >
-                                <span>View All Components ({scaffoldingItems.length})</span>
+                                <span>Explore Components</span>
                                 <ArrowRight className="h-4 w-4" />
                             </a>
                             <Link
@@ -264,26 +263,20 @@ export default function ScaffoldingHardwarePage() {
                         {/* Category Filter Pills */}
                         <div className="flex flex-wrap items-center gap-2">
                             {[
-                                { key: "all", label: "All Components", count: 9 },
-                                { key: "base", label: "Base & Jacks", count: 2 },
-                                { key: "couplers", label: "Couplers & Clamps", count: 4 },
-                                { key: "standards", label: "Standards & Transoms", count: 3 },
+                                { key: "all", label: "All Components" },
+                                { key: "base", label: "Base & Jacks" },
+                                { key: "couplers", label: "Couplers & Clamps" },
+                                { key: "standards", label: "Standards & Transoms" },
                             ].map((tab) => (
                                 <button
                                     key={tab.key}
                                     onClick={() => setSelectedCategory(tab.key as any)}
-                                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
+                                    className={`inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold transition-all ${selectedCategory === tab.key
                                         ? "bg-[#2563eb] text-white shadow-sm"
                                         : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                                         }`}
                                 >
                                     <span>{tab.label}</span>
-                                    <span
-                                        className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${selectedCategory === tab.key ? "bg-white/25 text-white" : "bg-white text-slate-600 border border-slate-200"
-                                            }`}
-                                    >
-                                        {tab.count}
-                                    </span>
                                 </button>
                             ))}
                         </div>
@@ -394,46 +387,18 @@ export default function ScaffoldingHardwarePage() {
                                             <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-[#2563eb]">
                                                 {item.name}
                                             </h3>
-
-                                            <p className="mt-2 text-xs font-medium text-slate-500 leading-relaxed">
-                                                {item.application}
-                                            </p>
-
-                                            {/* Bullet Highlights */}
-                                            <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3.5">
-                                                {item.features.map((feat, fIdx) => (
-                                                    <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-600">
-                                                        <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                        <span className="truncate">{feat}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            {/* Finish Tag */}
-                                            <div className="mt-4 flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
-                                                <span className="font-semibold text-slate-400">FINISH:</span>
-                                                <span className="font-semibold text-slate-700 truncate max-w-[200px]">
-                                                    {item.standardFinish}
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
 
-                                    {/* Action Buttons */}
-                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0 flex gap-2">
-                                        <button
-                                            onClick={() => setActiveModalItem(item)}
-                                            className="inline-flex h-10 w-1/3 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 transition hover:bg-slate-100"
-                                        >
-                                            Specs
-                                        </button>
+                                    {/* Action Button */}
+                                    <div className="p-5 pt-0 sm:p-6 sm:pt-0">
                                         <Link
                                             to="/#quote"
                                             onClick={() => trackQuoteCtaClick(`scaffolding_${item.id}`)}
-                                            className="inline-flex h-10 w-2/3 items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
+                                            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#2563eb] text-sm font-bold text-white shadow-sm transition hover:bg-blue-600 hover:shadow-md"
                                         >
                                             <span>Inquire Item</span>
-                                            <ArrowRight className="h-3.5 w-3.5" />
+                                            <ArrowRight className="h-4 w-4" />
                                         </Link>
                                     </div>
                                 </div>
@@ -446,9 +411,8 @@ export default function ScaffoldingHardwarePage() {
                                 <thead className="bg-slate-100 text-xs font-bold uppercase tracking-wider text-slate-700 border-b border-slate-200">
                                     <tr>
                                         <th className="py-4 px-6 w-1/12">#</th>
-                                        <th className="py-4 px-6 w-4/12">Components</th>
-                                        <th className="py-4 px-6 w-3/12 text-center">Picture</th>
-                                        <th className="py-4 px-6 w-2/12">Application &amp; Finish</th>
+                                        <th className="py-4 px-6 w-5/12">Components</th>
+                                        <th className="py-4 px-6 w-4/12 text-center">Picture</th>
                                         <th className="py-4 px-6 w-2/12 text-right">Inquiry</th>
                                     </tr>
                                 </thead>
@@ -481,21 +445,13 @@ export default function ScaffoldingHardwarePage() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="py-4 px-6">
-                                                <div className="text-xs font-medium text-slate-700">
-                                                    {item.application}
-                                                </div>
-                                                <div className="text-[11px] text-slate-400 mt-1">
-                                                    {item.standardFinish}
-                                                </div>
-                                            </td>
                                             <td className="py-4 px-6 text-right">
                                                 <Link
                                                     to="/#quote"
                                                     onClick={() => trackQuoteCtaClick(`table_scaffolding_${item.id}`)}
                                                     className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2563eb] px-4 text-xs font-bold text-white hover:bg-blue-600 transition shadow-xs"
                                                 >
-                                                    Get Quote
+                                                    Inquire Item
                                                 </Link>
                                             </td>
                                         </tr>
@@ -531,7 +487,7 @@ export default function ScaffoldingHardwarePage() {
                     onClick={() => setActiveModalItem(null)}
                 >
                     <div
-                        className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+                        className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
@@ -552,35 +508,12 @@ export default function ScaffoldingHardwarePage() {
                         </div>
 
                         <div className="p-6">
-                            <div className="flex flex-col sm:flex-row items-center gap-6">
-                                <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-4">
-                                    <img
-                                        src={activeModalItem.image}
-                                        alt={activeModalItem.name}
-                                        className="max-h-full max-w-full object-contain drop-shadow-md"
-                                    />
-                                </div>
-                                <div className="space-y-3">
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Application</span>
-                                        <p className="text-sm font-semibold text-slate-800">{activeModalItem.application}</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Key Engineering Features</span>
-                                        <ul className="mt-1 space-y-1">
-                                            {activeModalItem.features.map((feat, i) => (
-                                                <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                                                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-                                                    <span>{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold uppercase text-slate-400">Standard Export Finish</span>
-                                        <p className="text-xs font-semibold text-slate-700">{activeModalItem.standardFinish}</p>
-                                    </div>
-                                </div>
+                            <div className="flex h-72 w-full items-center justify-center rounded-2xl bg-slate-50 border border-slate-200/80 p-6">
+                                <img
+                                    src={activeModalItem.image}
+                                    alt={activeModalItem.name}
+                                    className="max-h-full max-w-full object-contain drop-shadow-md"
+                                />
                             </div>
                         </div>
 
@@ -599,7 +532,7 @@ export default function ScaffoldingHardwarePage() {
                                 }}
                                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#2563eb] text-xs font-bold text-white shadow-md hover:bg-blue-600"
                             >
-                                <span>Inquire This Component</span>
+                                <span>Inquire Item</span>
                                 <ArrowRight className="h-3.5 w-3.5" />
                             </Link>
                         </div>

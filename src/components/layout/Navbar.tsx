@@ -33,24 +33,21 @@ const INFRASTRUCTURE = [
     name: "Scaffolding Hardware",
     desc: "Adjustable base jacks, couplers, ringlock standards, transoms & beam clamps",
     href: "/infrastructure/scaffolding-hardware",
-    image: "/Infrastructure-Assets/Golden Hour Scaffolding Yard.png",
-    count: "9 Components",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Golden%20Hour%20Scaffolding%20Yard.webp",
     badge: "Shoring & Towers",
   },
   {
     name: "Pre-casted Lifting Equipments and Foundation Bolts",
     desc: "Spherical & erection anchors, hoist rings, clevises, L/J foundation bolts",
     href: "/infrastructure/precast-lifting-foundation-bolts",
-    image: "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png",
-    count: "10 Components",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Precast%20Slab%20Lift%20at%20Construction%20Site.webp",
     badge: "Precast & Civil",
   },
   {
     name: "Formwork Hardware",
     desc: "Dywidag tie rods, wing nuts, water stops, waller plates, wedge & rapid clamps",
     href: "/infrastructure/formwork-hardware",
-    image: "/Infrastructure-Assets/Golden-Hour Formwork Over City Skyline.png",
-    count: "12 Components",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Golden-Hour%20Formwork%20Over%20City%20Skyline.webp",
     badge: "Formwork Systems",
   },
 ];
@@ -380,21 +377,11 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                           alt={item.name}
                           onError={(e) => {
                             const target = e.currentTarget as HTMLImageElement;
-                            if (target.src.includes("Construction%20Site.png")) {
-                              target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction aSite.png";
-                            } else if (target.src.includes("Construction%20aSite.png")) {
-                              target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png";
-                            }
+                            target.src = "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Precast%20Slab%20Lift%20at%20Construction%20Site.webp";
                           }}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-black/20" />
-
-                        <div className="absolute top-2.5 left-2.5">
-                          <span className="rounded bg-navy-950/85 px-2 py-0.5 text-[11px] font-semibold text-blue-300 border border-white/15 backdrop-blur-sm">
-                            {item.count}
-                          </span>
-                        </div>
 
                         <div className="absolute top-2.5 right-2.5">
                           <span className="rounded bg-[#2563eb] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
@@ -540,23 +527,14 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
                                   alt={inf.name}
                                   onError={(e) => {
                                     const target = e.currentTarget as HTMLImageElement;
-                                    if (target.src.includes("Construction%20Site.png")) {
-                                      target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction aSite.png";
-                                    } else if (target.src.includes("Construction%20aSite.png")) {
-                                      target.src = "/Infrastructure-Assets/Precast Slab Lift at Construction Site.png";
-                                    }
+                                    target.src = "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/Precast%20Slab%20Lift%20at%20Construction%20Site.webp";
                                   }}
                                   className="h-12 w-16 rounded object-cover border border-white/10 shrink-0"
                                 />
                                 <div className="min-w-0 flex-1">
-                                  <div className="flex items-center justify-between gap-1">
-                                    <span className="text-[13px] font-semibold text-white truncate">
-                                      {inf.name}
-                                    </span>
-                                    <span className="text-[10px] text-blue-400 shrink-0 font-medium">
-                                      {inf.count}
-                                    </span>
-                                  </div>
+                                  <span className="block text-[13px] font-semibold text-white truncate">
+                                    {inf.name}
+                                  </span>
                                   <span className="text-[11px] text-slate-400 line-clamp-1">
                                     {inf.desc}
                                   </span>

@@ -1,83 +1,32 @@
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
     ArrowRight,
-    Car,
     Truck,
-    Bike,
     Tractor as TractorIcon,
-    Settings,
-    ShieldCheck,
-    Package,
-    Users,
     CheckCircle2,
     Clock,
     Handshake,
     Headphones,
 } from "lucide-react";
+import { trackQuoteCtaClick } from "../utils/analytics";
 
 /* ------------------------------------------------------------------ */
-/* Data                                                                 */
+/* Assets & Data Definitions                                          */
 /* ------------------------------------------------------------------ */
 
 const ASSETS = {
     hero: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/hero%20image.webp",
-    tractorImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20parts.webp",
-    carImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20parts.webp",
     closing: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/cta%20image.webp",
+    truckVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_view_animation_1080p_20261017194656.webm",
+    tractorVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Tractor_explosion_animation_crea%E2%80%A6_1080p_20261017193301.webm",
 };
 
 const BLUE = "#2563eb";
-const GREEN = "#2563eb";
 
 const navChips = [
-    { icon: Car, label: "Cars", href: "#road" },
-    { icon: Truck, label: "Trucks", href: "#road" },
-    { icon: Bike, label: "Two-Wheelers", href: "#road" },
+    { icon: Truck, label: "Trucks", href: "#truck" },
     { icon: TractorIcon, label: "Tractors", href: "#tractor" },
-];
-
-const segments = [
-    {
-        id: "tractor",
-        accent: GREEN,
-        eyebrow: "Tractor Parts",
-        titleBefore: "Components for",
-        titleHighlight: "Agricultural Equipment",
-        description:
-            "Components supplied for tractors and other agricultural equipment:",
-        video: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20video.webm",
-        image: ASSETS.tractorImage,
-        sidebarTitle: "Tractor Parts",
-        sidebarDesc:
-            "Watch how our precision components power agricultural equipment.",
-        features: [
-            { icon: Settings, label: "High Precision Manufacturing" },
-            { icon: ShieldCheck, label: "Durable & Reliable" },
-            { icon: Package, label: "Wide Range of Components" },
-            { icon: Users, label: "Trusted by OEMs" },
-            // { icon: Leaf, label: "Supporting a Stronger Agricultural Future" },
-        ],
-    },
-    {
-        id: "road",
-        accent: BLUE,
-        eyebrow: "Car, Truck & Two-Wheeler Parts",
-        titleBefore: "Components for",
-        titleHighlight: "Cars, Trucks, and Two-Wheelers",
-        description:
-            "Components supplied for cars, trucks, and two-wheelers:",
-        video: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20video.webm",
-        image: ASSETS.carImage,
-        sidebarTitle: "Car, Truck & Two-Wheeler Parts",
-        sidebarDesc:
-            "Watch how our precision components power cars, trucks, and two-wheelers across the world.",
-        features: [
-            { icon: Settings, label: "High Precision Manufacturing" },
-            { icon: ShieldCheck, label: "Durable & Reliable" },
-            { icon: Package, label: "Wide Range of Components" },
-            { icon: Users, label: "Trusted by Global OEMs" },
-        ],
-    },
 ];
 
 const ctaBadges = [
@@ -88,8 +37,64 @@ const ctaBadges = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Shared components                                                    */
+/* Shared components                                                  */
 /* ------------------------------------------------------------------ */
+
+/** Clean video player that plays when scrolled into view, has no controls, and stops at end */
+function ScrollVideo({ src }: { src: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const hasEndedRef = useRef(false);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Force muted on DOM element for browser autoplay compatibility
+        video.muted = true;
+
+        const handleEnded = () => {
+            hasEndedRef.current = true;
+        };
+        video.addEventListener("ended", handleEnded);
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    if (!hasEndedRef.current) {
+                        video.play().catch(() => {
+                            // Suppress browser autoplay policy rejections
+                        });
+                    }
+                } else {
+                    if (!hasEndedRef.current && !video.paused) {
+                        video.pause();
+                    }
+                }
+            },
+            {
+                threshold: 0.25,
+            }
+        );
+
+        observer.observe(video);
+
+        return () => {
+            video.removeEventListener("ended", handleEnded);
+            observer.disconnect();
+        };
+    }, []);
+
+    return (
+        <video
+            ref={videoRef}
+            src={src}
+            muted
+            playsInline
+            preload="auto"
+            className="w-full aspect-video object-contain bg-black"
+        />
+    );
+}
 
 /** Section mark with line on the left — used for Hero & CTA */
 function SectionMark({ label, color = BLUE }: { label: string; color?: string }) {
@@ -106,8 +111,8 @@ function SectionMark({ label, color = BLUE }: { label: string; color?: string })
     );
 }
 
-/** Centered section mark with lines on both sides — used in segment headers */
-function CenteredMark({ label, color }: { label: string; color: string }) {
+/** Centered section mark with lines on both sides — used in video headers */
+function CenteredMark({ label, color = BLUE }: { label: string; color?: string }) {
     return (
         <div className="flex items-center justify-center gap-4">
             <span className="h-px w-12" style={{ backgroundColor: color }} />
@@ -164,141 +169,34 @@ function GeoShapes() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Vehicle segment section                                              */
-/* ------------------------------------------------------------------ */
-
-function VehicleSegment({
-    segment,
-    reversed = false,
-}: {
-    segment: (typeof segments)[number];
-    reversed?: boolean;
-}) {
-    return (
-        <div>
-            {/* Centered header */}
-            <div className="mx-auto mb-10 max-w-3xl text-center">
-                <CenteredMark label={segment.eyebrow} color={segment.accent} />
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
-                    {segment.titleBefore}{" "}
-                    <span style={{ color: segment.accent }}>
-                        {segment.titleHighlight}
-                    </span>
-                </h2>
-                <p className="mt-3 text-base text-slate-500">
-                    {segment.description}
-                </p>
-            </div>
-
-            {/* Video + Sidebar */}
-            <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
-                {/* Looping video — main area */}
-                <div
-                    className={`lg:col-span-8 ${
-                        reversed ? "lg:order-2" : "lg:order-1"
-                    }`}
-                >
-                    <div className="overflow-hidden rounded-xl">
-                        <video
-                            src={segment.video}
-                            className="w-full object-cover"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="metadata"
-                        />
-                    </div>
-                </div>
-
-                {/* Sidebar: parts image + features */}
-                <div
-                    className={`lg:col-span-4 space-y-6 ${
-                        reversed ? "lg:order-1" : "lg:order-2"
-                    }`}
-                >
-                    {/* Parts diagram image */}
-                    <div className="hidden lg:block overflow-hidden rounded-lg bg-white p-3 shadow-sm border border-slate-100">
-                        <img
-                            src={segment.image}
-                            alt={segment.titleHighlight}
-                            className="w-full object-contain"
-                        />
-                    </div>
-
-                    {/* Title & description */}
-                    <div>
-                        <h3 className="text-lg font-bold text-slate-900">
-                            {segment.sidebarTitle}
-                        </h3>
-                        <p className="mt-1 text-sm leading-relaxed text-slate-500">
-                            {segment.sidebarDesc}
-                        </p>
-                    </div>
-
-                    {/* Feature bullets — 2-column grid */}
-                    <ul className="grid grid-cols-2 gap-4">
-                        {segment.features.map((feat) => {
-                            const Icon = feat.icon;
-                            return (
-                                <li
-                                    key={feat.label}
-                                    className="flex items-start gap-3"
-                                >
-                                    <span
-                                        className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full"
-                                        style={{
-                                            backgroundColor: `${segment.accent}12`,
-                                        }}
-                                    >
-                                        <Icon
-                                            className="h-[18px] w-[18px]"
-                                            style={{ color: segment.accent }}
-                                            strokeWidth={1.8}
-                                        />
-                                    </span>
-                                    <span className="pt-1.5 text-sm font-semibold text-slate-800">
-                                        {feat.label}
-                                    </span>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-/* ------------------------------------------------------------------ */
-/* Page                                                                  */
+/* Page                                                               */
 /* ------------------------------------------------------------------ */
 
 export default function AutomotivePage() {
     return (
         <main className="w-full bg-white text-slate-900">
             {/* ========================================================== */}
-            {/* 1. HERO                                                     */}
+            {/* 1. HERO (Restored to original design)                      */}
             {/* ========================================================== */}
-            <section className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-br from-white via-slate-50/60 to-[#2563eb]/40">
+            <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50/50 to-[#2563eb]/20 py-16 sm:py-24 lg:py-28">
                 <GeoShapes />
 
-                <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-0 lg:px-16 lg:pt-28">
-                    <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-8">
-                        {/* Left copy */}
-                        <div className="lg:col-span-5 pb-10 lg:pb-16">
-                            <SectionMark label="Hero" />
+                <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-16">
+                    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+                        {/* Left column */}
+                        <div className="lg:col-span-5">
+                            <SectionMark label="Automotive & Agricultural" />
 
                             <h1 className="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.2rem] leading-[1.1]">
                                 Components for{" "}
                                 <span className="text-[#2563eb]">
-                                    Cars, Trucks, Two-Wheelers, and Tractors
+                                    Commercial Trucks & Tractors
                                 </span>
                             </h1>
 
                             <p className="mt-5 max-w-md text-base leading-relaxed text-slate-500 sm:text-lg">
                                 Forged, machined, and cast parts supplied across
-                                the automotive and agricultural equipment
+                                the commercial automotive and agricultural equipment
                                 industries.
                             </p>
 
@@ -310,7 +208,7 @@ export default function AutomotivePage() {
                                         <a
                                             key={chip.label}
                                             href={chip.href}
-                                            className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs font-medium text-slate-600 shadow-sm transition-all hover:border-[#2563eb] hover:text-[#2563eb] hover:shadow-md"
+                                            className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-xs font-medium text-slate-600 shadow-sm transition-all hover:border-[#2563eb] hover:text-[#2563eb] hover:shadow-md"
                                         >
                                             <Icon
                                                 className="h-5 w-5"
@@ -347,31 +245,49 @@ export default function AutomotivePage() {
             </section>
 
             {/* ========================================================== */}
-            {/* 2. TRACTOR PARTS                                            */}
+            {/* 2. TRUCK VIDEO (Clean, video only, stops at end)           */}
+            {/* ========================================================== */}
+            <section
+                id="truck"
+                className="border-b border-slate-100 bg-white py-16 sm:py-20 lg:py-24"
+            >
+                <div className="mx-auto max-w-7xl px-6 lg:px-16">
+                    <div className="mx-auto mb-10 max-w-3xl text-center">
+                        <CenteredMark label="Commercial Vehicle Parts" color={BLUE} />
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            Heavy-Duty Components for Commercial Trucks
+                        </h2>
+                    </div>
+
+                    <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-slate-900/10">
+                        <ScrollVideo src={ASSETS.truckVideo} />
+                    </div>
+                </div>
+            </section>
+
+            {/* ========================================================== */}
+            {/* 3. TRACTOR VIDEO (Clean, video only, stops at end)         */}
             {/* ========================================================== */}
             <section
                 id="tractor"
-                className="border-b border-slate-100 py-20 lg:py-28"
+                className="border-b border-slate-100 bg-slate-50/50 py-16 sm:py-20 lg:py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-16">
-                    <VehicleSegment segment={segments[0]} />
+                    <div className="mx-auto mb-10 max-w-3xl text-center">
+                        <CenteredMark label="Agricultural Equipment Parts" color={BLUE} />
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            Heavy-Duty Components for Tractors & Harvesters
+                        </h2>
+                    </div>
+
+                    <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-slate-900/10">
+                        <ScrollVideo src={ASSETS.tractorVideo} />
+                    </div>
                 </div>
             </section>
 
             {/* ========================================================== */}
-            {/* 3. CAR, TRUCK & TWO-WHEELER PARTS                          */}
-            {/* ========================================================== */}
-            <section
-                id="road"
-                className="border-b border-slate-100 bg-slate-50/40 py-20 lg:py-28"
-            >
-                <div className="mx-auto max-w-7xl px-6 lg:px-16">
-                    <VehicleSegment segment={segments[1]} reversed />
-                </div>
-            </section>
-
-            {/* ========================================================== */}
-            {/* 4. CLOSING CTA                                              */}
+            {/* 4. CLOSING CTA (Restored to original design)               */}
             {/* ========================================================== */}
             <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50/60 to-[#2563eb]/40 py-20 lg:py-28">
                 <GeoShapes />
@@ -393,7 +309,8 @@ export default function AutomotivePage() {
                             <div className="mt-8">
                                 <Link
                                     to="/#quote"
-                                    className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#2563eb] px-8 py-4 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#2563eb]"
+                                    onClick={() => trackQuoteCtaClick("automotive_closing")}
+                                    className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#2563eb] px-8 py-4 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-blue-700 shadow-md hover:shadow-lg"
                                 >
                                     <span>Request a Quote</span>
                                     <ArrowRight className="h-4 w-4" />
