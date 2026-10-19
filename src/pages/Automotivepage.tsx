@@ -172,14 +172,14 @@ export default function AutomotivePage() {
             {/* 1. HERO SECTION                                            */}
             {/* Pixel-perfect match to reference design                   */}
             {/* ========================================================== */}
-            <section className="relative w-full overflow-hidden bg-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 xl:pt-32 xl:pb-24 min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center">
+            <section className="relative w-full overflow-hidden bg-white pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 xl:pt-32 xl:pb-24 min-h-[460px] sm:min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center">
                 {/* Background Image Container */}
                 <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
                     {/* The Full Panoramic Vehicle & Precision Components Image */}
                     <img
                         src={ASSETS.hero}
                         alt="Commercial Trucks, Tractors, Vehicles and Precision Components"
-                        className="absolute inset-0 h-full w-full object-cover object-[90%_bottom] md:object-[93%_bottom] lg:object-[95%_bottom] xl:object-[96%_bottom]"
+                        className="absolute inset-0 h-full w-full object-cover object-[78%_center] sm:object-[90%_bottom] md:object-[93%_bottom] lg:object-[95%_bottom] xl:object-[96%_bottom]"
                     />
 
                     {/* Tech Floor Wedge (soft icy-blue polygon under cards & behind components) */}
@@ -250,9 +250,18 @@ export default function AutomotivePage() {
                         />
                     </svg>
 
-                    {/* Left-to-right fade gradient overlay to ensure text contrast and clean white background */}
+                    {/* Mobile-only background overlay to ensure text contrast and clean readability */}
                     <div
-                        className="absolute inset-0 pointer-events-none"
+                        className="absolute inset-0 pointer-events-none sm:hidden"
+                        style={{
+                            background:
+                                "linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 55%, rgba(255,255,255,0.7) 85%, rgba(255,255,255,0.45) 100%)",
+                        }}
+                    />
+
+                    {/* Left-to-right fade gradient overlay for desktop/tablet to ensure text contrast */}
+                    <div
+                        className="hidden sm:block absolute inset-0 pointer-events-none"
                         style={{
                             background:
                                 "linear-gradient(90deg, #ffffff 0%, #ffffff 28%, rgba(255,255,255,0.96) 38%, rgba(255,255,255,0.6) 48%, rgba(255,255,255,0.05) 58%, transparent 68%)",
@@ -339,8 +348,8 @@ export default function AutomotivePage() {
                             industries. Drawings quoted within one business day.
                         </p>
 
-                        {/* Action Buttons - Exact h-12, px-6, text-[15px] from Main Hero */}
-                        <div className="mt-6 flex flex-wrap items-center gap-3.5">
+                        {/* Action Buttons - Hidden on mobile, visible on sm and up */}
+                        <div className="mt-6 hidden sm:flex flex-wrap items-center gap-3.5">
                             {/* Explore Products Button */}
                             <a
                                 href="#truck"
@@ -361,8 +370,8 @@ export default function AutomotivePage() {
                             </Link>
                         </div>
 
-                        {/* Quick Navigation Feature Cards - Sleek and proportional */}
-                        <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-[540px]">
+                        {/* Quick Navigation Feature Cards - Hidden on mobile, visible on sm and up */}
+                        <div className="mt-7 sm:mt-8 hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-[540px]">
                             {/* Trucks Card */}
                             <a
                                 href="#truck"
@@ -409,15 +418,6 @@ export default function AutomotivePage() {
                                 </div>
                             </a>
                         </div>
-                    </div>
-
-                    {/* Mobile-only image display below cards for small screens */}
-                    <div className="mt-8 lg:hidden rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white">
-                        <img
-                            src={ASSETS.hero}
-                            alt="Automotive & agricultural components"
-                            className="w-full h-auto object-cover"
-                        />
                     </div>
                 </div>
             </section>

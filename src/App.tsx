@@ -467,7 +467,7 @@ function App() {
           path="/automotive"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout lightNavbar={true} hideUtilityBar={true}>
+              <CapabilityPageLayout lightNavbar={true}>
                 <AutomotivePage />
               </CapabilityPageLayout>
             </Suspense>
@@ -477,7 +477,7 @@ function App() {
           path="/industries/automotive"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout lightNavbar={true} hideUtilityBar={true}>
+              <CapabilityPageLayout lightNavbar={true}>
                 <AutomotivePage />
               </CapabilityPageLayout>
             </Suspense>
