@@ -276,7 +276,7 @@ export default function FormworkScaffoldingHardwarePage() {
                     </div>
 
                     {/* Headline */}
-                    <h1 className="mt-4 text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-[52px] lg:leading-[1.12]">
+                    <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
                         Heavy-Duty Formwork &amp; Scaffolding Hardware{" "}
                         <span className="block text-[#2563eb]">
                             Engineered for High-Pressure Concrete Casting.

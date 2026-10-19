@@ -4,6 +4,7 @@ import {
     ArrowRight,
     Truck,
     Tractor as TractorIcon,
+    FileText,
     CheckCircle2,
     Clock,
     Handshake,
@@ -16,18 +17,13 @@ import { trackQuoteCtaClick } from "../utils/analytics";
 /* ------------------------------------------------------------------ */
 
 const ASSETS = {
-    hero: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/hero%20image.webp",
+    hero: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Industrial%20Vehicles%20and%20Precision%20Components%20%281%29.webp",
     closing: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/cta%20image.webp",
-    truckVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_view_animation_1080p_20261017194656.webm",
-    tractorVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Tractor_explosion_animation_crea%E2%80%A6_1080p_20261017193301.webm",
+    truckVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_parts_animation_v%E2%80%A6_20261019182206.webm",
+    tractorVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Red_tractor_on_white_background_20261019184449.webm",
 };
 
 const BLUE = "#2563eb";
-
-const navChips = [
-    { icon: Truck, label: "Trucks", href: "#truck" },
-    { icon: TractorIcon, label: "Tractors", href: "#tractor" },
-];
 
 const ctaBadges = [
     { icon: CheckCircle2, label: "Quality\nAssured" },
@@ -127,14 +123,13 @@ function CenteredMark({ label, color = BLUE }: { label: string; color?: string }
     );
 }
 
-/** Decorative diagonal shapes for hero & CTA backgrounds */
+/** Decorative diagonal shapes for CTA background */
 function GeoShapes() {
     return (
         <div
             className="pointer-events-none absolute inset-0 overflow-hidden"
             aria-hidden="true"
         >
-            {/* Top-right large shape */}
             <div
                 className="absolute -right-24 -top-24 h-[420px] w-[320px] opacity-70 sm:opacity-100"
                 style={{
@@ -144,7 +139,6 @@ function GeoShapes() {
                     borderRadius: "8px",
                 }}
             />
-            {/* Overlapping smaller shape */}
             <div
                 className="absolute right-8 sm:right-16 -top-8 h-[240px] sm:h-[300px] w-[160px] sm:w-[200px] opacity-70 sm:opacity-100"
                 style={{
@@ -154,7 +148,6 @@ function GeoShapes() {
                     borderRadius: "8px",
                 }}
             />
-            {/* Subtle bottom-left accent */}
             <div
                 className="absolute -bottom-16 -left-16 h-[160px] sm:h-[200px] w-[130px] sm:w-[160px] opacity-60 sm:opacity-100"
                 style={{
@@ -176,70 +169,255 @@ export default function AutomotivePage() {
     return (
         <main className="w-full bg-white text-slate-900 overflow-x-hidden">
             {/* ========================================================== */}
-            {/* 1. HERO (Fully responsive with navbar offset)              */}
+            {/* 1. HERO SECTION                                            */}
+            {/* Pixel-perfect match to reference design                   */}
             {/* ========================================================== */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50/50 to-[#2563eb]/20 pt-28 pb-14 sm:pt-32 sm:pb-20 lg:py-28">
-                <GeoShapes />
+            <section className="relative w-full overflow-hidden bg-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 xl:pt-32 xl:pb-24 min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center">
+                {/* Background Image Container */}
+                <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+                    {/* The Full Panoramic Vehicle & Precision Components Image */}
+                    <img
+                        src={ASSETS.hero}
+                        alt="Commercial Trucks, Tractors, Vehicles and Precision Components"
+                        className="absolute inset-0 h-full w-full object-cover object-[90%_bottom] md:object-[93%_bottom] lg:object-[95%_bottom] xl:object-[96%_bottom]"
+                    />
 
-                <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
-                    <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
-                        {/* Left column */}
-                        <div className="lg:col-span-5">
-                            <SectionMark label="Automotive & Agricultural" />
+                    {/* Tech Floor Wedge (soft icy-blue polygon under cards & behind components) */}
+                    <div
+                        className="hidden lg:block absolute bottom-0 left-[38%] w-[42%] h-[44%] pointer-events-none opacity-85"
+                        style={{
+                            background:
+                                "linear-gradient(135deg, rgba(219, 234, 254, 0.55) 0%, rgba(191, 219, 254, 0.15) 100%)",
+                            clipPath: "polygon(18% 100%, 100% 0%, 100% 100%, 0% 100%)",
+                        }}
+                    />
 
-                            <h1 className="mt-4 sm:mt-5 text-3xl sm:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-slate-900 leading-[1.15] sm:leading-[1.1]">
-                                Components for{" "}
-                                <span className="text-[#2563eb]">
-                                    Commercial Trucks & Tractors
-                                </span>
-                            </h1>
+                    {/* Central Diagonal Tech Accent Lines behind car */}
+                    <svg
+                        className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        {/* Upper horizontal notch */}
+                        <line
+                            x1="49%"
+                            y1="22%"
+                            x2="53%"
+                            y2="22%"
+                            stroke="#3b82f6"
+                            strokeWidth="1.2"
+                            strokeOpacity="0.3"
+                        />
+                        {/* Central diagonal accent line */}
+                        <line
+                            x1="49%"
+                            y1="22%"
+                            x2="43%"
+                            y2="60%"
+                            stroke="#3b82f6"
+                            strokeWidth="1.2"
+                            strokeOpacity="0.35"
+                        />
+                        {/* Lower diagonal connect */}
+                        <line
+                            x1="43%"
+                            y1="60%"
+                            x2="38%"
+                            y2="100%"
+                            stroke="#3b82f6"
+                            strokeWidth="1"
+                            strokeOpacity="0.2"
+                        />
 
-                            <p className="mt-3 sm:mt-5 max-w-md text-sm sm:text-base lg:text-lg leading-relaxed text-slate-600 sm:text-slate-500">
-                                Forged, machined, and cast parts supplied across
-                                the commercial automotive and agricultural equipment
-                                industries.
-                            </p>
+                        {/* Top-right diagonal tech accent lines above tractor */}
+                        <line
+                            x1="82%"
+                            y1="8%"
+                            x2="94%"
+                            y2="26%"
+                            stroke="#3b82f6"
+                            strokeWidth="1"
+                            strokeOpacity="0.3"
+                        />
+                        <line
+                            x1="80%"
+                            y1="12%"
+                            x2="90%"
+                            y2="28%"
+                            stroke="#3b82f6"
+                            strokeWidth="0.8"
+                            strokeDasharray="4 3"
+                            strokeOpacity="0.25"
+                        />
+                    </svg>
 
-                            {/* Nav chips — icon above label, bordered cards */}
-                            <div className="mt-6 sm:mt-8 flex flex-row gap-3">
-                                {navChips.map((chip) => {
-                                    const Icon = chip.icon;
-                                    return (
-                                        <a
-                                            key={chip.label}
-                                            href={chip.href}
-                                            className="flex flex-1 sm:flex-initial flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-xs font-medium text-slate-700 shadow-xs transition-all hover:border-[#2563eb] hover:text-[#2563eb] hover:shadow-md"
-                                        >
-                                            <Icon
-                                                className="h-5 w-5"
-                                                strokeWidth={1.6}
-                                            />
-                                            <span>{chip.label}</span>
-                                        </a>
-                                    );
-                                })}
-                            </div>
-                        </div>
+                    {/* Left-to-right fade gradient overlay to ensure text contrast and clean white background */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background:
+                                "linear-gradient(90deg, #ffffff 0%, #ffffff 28%, rgba(255,255,255,0.96) 38%, rgba(255,255,255,0.6) 48%, rgba(255,255,255,0.05) 58%, transparent 68%)",
+                        }}
+                    />
 
-                        {/* Right — hero image, flowing naturally */}
-                        <div className="lg:col-span-7 flex items-center justify-center lg:items-end lg:justify-end mt-2 lg:mt-0">
-                            {/* "Driving Industries Forward" label */}
-                            <div className="hidden lg:block absolute top-24 right-16 z-20">
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-400 text-right leading-relaxed">
-                                    Driving
-                                    <br />
-                                    Industries
-                                    <br />
-                                    Forward
-                                </p>
-                            </div>
+                    {/* Subtle top fade for seamless navbar integration */}
+                    <div
+                        className="absolute inset-x-0 top-0 h-14 pointer-events-none"
+                        style={{
+                            background:
+                                "linear-gradient(180deg, rgba(255,255,255,0.9) 0%, transparent 100%)",
+                        }}
+                    />
+                </div>
 
-                            <img
-                                src={ASSETS.hero}
-                                alt="Automotive and agricultural vehicle components"
-                                className="w-full max-w-md sm:max-w-lg lg:max-w-2xl object-contain drop-shadow-sm"
+                {/* Top-Right "DRIVING — INDUSTRIES FORWARD" Tech Badge */}
+                <div className="hidden lg:block absolute top-20 xl:top-24 right-8 lg:right-12 xl:right-16 z-20 pointer-events-none">
+                    <div className="relative pl-6 pr-5 py-3">
+                        {/* Angled geometric tech frame */}
+                        <svg
+                            className="absolute inset-0 w-full h-full"
+                            viewBox="0 0 170 82"
+                            fill="none"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M 28 2 L 168 2 L 168 80 L 2 80 L 2 34 Z"
+                                stroke="rgba(59, 130, 246, 0.4)"
+                                strokeWidth="1.2"
+                                fill="rgba(255, 255, 255, 0.25)"
                             />
+                            {/* Blue accent indicator on top */}
+                            <line
+                                x1="28"
+                                y1="2"
+                                x2="48"
+                                y2="2"
+                                stroke="#2563eb"
+                                strokeWidth="2.5"
+                            />
+                        </svg>
+
+                        <div className="relative z-10 text-slate-400">
+                            <div className="flex items-center gap-1.5">
+                                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">
+                                    DRIVING
+                                </span>
+                                <span className="h-px w-3 bg-slate-400 inline-block" />
+                            </div>
+                            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400 leading-tight">
+                                INDUSTRIES
+                            </div>
+                            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400 leading-tight">
+                                FORWARD
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Hero Foreground Content - Shifted left matching Navbar max-w-[1536px] */}
+                <div className="relative z-10 mx-auto w-full max-w-[1536px] px-4 sm:px-6 lg:px-10">
+                    <div className="max-w-[560px] lg:max-w-[600px]">
+                        {/* Eyebrow - Matching Main Hero style */}
+                        <div className="flex items-center gap-2.5">
+                            <span className="h-[2px] w-7 bg-[#2563eb]" />
+                            <span className="text-[12px] sm:text-[14px] uppercase tracking-[0.14em] text-[#2563eb] font-semibold">
+                                Automotive &amp; Agricultural
+                            </span>
+                        </div>
+
+                        {/* Title / Headline - text-4xl font-bold (700) */}
+                        <h1 className="mt-3.5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
+                            <span className="block">Components for</span>
+                            <span className="block text-[#2563eb]">
+                                Commercial Trucks &amp; Tractors
+                            </span>
+                        </h1>
+
+                        {/* Subheadline - Matching Main Hero font size and leading */}
+                        <p className="mt-3.5 max-w-[540px] text-[13px] leading-relaxed text-slate-600 sm:text-[16px] sm:leading-[1.6]">
+                            Forged, machined, and cast parts supplied across
+                            the commercial automotive and agricultural equipment
+                            industries. Drawings quoted within one business day.
+                        </p>
+
+                        {/* Action Buttons - Exact h-12, px-6, text-[15px] from Main Hero */}
+                        <div className="mt-6 flex flex-wrap items-center gap-3.5">
+                            {/* Explore Products Button */}
+                            <a
+                                href="#truck"
+                                className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-6 text-[15px] font-semibold text-white shadow-md transition-all hover:bg-blue-700 active:scale-[0.99]"
+                            >
+                                <span>Explore Products</span>
+                                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                            </a>
+
+                            {/* Request a Quote Button */}
+                            <Link
+                                to="/#quote"
+                                onClick={() => trackQuoteCtaClick("automotive_hero")}
+                                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white/95 px-6 text-[15px] font-semibold text-slate-800 shadow-xs transition-all hover:border-slate-400 hover:bg-slate-50 active:scale-[0.99]"
+                            >
+                                <FileText className="h-4 w-4 text-[#2563eb]" strokeWidth={2} />
+                                <span>Request a Quote</span>
+                            </Link>
+                        </div>
+
+                        {/* Quick Navigation Feature Cards - Sleek and proportional */}
+                        <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-[540px]">
+                            {/* Trucks Card */}
+                            <a
+                                href="#truck"
+                                className="group relative flex items-center justify-between gap-3 rounded-xl border border-slate-200/90 bg-white/95 p-3.5 shadow-2xs backdrop-blur-md transition-all duration-200 hover:border-[#2563eb]/50 hover:bg-white hover:shadow-md hover:-translate-y-0.5"
+                            >
+                                <div className="flex items-center gap-3 min-w-0">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#2563eb] border border-blue-100 group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-200">
+                                        <Truck className="h-5 w-5" strokeWidth={1.8} />
+                                    </div>
+                                    <div className="min-w-0">
+                                        <div className="text-[14px] font-bold text-slate-900 group-hover:text-[#2563eb] transition-colors">
+                                            Trucks
+                                        </div>
+                                        <p className="text-[12px] leading-tight text-slate-500 mt-0.5 truncate">
+                                            Heavy-duty parts
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 group-hover:border-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-200">
+                                    <ArrowRight className="h-3.5 w-3.5" />
+                                </div>
+                            </a>
+
+                            {/* Tractors Card */}
+                            <a
+                                href="#tractor"
+                                className="group relative flex items-center justify-between gap-3 rounded-xl border border-slate-200/90 bg-white/95 p-3.5 shadow-2xs backdrop-blur-md transition-all duration-200 hover:border-[#2563eb]/50 hover:bg-white hover:shadow-md hover:-translate-y-0.5"
+                            >
+                                <div className="flex items-center gap-3 min-w-0">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#2563eb] border border-blue-100 group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-200">
+                                        <TractorIcon className="h-5 w-5" strokeWidth={1.8} />
+                                    </div>
+                                    <div className="min-w-0">
+                                        <div className="text-[14px] font-bold text-slate-900 group-hover:text-[#2563eb] transition-colors">
+                                            Tractors
+                                        </div>
+                                        <p className="text-[12px] leading-tight text-slate-500 mt-0.5 truncate">
+                                            Agricultural parts
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 group-hover:border-[#2563eb] group-hover:bg-[#2563eb] group-hover:text-white transition-all duration-200">
+                                    <ArrowRight className="h-3.5 w-3.5" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Mobile-only image display below cards for small screens */}
+                    <div className="mt-8 lg:hidden rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white">
+                        <img
+                            src={ASSETS.hero}
+                            alt="Automotive & agricultural components"
+                            className="w-full h-auto object-cover"
+                        />
                     </div>
                 </div>
             </section>

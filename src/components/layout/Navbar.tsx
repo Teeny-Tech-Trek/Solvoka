@@ -94,7 +94,13 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
     Infrastructure: false,
   });
   const [scrolled, setScrolled] = useState(false);
-  const [headerTop, setHeaderTop] = useState(38);
+  const [headerTop, setHeaderTop] = useState(() => {
+    if (typeof document !== "undefined") {
+      const uBar = document.getElementById("utility-bar");
+      return uBar ? uBar.offsetHeight : 0;
+    }
+    return 0;
+  });
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleQuoteClick = (e: React.MouseEvent, source: "navbar_desktop" | "navbar_mobile") => {
@@ -147,7 +153,7 @@ export default function Navbar({ darkSolid = false, light = false }: { darkSolid
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const uBar = document.getElementById("utility-bar");
-          const uBarHeight = uBar ? uBar.offsetHeight : 38;
+          const uBarHeight = uBar ? uBar.offsetHeight : 0;
           const y = window.scrollY;
           setHeaderTop(Math.max(0, uBarHeight - y));
           setScrolled(y > uBarHeight);

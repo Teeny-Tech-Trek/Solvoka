@@ -192,10 +192,10 @@ function HomePage() {
   );
 }
 
-function CapabilityPageLayout({ children, lightNavbar = false }: { children: React.ReactNode; lightNavbar?: boolean }) {
+function CapabilityPageLayout({ children, lightNavbar = false, hideUtilityBar = false }: { children: React.ReactNode; lightNavbar?: boolean; hideUtilityBar?: boolean }) {
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#2563eb] selection:text-white">
-      <UtilityBar />
+      {!hideUtilityBar && <UtilityBar />}
       <Navbar light={lightNavbar} darkSolid={!lightNavbar} />
       <div className="flex-1">
         {children}
@@ -467,7 +467,7 @@ function App() {
           path="/automotive"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout>
+              <CapabilityPageLayout lightNavbar={true} hideUtilityBar={true}>
                 <AutomotivePage />
               </CapabilityPageLayout>
             </Suspense>
@@ -477,7 +477,7 @@ function App() {
           path="/industries/automotive"
           element={
             <Suspense fallback={<PageFallback />}>
-              <CapabilityPageLayout>
+              <CapabilityPageLayout lightNavbar={true} hideUtilityBar={true}>
                 <AutomotivePage />
               </CapabilityPageLayout>
             </Suspense>

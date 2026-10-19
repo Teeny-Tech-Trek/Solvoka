@@ -258,7 +258,7 @@ export default function PrecastLiftingEquipmentPage() {
                     </div>
 
                     {/* Headline */}
-                    <h1 className="mt-4 text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-[52px] lg:leading-[1.12]">
+                    <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
                         Certified Pre-Casted Lifting Equipment{" "}
                         <span className="block text-[#2563eb]">
                             with 5:1 Safety Margins &amp; Full Traceability.

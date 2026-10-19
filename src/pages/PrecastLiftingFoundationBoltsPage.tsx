@@ -81,7 +81,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "Hoist Ring",
         category: "rigging",
         categoryLabel: "Rigging Hardware",
-        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Hoist%20Ring.webp",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/WhatsApp_Image_2026-10-19_at_3.48.39_PM-removebg-preview.webp",
         application: "Multi-directional crane rigging lifts and 360-degree rotation",
         features: ["360° rotational swivel and 180° pivot bail action", "100% proof-load tested forged alloy steel components"],
         standardFinish: "Heat-Treated Alloy Steel with High-Vis Safety Coating",
@@ -101,7 +101,7 @@ const precastFoundationItems: PrecastFoundationItem[] = [
         name: "L-Bolt",
         category: "bolts",
         categoryLabel: "Foundation Bolts",
-        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/L-Bolt.webp",
+        image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Galvanized_L-Bolt_Hardware_on_White-removebg-preview.webp",
         application: "Embedded 90-degree bent hook anchoring for columns & footings",
         features: ["90° mechanical hook leg resists vertical pullout", "Precision cut or rolled threads for heavy nut engagement"],
         standardFinish: "Grade 4.6 / 8.8 Galvanised or Plain Carbon Steel",
@@ -180,14 +180,14 @@ export default function PrecastLiftingFoundationBoltsPage() {
                         </div>
 
                         {/* Headline */}
-                        <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+                        <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2563eb] sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
                             Pre-casted Lifting <br />
                             Equipments and <br />
                             <span className="text-[#2563eb]">Foundation Bolts</span>
                         </h1>
 
                         {/* Subtitle */}
-                        <p className="mt-5 text-base sm:text-lg text-slate-700 leading-relaxed max-w-xl font-medium">
+                        <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-700 max-w-xl font-medium">
                             Heavy-duty certified precast lifting systems, erection anchors, hoist rings, and high-tensile embedded foundation anchor bolts for precast civil construction.
                         </p>
 

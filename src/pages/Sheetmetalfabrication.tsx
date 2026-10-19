@@ -312,16 +312,10 @@ function Hero() {
                         </span>
                     </div>
 
-                    {/* Headline with Main Project Outline Typography */}
-                    <h1 className="font-medium leading-[0.98] tracking-[-0.02em] text-white">
-                        <span className="block text-[clamp(28px,5.5vw,58px)] font-bold">
-                            From Sheet to Solution.
-                        </span>
-                        <span
-                            className="mt-1 block text-[clamp(24px,4.8vw,50px)] font-extrabold uppercase leading-[1.08] text-[#2563eb]"
-                        >
-                            Precision Fabrication.
-                        </span>
+                    {/* Headline */}
+                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
+                        From Sheet to Solution.
+                        <span className="block text-[#2563eb]">Precision Fabrication.</span>
                     </h1>
 
                     {/* Dimension Line matching main project */}

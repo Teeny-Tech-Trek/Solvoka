@@ -284,7 +284,7 @@ export default function Contact({ id = "contact" }: { id?: string }) {
               </div>
 
               {/* Main Headline */}
-              <h1 className="mt-3.5 sm:mt-4 font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] font-extrabold tracking-tight text-[#0f172a] leading-[1.06]">
+              <h1 className="mt-3.5 sm:mt-4 font-display text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold tracking-tight text-[#0f172a] leading-[1.06]">
                 Talk to Us
                 <br />
                 <span className="text-[#0062d2]">Directly</span>

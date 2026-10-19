@@ -170,13 +170,13 @@ export default function ScaffoldingHardwarePage() {
                         </div>
 
                         {/* Headline */}
-                        <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+                        <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2563eb] sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
                             Scaffolding <br />
                             <span className="text-[#2563eb]">Hardware</span>
                         </h1>
 
                         {/* Subtitle */}
-                        <p className="mt-5 text-base sm:text-lg text-slate-700 leading-relaxed max-w-xl font-medium">
+                        <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-700 max-w-xl font-medium">
                             Complete manufacturing range of heavy-duty scaffolding components and accessories for infrastructure, commercial construction, and industrial projects.
                         </p>
 

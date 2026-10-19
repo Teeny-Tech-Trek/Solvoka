@@ -506,7 +506,7 @@ export default function MaterialsPage() {
                             </div>
 
                             {/* Main Title */}
-                            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-extrabold tracking-tight text-[#2563eb] leading-[1.04]">
+                            <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2563eb] sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06]">
                                 Certified
                                 <span className="block">Materials,</span>
                                 <span className="block text-[#2563eb]">Process By Process.</span>

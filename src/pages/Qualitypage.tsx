@@ -459,7 +459,7 @@ export default function QualityPage() {
                             </div>
 
                             {/* Main Title */}
-                            <h1 className="mt-4 text-[32px] sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-extrabold tracking-tight text-[#2563eb] leading-[1.06] break-words">
+                            <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2563eb] sm:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.06] break-words">
                                 Quality Control &
                                 <span className="block text-[#2563eb]">Production</span>
                                 <span className="block text-[#2563eb]">Governance</span>
