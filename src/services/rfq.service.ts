@@ -15,6 +15,7 @@ export interface RfqPayload {
   company: string;
   email: string;
   phone?: string;
+  productName?: string;
   material?: string;
   quantity: string;
   ndaRequired?: boolean;
@@ -64,6 +65,7 @@ export const rfqService = {
       company: data.company,
       email: data.email,
       phone: data.phone,
+      productName: data.productName,
       material: data.material,
       quantity: data.quantity,
       ndaRequired: data.ndaRequired,

@@ -30,6 +30,7 @@ export interface RfqItem {
   company: string;
   email: string;
   phone: string;
+  productName?: string;
   material: string;
   quantity: string;
   ndaRequired: boolean;

@@ -64,7 +64,7 @@ const processSections: ProcessSection[] = [
         videoLabel: "Closed-Die Forging",
         videoTagline: "Precision shapes. High strength.",
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/closed-die.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Closed-die-forging.webm",
         layout: "media-left",
     },
     {

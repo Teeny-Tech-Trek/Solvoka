@@ -6,6 +6,7 @@ import {
   Mail,
   Phone,
   Package,
+  Box,
   UploadCloud,
   Send,
   Lock,
@@ -67,6 +68,7 @@ export default function QuickRFQ() {
     company: "",
     email: "",
     phone: "",
+    productName: "",
     material: "",
     quantity: "",
   });
@@ -254,7 +256,7 @@ export default function QuickRFQ() {
                   setUploadedFile(null);
                   setHpWebsite("");
                   setErrorMessage("");
-                  setFormData({ name: "", company: "", email: "", phone: "", material: "", quantity: "" });
+                  setFormData({ name: "", company: "", email: "", phone: "", productName: "", material: "", quantity: "" });
                 }}
                 className="mt-6 inline-flex min-h-[44px] items-center rounded-lg bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition"
               >
@@ -351,6 +353,24 @@ export default function QuickRFQ() {
                     />
                   </div>
                 </div>
+
+                <div className="sm:col-span-2">
+                  <FieldLabel htmlFor="rfq-product-name">Product Name</FieldLabel>
+                  <div className="relative group">
+                    <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-[#2563eb]">
+                      <Box className="h-4 w-4" />
+                    </span>
+                    <input
+                      id="rfq-product-name"
+                      type="text"
+                      value={formData.productName}
+                      onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
+                      placeholder="e.g. CNC Shaft, Industrial Flange, Enclosure"
+                      className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-[16px] sm:text-[13px] text-slate-900 placeholder:text-slate-400 transition-all duration-200 hover:border-slate-300 focus:border-[#2563eb] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/10"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <FieldLabel htmlFor="rfq-material">Material</FieldLabel>
                   <div className="relative group">

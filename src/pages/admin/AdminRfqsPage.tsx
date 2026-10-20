@@ -13,6 +13,7 @@ import {
   Mail,
   Phone,
   Package,
+  Box,
   Download,
   Send,
   Loader2,
@@ -210,7 +211,7 @@ export default function AdminRfqsPage() {
             type="text"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-            placeholder="Search customer, material…"
+            placeholder="Search customer, product, material…"
             className="w-full rounded-lg border border-zinc-200 bg-white py-2 pl-9 pr-8 text-[12px] text-zinc-900 placeholder:text-zinc-400 shadow-sm transition focus:border-[#2563eb] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/15"
           />
           {search && (
@@ -427,8 +428,9 @@ export default function AdminRfqsPage() {
                       { icon: Building2, label: 'Company',  value: selectedRfq.company || '—' },
                       { icon: Mail,      label: 'Email',    value: selectedRfq.email, href: `mailto:${selectedRfq.email}` },
                       { icon: Phone,     label: 'Phone',    value: selectedRfq.phone || 'Not provided' },
-                      { icon: Package,   label: 'Quantity', value: selectedRfq.quantity ? `${selectedRfq.quantity} units` : '—' },
+                      { icon: Box,       label: 'Product',  value: selectedRfq.productName || 'Not specified' },
                       { icon: FileText,  label: 'Material', value: selectedRfq.material || 'Not specified' },
+                      { icon: Package,   label: 'Quantity', value: selectedRfq.quantity ? `${selectedRfq.quantity} units` : '—' },
                     ].map(({ icon: Icon, label, value, href }) => (
                       <div key={label}>
                         <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">{label}</p>

@@ -141,6 +141,9 @@ export function QuickRFQSkeleton() {
             <div className="h-10 bg-slate-100 rounded animate-pulse" />
             <div className="h-10 bg-slate-100 rounded animate-pulse" />
             <div className="h-10 bg-slate-100 rounded animate-pulse" />
+            <div className="h-10 sm:col-span-2 bg-slate-100 rounded animate-pulse" />
+            <div className="h-10 bg-slate-100 rounded animate-pulse" />
+            <div className="h-10 bg-slate-100 rounded animate-pulse" />
           </div>
           <div className="h-10 bg-slate-100 rounded animate-pulse" />
           <div className="h-12 bg-[#2563eb] rounded animate-pulse" />
