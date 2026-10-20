@@ -25,8 +25,8 @@ const gates: Gate[] = [
     number: "1",
     title: "Material Isolation & MTR Verification",
     icon: Layers,
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
-    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.mp4",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.mp4",
     imageAlt: "Raw material stock isolated for verification with checklist",
     description:
       "Every batch of raw stock is isolated on arrival and held until its chemical composition is verified against the original Mill Test Report — before production starts.",
@@ -37,8 +37,8 @@ const gates: Gate[] = [
     number: "2",
     title: "First-Article Validation",
     icon: Crosshair,
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
-    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.mp4",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.mp4",
     imageAlt: "CMM probe inspecting metallic part for first-article validation",
     description:
       "The first piece off the die or the line is checked against your STEP/IGES drawing before the run continues. Fixed-interval gauge checks catch tool wear before it becomes a bad part.",
@@ -49,8 +49,8 @@ const gates: Gate[] = [
     number: "3",
     title: "Pre-Export Protection",
     icon: PackageCheck,
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
-    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.mp4",
+    fallbackImage: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.mp4",
     imageAlt: "Finished parts packed in a wooden crate for export",
     description:
       "Finished parts receive a final clean-and-inspect pass before packing. Rust-preventative treatment, vacuum sealing where needed, and reinforced crating protect the shipment through weeks of maritime freight.",

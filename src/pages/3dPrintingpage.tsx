@@ -37,7 +37,7 @@ const processRows: ProcessRow[] = [
             "Multi-material capability",
         ],
         tag: "DED / LMD",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_metal_deposition_manufacture.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Laser_metal_deposition_manufacture.mp4",
     },
     {
         number: "02",
@@ -50,7 +50,7 @@ const processRows: ProcessRow[] = [
             "High deposition rate and low material cost",
         ],
         tag: "WAAM",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Robotic_arm_manufacturing_metal.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Robotic_arm_manufacturing_metal.mp4",
     },
     {
         number: "03",
@@ -63,7 +63,7 @@ const processRows: ProcessRow[] = [
             "Minimal material waste",
         ],
         tag: "DMLS",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/DMLS_Video_Is_Ready_.mp4",
     },
     {
         number: "04",
@@ -77,7 +77,7 @@ const processRows: ProcessRow[] = [
             "Excellent surface finish and dimensional accuracy",
         ],
         tag: "SLM",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_3D_printing_process.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Metal_3D_printing_process.mp4",
     },
     {
         number: "05",
@@ -91,7 +91,7 @@ const processRows: ProcessRow[] = [
             "Smooth surface finish and post-processing flexibility",
         ],
         tag: "BINDER JETTING",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_binder_jetting_3D_printing.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Metal_binder_jetting_3D_printing.mp4",
     },
 ];
 
@@ -386,7 +386,7 @@ export default function PrintingPage() {
                 {/* Full-bleed Industrial DMLS Motion GIF */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                     <video
-                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/DMLS_Video_Is_Ready_.mp4"
                         autoPlay
                         loop
                         muted

@@ -46,7 +46,7 @@ const processSections: ProcessSection[] = [
         videoLabel: "Open-Die Forging",
         videoTagline: "Watch Process Video",
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/hero.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_of_Steel_Rod_Ready.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_of_Steel_Rod_Ready.mp4",
         layout: "media-right",
     },
     {
@@ -64,7 +64,7 @@ const processSections: ProcessSection[] = [
         videoLabel: "Closed-Die Forging",
         videoTagline: "Precision shapes. High strength.",
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/closed-die.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Closed-die-forging.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Closed-die-forging.mp4",
         layout: "media-left",
     },
     {
@@ -82,7 +82,7 @@ const processSections: ProcessSection[] = [
         videoLabel: "Cold Forging",
         videoTagline: "Precision forming at room temperature",
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/ring-forging.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Ring_Forging_Video_Available_Now.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Ring_Forging_Video_Available_Now.mp4",
         layout: "media-right",
     },
 ];
@@ -194,7 +194,7 @@ export default function ForgingPage() {
                 {/* Hero Background motion GIF with dramatic closed-die forging press */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                     <video
-                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Ready_Closed_Die_Forging.mp4"
                         autoPlay
                         loop
                         muted

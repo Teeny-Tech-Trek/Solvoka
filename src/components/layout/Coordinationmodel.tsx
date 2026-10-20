@@ -140,7 +140,7 @@ export default function CoordinationModel() {
             {/* Facility image container */}
             <div className="relative h-[220px] sm:h-[300px] w-full overflow-hidden rounded-xl bg-slate-900 lg:absolute lg:inset-4 lg:h-auto">
               <video
-                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Cordinationmodelgif.webm"
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Cordinationmodelgif.mp4"
                 autoPlay
                 loop
                 muted

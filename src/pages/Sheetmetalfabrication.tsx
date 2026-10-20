@@ -109,7 +109,7 @@ const capabilities: CapabilityItem[] = [
             "Efficient material utilization",
             "Supports pre-fabrication needs",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Adobe%20Express%20-%20Video_Ready_Sheet_Cutting.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Adobe%20Express%20-%20Video_Ready_Sheet_Cutting.mp4",
     },
     {
         id: "laser-cutting",
@@ -123,7 +123,7 @@ const capabilities: CapabilityItem[] = [
             "Cost-efficient production",
             "Design flexibility",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_Cutting_Video_Ready.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Laser_Cutting_Video_Ready.mp4",
     },
     {
         id: "plasma-cutting",
@@ -137,7 +137,7 @@ const capabilities: CapabilityItem[] = [
             "Faster and more affordable than traditional methods",
             "Smooth edges, minimal post-processing",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Plasma_Cutting.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Ready_Plasma_Cutting.mp4",
     },
     /*
     {
@@ -152,7 +152,7 @@ const capabilities: CapabilityItem[] = [
             "Suitable for thick & hard materials",
             "Highly detailed, clean finishes",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Ready_Sheet_Metal.mp4",
     },
     */
     {
@@ -167,7 +167,7 @@ const capabilities: CapabilityItem[] = [
             "Supports multiple materials",
             "Critical for enclosures & chassis",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Now_.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Ready_Now_.mp4",
     },
     {
         id: "pneumatic-metal-forming",
@@ -181,7 +181,7 @@ const capabilities: CapabilityItem[] = [
             "Consistent quality in high-volume runs",
             "Minimal tooling wear",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Pneumatic_metal_forming_machine.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Pneumatic_metal_forming_machine.mp4",
     },
     /*
     {
@@ -196,7 +196,7 @@ const capabilities: CapabilityItem[] = [
             "Wide range of materials",
             "Full welding & finishing solutions",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Professional_welding_services_ma.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Professional_welding_services_ma.mp4",
     },
     {
         id: "deburring-finishing",
@@ -210,7 +210,7 @@ const capabilities: CapabilityItem[] = [
             "Better coating and painting adhesion",
             "Increased part lifespan",
         ],
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Deburring_Video_Is_Ready_.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Deburring_Video_Is_Ready_.mp4",
     },
     */
 ];
@@ -260,7 +260,7 @@ function Hero() {
             {/* Full-bleed industrial fiber laser & sheet metal cutting motion GIF */}
             <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                 <video
-                    src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm"
+                    src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Ready_Sheet_Metal.mp4"
                     autoPlay
                     loop
                     muted

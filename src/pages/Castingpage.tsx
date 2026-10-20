@@ -41,7 +41,7 @@ const processSections: ProcessSection[] = [
             "Suitable for small-to-medium runs",
         ],
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/investment-casting.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Investment_Casting_Process.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_on_Investment_Casting_Process.mp4",
         layout: "media-first",
     },
     {
@@ -58,7 +58,7 @@ const processSections: ProcessSection[] = [
             "Suitable for steel, bronze, and other alloys",
         ],
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/centrifugal-casting.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Centrifugal_Casting.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_on_Centrifugal_Casting.mp4",
         layout: "info-first",
     },
     {
@@ -75,7 +75,7 @@ const processSections: ProcessSection[] = [
             "Supports a wide range of materials",
         ],
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/sand-casting.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Dipped_in_Water.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Steel_Bar_Dipped_in_Water.mp4",
         layout: "media-first",
     },
     {
@@ -92,7 +92,7 @@ const processSections: ProcessSection[] = [
             "Good surface finish and machinability",
         ],
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/aluminum-casting.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Cooling_Video_Link.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Steel_Bar_Cooling_Video_Link.mp4",
         layout: "info-first",
     },
     {
@@ -109,7 +109,7 @@ const processSections: ProcessSection[] = [
             "Ideal for zinc, aluminum, and magnesium alloys",
         ],
         imageSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/die-casting.webp",
-        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
+        gifSrc: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Steel_Die_Casting_Video_Ready.mp4",
         layout: "media-first",
     },
 ];
@@ -268,7 +268,7 @@ export default function CastingPage() {
                 {/* Full-bleed Industrial Foundry Background Motion GIF */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                     <video
-                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm"
+                        src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Steel_Die_Casting_Video_Ready.mp4"
                         autoPlay
                         loop
                         muted

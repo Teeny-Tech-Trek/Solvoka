@@ -1,0 +1,470 @@
+{
+  "totalBlobs": 115,
+  "totalWebmBlobs": 42,
+  "matchedBlobs": [
+    {
+      "pathname": "Automotive-Assets/Car video.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20video.webm",
+      "size": 3033156,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Car%20video.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json"
+      ]
+    },
+    {
+      "pathname": "Automotive-Assets/Tractor video.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20video.webm",
+      "size": 2495187,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/Tractor%20video.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json"
+      ]
+    },
+    {
+      "pathname": "Automotive-videos/Red_tractor_on_white_background_20261019184449.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Red_tractor_on_white_background_20261019184449.webm",
+      "size": 7259302,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Red_tractor_on_white_background_20261019184449.webm",
+      "refCount": 1,
+      "files": [
+        "Frontend/src/pages/Automotivepage.tsx"
+      ]
+    },
+    {
+      "pathname": "Automotive-videos/Truck_exploded_parts_visualizati…_1080p_20261019205938.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_parts_visualizati%E2%80%A6_1080p_20261019205938.webm",
+      "size": 8218551,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_parts_visualizati%E2%80%A6_1080p_20261019205938.webm",
+      "refCount": 1,
+      "files": [
+        "Frontend/src/pages/Automotivepage.tsx"
+      ]
+    },
+    {
+      "pathname": "Chatbot-Icon-Video.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm",
+      "size": 497152,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm",
+      "refCount": 8,
+      "files": [
+        "Frontend/src/solvix-chatbot/components/ChatWidget.tsx",
+        "solvoka-chatbot/frontend/chat-widget/src/components/ChatWidget.tsx"
+      ]
+    },
+    {
+      "pathname": "Cordinationmodelgif.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Cordinationmodelgif.webm",
+      "size": 190303,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Cordinationmodelgif.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Coordinationmodel.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Adobe Express - Video_Ready_Sheet_Cutting.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Adobe%20Express%20-%20Video_Ready_Sheet_Cutting.webm",
+      "size": 341095,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Adobe%20Express%20-%20Video_Ready_Sheet_Cutting.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
+      "size": 210343,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+      "size": 149880,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+      "refCount": 10,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Capabilities.tsx",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
+      "size": 158939,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Closed-die-forging.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Closed-die-forging.webm",
+      "size": 1670223,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Closed-die-forging.webm",
+      "refCount": 1,
+      "files": [
+        "Frontend/src/pages/Forgingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/DMLS_Video_Is_Ready_.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
+      "size": 201426,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
+      "refCount": 4,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Capabilities.tsx",
+        "Frontend/src/pages/3dPrintingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Deburring_Video_Is_Ready_.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Deburring_Video_Is_Ready_.webm",
+      "size": 418658,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Deburring_Video_Is_Ready_.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Laser_Cutting_Video_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_Cutting_Video_Ready.webm",
+      "size": 242248,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_Cutting_Video_Ready.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Laser_metal_deposition_manufacture.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_metal_deposition_manufacture.webm",
+      "size": 156779,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Laser_metal_deposition_manufacture.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/3dPrintingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Metal_3D_printing_process.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_3D_printing_process.webm",
+      "size": 191188,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_3D_printing_process.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/3dPrintingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Metal_binder_jetting_3D_printing.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_binder_jetting_3D_printing.webm",
+      "size": 239949,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Metal_binder_jetting_3D_printing.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/3dPrintingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Pneumatic_metal_forming_machine.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Pneumatic_metal_forming_machine.webm",
+      "size": 168963,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Pneumatic_metal_forming_machine.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Professional_welding_services_ma.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Professional_welding_services_ma.webm",
+      "size": 290640,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Professional_welding_services_ma.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Ring_Forging_Video_Available_Now.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Ring_Forging_Video_Available_Now.webm",
+      "size": 158764,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Ring_Forging_Video_Available_Now.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Forgingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Robotic_arm_manufacturing_metal.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Robotic_arm_manufacturing_metal.webm",
+      "size": 242216,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Robotic_arm_manufacturing_metal.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/3dPrintingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Steel_Bar_Cooling_Video_Link.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Cooling_Video_Link.webm",
+      "size": 258954,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Cooling_Video_Link.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Castingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Steel_Bar_Dipped_in_Water.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Dipped_in_Water.webm",
+      "size": 373472,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Bar_Dipped_in_Water.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Castingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
+      "size": 89520,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
+      "refCount": 4,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Capabilities.tsx",
+        "Frontend/src/pages/Castingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Swiss CNC_machine_machining_metal_comp.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
+      "size": 231034,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
+      "refCount": 4,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Link_CNC_Machine.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
+      "size": 143460,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Link_Provided.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
+      "size": 198678,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Link_Ready_Now_.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Now_.webm",
+      "size": 154036,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Now_.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
+      "size": 346044,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
+      "refCount": 4,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Capabilities.tsx",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Ready_CNC_Machine.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
+      "size": 159378,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
+      "size": 80713,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Capabilities.tsx",
+        "Frontend/src/pages/Forgingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_Ready_Plasma_Cutting.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Plasma_Cutting.webm",
+      "size": 303674,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Plasma_Cutting.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Sheetmetalfabrication.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_of_Steel_Rod_Ready.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_of_Steel_Rod_Ready.webm",
+      "size": 122818,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_of_Steel_Rod_Ready.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Forgingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_on_Centrifugal_Casting.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Centrifugal_Casting.webm",
+      "size": 262904,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Centrifugal_Casting.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Castingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/Video_on_Investment_Casting_Process.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Investment_Casting_Process.webm",
+      "size": 165397,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_on_Investment_Casting_Process.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/Castingpage.tsx"
+      ]
+    },
+    {
+      "pathname": "Gif-Assets/working_of_cnc_wire_edm_machine.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
+      "size": 196064,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/pages/CncMachiningpage.tsx"
+      ]
+    },
+    {
+      "pathname": "HeroPage-Video.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-Video.webm",
+      "size": 2346054,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-Video.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Hero.tsx"
+      ]
+    },
+    {
+      "pathname": "HeroPage-VideoForPhone.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-VideoForPhone.webm",
+      "size": 3602241,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/HeroPage-VideoForPhone.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Hero.tsx"
+      ]
+    },
+    {
+      "pathname": "Solvoka_Hero.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Solvoka_Hero.webm",
+      "size": 5930760,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Solvoka_Hero.webm",
+      "refCount": 2,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Hero.tsx"
+      ]
+    },
+    {
+      "pathname": "qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
+      "size": 115665,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/CMM_probe_inspecting_metallic_part_orig.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Qualitypreview.tsx"
+      ]
+    },
+    {
+      "pathname": "qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
+      "size": 104674,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Factory_metal_cylinders_checklist_orig.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Qualitypreview.tsx"
+      ]
+    },
+    {
+      "pathname": "qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
+      "url": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
+      "size": 200730,
+      "refUrl": "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/qualitypreview-gifassets/Machines_packing_parts_in_crate_orig.webm",
+      "refCount": 3,
+      "files": [
+        "Frontend/blob-mapping.json",
+        "Frontend/src/components/layout/Qualitypreview.tsx"
+      ]
+    }
+  ],
+  "unreferencedBlobs": [],
+  "unmatchedCodeRefs": []
+}

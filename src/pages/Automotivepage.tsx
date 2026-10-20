@@ -19,8 +19,8 @@ import { trackQuoteCtaClick } from "../utils/analytics";
 const ASSETS = {
     hero: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Infrastructure-Assets/background-removed/Industrial%20Vehicles%20and%20Precision%20Components%20%281%29.webp",
     closing: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-Assets/cta%20image.webp",
-    truckVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Truck_exploded_parts_visualizati%E2%80%A6_1080p_20261019205938.webm",
-    tractorVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Automotive-videos/Red_tractor_on_white_background_20261019184449.webm",
+    truckVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Automotive-videos/Truck_exploded_parts_visualizati%E2%80%A6_1080p_20261019205938.mp4",
+    tractorVideo: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Automotive-videos/Red_tractor_on_white_background_20261019184449.mp4",
 };
 
 const BLUE = "#2563eb";

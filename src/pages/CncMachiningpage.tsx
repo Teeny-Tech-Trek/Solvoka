@@ -37,8 +37,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Scalability from prototypes to production",
       "Material flexibility",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
     tolerance: "± 0.005 mm (± 0.0002 in)",
     materials: "Aluminum (6061, 7075), Stainless Steel, Brass, Delrin",
   },
@@ -53,8 +53,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Cost-effective for symmetrical parts",
       "Quick prototyping to mass production",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Turning_Machine_Video_Ready.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Turning_Machine_Video_Ready.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Turning_Machine_Video_Ready.mp4",
     tolerance: "± 0.008 mm (± 0.0003 in)",
     materials: "Alloy Steels, Titanium, Copper, Inconel",
   },
@@ -68,8 +68,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Multiple-hole and deep-hole supported",
       "Ideal for flanges, panels, brackets.",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Drilling_Machine_Video_Ready.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Drilling_Machine_Video_Ready.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Drilling_Machine_Video_Ready.mp4",
     tolerance: "± 0.01 mm (± 0.0004 in)",
     materials: "Structural Carbon Steel, Tool Steel, Cast Iron",
   },
@@ -83,8 +83,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Excellent for ultra-fine features and hard metals",
       "No tool wear or deformation",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/working_of_cnc_wire_edm_machine.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/working_of_cnc_wire_edm_machine.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/working_of_cnc_wire_edm_machine.mp4",
     tolerance: "± 0.002 mm (± 0.00008 in)",
     materials: "Hardened D2/H13 Steel, Carbide, Titanium",
   },
@@ -100,8 +100,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Centerless Grinding",
       "Profile Grinding",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_CNC_Machine.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_CNC_Machine.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_CNC_Machine.mp4",
     tolerance: "Ra 0.1 µm (4 µin) / ± 0.002 mm",
     materials: "Hardened Bearing Steel, Tool Steel, Tungsten Carbide",
   },
@@ -116,8 +116,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Custom shapes with high-speed production",
       "Minimal material wastage",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_CNC_Machine.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Ready_CNC_Machine.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Ready_CNC_Machine.mp4",
     tolerance: "± 0.05 mm (± 0.002 in)",
     materials: "Engineering Plastics (PEEK, POM), Aluminum Sheets, Composites",
   },
@@ -131,8 +131,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Fewer setups, tighter tolerances",
       "Handles undercuts, angles, and curves",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Provided.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Provided.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Provided.mp4",
     tolerance: "± 0.005 mm (± 0.0002 in)",
     materials: "Aerospace Grade 7075-T6, Inconel 718, 17-4 PH Stainless",
   },
@@ -146,8 +146,8 @@ const PROCESS_CARDS: ProcessCardData[] = [
       "Excellent for tight-tolerance and miniature parts",
       "High-speed, automated production",
     ],
-    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
-    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.webm",
+    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.mp4",
+    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Swiss%20CNC_machine_machining_metal_comp.mp4",
     tolerance: "± 0.003 mm (± 0.0001 in)",
     materials: "Medical 316LVM, Titanium Grade 5, Brass, Nickel Alloys",
   },
@@ -281,7 +281,7 @@ export default function CncMachiningpage() {
         {/* Full-bleed Industrial Machining Background Motion GIF */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           <video
-            src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm"
+            src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4"
             autoPlay
             loop
             muted
@@ -530,8 +530,8 @@ export default function CncMachiningpage() {
                       "Integration of multiple machining technologies",
                       "Optimized performance for critical applications",
                     ],
-                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
-                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
+                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
                     tolerance: "± 0.002 mm (± 0.00008 in)",
                     materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
                   })
@@ -539,7 +539,7 @@ export default function CncMachiningpage() {
                 className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-md bg-slate-950"
               >
                 <video
-                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm"
+                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4"
                   autoPlay
                   loop
                   muted
@@ -608,8 +608,8 @@ export default function CncMachiningpage() {
                       "Integration of multiple machining technologies",
                       "Optimized performance for critical applications",
                     ],
-                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
-                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+                    image: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
+                    videoGif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
                     tolerance: "± 0.002 mm (± 0.00008 in)",
                     materials: "Aerospace Titanium, Inconel, 6061-T6, SS 316L",
                   })

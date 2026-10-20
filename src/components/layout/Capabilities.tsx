@@ -12,31 +12,31 @@ const CAPABILITIES: Capability[] = [
   {
     name: "Casting",
     poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/casting/die-casting.webp",
-    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Steel_Die_Casting_Video_Ready.webm",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Steel_Die_Casting_Video_Ready.mp4",
     href: "/capabilities/casting",
   },
   {
     name: "Forging",
     poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/forging/closed-die.webp",
-    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Ready_Closed_Die_Forging.webm",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Ready_Closed_Die_Forging.mp4",
     href: "/capabilities/forging",
   },
   {
     name: "CNC Machining",
     poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/cnc/flange-hub.webp",
-    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/CNC_Milling_Machine_Video_Ready.webm",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/CNC_Milling_Machine_Video_Ready.mp4",
     href: "/capabilities/cnc-machining",
   },
   {
     name: "3D Printing",
     poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/AboutUs-Image.webp",
-    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/DMLS_Video_Is_Ready_.webm",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/DMLS_Video_Is_Ready_.mp4",
     href: "/capabilities/3d-printing",
   },
   {
     name: "Sheet Metal Fabrication",
     poster: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/images/sheetmetal/cta-parts.webp",
-    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Gif-Assets/Video_Link_Ready_Sheet_Metal.webm",
+    gif: "https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Gif-Assets/Video_Link_Ready_Sheet_Metal.mp4",
     href: "/capabilities/sheet-metal-fabrication",
   },
 ];

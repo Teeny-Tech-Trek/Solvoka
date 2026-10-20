@@ -102,7 +102,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
       >
         <video
           className={styles.launcherVideo}
-          src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm"
+          src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Chatbot-Icon-Video.mp4"
           autoPlay
           loop
           muted
@@ -131,7 +131,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
           <div className={styles.headerAvatarWrap}>
             <video
               className={styles.headerVideo}
-              src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm"
+              src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Chatbot-Icon-Video.mp4"
               autoPlay
               loop
               muted
@@ -198,7 +198,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
             <div className={styles.messageAvatar}>
               <video
                 className={styles.messageAvatarVideo}
-                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm"
+                src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Chatbot-Icon-Video.mp4"
                 autoPlay
                 loop
                 muted
@@ -223,7 +223,7 @@ export function ChatWidget({ pageUrl }: { pageUrl: string }) {
               <div className={styles.messageAvatar}>
                 <video
                   className={styles.messageAvatarVideo}
-                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/Chatbot-Icon-Video.webm"
+                  src="https://y7vyxj1m0fxk40gw.public.blob.vercel-storage.com/optimized-videos/Chatbot-Icon-Video.mp4"
                   autoPlay
                   loop
                   muted
