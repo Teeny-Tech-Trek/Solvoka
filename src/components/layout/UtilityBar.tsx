@@ -6,10 +6,10 @@ export default function UtilityBar() {
       <div className="mx-auto flex h-[38px] max-w-[1536px] flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-6 gap-y-0.5 px-2 sm:px-4 text-[10.5px] xs:text-[11px] sm:text-[13px] tracking-wide lg:px-10">
         {/* Email */}
         <a
-          href="mailto:solvoka@gmail.com"
+          href="mailto:sales@solvoka.com"
           onClick={() => trackEmailClick("utility_bar")}
           className="flex h-[38px] items-center gap-1 sm:gap-2 px-1 text-black transition-colors hover:text-[#2563eb] shrink-0 select-none active:text-[#2563eb]"
-          aria-label="Email solvoka@gmail.com"
+          aria-label="Email sales@solvoka.com"
         >
           <svg
             width="13"
@@ -26,7 +26,7 @@ export default function UtilityBar() {
             <rect width="20" height="16" x="2" y="4" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
           </svg>
-          <span className="font-semibold text-black whitespace-nowrap">solvoka@gmail.com</span>
+          <span className="font-semibold text-black whitespace-nowrap">sales@solvoka.com</span>
         </a>
 
         <span className="hidden sm:inline text-grey-300 select-none" aria-hidden="true">|</span>

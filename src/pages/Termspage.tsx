@@ -174,7 +174,7 @@ export default function TermsPage() {
               {/* Clean Contact box */}
               <div className="pt-6 border-t border-slate-200 text-xs text-slate-600 space-y-2">
                 <div className="font-semibold text-black">Commercial Desk</div>
-                <div>Email: <a href="mailto:solvoka@gmail.com" className="text-[#2563eb] hover:underline">solvoka@gmail.com</a></div>
+                <div>Email: <a href="mailto:sales@solvoka.com" className="text-[#2563eb] hover:underline">sales@solvoka.com</a></div>
                 <div>WhatsApp: <a href="https://wa.me/917087086696" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">+91 70870-86696</a></div>
               </div>
 
@@ -349,7 +349,7 @@ export default function TermsPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 shrink-0 text-slate-500" />
-                  <span>Email: <a href="mailto:solvoka@gmail.com" className="text-[#2563eb] hover:underline font-medium">solvoka@gmail.com</a></span>
+                  <span>Email: <a href="mailto:sales@solvoka.com" className="text-[#2563eb] hover:underline font-medium">sales@solvoka.com</a></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 shrink-0 text-slate-500" />
@@ -359,7 +359,7 @@ export default function TermsPage() {
 
               <div className="flex flex-wrap gap-3 pt-2 print:hidden">
                 <a
-                  href="mailto:solvoka@gmail.com?subject=Terms%20%26%20Conditions%20Inquiry%20-%20Solvoka"
+                  href="mailto:sales@solvoka.com?subject=Terms%20%26%20Conditions%20Inquiry%20-%20Solvoka"
                   className="inline-flex items-center gap-2 rounded bg-black px-4 py-2 text-xs sm:text-sm font-medium text-white hover:bg-slate-800 transition"
                 >
                   <Mail className="h-4 w-4" />

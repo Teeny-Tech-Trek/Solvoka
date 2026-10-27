@@ -157,8 +157,8 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 shrink-0 text-[#2563eb]" strokeWidth={2} />
-              <a href="mailto:solvoka@gmail.com" onClick={() => trackEmailClick("footer")} className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] break-all">
-                solvoka@gmail.com
+              <a href="mailto:sales@solvoka.com" onClick={() => trackEmailClick("footer")} className="text-xs sm:text-sm text-slate-600 hover:text-[#2563eb] break-all">
+                sales@solvoka.com
               </a>
             </li>
             <li className="flex items-center gap-2.5">

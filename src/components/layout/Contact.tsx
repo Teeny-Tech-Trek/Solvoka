@@ -98,8 +98,8 @@ const contactInfo = [
   },
   {
     title: "Email Us",
-    lines: ["solvoka@gmail.com "],
-    href: "mailto:solvoka@gmail.com ",
+    lines: ["sales@solvoka.com"],
+    href: "mailto:sales@solvoka.com",
     icon: Mail,
   },
   {

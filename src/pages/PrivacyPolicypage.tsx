@@ -215,7 +215,7 @@ export default function PrivacyPolicypage() {
               {/* Clean Contact box */}
               <div className="pt-6 border-t border-slate-200 text-xs text-slate-600 space-y-2">
                 <div className="font-semibold text-black">Questions?</div>
-                <div>Email: <a href="mailto:solvoka@gmail.com" className="text-[#2563eb] hover:underline">solvoka@gmail.com</a></div>
+                <div>Email: <a href="mailto:sales@solvoka.com" className="text-[#2563eb] hover:underline">sales@solvoka.com</a></div>
                 <div>WhatsApp: <a href="https://wa.me/917087086696" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">+91 70870-86696</a></div>
               </div>
 
@@ -244,7 +244,7 @@ export default function PrivacyPolicypage() {
               <div className="border border-slate-200 bg-white p-4 rounded text-xs sm:text-sm space-y-1.5 text-slate-700">
                 <div className="font-semibold text-black">Solvoka Industries (Trading)</div>
                 <div><strong>Address:</strong> Cabin No. 2, 17-B, Phase-II, Focal Point, Ludhiana, Punjab 141003, India</div>
-                <div><strong>Email:</strong> <a href="mailto:solvoka@gmail.com" className="text-[#2563eb] hover:underline">solvoka@gmail.com</a></div>
+                <div><strong>Email:</strong> <a href="mailto:sales@solvoka.com" className="text-[#2563eb] hover:underline">sales@solvoka.com</a></div>
                 <div><strong>Phone / WhatsApp:</strong> <a href="tel:+917087086696" className="text-[#2563eb] hover:underline">+91 70870-86696</a></div>
               </div>
             </section>
@@ -430,7 +430,7 @@ export default function PrivacyPolicypage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 shrink-0 text-slate-500" />
-                  <span>Email: <a href="mailto:solvoka@gmail.com" className="text-[#2563eb] hover:underline font-medium">solvoka@gmail.com</a></span>
+                  <span>Email: <a href="mailto:sales@solvoka.com" className="text-[#2563eb] hover:underline font-medium">sales@solvoka.com</a></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 shrink-0 text-slate-500" />
@@ -440,7 +440,7 @@ export default function PrivacyPolicypage() {
 
               <div className="flex flex-wrap gap-3 pt-2 print:hidden">
                 <a
-                  href="mailto:solvoka@gmail.com?subject=Privacy%20Policy%20Inquiry%20-%20Solvoka"
+                  href="mailto:sales@solvoka.com?subject=Privacy%20Policy%20Inquiry%20-%20Solvoka"
                   className="inline-flex items-center gap-2 rounded bg-black px-4 py-2 text-xs sm:text-sm font-medium text-white hover:bg-slate-800 transition"
                 >
                   <Mail className="h-4 w-4" />
